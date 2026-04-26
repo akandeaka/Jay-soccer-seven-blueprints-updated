@@ -1,14 +1,14 @@
 """
-Telegram Bot for Jay Soccer Blueprints - Football-Data.org Version
-Sends daily predictions to your Telegram chat
+Telegram Bot for Jay Soccer Blueprints - Sportmonks Version
+Sends daily predictions to your Telegram chat using REAL odds
 """
 
 import os
 import requests
 from datetime import datetime
 from typing import List
-from jay_soccer_blueprints import JaySoccerBlueprints, Match, BlueprintResult
-from football_data_fetcher import FootballDataFetcher
+from jay_soccer_blueprints import JaySoccerBlueprints, BlueprintResult
+from sportmonks_fetcher import SportmonksFetcher
 
 
 class TelegramSender:
@@ -39,17 +39,18 @@ class TelegramSender:
         
         if not results:
             message = """
-❌ <b>JAY SOCCER BLUEPRINTS - NO MATCHES TODAY</b>
+❌ <b>JAY SOCCER BLUEPRINTS - NO QUALIFYING MATCHES TODAY</b>
 
-No matches qualified for any blueprint.
-Possible reasons:
-• No games scheduled today
-• Check tomorrow's matches
-• API rate limit may be exceeded
-
+No matches met the blueprint criteria.
 Check back tomorrow for new opportunities.
 """
             return self.send_message(message)
+        
+        # Count by blueprint
+        bp_counts = {}
+        for res in results:
+            key = f"BP{res.blueprint_number}"
+            bp_counts[key] = bp_counts.get(key, 0) + 1
         
         # Header
         current_time = datetime.now().strftime('%Y-%m-%d %H:%M')
@@ -57,11 +58,17 @@ Check back tomorrow for new opportunities.
 ⚽ <b>JAY SOCCER PREDICTION SYSTEM</b> ⚽
 <b>Version 4.0 - The 7 Master Blueprints</b>
 📅 {current_time}
-<b>Data Source: Football-Data.org</b>
+<b>Data Source: Sportmonks (RapidAPI) - REAL ODDS</b>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>📊 Blueprint Summary:</b>
 """
+        for bp, count in sorted(bp_counts.items()):
+            message += f"   • {bp}: {count} matches\n"
         
-        # Group results by blueprint
+        message += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        message += "<b>🔍 Detailed Matches:</b>\n\n"
+        
         for i, res in enumerate(results, 1):
             # Emoji based on risk level
             risk_emoji = {
@@ -97,16 +104,6 @@ Check back tomorrow for new opportunities.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
         
-        # Footer
-        message += """
-💡 <i>Important Notes:</i>
-• Football-Data.org free tier provides match data only (no live odds)
-• Odds shown are implied estimates
-• Upgrade to paid tier for real-time odds
-
-<i>Always bet responsibly.</i>
-"""
-        
         return self.send_message(message)
     
     def send_daily_summary(self, results: List[BlueprintResult], matches_scanned: int) -> bool:
@@ -124,12 +121,12 @@ No blueprints triggered today.
             return self.send_message(summary)
         
         # Count by blueprint
-        blueprint_counts = {}
+        bp_counts = {}
         for res in results:
             key = f"BP{res.blueprint_number}"
-            blueprint_counts[key] = blueprint_counts.get(key, 0) + 1
+            bp_counts[key] = bp_counts.get(key, 0) + 1
         
-        blueprint_lines = "\n".join([f"   • {k}: {v}" for k, v in blueprint_counts.items()])
+        bp_lines = "\n".join([f"   • {k}: {v}" for k, v in sorted(bp_counts.items())])
         
         summary = f"""
 📊 <b>DAILY SCAN SUMMARY</b>
@@ -138,9 +135,11 @@ No blueprints triggered today.
 ✅ Qualifying matches: {len(results)}
 
 <b>Blueprints Triggered:</b>
-{blueprint_lines}
+{bp_lines}
 
 📨 Full details above. Good luck!
+
+💡 <i>Always bet responsibly.</i>
 """
         return self.send_message(summary)
 
@@ -149,7 +148,7 @@ def run_daily_scan():
     """Main function to run daily scan and send to Telegram"""
     
     # Get credentials from environment variables
-    FOOTBALL_DATA_KEY = os.environ.get("FOOTBALL_DATA_KEY")
+    RAPIDAPI_KEY = os.environ.get("RAPIDAPI_KEY")
     TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
     TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
     
@@ -159,8 +158,8 @@ def run_daily_scan():
     print("="*60)
     
     # Check credentials
-    if not FOOTBALL_DATA_KEY:
-        print("❌ ERROR: FOOTBALL_DATA_KEY is missing!")
+    if not RAPIDAPI_KEY:
+        print("❌ ERROR: RAPIDAPI_KEY is missing!")
         print("   Add it to GitHub Secrets")
         return
     
@@ -168,14 +167,22 @@ def run_daily_scan():
         print("❌ ERROR: Telegram credentials missing!")
         return
     
-    # Step 1: Fetch matches
-    print("\n[1/3] Fetching today's matches from Football-Data.org...")
-    fetcher = FootballDataFetcher(FOOTBALL_DATA_KEY)
-    matches = fetcher.fetch_all_todays_matches()
-    print(f"Fetched {len(matches)} total matches")
+    # Step 1: Fetch matches with odds
+    print("\n[1/3] Fetching today's matches with REAL odds from Sportmonks...")
+    fetcher = SportmonksFetcher(RAPIDAPI_KEY)
+    
+    # Use the simplified endpoint (fewer API calls)
+    matches = fetcher.fetch_todays_odds_simple()
+    
+    if not matches:
+        # Fallback to the detailed method
+        print("   Trying detailed fixture fetch...")
+        matches = fetcher.fetch_todays_matches_with_odds()
+    
+    print(f"Fetched {len(matches)} matches with REAL odds")
     
     # Step 2: Run blueprints
-    print("\n[2/3] Running blueprints...")
+    print("\n[2/3] Running 7 blueprints on all matches...")
     scanner = JaySoccerBlueprints()
     results = scanner.scan_matches(matches)
     print(f"Found {len(results)} qualifying matches across blueprints")
@@ -191,7 +198,7 @@ def run_daily_scan():
     bot.send_daily_summary(results, len(matches))
     
     print("\n✅ Daily scan complete!")
-    print(f"Telegram notifications sent to chat ID: {TELEGRAM_CHAT_ID}")
+    print(f"Telegram notifications sent")
 
 
 if __name__ == "__main__":
