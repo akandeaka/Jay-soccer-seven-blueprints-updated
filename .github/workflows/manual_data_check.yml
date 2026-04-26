@@ -1,0 +1,43 @@
+name: Process Pasted Match Data
+
+on:
+  # Run when you push new data to the input folder
+  push:
+    paths:
+      - 'input/**'
+  
+  # Run on demand
+  workflow_dispatch:
+
+jobs:
+  process-matches:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install requests
+      
+      - name: Process match data
+        run: python manual_data_processor.py
+      
+      - name: Send Telegram notification (optional)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python telegram_bot.py || echo "Telegram skipped"
+      
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: blueprint-results
+          path: |
+            output/
+          retention-days: 30
