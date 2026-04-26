@@ -1,15 +1,13 @@
-name: Debug Soccer Blueprint Scan
+name: Daily Soccer Blueprint Scan
 
 on:
   schedule:
-    # Run every hour during daytime to debug
-    - cron: '0 8-20 * * *'
-  
-  # Allow manual trigger
+    # Run daily at 9:00 AM UK time
+    - cron: '0 9 * * *'
   workflow_dispatch:
 
 jobs:
-  debug-scan:
+  scan-and-notify:
     runs-on: ubuntu-latest
     
     steps:
@@ -23,21 +21,12 @@ jobs:
       
       - name: Install dependencies
         run: |
-          pip install requests python-dotenv
+          pip install requests
       
-      - name: Run debug scan
+      - name: Run daily scan
         env:
-          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          python debug_telegram_bot.py
-      
-      - name: Upload debug logs
-        uses: actions/upload-artifact@v4
-        with:
-          name: debug-logs
-          path: |
-            debug_logs/
-            *.csv
-          retention-days: 7
+          python telegram_bot.py
