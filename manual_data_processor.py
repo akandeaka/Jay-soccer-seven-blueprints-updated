@@ -33,14 +33,14 @@ class GitHubDataProcessor:
         File location: input/matches_today.csv
         
         Expected CSV format:
-        league,home_team,away_team,home_odds,draw_odds,away_odds,time,date,league_key
+        league,home_team,away_team,home_odds,draw_odds,away_odds,time,date
         """
         if not os.path.exists(self.input_file):
             print(f"\n❌ No input file found at: {self.input_file}")
             print("\n📋 Please create this file in your repository with the following format:")
             print("-"*70)
-            print("league,home_team,away_team,home_odds,draw_odds,away_odds,time,date,league_key")
-            print("Premier League,Manchester City,Southampton,1.25,5.50,11.00,15:00,2026-04-26,premier_league")
+            print("league,home_team,away_team,home_odds,draw_odds,away_odds,time,date")
+            print("Premier League,Manchester City,Southampton,1.25,5.50,11.00,15:00,2026-04-26")
             print("-"*70)
             return []
         
@@ -59,30 +59,20 @@ class GitHubDataProcessor:
                     if league.startswith('\ufeff'):
                         league = league[1:]
                     
-                    # Generate league_key if not provided
-                    league_key = row.get('league_key', '').strip()
-                    if not league_key:
-                        # Auto-generate league_key from league name
-                        league_key = league.lower().replace(' ', '_').replace('-', '_')
-                    
                     match = Match(
                         league=league,
-                        league_key=league_key,
-                        league_id=0,  # Default for manually entered matches
-                        league_country=row.get('league_country', row.get('country', 'Unknown')).strip(),
                         home_team=row.get('home_team', 'Unknown').strip(),
                         away_team=row.get('away_team', 'Unknown').strip(),
                         home_odds=float(row.get('home_odds', 0)),
                         draw_odds=float(row.get('draw_odds', 0)),
                         away_odds=float(row.get('away_odds', 0)),
                         time=row.get('time', '').strip(),
-                        date=row.get('date', today).strip(),
-                        commence_time="",
-                        bookmaker="Manual CSV"
+                        date=row.get('date', today).strip()
                     )
                     matches.append(match)
                 except (ValueError, KeyError) as e:
                     print(f"⚠️ Error on line {line_count}: {e}")
+                    print(f"   Row data: {row}")
                     continue
         
         print(f"\n📖 Read {len(matches)} matches from {self.input_file}")
@@ -116,7 +106,6 @@ class GitHubDataProcessor:
                 "risk_level": res.risk_level,
                 "match": {
                     "league": res.match.league,
-                    "league_country": res.match.league_country,
                     "home_team": res.match.home_team,
                     "away_team": res.match.away_team,
                     "home_odds": res.match.home_odds,
@@ -170,15 +159,14 @@ class GitHubDataProcessor:
         csv_path = os.path.join(self.output_dir, f"blueprint_results_{today}.csv")
         with open(csv_path, 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
-            writer.writerow(['Blueprint', 'Name', 'League', 'Country', 'Home', 'Away', 
-                           'Home Odds', 'Draw Odds', 'Away Odds', 'Target Market', 'Risk', 'Time'])
+            writer.writerow(['Blueprint', 'Name', 'League', 'Home', 'Away', 
+                           'Home Odds', 'Draw Odds', 'Away Odds', 'Target Market', 'Risk', 'Time', 'Date'])
             for res in results:
                 m = res.match
                 writer.writerow([
                     res.blueprint_number,
                     res.blueprint_name,
                     m.league,
-                    m.league_country,
                     m.home_team,
                     m.away_team,
                     m.home_odds,
@@ -186,7 +174,8 @@ class GitHubDataProcessor:
                     m.away_odds,
                     res.target_market,
                     res.risk_level,
-                    m.time
+                    m.time,
+                    m.date
                 ])
         print(f"✓ CSV saved: {csv_path}")
         
@@ -263,8 +252,14 @@ def run_github_processor():
         print("   1. Go to your repository on GitHub")
         print("   2. Navigate to input/matches_today.csv")
         print("   3. Click Edit (pencil icon)")
-        print("   4. Paste today's match data")
+        print("   4. Paste today's match data using the format below")
         print("   5. Commit changes")
+        print("\n📝 CORRECT CSV FORMAT (copy this exactly):")
+        print("-"*70)
+        print("league,home_team,away_team,home_odds,draw_odds,away_odds,time,date")
+        print("Premier League,Manchester City,Southampton,1.25,5.50,11.00,15:00,2026-04-26")
+        print("LaLiga,Real Madrid,Getafe,1.33,5.00,9.50,17:30,2026-04-26")
+        print("-"*70)
         return
     
     # Run blueprints
