@@ -4,6 +4,8 @@ on:
   schedule:
     # Run daily at 9:00 AM UK time
     - cron: '0 9 * * *'
+  
+  # Allow manual trigger from GitHub UI
   workflow_dispatch:
 
 jobs:
@@ -21,12 +23,19 @@ jobs:
       
       - name: Install dependencies
         run: |
-          pip install requests
+          pip install -r requirements.txt
       
-      - name: Run daily scan
+      - name: Run daily scan with Sportmonks API
         env:
-          FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           python telegram_bot.py
+      
+      - name: Upload results as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: blueprint-results
+          path: blueprint_results_*.csv
+          retention-days: 30
