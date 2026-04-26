@@ -1,1 +1,64 @@
-
+league,home_team,away_team,home_odds,draw_odds,away_odds,time,date
+Eredivisie,Excelsior,Utrecht,3.20,3.50,2.20,Finished,2026-04-26
+Serie A,Fiorentina,Sassuolo,1.91,3.10,3.60,Finished,2026-04-26
+LaLiga,Rayo Vallecano,Real Sociedad,2.70,3.30,2.60,Finished,2026-04-26
+Eredivisie,Heracles,FC Volendam,2.20,4.00,2.90,87,2026-04-26
+Ligue 1,Lorient,Strasbourg,2.10,3.60,3.10,76,2026-04-26
+Serie A,Genoa,Como,5.75,4.00,1.57,75,2026-04-26
+Bundesliga,Stuttgart,Werder Bremen,1.53,4.50,5.50,46,2026-04-26
+LaLiga,Oviedo,Elche,2.20,3.40,3.20,18,2026-04-26
+Ligue 1,Le Havre,Metz,1.57,4.33,5.25,16:15,2026-04-26
+Ligue 1,Paris FC,Lille,5.00,4.00,1.67,16:15,2026-04-26
+Ligue 1,Rennes,Nantes,1.45,4.50,7.00,16:15,2026-04-26
+Bundesliga,Dortmund,Freiburg,1.42,5.00,6.50,16:30,2026-04-26
+Serie A,Torino,Inter,7.50,5.25,1.38,17:00,2026-04-26
+LaLiga,Osasuna,Sevilla,1.95,3.30,4.20,17:30,2026-04-26
+Ligue 1,Marseille,Nice,1.60,4.10,5.50,19:45,2026-04-26
+Serie A,AC Milan,Juventus,2.80,3.10,2.70,19:45,2026-04-26
+LaLiga,Villarreal,Celta Vigo,1.85,3.30,3.70,20:00,2026-04-26
+Liga MX,Pachuca,UNAM Pumas,1.91,3.60,3.75,Finished,2026-04-26
+Liga MX,Tigres UANL,Mazatlan FC,1.19,6.25,12.00,Finished,2026-04-26
+MLS,Columbus Crew,Philadelphia Union,1.86,3.60,3.80,Finished,2026-04-26
+MLS,DC United,Orlando City,1.68,3.90,4.33,Finished,2026-04-26
+MLS,FC Cincinnati,New York Red Bulls,1.57,4.20,3.90,Finished,2026-04-26
+MLS,Inter Miami,New England Revolution,1.45,5.00,5.75,Finished,2026-04-26
+Serie A Betano,Sao Paulo,Mirassol,2.05,3.40,3.60,Finished,2026-04-26
+Liga Profesional,River Plate,Aldosivi,1.24,4.75,19.00,Finished,2026-04-26
+MLS,Austin FC,Houston Dynamo,2.65,3.40,2.45,Finished,2026-04-26
+MLS,Chicago Fire,Sporting Kansas City,1.35,4.75,8.00,Finished,2026-04-26
+MLS,Nashville SC,Charlotte,1.56,4.10,5.50,Finished,2026-04-26
+MLS,St. Louis City,San Jose Earthquakes,2.01,4.10,3.10,Finished,2026-04-26
+Liga MX,Toluca,Club Leon,1.81,3.90,3.80,Finished,2026-04-26
+Liga MX,Guadalajara Chivas,Club Tijuana,1.37,5.00,7.00,Finished,2026-04-26
+MLS,San Diego FC,Portland Timbers,1.53,4.75,4.50,Finished,2026-04-26
+MLS,Seattle Sounders,FC Dallas,1.49,4.20,6.00,Finished,2026-04-26
+MLS,Vancouver Whitecaps,Colorado Rapids,1.33,5.50,7.00,Finished,2026-04-26
+Liga MX,Juarez,Atl. San Luis,1.91,3.60,3.75,Finished,2026-04-26
+Liga MX,Club America,Atlas,1.46,3.90,7.00,Finished,2026-04-26
+A-League,Sydney FC,Auckland FC,3.00,3.50,2.20,Finished,2026-04-26
+A-League,Melbourne City,Adelaide United,2.05,3.75,3.10,Finished,2026-04-26
+K League 1,Jeonbuk,Pohang,1.75,3.20,4.50,Finished,2026-04-26
+K League 1,Gwangju FC,Anyang,3.70,3.00,2.00,Finished,2026-04-26
+K League 1,Ulsan HD,Daejeon,2.10,3.30,3.10,Finished,2026-04-26
+J2/J3 League,Vanraure,Blaublitz,2.92,2.61,2.92,Finished,2026-04-26
+J2/J3 League,Kochi United,Tokushima,3.38,3.43,2.08,Finished,2026-04-26
+J2/J3 League,Yamaga,Nagano,1.55,4.34,5.16,Finished,2026-04-26
+J2/J3 League,Ehime,Kamatamare,1.80,3.65,4.17,Finished,2026-04-26
+WE League Women,Omiya Ardija W,Urawa W,4.68,4.26,1.61,Finished,2026-04-26
+WE League Women,Nojima Stella W,C-Osaka W,3.12,3.22,2.29,Finished,2026-04-26
+WE League Women,Saitama W,Albirex Niigata W,3.53,3.53,1.98,Finished,2026-04-26
+Super League,Qingdao Hainiu,Shandong Taishan,4.10,3.70,1.79,Finished,2026-04-26
+Premier League,Kryvbas,Dyn. Kyiv,8.12,5.14,1.33,Finished,2026-04-26
+Championship,Coventry,Wrexham,1.76,3.75,3.40,Finished,2026-04-26
+WSL,Everton W,Chelsea W,11.00,7.00,1.15,Finished,2026-04-26
+2. Bundesliga,Bochum,Greuther Furth,1.70,3.90,4.50,Finished,2026-04-26
+2. Bundesliga,Nurnberg,Magdeburg,2.45,3.50,2.75,Finished,2026-04-26
+2. Bundesliga,Paderborn,Schalke,2.55,3.30,2.70,Finished,2026-04-26
+Allsvenskan,Djurgarden,Hammarby,3.25,3.30,2.15,Finished,2026-04-26
+Superettan,Varnamo,Oddevold,2.15,3.20,3.10,Finished,2026-04-26
+LaLiga2,Cordoba,Gijon,1.91,3.70,3.50,Finished,2026-04-26
+LaLiga2,Granada CF,Almeria,3.10,3.30,2.25,Finished,2026-04-26
+LaLiga2,Mirandes,Cultural Leonesa,1.86,3.70,3.70,Finished,2026-04-26
+Super League - Championship Group,Basel,Sion,2.70,3.70,2.25,Finished,2026-04-26
+Super League - Championship Group,Young Boys,St. Gallen,1.81,4.20,3.30,Finished,2026-04-26
+Challenge League,Lausanne Ouchy,Yverdon,2.15,3.70,3.00,Finished,2026-04-26
