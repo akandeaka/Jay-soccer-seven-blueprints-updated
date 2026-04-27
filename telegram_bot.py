@@ -1,6 +1,5 @@
 """
-Telegram Bot - Full Results Version
-Sends complete results as a file
+Telegram Bot - Shows ALL qualifying matches in the message (not just summary)
 """
 
 import os
@@ -10,8 +9,8 @@ import requests
 from datetime import datetime
 
 
-def send_full_results_as_file():
-    """Send the complete CSV file to Telegram"""
+def send_full_match_list():
+    """Send a Telegram message with ALL qualifying matches listed."""
     
     bot_token = os.environ.get("TELEGRAM_BOT_TOKEN")
     chat_id = os.environ.get("TELEGRAM_CHAT_ID")
@@ -21,102 +20,133 @@ def send_full_results_as_file():
         return
     
     # Find the latest results file
-    csv_files = glob.glob("./output/blueprint_results_*.csv")
-    if not csv_files:
-        print("⚠️ No results CSV found")
+    json_files = glob.glob("./output/blueprint_results_*.json")
+    if not json_files:
+        print("⚠️ No results JSON found")
         return
     
-    latest_csv = max(csv_files, key=os.path.getctime)
-    json_files = glob.glob("./output/blueprint_results_*.json")
-    latest_json = max(json_files, key=os.path.getctime) if json_files else None
+    latest_json = max(json_files, key=os.path.getctime)
+    csv_files = glob.glob("./output/blueprint_results_*.csv")
+    latest_csv = max(csv_files, key=os.path.getctime) if csv_files else None
     
-    # Send summary first
     with open(latest_json, 'r') as f:
         data = json.load(f)
     
     summary = data.get("summary", {})
-    bp_counts = summary.get("blueprint_counts", {})
+    blueprints = data.get("blueprints", [])
     
-    message = f"""
-⚽ <b>JAY SOCCER BLUEPRINTS - FULL RESULTS</b>
+    if not blueprints:
+        # No qualifying matches
+        message = f"""
+⚽ <b>JAY SOCCER BLUEPRINTS</b>
 📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-<b>📊 Blueprint Summary:</b>
+❌ <b>NO MATCHES QUALIFIED TODAY</b>
+
+<b>Total scanned:</b> {summary.get('total_matches', 0)}
+<b>Qualifying:</b> 0
+
+Check tomorrow's fixtures.
 """
-    for bp in range(1, 8):
-        count = bp_counts.get(str(bp), 0)
-        if count > 0:
-            emoji = "🟢" if bp in [1,2] else "🟡" if bp in [3,4,5] else "🔴"
-            message += f"   {emoji} Blueprint {bp}: {count} matches\n"
+        send_telegram_message(chat_id, bot_token, message)
+        return
     
-    message += f"\n<b>📁 Total qualifying matches:</b> {summary.get('qualifying_matches', 0)}"
-    message += f"\n<b>📊 Total matches scanned:</b> {summary.get('total_matches', 0)}"
-    message += "\n\n📎 <b>CSV file attached with ALL matches</b>"
+    # Count matches per blueprint for the header
+    bp_counts = {}
+    for bp in blueprints:
+        num = bp['blueprint_number']
+        bp_counts[num] = bp_counts.get(num, 0) + 1
     
-    # Send message
+    # Build header
+    header = f"""
+⚽ <b>JAY SOCCER BLUEPRINTS - FULL PREDICTIONS</b>
+📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>📊 Summary:</b>
+"""
+    for bp in sorted(bp_counts.keys()):
+        emoji = "🟢" if bp in [1,2] else "🟡" if bp in [3,4,5] else "🔴"
+        header += f"   {emoji} Blueprint {bp}: {bp_counts[bp]} matches\n"
+    
+    header += f"\n<b>🔍 Total qualifying matches:</b> {len(blueprints)}"
+    header += f"\n<b>📊 Total scanned:</b> {summary.get('total_matches', 0)}"
+    header += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+    
+    # Build the list of matches
+    match_lines = []
+    for i, res in enumerate(blueprints, 1):
+        m = res['match']
+        bp_num = res['blueprint_number']
+        bp_name = res['blueprint_name']
+        target = res['target_market']
+        risk = res['risk_level']
+        
+        # Emoji for risk level
+        risk_emoji = "🟢" if "Low" in risk else "🟡" if "Moderate" in risk else "🔴"
+        
+        line = f"{risk_emoji} <b>{i}. BP{bp_num}: {bp_name}</b>\n"
+        line += f"   🏟️ {m['home_team']} vs {m['away_team']}\n"
+        line += f"   🏆 {m['league']}\n"
+        line += f"   📊 Odds: {m['home_odds']} | {m['draw_odds']} | {m['away_odds']}\n"
+        line += f"   🎯 <b>Play:</b> {target}\n"
+        line += f"   ⚠️ Risk: {risk}\n"
+        line += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        match_lines.append(line)
+    
+    # Combine header and matches
+    full_message = header + "\n".join(match_lines)
+    
+    # Telegram has a 4096 character limit. Split if needed.
+    if len(full_message) <= 4096:
+        send_telegram_message(chat_id, bot_token, full_message)
+    else:
+        # Send header first
+        send_telegram_message(chat_id, bot_token, header)
+        # Then send matches in chunks
+        chunk = ""
+        for line in match_lines:
+            if len(chunk) + len(line) + 100 > 4096:
+                send_telegram_message(chat_id, bot_token, chunk)
+                chunk = line
+            else:
+                chunk += line
+        if chunk:
+            send_telegram_message(chat_id, bot_token, chunk)
+    
+    # Also send the CSV file as attachment
+    if latest_csv:
+        send_csv_file(chat_id, bot_token, latest_csv)
+
+
+def send_telegram_message(chat_id, bot_token, text):
+    """Send a plain text message to Telegram."""
     url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-    requests.post(url, json={"chat_id": chat_id, "text": message, "parse_mode": "HTML"})
-    
-    # Send CSV file
-    with open(latest_csv, 'rb') as f:
-        files = {'document': (f'blueprint_results_{datetime.now().strftime("%Y%m%d")}.csv', f, 'text/csv')}
-        url = f"https://api.telegram.org/bot{bot_token}/sendDocument"
-        requests.post(url, data={'chat_id': chat_id}, files=files)
-    
-    print(f"✓ Full results sent to Telegram")
+    try:
+        response = requests.post(url, json={
+            "chat_id": chat_id,
+            "text": text,
+            "parse_mode": "HTML"
+        }, timeout=30)
+        if response.status_code != 200:
+            print(f"Failed to send message: {response.text}")
+    except Exception as e:
+        print(f"Error sending message: {e}")
 
 
-def send_detailed_breakdown():
-    """Send a detailed breakdown by blueprint"""
-    
-    bot_token = os.environ.get("TELEGRAM_BOT_TOKEN")
-    chat_id = os.environ.get("TELEGRAM_CHAT_ID")
-    
-    if not bot_token or not chat_id:
-        return
-    
-    json_files = glob.glob("./output/blueprint_results_*.json")
-    if not json_files:
-        return
-    
-    latest_json = max(json_files, key=os.path.getctime)
-    
-    with open(latest_json, 'r') as f:
-        data = json.load(f)
-    
-    blueprints_by_number = data.get("blueprints_by_number", {})
-    
-    for bp_num in range(1, 8):
-        matches = blueprints_by_number.get(str(bp_num), [])
-        if not matches:
-            continue
-        
-        # Get blueprint name from first match
-        bp_name = matches[0].get("blueprint_name", f"Blueprint {bp_num}")
-        target = matches[0].get("target_market", "")
-        
-        message = f"""
-<b>📋 BLUEPRINT {bp_num}: {bp_name}</b>
-<b>🎯 Play:</b> {target}
-<b>✅ {len(matches)} matches qualify:</b>
-"""
-        
-        for i, match_data in enumerate(matches[:10], 1):  # Limit to 10 per message
-            m = match_data.get("match", {})
-            message += f"\n{i}. {m.get('home_team', '')} vs {m.get('away_team', '')}"
-            message += f"\n   📊 Odds: {m.get('home_odds', '')} | {m.get('draw_odds', '')} | {m.get('away_odds', '')}"
-        
-        if len(matches) > 10:
-            message += f"\n\n... and {len(matches) - 10} more matches"
-        
-        # Send message for this blueprint
-        url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-        requests.post(url, json={"chat_id": chat_id, "text": message, "parse_mode": "HTML"})
-        
-        print(f"✓ Sent Blueprint {bp_num} ({len(matches)} matches)")
+def send_csv_file(chat_id, bot_token, file_path):
+    """Send a CSV file as a document."""
+    url = f"https://api.telegram.org/bot{bot_token}/sendDocument"
+    with open(file_path, 'rb') as f:
+        files = {'document': (os.path.basename(file_path), f, 'text/csv')}
+        try:
+            response = requests.post(url, data={'chat_id': chat_id}, files=files, timeout=30)
+            if response.status_code != 200:
+                print(f"Failed to send CSV: {response.text}")
+        except Exception as e:
+            print(f"Error sending CSV: {e}")
 
 
 if __name__ == "__main__":
-    send_full_results_as_file()
-    send_detailed_breakdown()
+    send_full_match_list()
