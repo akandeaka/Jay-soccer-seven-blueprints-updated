@@ -1,25 +1,24 @@
-League                          | Home Team   | Away Team       | Home Odds | Draw Odds | Away Odds |
-|---------------------------------|-------------|-----------------|-----------|-----------|-----------|
-| Leumit League (Israel)          | H. Ironi Rishon | Hapoel Kfar Saba | 1.87 | 3.36 | 3.72 |
-| Leumit League (Israel)          | Hap. Ramat Gan  | Bnei Yehuda      | 3.01 | 3.20 | 2.19 |
-| Leumit League (Israel)          | M. Herzliya     | Kiryat Yam       | 2.29 | 3.18 | 2.85 |
-| Primavera 1 (Italy)             | Bologna U20     | Genoa U20        | 1.98 | 3.58 | 3.50 |
-| Primavera 1 (Italy)             | Fiorentina U20  | Monza U20        | 1.53 | 3.96 | 5.12 |
-| Besta deild karla (Iceland)     | Fram            | Vestmannaeyjar   | 1.73 | 4.15 | 3.94 |
-| Besta deild karla (Iceland)     | KR Reykjavik    | Hafnarfjordur    | 1.48 | 5.05 | 5.02 |
-| Besta deild karla (Iceland)     | Breidablik      | Thor Akureyri    | 1.46 | 4.80 | 5.53 |
-| Besta deild karla (Iceland)     | Stjarnan        | Valur            | 1.74 | 4.30 | 3.77 |
-| Besta deild karla (Iceland)     | Vikingur Reykjavik | Akranes       | 1.40 | 4.95 | 6.37 |
-| I-League 2 (India)              | SC Bengaluru    | Karbi Anglong    | 2.06 | 3.35 | 3.35 |
-| I-League 2 (India)              | Sudeva Delhi    | Bengaluru Utd    | 3.53 | 3.43 | 1.98 |
-| Premier League (Egypt)          | Smouha          | Al Masry         | 3.78 | 2.94 | 2.15 |
-| Premier League (Egypt)          | Zamalek         | Enppi            | 1.58 | 3.40 | 7.05 |
-| Premier League (Egypt)          | Pyramids        | Al Ahly          | 2.62 | 2.77 | 2.72 |
-| Esiliiga (Estonia)              | FC Tallinn      | Levadia U21      | 5.75 | 4.95 | 1.39 |
-| Esiliiga (Estonia)              | Nomme Kalju U21 | Tallinna Kalev   | 1.82 | 4.25 | 3.15 |
-| Esiliiga (Estonia)              | Tartu Welco     | Elva             | 1.47 | 4.33 | 5.27 |
-| Esiliiga B (Estonia)            | Johvi Phoenix   | Legion           | 1.20 | 7.36 | 8.93 |
-| Serie A (Italy)                 | Cagliari        | Atalanta         | 4.92 | 3.99 | 1.78 |
-| Serie A (Italy)                 | Lazio           | Udinese          | 2.21 | 3.27 | 3.90 |
-| LaLiga (Spain)                  | Espanyol        | Levante          | 2.15 | 3.40 | 3.93 |
-| Abissnet Superiore (Albania)    | AF Elbasani     | Vllaznia         | 2.71 | 2.92 | 2.54
+League,Home Team,Away Team,Home Odds,Draw Odds,Away Odds
+Leumit League (Israel),H. Ironi Rishon,Hapoel Kfar Saba,1.87,3.36,3.72
+Leumit League (Israel),Hap. Ramat Gan,Bnei Yehuda,3.01,3.20,2.19
+Leumit League (Israel),M. Herzliya,Kiryat Yam,2.29,3.18,2.85
+Primavera 1 (Italy),Bologna U20,Genoa U20,1.98,3.58,3.50
+Primavera 1 (Italy),Fiorentina U20,Monza U20,1.53,3.96,5.12
+Besta deild karla (Iceland),Fram,Vestmannaeyjar,1.73,4.15,3.94
+Besta deild karla (Iceland),KR Reykjavik,Hafnarfjordur,1.48,5.05,5.02
+Besta deild karla (Iceland),Breidablik,Thor Akureyri,1.46,4.80,5.53
+Besta deild karla (Iceland),Stjarnan,Valur,1.74,4.30,3.77
+Besta deild karla (Iceland),Vikingur Reykjavik,Akranes,1.40,4.95,6.37
+I-League 2 (India),SC Bengaluru,Karbi Anglong,2.06,3.35,3.35
+I-League 2 (India),Sudeva Delhi,Bengaluru Utd,3.53,3.43,1.98
+Premier League (Egypt),Smouha,Al Masry,3.78,2.94,2.15
+Premier League (Egypt),Zamalek,Enppi,1.58,3.40,7.05
+Premier League (Egypt),Pyramids,Al Ahly,2.62,2.77,2.72
+Esiliiga (Estonia),FC Tallinn,Levadia U21,5.75,4.95,1.39
+Esiliiga (Estonia),Nomme Kalju U21,Tallinna Kalev,1.82,4.25,3.15
+Esiliiga (Estonia),Tartu Welco,Elva,1.47,4.33,5.27
+Esiliiga B (Estonia),Johvi Phoenix,Legion,1.20,7.36,8.93
+Serie A (Italy),Cagliari,Atalanta,4.92,3.99,1.78
+Serie A (Italy),Lazio,Udinese,2.21,3.27,3.90
+LaLiga (Spain),Espanyol,Levante,2.15,3.40,3.93
+Abissnet Superiore (Albania),AF Elbasani,Vllaznia,2.71,2.92,2.54
