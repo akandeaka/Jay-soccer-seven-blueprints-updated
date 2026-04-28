@@ -1,5 +1,6 @@
 League,Home Team,Away Team,Home Odds,Draw Odds,Away Odds
 Champions League - Play Offs,PSG,Bayern Munich,2.45,3.80,2.63
+Eredivisie - Relegation - Play Offs,Roda,Waalwijk,2.25,2.85,0
 Primera Nacional,Ferro,Almirante Brown,2.05,2.75,4.33
 League One,Northampton,Barnsley,2.57,3.60,2.32
 League One,Peterborough,Mansfield,2.55,3.20,2.57
@@ -16,14 +17,17 @@ Saudi Professional League,Al Khaleej,Al Najma,1.40,4.20,6.00
 Saudi Professional League,Al Zulfi,Al Taee,1.65,3.62,4.58
 Saudi Professional League,Al Bukiryah,Jeddah,1.03,15.00,65.00
 SWPL 1 Women - Championship,Hearts W,Partick Thistle W,1.03,15.00,65.00
-Copa Libertadores - Group Stage,Lanus,LDU Quito,1.67,3.60,5.75
+Copa Libertadores - Group Stage,Lanus (Arg),LDU Quito (Ecu),1.67,3.60,5.75
 Liga Portugal 2,Feirense,Torreense,2.75,3.10,2.35
 Liga 3 - Relegation Group,AD Fafe,Sao Joao Ver,2.09,3.32,3.11
 Virsliga,FK Liepaja,Grobina,1.51,3.96,5.34
 Virsliga,RFS,Riga FC,2.62,3.22,2.38
+ISL,East Bengal,Odisha FC,1.30,5.00,0
 Regionalliga West,Bonner,Oberhausen,3.72,3.60,1.80
 Regionalliga Bayern,Burghausen,Nurnberg II,3.41,3.52,1.91
-Lithuanian Cup,Dainava Alytus,5.83,4.80,1.44
+Allsvenskan,Norrkoping,Landskrona,1.57,4.75,0
+South American Championship Women,Argentina U17 W,Bolivia U17 W,0,0,0
+Lithuanian Cup,Dainava Alytus,0,5.83,4.80,1.44
 Suomen Cup,OLS Oulu,SJK Akatemia,2.32,3.78,2.40
 Suomen Cup,SalPa,TPS,5.12,4.10,1.50
 Suomen Cup,Toolon Taisto,JaPS,19.50,9.60,1.04
