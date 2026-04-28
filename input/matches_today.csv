@@ -1,24 +1,88 @@
-League,Home Team,Away Team,Home Odds,Draw Odds,Away Odds
-Leumit League (Israel),H. Ironi Rishon,Hapoel Kfar Saba,1.87,3.36,3.72
-Leumit League (Israel),Hap. Ramat Gan,Bnei Yehuda,3.01,3.20,2.19
-Leumit League (Israel),M. Herzliya,Kiryat Yam,2.29,3.18,2.85
-Primavera 1 (Italy),Bologna U20,Genoa U20,1.98,3.58,3.50
-Primavera 1 (Italy),Fiorentina U20,Monza U20,1.53,3.96,5.12
-Besta deild karla (Iceland),Fram,Vestmannaeyjar,1.73,4.15,3.94
-Besta deild karla (Iceland),KR Reykjavik,Hafnarfjordur,1.48,5.05,5.02
-Besta deild karla (Iceland),Breidablik,Thor Akureyri,1.46,4.80,5.53
-Besta deild karla (Iceland),Stjarnan,Valur,1.74,4.30,3.77
-Besta deild karla (Iceland),Vikingur Reykjavik,Akranes,1.40,4.95,6.37
-I-League 2 (India),SC Bengaluru,Karbi Anglong,2.06,3.35,3.35
-I-League 2 (India),Sudeva Delhi,Bengaluru Utd,3.53,3.43,1.98
-Premier League (Egypt),Smouha,Al Masry,3.78,2.94,2.15
-Premier League (Egypt),Zamalek,Enppi,1.58,3.40,7.05
-Premier League (Egypt),Pyramids,Al Ahly,2.62,2.77,2.72
-Esiliiga (Estonia),FC Tallinn,Levadia U21,5.75,4.95,1.39
-Esiliiga (Estonia),Nomme Kalju U21,Tallinna Kalev,1.82,4.25,3.15
-Esiliiga (Estonia),Tartu Welco,Elva,1.47,4.33,5.27
-Esiliiga B (Estonia),Johvi Phoenix,Legion,1.20,7.36,8.93
-Serie A (Italy),Cagliari,Atalanta,4.92,3.99,1.78
-Serie A (Italy),Lazio,Udinese,2.21,3.27,3.90
-LaLiga (Spain),Espanyol,Levante,2.15,3.40,3.93
-Abissnet Superiore (Albania),AF Elbasani,Vllaznia,2.71,2.92,2.54
+Kickoff Time,Competition,Country,Home Team,Away Team,Live Score
+20:00,Champions League - Play Offs,EUROPE,PSG,Bayern Munich,
+17:45,Eredivisie - Relegation - Play Offs,NETHERLANDS,Roda,Waalwijk,
+23:30,Primera Nacional,ARGENTINA,Ferro,Almirante Brown,
+Time N/A,Reserve League - Apertura,ARGENTINA,Defensa y Justicia 2,Estudiantes L.P. 2,
+Time N/A,Reserve League - Apertura,ARGENTINA,Gimnasia L.P. 2,Tigre 2,
+Time N/A,Reserve League - Apertura,ARGENTINA,Newells Old Boys 2,Central Cordoba 2,
+Time N/A,Reserve League - Apertura,ARGENTINA,Sarmiento Junín 2,River Plate 2,
+Time N/A,First League,ARMENIA,Ararat-Armenia 2,Pyunik Yerevan 2,
+Time N/A,First League,ARMENIA,Bentonit,Noah 2,
+18:30,Regionalliga East,AUSTRIA,Wiener Sport-Club,Retz,
+17:00,Premier League,BAHRAIN,Al-Shabbab,Bahrain SC,
+17:00,Premier League,BAHRAIN,Malkia,Al-Najma,
+09:45,Federation Cup,BANGLADESH,Abahani Limited,PWD Sports Club,0-1 (85')
+09:45,Federation Cup,BANGLADESH,Fakirerpool YMC,Rahmatgonj MFS,0-1 (85')
+Time N/A,Premier League,BARBADOS,Bagatelle SSC,,
+Time N/A,Division Profesional,BOLIVIA,Aurora,SA Bulo Bulo,3-1
+19:45,League One,ENGLAND,Northampton,Barnsley,
+19:45,League One,ENGLAND,Peterborough,Mansfield,
+19:45,League One,ENGLAND,Stockport County,Port Vale,
+19:45,National League - Play Offs,ENGLAND,Scunthorpe,Southend,
+19:45,National League North - Play Offs,ENGLAND,Buxton,Scarborough,
+19:45,National League South - Play Offs,ENGLAND,Hemel Hempstead,Weston-super-Mare,
+19:45,NPL Premier Division - Play Offs,ENGLAND,FC United,Warrington Rylands,
+19:45,NPL Premier Division - Play Offs,ENGLAND,Hednesford,Chesterfield,
+19:45,NPL Premier Division - Play Offs,ENGLAND,Stockton,,
+12:00,Premier League U18,ENGLAND,Arsenal U18,Crystal Palace U18,
+12:00,Premier League U18,ENGLAND,Tottenham U18,West Ham U18,
+12:30,Premier League U18,ENGLAND,Southampton U18,Aston Villa U18,
+13:00,Premier League U18,ENGLAND,Blackburn U18,Everton U18,
+16:00,Esilliga B,ESTONIA,Levadia U19,Tallinna Kalev U21,
+16:00,Esilliga B,ESTONIA,Parnu JK Vaprus U21,,
+14:00,Swazi MTN Premier League,ESWATINI,Royal Leopards,Green Mamba,
+Time N/A,Euro U17 - Qualification - Round 2,EUROPE,Liechtenstein U17,,
+16:00,Suomen Cup,FINLAND,OLS Oulu,SJK Akatemia,
+16:00,Suomen Cup,FINLAND,SalPa,TPS,
+16:00,Suomen Cup,FINLAND,Toolon Taisto,JaPS,
+16:00,Suomen Cup,FINLAND,VPS 2,SJK,
+16:30,Suomen Cup,FINLAND,GBK Kokkola,Jaro,
+16:30,Suomen Cup,FINLAND,HPS,Mariehamn,
+16:30,Suomen Cup,FINLAND,Huima / Urho,KuPS Akatemia,
+16:30,Suomen Cup,FINLAND,PEPO,JJK Jyvaskyla,
+16:30,Suomen Cup,FINLAND,Union Plaani,Lahti,
+17:00,Suomen Cup,FINLAND,EBK,POHU,
+17:00,Suomen Cup,FINLAND,JPS Jyvaskyla,Mikkeli,
+18:00,Regionalliga West,GERMANY,Bonner,Oberhausen,
+18:00,Regionalliga Bayern,GERMANY,Burghausen,Nurnberg II,
+18:00,Regionalliga Bayern,GERMANY,Schwaben Augsburg,,
+FRO 18:00,Oberliga Hamburg,GERMANY,ETSV Hamburg,SC Victoria Hamburg,
+FRO 18:30,Oberliga Hamburg,GERMANY,Halstenbek-Rellingen,Paloma,
+FRO 18:45,Oberliga Hamburg,GERMANY,Teutonia Ottensen,Suderelbe,
+FRO 17:30,Oberliga Bayern Süd,GERMANY,Nordlingen,Pipinsried,
+15:00,ISL,INDIA,East Bengal,Odisha FC,
+16:00,Virsliga,LATVIA,FK Liepaja,Grobina,
+18:00,Virsliga,LATVIA,RFS,Riga FC,
+16:00,Lithuanian Cup,LITHUANIA,FK Minija,Suduva,
+16:00,Lithuanian Cup,LITHUANIA,Sveikata,Kauno Zalgiris,
+17:00,Lithuanian Cup,LITHUANIA,Klaipėdos FM,BE1 NFA,
+17:30,Lithuanian Cup,LITHUANIA,Babrungas,Vilnius FA,
+17:30,Lithuanian Cup,LITHUANIA,Riteriai,Viltis Vilnius,
+19:00,Lithuanian Cup,LITHUANIA,Dainava Alytus,,
+14:00,Super League,MALAYSIA,Melaka FC,Johor DT,
+Time N/A,Liga 1 - Apertura,PERU,Deportivo Garcilaso,FBC Melgar,1-0
+18:00,Liga Portugal 2,PORTUGAL,Feirense,Torreense,
+20:00,Liga 3 - Relegation Group,PORTUGAL,AD Fafe,Sao Joao Ver,
+15:00,Liga Revelacao U23 - Losers stage,PORTUGAL,Estoril U23,Gil Vicente U23,
+15:00,Liga Revelacao U23 - Losers stage,PORTUGAL,Leiria U23,Rio Ave U23,
+15:00,Liga Revelacao U23 - Losers stage,PORTUGAL,Maritimo U23,Estrela U23,
+15:00,Liga Revelacao U23 - Losers stage,PORTUGAL,Portimonense U23,SC Farense U23,
+Time N/A,Liga Revelacao U23 - Championship stage,PORTUGAL,Agradecimento Vitorino,,
+17:00,Saudi Professional League,SAUDI ARABIA,Al Shabab,Al Fateh,
+19:00,Saudi Professional League,SAUDI ARABIA,Neom SC,Al Hazem,
+19:00,Saudi Professional League,SAUDI ARABIA,Al Hilal,Damac,
+19:00,Saudi Professional League,SAUDI ARABIA,Al Khaleej,Al Najma,
+18:50,Saudi Professional League,SAUDI ARABIA,Al Zulfi,Al Taee,
+19:30,Saudi Professional League,SAUDI ARABIA,Al Bukiryah,Jeddah,
+19:30,SWPL 1 Women - Championship,SCOTLAND,Hearts W,Partick Thistle W,
+23:00,Copa Libertadores - Group Stage,SOUTH AMERICA,Lanus (Arg),LDU Quito (Ecu),
+Time N/A,Copa Libertadores - Group Stage,SOUTH AMERICA,Independiente (Bol),San Lorenzo (Arg),
+Time N/A,Copa Libertadores - Group Stage,SOUTH AMERICA,Santos (Bra),,
+21:00,South American Championship Women,SOUTH AMERICA,Argentina U17 W,Bolivia U17 W,
+Time N/A,South American Championship Women,SOUTH AMERICA,Uruguay U17 W,Brazil U17 W,3-5
+18:00,Allsvenskan,SWEDEN,Norrkoping,Landskrona,
+Time N/A,Premier League,SYRIA,,,
+15:30,Ligue 2,TUNISIA,Bouchamma,Ariana,
+15:30,Ligue 2,TUNISIA,EGS Gafsa,Jendouba Sport,
+15:30,Ligue 2,TUNISIA,Kalaa,Redeyef,
+15:30,Ligue 2,TUNISIA,Kasserine,Stade Gabesien,
