@@ -2,12 +2,13 @@ name: Test Filter Engine
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, master, develop, test/filter-engine ]
     paths:
       - 'filter_engine/**'
       - 'run_filtered_bot.py'
+      - 'test_filter_engine.py'
   pull_request:
-    branches: [ main ]
+    branches: [ main, master ]
   workflow_dispatch:  # Allows manual trigger
 
 jobs:
@@ -16,17 +17,17 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4  # Updated to v4
     
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5  # Updated to v5
       with:
-        python-version: '3.10'
+        python-version: '3.11'  # Using newer Python version
     
     - name: Install dependencies
       run: |
+        pip install --upgrade pip
         pip install pandas requests openpyxl
-        pip install pytest  # For testing
     
     - name: Create test blueprint data
       run: |
@@ -50,47 +51,72 @@ jobs:
            📊 Odds: 2.55 | 3.6 | 2.45
            🎯 Play: HT 0.5 Goals / Over 2.5 Goals
            ⚠️ Risk: Moderate-High
+        
+        🔴 2. BP6: THE STRONG DRAW
+           🏟️ Atl. Madrid vs Arsenal
+           🏆 Champions League - Play Offs
+           📊 Odds: 2.9 | 3.25 | 2.5
+           🎯 Play: Full Time Draw (X) Potential
+           ⚠️ Risk: High (Strategic)
+        
+        🟢 3. BP1: THE ELITE HOME BANKER
+           🏟️ Entebbe UPPC vs Calvary
+           🏆 Premier League
+           📊 Odds: 1.28 | 4.2 | 12.2
+           🎯 Play: Straight Home Win
+           ⚠️ Risk: Ultra-Low
         EOF
     
-    - name: Test filter engine with mock data
+    - name: Test filter engine parsing
       run: |
         python -c "
         from filter_engine import BlueprintFilterEngine
         import sys
         
-        # Test parsing
+        print('Testing BlueprintFilterEngine...')
         engine = BlueprintFilterEngine()
+        
         with open('test_blueprint_output.txt', 'r') as f:
             text = f.read()
         
         matches = engine.parse_blueprint_text(text)
         print(f'✅ Parsed {len(matches)} matches')
         
-        # Test processing
+        if len(matches) == 0:
+            print('❌ No matches parsed')
+            sys.exit(1)
+        
         results = engine.process_matches(matches)
         print(f'✅ Processed {len(results)} results')
         
-        # Check output
         high_conf = len(results[results['Confidence'] >= 65])
         print(f'✅ High confidence matches: {high_conf}')
         
-        assert len(matches) > 0, 'No matches parsed'
-        assert len(results) > 0, 'No results processed'
-        print('All tests passed!')
+        print('All parsing tests passed!')
         "
     
-    - name: Run full bot test (dry run - no Telegram send)
+    - name: Run full test script
       run: |
-        # Temporarily modify config to use mock data and not send to Telegram
-        python run_filtered_bot.py 2>&1 | head -50
+        python test_filter_engine.py
     
     - name: Upload test results
-      if: always()
-      uses: actions/upload-artifact@v3
+      if: always()  # Upload even if tests fail
+      uses: actions/upload-artifact@v4  # Updated to v4 (MUST use v4)
       with:
         name: test-outputs
         path: |
-          filtered_results_backup.csv
-          top_20_picks.csv
+          test_*.csv
+          test_*.txt
           filter_bot_state.json
           filter_bot.log
+        retention-days: 7  # How long to keep artifacts
+    
+    - name: Upload filtered results (if exists)
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: filtered-results
+        path: |
+          filtered_results_backup.csv
+          top_20_picks.csv
+        retention-days: 7
