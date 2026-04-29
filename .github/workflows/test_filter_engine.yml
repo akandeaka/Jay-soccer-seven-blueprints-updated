@@ -20,6 +20,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install pandas
+        pip install requests  # ← ADD THIS LINE
     
     - name: List files (debug)
       run: |
@@ -28,13 +29,6 @@ jobs:
         echo ""
         echo "=== filter_engine directory ==="
         ls -la filter_engine/
-        echo ""
-        echo "=== Check if test file exists in root ==="
-        if [ -f "test_filter_engine.py" ]; then
-          echo "✅ test_filter_engine.py found in root"
-        else
-          echo "❌ test_filter_engine.py NOT found in root"
-        fi
     
     - name: Run test script
       run: python test_filter_engine.py
