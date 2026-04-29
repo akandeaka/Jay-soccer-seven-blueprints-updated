@@ -2,121 +2,44 @@ name: Test Filter Engine
 
 on:
   push:
-    branches: [ main, master, develop, test/filter-engine ]
-    paths:
-      - 'filter_engine/**'
-      - 'run_filtered_bot.py'
-      - 'test_filter_engine.py'
-  pull_request:
-    branches: [ main, master ]
-  workflow_dispatch:  # Allows manual trigger
+    branches: [ main, master, test/filter-engine ]
+  workflow_dispatch:
 
 jobs:
-  test-filter-engine:
+  test:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4  # Updated to v4
+    - uses: actions/checkout@v4
     
-    - name: Set up Python
-      uses: actions/setup-python@v5  # Updated to v5
+    - name: Setup Python
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.11'  # Using newer Python version
+        python-version: '3.11'
     
     - name: Install dependencies
       run: |
-        pip install --upgrade pip
-        pip install pandas requests openpyxl
+        pip install pandas
     
-    - name: Create test blueprint data
+    - name: List files (debug)
       run: |
-        # Create a test blueprint output file
-        cat > test_blueprint_output.txt << 'EOF'
-        📊 Summary:
-           🟢 Blueprint 1: 5 matches
-           🟢 Blueprint 2: 1 matches
-           🟡 Blueprint 3: 3 matches
-           🟡 Blueprint 4: 11 matches
-           🟡 Blueprint 5: 19 matches
-           🔴 Blueprint 6: 105 matches
-           🔴 Blueprint 7: 61 matches
-        
-        🔍 Total qualifying matches: 205
-        📊 Total scanned: 251
-        
-        🟡 1. BP7: THE HIGH-SCORING SIGNALS (B)
-           🏟️ Den Bosch vs Almere City
-           🏆 Eredivisie - Relegation - Play Offs
-           📊 Odds: 2.55 | 3.6 | 2.45
-           🎯 Play: HT 0.5 Goals / Over 2.5 Goals
-           ⚠️ Risk: Moderate-High
-        
-        🔴 2. BP6: THE STRONG DRAW
-           🏟️ Atl. Madrid vs Arsenal
-           🏆 Champions League - Play Offs
-           📊 Odds: 2.9 | 3.25 | 2.5
-           🎯 Play: Full Time Draw (X) Potential
-           ⚠️ Risk: High (Strategic)
-        
-        🟢 3. BP1: THE ELITE HOME BANKER
-           🏟️ Entebbe UPPC vs Calvary
-           🏆 Premier League
-           📊 Odds: 1.28 | 4.2 | 12.2
-           🎯 Play: Straight Home Win
-           ⚠️ Risk: Ultra-Low
-        EOF
+        echo "=== Root directory ==="
+        ls -la
+        echo ""
+        echo "=== filter_engine directory ==="
+        ls -la filter_engine/
     
-    - name: Test filter engine parsing
-      run: |
-        python -c "
-        from filter_engine import BlueprintFilterEngine
-        import sys
-        
-        print('Testing BlueprintFilterEngine...')
-        engine = BlueprintFilterEngine()
-        
-        with open('test_blueprint_output.txt', 'r') as f:
-            text = f.read()
-        
-        matches = engine.parse_blueprint_text(text)
-        print(f'✅ Parsed {len(matches)} matches')
-        
-        if len(matches) == 0:
-            print('❌ No matches parsed')
-            sys.exit(1)
-        
-        results = engine.process_matches(matches)
-        print(f'✅ Processed {len(results)} results')
-        
-        high_conf = len(results[results['Confidence'] >= 65])
-        print(f'✅ High confidence matches: {high_conf}')
-        
-        print('All parsing tests passed!')
-        "
+    - name: Run test script
+      run: python test_filter_engine.py
     
-    - name: Run full test script
-      run: |
-        python test_filter_engine.py
+    - name: Run main bot
+      run: python run_filtered_bot.py
     
-    - name: Upload test results
-      if: always()  # Upload even if tests fail
-      uses: actions/upload-artifact@v4  # Updated to v4 (MUST use v4)
-      with:
-        name: test-outputs
-        path: |
-          test_*.csv
-          test_*.txt
-          filter_bot_state.json
-          filter_bot.log
-        retention-days: 7  # How long to keep artifacts
-    
-    - name: Upload filtered results (if exists)
+    - name: Upload results
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: filtered-results
+        name: test-outputs
         path: |
-          filtered_results_backup.csv
-          top_20_picks.csv
-        retention-days: 7
+          *.csv
+          *.log
