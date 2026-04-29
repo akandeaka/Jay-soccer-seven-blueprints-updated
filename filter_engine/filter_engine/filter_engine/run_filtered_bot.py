@@ -40,11 +40,15 @@ class BlueprintWrapper:
     
     def run_existing_blueprint_system(self) -> tuple:
         """
-        CALL YOUR EXISTING BLUEPRINT SYSTEM HERE
-        This function should execute your current blueprint scanning code
-        and return:
-        1. The raw blueprint output text
-        2. The total number of qualifying matches
+    def run_existing_blueprint_system(self) -> tuple:
+    # Import your existing blueprint module
+    from your_existing_module import BlueprintScanner
+    
+    # Run your scanner
+    scanner = BlueprintScanner()
+    blueprint_text, total_qualified = scanner.scan()  # Adjust based on your actual function
+    
+    return blueprint_text, total_qualified
         """
         
         # ================================================================
