@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test script for Filter Engine - Run this file directly
+Test script for Filter Engine - No external dependencies needed
 """
 
 import sys
@@ -88,28 +88,71 @@ def test_confidence():
     
     from filter_engine import BlueprintFilterEngine
     
+    engine = BlueprintFilterEngine()
+    
+    # Create test match
     test_match = {
         'blueprint': 'BP1',
         'color': '🟢',
-        'home_odds': 1.28,
-        'draw_odds': 4.2,
-        'away_odds': 12.2,
-        'play': 'Straight Home Win',
+        'match': 'Test vs Match',
         'league': 'Premier League',
-        'match': 'Test vs Match'
+        'home_odds': 1.28,
+        'draw_odds': 4.20,
+        'away_odds': 12.20,
+        'play': 'Straight Home Win',
+        'risk': 'Ultra-Low'
     }
     
-    engine = BlueprintFilterEngine()
     confidence = engine.calculate_confidence_score(test_match)
-    
     print(f"Test match confidence: {confidence}%")
     
     if confidence >= 80:
         print("✅ High confidence as expected")
     else:
-        print(f"⚠️ Confidence: {confidence}%")
+        print(f"⚠️ Confidence is {confidence}% (expected higher for BP1)")
     
     return True
+
+
+def test_processing():
+    """Test the full processing pipeline"""
+    print("\n" + "="*60)
+    print("TEST 4: Full Processing Pipeline")
+    print("="*60)
+    
+    from filter_engine import BlueprintFilterEngine
+    
+    test_data = """
+🟢 1. BP1: THE ELITE HOME BANKER
+   🏟️ Entebbe UPPC vs Calvary
+   🏆 Premier League
+   📊 Odds: 1.28 | 4.2 | 12.2
+   🎯 Play: Straight Home Win
+   ⚠️ Risk: Ultra-Low
+
+🟡 2. BP7: THE HIGH-SCORING SIGNALS (A)
+   🏟️ Tromso vs Brann
+   🏆 Eliteserien
+   📊 Odds: 1.95 | 3.5 | 3.8
+   🎯 Play: GG / Over 2.5 Goals
+   ⚠️ Risk: Moderate-High
+"""
+    
+    engine = BlueprintFilterEngine()
+    matches = engine.parse_blueprint_text(test_data)
+    results_df = engine.process_matches(matches)
+    
+    print(f"✅ Processed {len(results_df)} results")
+    print("\nResults preview:")
+    for idx, row in results_df.head(5).iterrows():
+        print(f"   {row['Tier']} | {row['Confidence']}% | {row['Blueprint']} | {row['Match'][:30]}...")
+    
+    if len(results_df) > 0:
+        print("\n✅ Processing test PASSED")
+        return True
+    else:
+        print("\n❌ Processing test FAILED")
+        return False
 
 
 def run_all_tests():
@@ -122,6 +165,7 @@ def run_all_tests():
         ("Module Imports", test_imports),
         ("Blueprint Parsing", test_parsing),
         ("Confidence Calculation", test_confidence),
+        ("Full Processing", test_processing),
     ]
     
     passed = 0
@@ -135,6 +179,8 @@ def run_all_tests():
                 failed += 1
         except Exception as e:
             print(f"\n❌ Test '{name}' crashed: {e}")
+            import traceback
+            traceback.print_exc()
             failed += 1
     
     print("\n" + "="*60)
@@ -146,10 +192,10 @@ def run_all_tests():
     if failed == 0:
         print("\n🎉 ALL TESTS PASSED!")
         print("\n✅ Filter engine is ready to use")
+        return True
     else:
         print("\n⚠️ Some tests failed. Please check the errors above.")
-    
-    return failed == 0
+        return False
 
 
 if __name__ == "__main__":
