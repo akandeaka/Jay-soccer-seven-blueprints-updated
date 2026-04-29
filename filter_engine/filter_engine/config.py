@@ -4,8 +4,8 @@ Configuration for Filter Engine
 
 class FilterConfig:
     # Telegram Bot Configuration
-    TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"  # REPLACE WITH YOUR ACTUAL TOKEN
-    TELEGRAM_CHAT_ID = "YOUR_CHAT_ID_HERE"     # REPLACE WITH YOUR ACTUAL CHAT ID
+    TELEGRAM_BOT_TOKEN = "8634288532:AAEGeI0DaqNIklrx8jWrLnW7dzhc41_wrS4"
+    TELEGRAM_CHAT_ID = "401821398"
     
     # Filter thresholds
     HIGH_CONFIDENCE_THRESHOLD = 65
@@ -14,18 +14,18 @@ class FilterConfig:
     # Output settings
     TOP_MATCHES_TO_SHOW = 20
     
-    # Blueprint weights (based on historical trends)
+    # Blueprint weights
     BLUEPRINT_WEIGHTS = {
-        'BP1': 95,   # Elite Home Banker
-        'BP2': 85,   # Primary Favorite
-        'BP3': 80,   # Moderate Favorite Safety
-        'BP4': 65,   # Goal Engine
-        'BP5': 60,   # Defensive Trap
-        'BP6': 40,   # Strong Draw
-        'BP7': 55    # High-Scoring Signals
+        'BP1': 95,
+        'BP2': 85,
+        'BP3': 80,
+        'BP4': 65,
+        'BP5': 60,
+        'BP6': 40,
+        'BP7': 55
     }
     
-    # Competition trust weights (matches with 0 are auto-rejected)
+    # Competition trust weights
     COMPETITION_WEIGHTS = {
         'Champions League': 90,
         'Eredivisie': 85,
@@ -34,8 +34,7 @@ class FilterConfig:
         'J1 League': 80,
         'Serie A': 85,
         'LaLiga': 85,
-        'Super League': 60,
-        'Premier League': 65,
+        'Premier League': 90,
         'U20': 0,
         'Women': 0,
         'W': 0,
@@ -45,3 +44,21 @@ class FilterConfig:
         'Brasileiro U20': 0,
         'U19': 0
     }
+
+
+class IntegrationConfig:
+    """Configuration for integrating with your blueprint system"""
+    
+    # File-based integration (recommended for testing)
+    BLUEPRINT_OUTPUT_FILE = "blueprint_output.txt"
+    
+    # Module-based integration
+    BLUEPRINT_MODULE_PATH = None
+    BLUEPRINT_FUNCTION_NAME = "run_blueprint_scan"
+    
+    # API integration
+    API_ENDPOINT = None
+    API_KEY = None
+    
+    # Testing mode
+    USE_MOCK_DATA = True  # Set to False when ready for production
