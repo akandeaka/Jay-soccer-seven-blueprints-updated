@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Main entry point for Filtered Blueprint Bot
+Main entry point for Filtered Blueprint Bot - NOW WITH TELEGRAM SENDING
 """
 
 import sys
@@ -95,7 +95,10 @@ def main():
     
     # Initialize components
     filter_engine = BlueprintFilterEngine()
-    telegram = TelegramIntegrator()
+    telegram = TelegramIntegrator(
+        bot_token=FilterConfig.TELEGRAM_BOT_TOKEN,
+        chat_id=FilterConfig.TELEGRAM_CHAT_ID
+    )
     
     # Get blueprint data (replace this with your actual blueprint system)
     blueprint_text = create_sample_blueprint_data()
@@ -133,17 +136,25 @@ def main():
         print(f"   🎯 Play: {row['Play']}")
         print(f"   📈 Confidence: {row['Confidence']:.0f}%")
     
-    # Send to Telegram (or just preview)
+    # Send to Telegram - CHANGE THIS TO True TO ACTUALLY SEND
     print("\n" + "="*60)
     print("SENDING TO TELEGRAM...")
     print("="*60)
     
-    success = telegram.process_and_send(results_df, blueprint_text, total_qualified, send=False)
+    # 🔴 CHANGE THIS LINE: set send=True to actually send to Telegram
+    SEND_TO_TELEGRAM = True  # <-- CHANGE FROM False TO True
+    
+    success = telegram.process_and_send(
+        results_df, 
+        blueprint_text, 
+        total_qualified, 
+        send=SEND_TO_TELEGRAM  # Now set to True
+    )
     
     if success:
-        print("\n✅ Filtered results processed successfully!")
+        print("\n✅ Filtered results sent to Telegram successfully!")
     else:
-        print("\n⚠️ Issues occurred during processing")
+        print("\n⚠️ Failed to send to Telegram. Check your bot token and chat ID.")
     
     # Save results to CSV
     results_df.to_csv('filtered_results_backup.csv', index=False)
