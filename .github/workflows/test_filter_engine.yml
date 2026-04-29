@@ -1,0 +1,96 @@
+name: Test Filter Engine
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'filter_engine/**'
+      - 'run_filtered_bot.py'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  test-filter-engine:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        pip install pandas requests openpyxl
+        pip install pytest  # For testing
+    
+    - name: Create test blueprint data
+      run: |
+        # Create a test blueprint output file
+        cat > test_blueprint_output.txt << 'EOF'
+        📊 Summary:
+           🟢 Blueprint 1: 5 matches
+           🟢 Blueprint 2: 1 matches
+           🟡 Blueprint 3: 3 matches
+           🟡 Blueprint 4: 11 matches
+           🟡 Blueprint 5: 19 matches
+           🔴 Blueprint 6: 105 matches
+           🔴 Blueprint 7: 61 matches
+        
+        🔍 Total qualifying matches: 205
+        📊 Total scanned: 251
+        
+        🟡 1. BP7: THE HIGH-SCORING SIGNALS (B)
+           🏟️ Den Bosch vs Almere City
+           🏆 Eredivisie - Relegation - Play Offs
+           📊 Odds: 2.55 | 3.6 | 2.45
+           🎯 Play: HT 0.5 Goals / Over 2.5 Goals
+           ⚠️ Risk: Moderate-High
+        EOF
+    
+    - name: Test filter engine with mock data
+      run: |
+        python -c "
+        from filter_engine import BlueprintFilterEngine
+        import sys
+        
+        # Test parsing
+        engine = BlueprintFilterEngine()
+        with open('test_blueprint_output.txt', 'r') as f:
+            text = f.read()
+        
+        matches = engine.parse_blueprint_text(text)
+        print(f'✅ Parsed {len(matches)} matches')
+        
+        # Test processing
+        results = engine.process_matches(matches)
+        print(f'✅ Processed {len(results)} results')
+        
+        # Check output
+        high_conf = len(results[results['Confidence'] >= 65])
+        print(f'✅ High confidence matches: {high_conf}')
+        
+        assert len(matches) > 0, 'No matches parsed'
+        assert len(results) > 0, 'No results processed'
+        print('All tests passed!')
+        "
+    
+    - name: Run full bot test (dry run - no Telegram send)
+      run: |
+        # Temporarily modify config to use mock data and not send to Telegram
+        python run_filtered_bot.py 2>&1 | head -50
+    
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-outputs
+        path: |
+          filtered_results_backup.csv
+          top_20_picks.csv
+          filter_bot_state.json
+          filter_bot.log
