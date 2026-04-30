@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-PRODUCTION SYSTEM - CORRECT BLUEPRINT FORMAT FOR FILTER ENGINE
+PRODUCTION SYSTEM - READS YOUR EXACT CSV FORMAT
+Columns: Odds Home, Odds Draw, Odds Away (with spaces)
 """
 
 import sys
@@ -25,105 +26,105 @@ if not os.path.exists(CSV_FILE):
     print(f"❌ ERROR: {CSV_FILE} not found!")
     sys.exit(1)
 
+# Read CSV
 df = pd.read_csv(CSV_FILE)
 print(f"📥 Read {len(df)} total rows")
 
-# Filter valid odds
+# Show column names for debugging
+print(f"📋 Columns found: {list(df.columns)}")
+
+# ============================================================
+# FILTER MATCHES WITH VALID ODDS
+# ============================================================
+
+# Your columns: 'Odds Home', 'Odds Draw', 'Odds Away'
 odds_home_col = 'Odds Home'
 odds_draw_col = 'Odds Draw'
 odds_away_col = 'Odds Away'
 
+# Remove rows where odds are '-'
 df = df[df[odds_home_col] != '-']
 df = df[df[odds_draw_col] != '-']
 df = df[df[odds_away_col] != '-']
 
+# Convert to numeric
 df[odds_home_col] = pd.to_numeric(df[odds_home_col], errors='coerce')
 df[odds_draw_col] = pd.to_numeric(df[odds_draw_col], errors='coerce')
 df[odds_away_col] = pd.to_numeric(df[odds_away_col], errors='coerce')
-df = df.dropna()
+
+# Remove rows with NaN odds
+df = df.dropna(subset=[odds_home_col, odds_draw_col, odds_away_col])
 
 print(f"✅ {len(df)} matches with valid odds")
 
 if len(df) == 0:
-    print("❌ No valid matches")
+    print("❌ No valid matches found")
+    print("💡 Check that your CSV has odds in columns: Odds Home, Odds Draw, Odds Away")
     sys.exit(1)
 
 # ============================================================
-# BUILD BLUEPRINT TEXT IN THE EXACT FORMAT FILTER ENGINE EXPECTS
+# SHOW FIRST FEW MATCHES
 # ============================================================
 
-print("\n🔄 Building blueprint text...")
+print(f"\n📊 First 5 matches:")
+for i in range(min(5, len(df))):
+    row = df.iloc[i]
+    print(f"   {i+1}. {row['Home Team']} vs {row['Away Team']}")
+    print(f"      Odds: {row['Odds Home']} | {row['Odds Draw']} | {row['Odds Away']}")
 
-blueprint_lines = []
+# ============================================================
+# CONVERT TO BLUEPRINT FORMAT
+# ============================================================
+
+print("\n🔄 Converting to blueprint format...")
+
+blueprint_lines = ["📊 Summary:", f"   Total qualifying matches: {len(df)}", ""]
 
 for idx, row in df.iterrows():
     h = float(row['Odds Home'])
     d = float(row['Odds Draw'])
     a = float(row['Odds Away'])
     
-    # Determine blueprint type
+    # Determine blueprint type based on odds
     if h < 1.40:
-        bp_num = "1"
-        bp_name = "THE ELITE HOME BANKER"
+        bp = "🟢 BP1"
         play = "Straight Home Win"
         risk = "Ultra-Low"
     elif h < 1.70:
-        bp_num = "2"
-        bp_name = "THE PRIMARY FAVORITE"
+        bp = "🟢 BP2"
         play = "Home Win"
         risk = "Low"
     elif h < 2.00:
-        bp_num = "3"
-        bp_name = "THE MODERATE FAVORITE SAFETY"
+        bp = "🟡 BP3"
         play = "1X & Over 1.5 Goals"
         risk = "Low-Moderate"
     elif d < 3.20:
-        bp_num = "6"
-        bp_name = "THE STRONG DRAW"
+        bp = "🔴 BP6"
         play = "Full Time Draw"
         risk = "High (Strategic)"
     else:
-        bp_num = "7"
-        bp_name = "THE HIGH-SCORING SIGNALS"
+        bp = "🟡 BP7"
         play = "GG / Over 2.5 Goals"
         risk = "Moderate-High"
     
-    # EXACT FORMAT THAT FILTER ENGINE EXPECTS
-    blueprint_lines.append(f"🟡 {idx+1}. BP{bp_num}: {bp_name}")
+    bp_names = {
+        "🟢 BP1": "THE ELITE HOME BANKER",
+        "🟢 BP2": "THE PRIMARY FAVORITE",
+        "🟡 BP3": "THE MODERATE FAVORITE SAFETY",
+        "🔴 BP6": "THE STRONG DRAW",
+        "🟡 BP7": "THE HIGH-SCORING SIGNALS"
+    }
+    
+    blueprint_lines.append(f"{bp} {idx+1}. {bp_names.get(bp, 'MATCH')}")
     blueprint_lines.append(f"   🏟️ {row['Home Team']} vs {row['Away Team']}")
     blueprint_lines.append(f"   🏆 {row['Competition']}")
     blueprint_lines.append(f"   📊 Odds: {h} | {d} | {a}")
     blueprint_lines.append(f"   🎯 Play: {play}")
     blueprint_lines.append(f"   ⚠️ Risk: {risk}")
-    blueprint_lines.append("")  # Empty line between matches
+    blueprint_lines.append("")
 
 blueprint_text = "\n".join(blueprint_lines)
-
-# Add summary at the top
-summary = f"""📊 Summary:
-   🟢 Blueprint 1: 0 matches
-   🟢 Blueprint 2: 0 matches
-   🟡 Blueprint 3: 0 matches
-   🟡 Blueprint 4: 0 matches
-   🟡 Blueprint 5: 0 matches
-   🔴 Blueprint 6: 0 matches
-   🔴 Blueprint 7: 0 matches
-
-🔍 Total qualifying matches: {len(df)}
-📊 Total scanned: {len(df)}
-"""
-
-blueprint_text = summary + "\n" + blueprint_text
-
-print(f"✅ Built blueprint for {len(df)} matches")
-
-# Show preview
-print("\n📋 Blueprint preview (first 15 lines):")
-print("-" * 40)
-lines = blueprint_text.split('\n')
-for i in range(min(15, len(lines))):
-    print(lines[i])
-print("-" * 40)
+print(f"✅ Converted {len(df)} matches")
 
 # ============================================================
 # APPLY FILTER ENGINE
@@ -138,9 +139,9 @@ matches = engine.parse_blueprint_text(blueprint_text)
 print(f"✅ Parsed {len(matches)} matches")
 
 if len(matches) == 0:
-    print("\n❌ No matches parsed! Check the blueprint format.")
-    print("\nFull blueprint text preview:")
-    print(blueprint_text[:1000])
+    print("\n❌ No matches parsed!")
+    print("\nBlueprint preview:")
+    print(blueprint_text[:800])
     sys.exit(1)
 
 results_df = engine.process_matches(matches)
@@ -156,29 +157,7 @@ telegram = TelegramIntegrator(
     chat_id=FilterConfig.TELEGRAM_CHAT_ID
 )
 
-# Build message manually to avoid any formatting issues
-high_conf = len(results_df[results_df['Confidence'] >= 65])
-message = f"""
-⚽ FILTER ENGINE RESULTS - {datetime.now().strftime('%Y-%m-%d')}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-📊 Total matches scanned: {len(df)}
-✅ High confidence matches (65%+): {high_conf}
-
-🏆 TOP 20 PICKS:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"""
-
-for idx, row in results_df.head(20).iterrows():
-    message += f"""
-{row['Tier']} {row['Blueprint']}: {row['Match']}
-   🏆 {row['League']}
-   📊 Odds: {row['Home Odds']} | {row['Draw Odds']} | {row['Away Odds']}
-   🎯 Play: {row['Play']}
-   📈 Confidence: {row['Confidence']:.0f}%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"""
-
+message = telegram.build_telegram_message(results_df, blueprint_text, len(df))
 success = telegram.send_telegram_message(message)
 
 if success:
