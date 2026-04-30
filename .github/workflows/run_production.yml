@@ -1,7 +1,7 @@
 name: Run Production
 
 on:
-  workflow_dispatch:  # Manual trigger only
+  workflow_dispatch:
   push:
     branches: [ main, master ]
     paths:
@@ -22,15 +22,13 @@ jobs:
     - name: Install dependencies
       run: pip install pandas requests openpyxl
     
-    - name: Verify CSV exists
+    - name: List files
       run: |
-        if [ -f "matches_today.csv" ]; then
-          echo "✅ CSV found"
-          head -5 matches_today.csv
-        else
-          echo "❌ CSV NOT found!"
-          exit 1
-        fi
+        echo "CSV files:"
+        ls -la *.csv
+        echo ""
+        echo "First 5 lines of CSV:"
+        head -5 matches_today.csv
     
     - name: Run production
       env:
