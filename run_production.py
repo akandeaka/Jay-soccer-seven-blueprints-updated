@@ -7,13 +7,20 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from filter_engine import TelegramIntegrator, FilterConfig
 
 print("="*60)
-print("📊 DEBUG - CHECKING ALL BLUEPRINTS")
+print("📊 PRODUCTION SYSTEM - 25 MATCHES INCLUDING DRAWS")
+print(f"⏰ {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 print("="*60)
 
 CSV_FILE = "matches_today.csv"
-df = pd.read_csv(CSV_FILE)
 
-# Filter odds
+if not os.path.exists(CSV_FILE):
+    print(f"ERROR: {CSV_FILE} not found")
+    sys.exit(1)
+
+df = pd.read_csv(CSV_FILE)
+print(f"Loaded {len(df)} rows")
+
+# Filter valid odds
 df = df[df['Odds Home'] != '-']
 df = df[df['Odds Draw'] != '-']
 df = df[df['Odds Away'] != '-']
@@ -22,16 +29,10 @@ df['Odds Home'] = df['Odds Home'].astype(float)
 df['Odds Draw'] = df['Odds Draw'].astype(float)
 df['Odds Away'] = df['Odds Away'].astype(float)
 
-print(f"Total matches with odds: {len(df)}")
+print(f"Matches with odds: {len(df)}")
 
-# Check each blueprint separately
-bp1_matches = []
-bp2_matches = []
-bp3_matches = []
-bp4_matches = []
-bp5_matches = []
-bp6_matches = []
-bp7_matches = []
+# Store all qualified matches
+all_matches = []
 
 for _, row in df.iterrows():
     h = row['Odds Home']
@@ -40,92 +41,90 @@ for _, row in df.iterrows():
     
     # BP1: Home 1.20-1.29, Away >= 10.0
     if 1.20 <= h <= 1.29 and a >= 10.0:
-        bp1_matches.append(row)
+        all_matches.append(('BP1', 'THE ELITE HOME BANKER', 'Straight Home Win', 'Ultra-Low', 95, row))
     
     # BP2: Home 1.30-1.36, Away >= 9.0
     elif 1.30 <= h <= 1.36 and a >= 9.0:
-        bp2_matches.append(row)
+        all_matches.append(('BP2', 'THE PRIMARY FAVORITE', 'Home Win', 'Low', 90, row))
     
     # BP3: Home 1.30-1.36, Away 7.0-8.99
     elif 1.30 <= h <= 1.36 and 7.0 <= a <= 8.99:
-        bp3_matches.append(row)
+        all_matches.append(('BP3', 'THE MODERATE FAVORITE SAFETY', '1X & Over 1.5 Goals', 'Low-Moderate', 85, row))
     
     # BP4: Home 1.72-1.80
     elif 1.72 <= h <= 1.80:
-        bp4_matches.append(row)
+        all_matches.append(('BP4', 'THE GOAL ENGINE', 'Over 1.5 Goals', 'Moderate', 75, row))
     
     # BP5: Home 1.90-2.02
     elif 1.90 <= h <= 2.02:
-        bp5_matches.append(row)
+        all_matches.append(('BP5', 'THE DEFENSIVE TRAP', '1X & Under 3.5 FT', 'Moderate', 70, row))
     
     # BP6: Draw 2.75-3.39
     elif 2.75 <= d <= 3.39:
-        bp6_matches.append(row)
+        all_matches.append(('BP6', 'THE STRONG DRAW', 'Full Time Draw (X)', 'High (Strategic)', 50, row))
     
-    # BP7: Draw 3.40-3.75
-    elif 3.40 <= d <= 3.75:
-        bp7_matches.append(row)
+    # BP7A: Draw 3.40-3.56
+    elif 3.40 <= d <= 3.56:
+        all_matches.append(('BP7', 'THE HIGH-SCORING SIGNALS (A)', 'GG / Over 2.5 Goals', 'Moderate-High', 60, row))
+    
+    # BP7B: Draw 3.60-3.75
+    elif 3.60 <= d <= 3.75:
+        all_matches.append(('BP7', 'THE HIGH-SCORING SIGNALS (B)', 'HT 0.5 Goals / Over 2.5 Goals', 'Moderate-High', 60, row))
 
-print(f"\nBP1 (Home 1.20-1.29, Away>=10): {len(bp1_matches)}")
-for m in bp1_matches:
-    print(f"   {m['Home Team']} vs {m['Away Team']} - Home: {m['Odds Home']}, Away: {m['Odds Away']}")
+print(f"Total qualified for all blueprints: {len(all_matches)}")
 
-print(f"\nBP2 (Home 1.30-1.36, Away>=9): {len(bp2_matches)}")
-for m in bp2_matches:
-    print(f"   {m['Home Team']} vs {m['Away Team']} - Home: {m['Odds Home']}, Away: {m['Odds Away']}")
+if len(all_matches) == 0:
+    print("No matches qualified")
+    sys.exit(1)
 
-print(f"\nBP3 (Home 1.30-1.36, Away 7-8.99): {len(bp3_matches)}")
-for m in bp3_matches:
-    print(f"   {m['Home Team']} vs {m['Away Team']} - Home: {m['Odds Home']}, Away: {m['Odds Away']}")
+# Sort by confidence (higher first, but draws have lower confidence so they appear after)
+all_matches.sort(key=lambda x: x[4], reverse=True)
 
-print(f"\nBP4 (Home 1.72-1.80): {len(bp4_matches)}")
-for m in bp4_matches:
-    print(f"   {m['Home Team']} vs {m['Away Team']} - Home: {m['Odds Home']}")
+# Take top 25 matches
+top_matches = all_matches[:25]
 
-print(f"\nBP5 (Home 1.90-2.02): {len(bp5_matches)}")
-for m in bp5_matches:
-    print(f"   {m['Home Team']} vs {m['Away Team']} - Home: {m['Odds Home']}")
+print(f"\n📊 BREAKDOWN OF TOP 25:")
+bp_count = {}
+for m in top_matches:
+    bp = m[0]
+    bp_count[bp] = bp_count.get(bp, 0) + 1
+for bp, count in sorted(bp_count.items()):
+    print(f"   {bp}: {count} matches")
 
-print(f"\nBP6 (Draw 2.75-3.39): {len(bp6_matches)}")
-for m in bp6_matches:
-    print(f"   {m['Home Team']} vs {m['Away Team']} - Draw: {m['Odds Draw']}")
+# Build message
+msg = f"⚽ BLUEPRINT RESULTS - {datetime.now().strftime('%Y-%m-%d')}\n"
+msg += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+msg += f"📊 Total qualified: {len(all_matches)} | Showing TOP 25\n"
+msg += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
 
-print(f"\nBP7 (Draw 3.40-3.75): {len(bp7_matches)}")
-for m in bp7_matches:
-    print(f"   {m['Home Team']} vs {m['Away Team']} - Draw: {m['Odds Draw']}")
-
-# Combine all
-all_matches = bp1_matches + bp2_matches + bp3_matches + bp4_matches + bp5_matches + bp6_matches + bp7_matches
-print(f"\n TOTAL QUALIFIED: {len(all_matches)}")
-
-if all_matches:
-    # Build message
-    msg = f"⚽ ALL BLUEPRINT RESULTS - {datetime.now().strftime('%Y-%m-%d')}\n"
+for i, m in enumerate(top_matches, 1):
+    bp, name, play, risk, conf, row = m
+    
+    if conf >= 85:
+        tier = "🔥 GOLD"
+    elif conf >= 70:
+        tier = "✅ SILVER"
+    else:
+        tier = "⚠️ BRONZE"
+    
+    msg += f"\n{i}. {tier} {bp}: {name}\n"
+    msg += f"   🏟️ {row['Home Team']} vs {row['Away Team']}\n"
+    msg += f"   🏆 {row['Competition']}\n"
+    msg += f"   📊 {row['Odds Home']} | {row['Odds Draw']} | {row['Odds Away']}\n"
+    msg += f"   🎯 {play}\n"
+    msg += f"   ⚠️ {risk}\n"
+    msg += f"   📈 Confidence: {conf}%\n"
     msg += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-    
-    for i, row in enumerate(all_matches[:30], 1):
-        h, d, a = row['Odds Home'], row['Odds Draw'], row['Odds Away']
-        
-        # Determine which BP
-        if 2.75 <= d <= 3.39:
-            bp = "BP6 - STRONG DRAW"
-            play = "Full Time Draw"
-        elif 3.40 <= d <= 3.75:
-            bp = "BP7 - HIGH SCORING"
-            play = "GG / Over 2.5" if d <= 3.56 else "HT 0.5 / Over 2.5"
-        else:
-            bp = "BP1-5"
-            play = "Home Win"
-        
-        msg += f"\n{i}. {bp}\n"
-        msg += f"   {row['Home Team']} vs {row['Away Team']}\n"
-        msg += f"   {row['Competition']}\n"
-        msg += f"   Odds: {h}|{d}|{a}\n"
-        msg += f"   Play: {play}\n"
-        msg += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-    
-    telegram = TelegramIntegrator(bot_token=FilterConfig.TELEGRAM_BOT_TOKEN, chat_id=FilterConfig.TELEGRAM_CHAT_ID)
-    telegram.send_telegram_message(msg)
-    print("Sent to Telegram")
+
+# Send to Telegram
+telegram = TelegramIntegrator(bot_token=FilterConfig.TELEGRAM_BOT_TOKEN, chat_id=FilterConfig.TELEGRAM_CHAT_ID)
+
+if len(msg) > 4000:
+    telegram.send_telegram_message(msg[:3900])
+    telegram.send_telegram_message("CONTINUED...\n" + msg[3900:])
+    print("Sent in 2 parts")
 else:
-    print("No matches for any blueprint")
+    telegram.send_telegram_message(msg)
+    print("Sent successfully")
+
+print("\n✅ Done!")
