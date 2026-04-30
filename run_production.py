@@ -59,14 +59,15 @@ for _, row in df.iterrows():
     h = row['Odds Home']
     d = row['Odds Draw']
     a = row['Odds Away']
-    league = row['Competition']
+    league = str(row['Competition'])
     
     # BP1: ELITE HOME BANKER
     if 1.20 <= h <= 1.29 and a >= 10.0:
         bp1_matches.append({
             'bp': 'BP1', 'name': 'THE ELITE HOME BANKER',
             'play': 'Straight Home Win', 'risk': 'Ultra-Low',
-            'confidence': 95, 'row': row
+            'confidence': 95, 'row': row, 'league': league,
+            'is_elite': is_elite_league(league)
         })
     
     # BP2: PRIMARY FAVORITE
@@ -74,7 +75,8 @@ for _, row in df.iterrows():
         bp2_matches.append({
             'bp': 'BP2', 'name': 'THE PRIMARY FAVORITE',
             'play': 'Home Win', 'risk': 'Low',
-            'confidence': 90, 'row': row
+            'confidence': 90, 'row': row, 'league': league,
+            'is_elite': is_elite_league(league)
         })
     
     # BP3: MODERATE FAVORITE SAFETY
@@ -82,7 +84,8 @@ for _, row in df.iterrows():
         bp3_matches.append({
             'bp': 'BP3', 'name': 'THE MODERATE FAVORITE SAFETY',
             'play': '1X & Over 1.5 Goals', 'risk': 'Low-Moderate',
-            'confidence': 85, 'row': row
+            'confidence': 85, 'row': row, 'league': league,
+            'is_elite': is_elite_league(league)
         })
     
     # BP4: GOAL ENGINE
@@ -90,7 +93,8 @@ for _, row in df.iterrows():
         bp4_matches.append({
             'bp': 'BP4', 'name': 'THE GOAL ENGINE',
             'play': 'Over 1.5 Goals', 'risk': 'Moderate',
-            'confidence': 75, 'row': row
+            'confidence': 75, 'row': row, 'league': league,
+            'is_elite': is_elite_league(league)
         })
     
     # BP5: DEFENSIVE TRAP
@@ -98,7 +102,8 @@ for _, row in df.iterrows():
         bp5_matches.append({
             'bp': 'BP5', 'name': 'THE DEFENSIVE TRAP',
             'play': '1X & Under 3.5 FT', 'risk': 'Moderate',
-            'confidence': 70, 'row': row
+            'confidence': 70, 'row': row, 'league': league,
+            'is_elite': is_elite_league(league)
         })
     
     # BP6: STRONG DRAW - SWEET SPOT 3.00 to 3.39
@@ -106,9 +111,10 @@ for _, row in df.iterrows():
         bp6_matches.append({
             'bp': 'BP6', 'name': 'THE STRONG DRAW',
             'play': 'Full Time Draw (X)', 'risk': 'High (Strategic)',
-            'confidence': 70,  # Higher confidence for sweet spot
+            'confidence': 70,
             'row': row, 'league': league,
-            'is_elite': is_elite_league(league)
+            'is_elite': is_elite_league(league),
+            'draw_odds': d
         })
     
     # BP6 also includes 2.75-2.99 but with lower priority
@@ -118,7 +124,8 @@ for _, row in df.iterrows():
             'play': 'Full Time Draw (X)', 'risk': 'High (Strategic)',
             'confidence': 60,
             'row': row, 'league': league,
-            'is_elite': is_elite_league(league)
+            'is_elite': is_elite_league(league),
+            'draw_odds': d
         })
     
     # BP7: HIGH SCORING SIGNALS (3.40-3.75)
@@ -126,13 +133,15 @@ for _, row in df.iterrows():
         bp7_matches.append({
             'bp': 'BP7', 'name': 'THE HIGH-SCORING SIGNALS (A)',
             'play': 'GG / Over 2.5 Goals', 'risk': 'Moderate-High',
-            'confidence': 60, 'row': row
+            'confidence': 60, 'row': row, 'league': league,
+            'is_elite': is_elite_league(league)
         })
     elif 3.60 <= d <= 3.75:
         bp7_matches.append({
             'bp': 'BP7', 'name': 'THE HIGH-SCORING SIGNALS (B)',
             'play': 'HT 0.5 Goals / Over 2.5 Goals', 'risk': 'Moderate-High',
-            'confidence': 60, 'row': row
+            'confidence': 60, 'row': row, 'league': league,
+            'is_elite': is_elite_league(league)
         })
 
 print(f"\n📊 BLUEPRINT BREAKDOWN:")
@@ -141,24 +150,23 @@ print(f"   BP2 (Primary Favorite): {len(bp2_matches)}")
 print(f"   BP3 (Moderate Favorite): {len(bp3_matches)}")
 print(f"   BP4 (Goal Engine): {len(bp4_matches)}")
 print(f"   BP5 (Defensive Trap): {len(bp5_matches)}")
-print(f"   BP6 (Strong Draw 3.00-3.39 sweet spot): {len([m for m in bp6_matches if 3.00 <= m['row']['Odds Draw'] <= 3.39])}")
-print(f"   BP6 (Draw 2.75-2.99): {len([m for m in bp6_matches if 2.75 <= m['row']['Odds Draw'] <= 2.99])}")
+print(f"   BP6 (Strong Draw 3.00-3.39): {len([m for m in bp6_matches if 3.00 <= m['draw_odds'] <= 3.39])}")
+print(f"   BP6 (Draw 2.75-2.99): {len([m for m in bp6_matches if 2.75 <= m['draw_odds'] <= 2.99])}")
 print(f"   BP7 (High Scoring): {len(bp7_matches)}")
 
 # ============================================================
 # SELECT TOP 4 ELITE DRAWS FROM BP6
-# PRIORITIZE SWEET SPOT (3.00-3.39) OVER LOWER ODDS
 # ============================================================
 
 # Separate sweet spot draws (3.00-3.39) from lower draws (2.75-2.99)
-sweet_spot_draws = [m for m in bp6_matches if m['is_elite'] and 3.00 <= m['row']['Odds Draw'] <= 3.39]
+sweet_spot_draws = [m for m in bp6_matches if m['is_elite'] and 3.00 <= m['draw_odds'] <= 3.39]
 other_elite_draws = [m for m in bp6_matches if m['is_elite'] and m not in sweet_spot_draws]
 non_elite_draws = [m for m in bp6_matches if not m['is_elite']]
 
 # Sort sweet spot draws by draw odds (higher is better within range)
-sweet_spot_draws.sort(key=lambda x: x['row']['Odds Draw'], reverse=True)
-other_elite_draws.sort(key=lambda x: x['row']['Odds Draw'], reverse=True)
-non_elite_draws.sort(key=lambda x: x['row']['Odds Draw'], reverse=True)
+sweet_spot_draws.sort(key=lambda x: x['draw_odds'], reverse=True)
+other_elite_draws.sort(key=lambda x: x['draw_odds'], reverse=True)
+non_elite_draws.sort(key=lambda x: x['draw_odds'], reverse=True)
 
 # Take top 4 from sweet spot first, then other elites
 top_4_draws = sweet_spot_draws[:4]
@@ -171,8 +179,8 @@ remaining_draws = sweet_spot_draws[4:] + other_elite_draws + non_elite_draws
 print(f"\n🎯 TOP 4 ELITE DRAWS (Sweet Spot 3.00-3.39 preferred):")
 for i, m in enumerate(top_4_draws[:4], 1):
     row = m['row']
-    sweet_marker = " ✓ SWEET SPOT" if 3.00 <= row['Odds Draw'] <= 3.39 else ""
-    print(f"   {i}. {row['Home Team']} vs {row['Away Team']} - Draw: {row['Odds Draw']}{sweet_marker} ({row['Competition']})")
+    sweet_marker = " ✓ SWEET SPOT" if 3.00 <= m['draw_odds'] <= 3.39 else ""
+    print(f"   {i}. {row['Home Team']} vs {row['Away Team']} - Draw: {m['draw_odds']}{sweet_marker} ({row['Competition']})")
 
 # ============================================================
 # BUILD TOP 25 - ALL BLUEPRINTS REPRESENTED
@@ -180,10 +188,10 @@ for i, m in enumerate(top_4_draws[:4], 1):
 
 top_25 = []
 
-# STEP 1: Add top 4 elite draws (BP6) - sweet spot prioritized
+# STEP 1: Add top 4 elite draws (BP6)
 top_25.extend(top_4_draws)
 
-# STEP 2: Add remaining BP6 draws
+# STEP 2: Add remaining BP6 draws (up to 3 more)
 top_25.extend(remaining_draws[:3])
 
 # STEP 3: Add BP7 matches
@@ -210,6 +218,7 @@ top_25.extend(bp4_sorted[:2])
 bp5_sorted = sorted(bp5_matches, key=lambda x: x['confidence'], reverse=True)
 top_25.extend(bp5_sorted[:2])
 
+# Ensure exactly 25 matches
 top_25 = top_25[:25]
 
 print(f"\n📊 FINAL TOP 25 COMPOSITION:")
@@ -243,7 +252,7 @@ for i, m in enumerate(top_25, 1):
         tier = "⚠️ BRONZE"
     
     # Mark sweet spot draws
-    if i <= 4 and m['bp'] == 'BP6' and 3.00 <= row['Odds Draw'] <= 3.39:
+    if i <= 4 and m['bp'] == 'BP6' and 3.00 <= m.get('draw_odds', 0) <= 3.39:
         draw_marker = " 🎯 SWEET SPOT DRAW"
     elif i <= 4 and m['bp'] == 'BP6':
         draw_marker = " 🎯 ELITE DRAW"
