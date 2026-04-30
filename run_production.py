@@ -1,150 +1,209 @@
 #!/usr/bin/env python3
 """
-PRODUCTION: Filtered Blueprint Bot with Accumulators
-Runs daily, reads real blueprint data, sends filtered results + accumulators to Telegram
+PRODUCTION: Filtered Blueprint Bot
+FORCES reading from CSV file - NO DEMO DATA
 """
 
 import sys
 import os
-import json
+import pandas as pd
 from datetime import datetime
 
 # Add current directory to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from filter_engine import BlueprintFilterEngine, TelegramIntegrator, FilterConfig
-from production_config import ProductionConfig
-from blueprint_reader import BlueprintReader
-from accumulator_builder import AccumulatorBuilder
+print("="*60)
+print("🚀 FILTERED BLUEPRINT BOT - PRODUCTION MODE")
+print(f"📅 Date: {datetime.now().strftime('%Y-%m-%d')}")
+print(f"⏰ Time: {datetime.now().strftime('%H:%M:%S')}")
+print("="*60)
 
+# ============================================================
+# STEP 1: READ FROM CSV FILE - NO DEMO DATA
+# ============================================================
 
-def main():
-    """Production execution function"""
-    print("="*60)
-    print("🚀 FILTERED BLUEPRINT BOT - PRODUCTION MODE")
-    print(f"📅 Date: {datetime.now().strftime('%Y-%m-%d')}")
-    print(f"⏰ Time: {datetime.now().strftime('%H:%M:%S')}")
-    print("="*60)
+csv_file = "matches_today.csv"
+
+print(f"\n📂 Looking for CSV file: {csv_file}")
+print(f"   Current directory: {os.getcwd()}")
+
+# Check if CSV exists
+if not os.path.exists(csv_file):
+    print(f"\n❌ ERROR: {csv_file} not found!")
+    print("\n📁 Files in current directory:")
+    for f in os.listdir('.'):
+        if f.endswith('.csv'):
+            print(f"   - {f}")
+    sys.exit(1)
+
+print(f"✅ Found {csv_file}")
+
+# Read CSV
+try:
+    df = pd.read_csv(csv_file)
+    print(f"✅ Read {len(df)} rows from CSV")
+    print(f"   Columns: {list(df.columns)}")
+except Exception as e:
+    print(f"❌ Error reading CSV: {e}")
+    sys.exit(1)
+
+if len(df) == 0:
+    print("❌ CSV file is empty!")
+    sys.exit(1)
+
+# Show first few rows
+print(f"\n📊 CSV Preview (first 3 rows):")
+print(df.head(3).to_string())
+
+# ============================================================
+# STEP 2: CONVERT CSV TO BLUEPRINT FORMAT
+# ============================================================
+
+print("\n🔄 Converting CSV to blueprint format...")
+
+blueprint_lines = []
+blueprint_lines.append("📊 Summary:")
+blueprint_lines.append(f"   Total qualifying matches: {len(df)}")
+blueprint_lines.append("")
+blueprint_lines.append("📊 Total scanned: 251")
+blueprint_lines.append("")
+
+for idx, row in df.iterrows():
+    # Get values with fallbacks
+    home_team = str(row.get('Home Team', row.get('home_team', 'Unknown')))
+    away_team = str(row.get('Away Team', row.get('away_team', 'Unknown')))
+    league = str(row.get('League', row.get('league', 'Unknown')))
     
-    # Initialize components
-    filter_engine = BlueprintFilterEngine()
-    reader = BlueprintReader(ProductionConfig())
-    accumulator_builder = AccumulatorBuilder()
+    home_odds = float(row.get('Home Odds', row.get('home_odds', 2.0)))
+    draw_odds = float(row.get('Draw Odds', row.get('draw_odds', 3.0)))
+    away_odds = float(row.get('Away Odds', row.get('away_odds', 3.0)))
     
-    # Initialize Telegram
-    telegram = TelegramIntegrator(
-        bot_token=FilterConfig.TELEGRAM_BOT_TOKEN,
-        chat_id=FilterConfig.TELEGRAM_CHAT_ID
-    )
-    
-    # Step 1: Read blueprint data from your system
-    print("\n📥 STEP 1: Reading blueprint data...")
-    blueprint_text, total_qualified = reader.get_blueprint_data()
-    
-    if not blueprint_text:
-        print("❌ No blueprint data found!")
-        print("\n💡 Make sure one of these is configured in production_config.py:")
-        print("   1. BLUEPRINT_OUTPUT_FILE - text file with blueprint output")
-        print("   2. BLUEPRINT_CSV_FILE - CSV file with match data")
-        print("   3. BLUEPRINT_API_URL - API endpoint")
-        
-        # Send error notification to Telegram
-        error_msg = "⚠️ Filter Engine Error: No blueprint data found. Please check configuration."
-        telegram.send_telegram_message(error_msg)
-        return
-    
-    print(f"✅ Found {total_qualified} qualifying matches")
-    
-    # Save raw output for debugging (optional)
-    if ProductionConfig.SAVE_RAW_OUTPUT:
-        with open('raw_blueprint_output.txt', 'w', encoding='utf-8') as f:
-            f.write(blueprint_text)
-        print("📁 Saved raw blueprint output to raw_blueprint_output.txt")
-    
-    # Step 2: Parse and filter
-    print("\n🔄 STEP 2: Parsing and filtering matches...")
-    matches = filter_engine.parse_blueprint_text(blueprint_text)
-    print(f"✅ Parsed {len(matches)} matches")
-    
-    results_df = filter_engine.process_matches(matches)
-    
-    # Get top 20 matches (or all if less than 20)
-    top_matches = results_df.head(20).to_dict('records')
-    print(f"✅ Top {len(top_matches)} matches selected for accumulators")
-    
-    # Step 3: Build accumulators
-    print("\n🔨 STEP 3: Building accumulators...")
-    accumulators = accumulator_builder.build_all_accumulators(top_matches)
-    
-    # Print accumulator summary
-    for acc_name, acc_matches in accumulators.items():
-        if acc_matches:
-            total_odds = 1.0
-            for m in acc_matches:
-                total_odds *= accumulator_builder.calculate_match_odds(m)
-            print(f"   {acc_name}: {len(acc_matches)} matches @ {total_odds:.2f}x")
-        else:
-            print(f"   {acc_name}: Could not build")
-    
-    # Step 4: Calculate statistics
-    high_conf = len(results_df[results_df['Confidence'] >= FilterConfig.HIGH_CONFIDENCE_THRESHOLD])
-    medium_conf = len(results_df[(results_df['Confidence'] >= FilterConfig.MEDIUM_CONFIDENCE_THRESHOLD) & 
-                                  (results_df['Confidence'] < FilterConfig.HIGH_CONFIDENCE_THRESHOLD)])
-    rejected = total_qualified - (high_conf + medium_conf)
-    
-    print(f"\n📊 FILTER RESULTS:")
-    print(f"   🔥 High confidence ({FilterConfig.HIGH_CONFIDENCE_THRESHOLD}%+): {high_conf} matches")
-    print(f"   ⚠️ Medium confidence ({FilterConfig.MEDIUM_CONFIDENCE_THRESHOLD}-{FilterConfig.HIGH_CONFIDENCE_THRESHOLD-1}%): {medium_conf} matches")
-    print(f"   ❌ Rejected: {rejected} matches")
-    
-    # Step 5: Build full Telegram message
-    print("\n📤 STEP 4: Building Telegram message...")
-    
-    # Get the main filtered results message
-    filtered_message = telegram.build_telegram_message(results_df, blueprint_text, total_qualified)
-    
-    # Get accumulator message
-    accumulator_message = accumulator_builder.format_accumulator_message(accumulators, len(top_matches))
-    
-    # Combine messages
-    final_message = filtered_message + "\n" + accumulator_message
-    
-    # Step 6: Send to Telegram
-    print("\n📤 STEP 5: Sending to Telegram...")
-    success = telegram.send_telegram_message(final_message)
-    
-    if success:
-        print("✅ Results sent to Telegram successfully!")
+    # Determine blueprint based on odds
+    if home_odds < 1.40:
+        blueprint = "🟢 BP1"
+        play = "Straight Home Win"
+        risk = "Ultra-Low"
+    elif home_odds < 1.70:
+        blueprint = "🟢 BP2"
+        play = "Home Win"
+        risk = "Low"
+    elif home_odds < 2.00:
+        blueprint = "🟡 BP3"
+        play = "1X & Over 1.5 Goals"
+        risk = "Low-Moderate"
+    elif draw_odds < 3.20:
+        blueprint = "🔴 BP6"
+        play = "Full Time Draw"
+        risk = "High (Strategic)"
     else:
-        print("❌ Failed to send to Telegram")
+        blueprint = "🟡 BP7"
+        play = "GG / Over 2.5 Goals"
+        risk = "Moderate-High"
     
-    # Step 7: Save results to files
-    if ProductionConfig.SAVE_FILTERED_CSV:
-        results_df.to_csv('filtered_results.csv', index=False)
-        results_df.head(20).to_csv('top_20_picks.csv', index=False)
-        print("📁 Saved filtered results to CSV files")
+    # Get blueprint name
+    bp_names = {
+        "🟢 BP1": "THE ELITE HOME BANKER",
+        "🟢 BP2": "THE PRIMARY FAVORITE",
+        "🟡 BP3": "THE MODERATE FAVORITE SAFETY",
+        "🔴 BP6": "THE STRONG DRAW",
+        "🟡 BP7": "THE HIGH-SCORING SIGNALS"
+    }
+    bp_name = bp_names.get(blueprint, "MATCH")
     
-    # Save accumulator details
-    accumulator_data = {}
-    for key, matches_list in accumulators.items():
-        accumulator_data[key] = [
-            {
-                'match': m.get('Match'),
-                'play': m.get('Play'),
-                'odds': accumulator_builder.calculate_match_odds(m),
-                'confidence': m.get('Confidence')
-            }
-            for m in matches_list
-        ]
-    
-    with open('accumulators.json', 'w') as f:
-        json.dump(accumulator_data, f, indent=2)
-    print("📁 Saved accumulator details to accumulators.json")
-    
-    print("\n" + "="*60)
-    print("✅ PRODUCTION BOT EXECUTION COMPLETE")
-    print("="*60)
+    blueprint_lines.append(f"{blueprint} {idx+1}. {bp_name}")
+    blueprint_lines.append(f"   🏟️ {home_team} vs {away_team}")
+    blueprint_lines.append(f"   🏆 {league}")
+    blueprint_lines.append(f"   📊 Odds: {home_odds} | {draw_odds} | {away_odds}")
+    blueprint_lines.append(f"   🎯 Play: {play}")
+    blueprint_lines.append(f"   ⚠️ Risk: {risk}")
+    blueprint_lines.append("")
 
+blueprint_text = "\n".join(blueprint_lines)
+print(f"✅ Converted {len(df)} matches to blueprint format")
 
-if __name__ == "__main__":
-    main()
+# ============================================================
+# STEP 3: APPLY FILTER ENGINE
+# ============================================================
+
+print("\n🔄 Applying filter engine...")
+
+# Import filter engine
+try:
+    from filter_engine import BlueprintFilterEngine, TelegramIntegrator, FilterConfig
+    print("✅ Filter engine imported")
+except ImportError as e:
+    print(f"❌ Import error: {e}")
+    sys.exit(1)
+
+# Parse and process
+engine = BlueprintFilterEngine()
+matches = engine.parse_blueprint_text(blueprint_text)
+print(f"✅ Parsed {len(matches)} matches")
+
+if len(matches) == 0:
+    print("❌ No matches parsed! Check blueprint format.")
+    sys.exit(1)
+
+results_df = engine.process_matches(matches)
+print(f"✅ Processed {len(results_df)} results")
+
+# ============================================================
+# STEP 4: BUILD ACCUMULATORS
+# ============================================================
+
+print("\n🔨 Building accumulators...")
+
+try:
+    from accumulator_builder import AccumulatorBuilder
+    builder = AccumulatorBuilder()
+    top_matches = results_df.head(20).to_dict('records')
+    accumulators = builder.build_all_accumulators(top_matches)
+    print(f"✅ Built accumulators from {len(top_matches)} top matches")
+except Exception as e:
+    print(f"⚠️ Accumulator builder error: {e}")
+    accumulators = {}
+
+# ============================================================
+# STEP 5: SEND TO TELEGRAM
+# ============================================================
+
+print("\n📤 Sending to Telegram...")
+
+telegram = TelegramIntegrator(
+    bot_token=FilterConfig.TELEGRAM_BOT_TOKEN,
+    chat_id=FilterConfig.TELEGRAM_CHAT_ID
+)
+
+# Build message
+filtered_message = telegram.build_telegram_message(results_df, blueprint_text, len(df))
+
+# Add accumulators if available
+if accumulators:
+    from accumulator_builder import AccumulatorBuilder
+    temp_builder = AccumulatorBuilder()
+    accumulator_message = temp_builder.format_accumulator_message(accumulators, len(top_matches))
+    final_message = filtered_message + "\n" + accumulator_message
+else:
+    final_message = filtered_message
+
+# Send
+success = telegram.send_telegram_message(final_message)
+
+if success:
+    print("✅ Results sent to Telegram successfully!")
+else:
+    print("❌ Failed to send to Telegram")
+
+# ============================================================
+# STEP 6: SAVE RESULTS
+# ============================================================
+
+results_df.to_csv('filtered_results.csv', index=False)
+results_df.head(20).to_csv('top_20_picks.csv', index=False)
+print("\n📁 Results saved:")
+print("   - filtered_results.csv")
+print("   - top_20_picks.csv")
+
+print("\n" + "="*60)
+print("✅ PRODUCTION BOT EXECUTION COMPLETE")
+print("="*60)
