@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import sys, os, pandas as pd, itertools
+import sys, os, pandas as pd
 from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -17,9 +17,13 @@ if not os.path.exists(CSV_FILE):
     sys.exit(1)
 
 df = pd.read_csv(CSV_FILE)
-print(f"Loaded {len(df)} rows")
+print(f"Loaded {len(df)} total rows")
 
-# Use YOUR actual column names from the CSV
+# Count rows with '-' odds
+no_odds = df[df['Odds Home'] == '-'].shape[0]
+print(f"Rows without odds (-): {no_odds}")
+
+# Filter to only rows with actual odds
 df = df[df['Odds Home'] != '-']
 df = df[df['Odds Draw'] != '-']
 df = df[df['Odds Away'] != '-']
@@ -32,10 +36,10 @@ df = df.dropna()
 print(f"Matches with valid odds: {len(df)}")
 
 if len(df) == 0:
-    print("No valid matches")
+    print("No matches with valid odds")
     sys.exit(1)
 
-# Your 7 Blueprints - UNCHANGED
+# Your 7 Blueprints
 matches = []
 for _, row in df.iterrows():
     h = row['Odds Home']
@@ -59,23 +63,36 @@ for _, row in df.iterrows():
     elif 3.60 <= d <= 3.75:
         matches.append(('BP7', 'HIGH-SCORING SIGNALS', 'HT 0.5 / Over 2.5', 'Moderate-High', 60, row))
 
-print(f"Qualified: {len(matches)}")
+print(f"\nMatches that fit your blueprints: {len(matches)}")
 
 if len(matches) == 0:
-    print("No matches qualified")
+    print("\nNo matches fit your blueprint odds ranges.")
+    print("\nYour blueprint ranges:")
+    print("  BP1: Home 1.20-1.29, Away >= 10.0")
+    print("  BP2: Home 1.30-1.36, Away >= 9.0")
+    print("  BP3: Home 1.30-1.36, Away 7.0-8.99")
+    print("  BP4: Home 1.72-1.80")
+    print("  BP5: Home 1.90-2.02")
+    print("  BP6: Draw 2.75-3.39")
+    print("  BP7: Draw 3.40-3.75")
+    print("\nShowing all matches with odds for review:")
+    for _, row in df.iterrows():
+        print(f"  {row['Home Team']} vs {row['Away Team']} - Home: {row['Odds Home']}, Draw: {row['Odds Draw']}, Away: {row['Odds Away']}")
     sys.exit(1)
 
-# Top 20
+# Top matches (up to 20, or all if less)
 matches.sort(key=lambda x: x[4], reverse=True)
-top20 = matches[:20]
+top_matches = matches[:min(20, len(matches))]
+
+print(f"Sending {len(top_matches)} matches to Telegram")
 
 # Build message
 msg = f"⚽ BLUEPRINT RESULTS - {datetime.now().strftime('%Y-%m-%d')}\n"
 msg += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-msg += f"📊 Total: {len(df)} | Qualified: {len(matches)} | TOP {len(top20)}\n"
+msg += f"📊 Total with odds: {len(df)} | Qualified: {len(matches)} | Showing: {len(top_matches)}\n"
 msg += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
 
-for i, m in enumerate(top20, 1):
+for i, m in enumerate(top_matches, 1):
     bp, name, play, risk, conf, row = m
     tier = "🔥 GOLD" if conf >= 85 else "✅ SILVER" if conf >= 70 else "⚠️ BRONZE"
     msg += f"\n{i}. {tier} {bp}: {name}\n"
@@ -93,9 +110,7 @@ telegram = TelegramIntegrator(bot_token=FilterConfig.TELEGRAM_BOT_TOKEN, chat_id
 if len(msg) > 4000:
     telegram.send_telegram_message(msg[:3900])
     telegram.send_telegram_message("CONTINUED...\n" + msg[3900:])
-    print("Sent in 2 parts")
 else:
     telegram.send_telegram_message(msg)
-    print("Sent successfully")
 
 print("Done")
