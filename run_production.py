@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from filter_engine import TelegramIntegrator, FilterConfig
 
 print("="*60)
-print("📊 PRODUCTION SYSTEM - REFINED DRAW BLUEPRINTS")
+print("📊 PRODUCTION SYSTEM - BP6 DRAWS COMPULSORY")
 print(f"⏰ {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 print("="*60)
 
@@ -31,171 +31,167 @@ df['Odds Away'] = df['Odds Away'].astype(float)
 
 print(f"Matches with odds: {len(df)}")
 
-# Store all qualified matches
-all_matches = []
+# Separate collections
+bp6_matches = []      # Draw odds 2.75-3.39
+bp7_matches = []      # Draw odds 3.40-3.75
+bp1_5_matches = []    # Home win blueprints
 
 for _, row in df.iterrows():
     h = row['Odds Home']
     d = row['Odds Draw']
     a = row['Odds Away']
     
-    # ============================================================
-    # DRAW BLUEPRINTS (BP6 AND BP7) - CHECKED FIRST
-    # ============================================================
-    
-    # BP6: STRONG DRAW - Draw odds 2.75 to 3.39
+    # BP6: STRONG DRAW - Draw 2.75-3.39 (COMPULSORY)
     if 2.75 <= d <= 3.39:
-        all_matches.append({
+        bp6_matches.append({
             'bp': 'BP6',
             'name': 'THE STRONG DRAW',
             'play': 'Full Time Draw (X)',
             'risk': 'High (Strategic)',
-            'confidence': 55,
+            'confidence': 85,  # High confidence for forced placement
             'row': row,
-            'key_odds': d,
-            'odds_type': 'Draw'
+            'sort_odds': d
         })
     
-    # BP7A: HIGH-SCORING SIGNALS - Draw odds 3.40 to 3.56
+    # BP7: HIGH SCORING - Draw 3.40-3.75
     elif 3.40 <= d <= 3.56:
-        all_matches.append({
+        bp7_matches.append({
             'bp': 'BP7',
             'name': 'THE HIGH-SCORING SIGNALS (A)',
             'play': 'GG / Over 2.5 Goals',
             'risk': 'Moderate-High',
-            'confidence': 60,
+            'confidence': 70,
             'row': row,
-            'key_odds': d,
-            'odds_type': 'Draw'
+            'sort_odds': d
         })
-    
-    # BP7B: HIGH-SCORING SIGNALS - Draw odds 3.60 to 3.75
     elif 3.60 <= d <= 3.75:
-        all_matches.append({
+        bp7_matches.append({
             'bp': 'BP7',
             'name': 'THE HIGH-SCORING SIGNALS (B)',
             'play': 'HT 0.5 Goals / Over 2.5 Goals',
             'risk': 'Moderate-High',
-            'confidence': 60,
+            'confidence': 70,
             'row': row,
-            'key_odds': d,
-            'odds_type': 'Draw'
+            'sort_odds': d
         })
     
-    # ============================================================
-    # HOME WIN BLUEPRINTS (BP1-BP5)
-    # ============================================================
-    
-    # BP1: ELITE HOME BANKER - Home 1.20-1.29, Away >= 10.0
+    # BP1-BP5: Home Win Blueprints
     elif 1.20 <= h <= 1.29 and a >= 10.0:
-        all_matches.append({
+        bp1_5_matches.append({
             'bp': 'BP1',
             'name': 'THE ELITE HOME BANKER',
             'play': 'Straight Home Win',
             'risk': 'Ultra-Low',
             'confidence': 95,
             'row': row,
-            'key_odds': h,
-            'odds_type': 'Home'
+            'sort_odds': h
         })
-    
-    # BP2: PRIMARY FAVORITE - Home 1.30-1.36, Away >= 9.0
     elif 1.30 <= h <= 1.36 and a >= 9.0:
-        all_matches.append({
+        bp1_5_matches.append({
             'bp': 'BP2',
             'name': 'THE PRIMARY FAVORITE',
             'play': 'Home Win',
             'risk': 'Low',
             'confidence': 90,
             'row': row,
-            'key_odds': h,
-            'odds_type': 'Home'
+            'sort_odds': h
         })
-    
-    # BP3: MODERATE FAVORITE SAFETY - Home 1.30-1.36, Away 7.0-8.99
     elif 1.30 <= h <= 1.36 and 7.0 <= a <= 8.99:
-        all_matches.append({
+        bp1_5_matches.append({
             'bp': 'BP3',
             'name': 'THE MODERATE FAVORITE SAFETY',
             'play': '1X & Over 1.5 Goals',
             'risk': 'Low-Moderate',
             'confidence': 85,
             'row': row,
-            'key_odds': h,
-            'odds_type': 'Home'
+            'sort_odds': h
         })
-    
-    # BP4: GOAL ENGINE - Home 1.72-1.80
     elif 1.72 <= h <= 1.80:
-        all_matches.append({
+        bp1_5_matches.append({
             'bp': 'BP4',
             'name': 'THE GOAL ENGINE',
             'play': 'Over 1.5 Goals',
             'risk': 'Moderate',
             'confidence': 75,
             'row': row,
-            'key_odds': h,
-            'odds_type': 'Home'
+            'sort_odds': h
         })
-    
-    # BP5: DEFENSIVE TRAP - Home 1.90-2.02
     elif 1.90 <= h <= 2.02:
-        all_matches.append({
+        bp1_5_matches.append({
             'bp': 'BP5',
             'name': 'THE DEFENSIVE TRAP',
             'play': '1X & Under 3.5 FT',
-            'risk': 'Moderate (Value Pick)',
+            'risk': 'Moderate',
             'confidence': 70,
             'row': row,
-            'key_odds': h,
-            'odds_type': 'Home'
+            'sort_odds': h
         })
 
-print(f"\n📊 TOTAL QUALIFIED: {len(all_matches)}")
+print(f"\n📊 BREAKDOWN:")
+print(f"   BP6 (Draw 2.75-3.39): {len(bp6_matches)} matches")
+print(f"   BP7 (Draw 3.40-3.75): {len(bp7_matches)} matches")
+print(f"   BP1-BP5 (Home Wins): {len(bp1_5_matches)} matches")
 
-# Count by blueprint
-bp_counts = {}
-for m in all_matches:
+# ============================================================
+# BUILD TOP 25 - WITH BP6 COMPULSORY (MIN 4)
+# ============================================================
+
+top_25 = []
+
+# STEP 1: Add ALL BP6 matches first (compulsory)
+bp6_sorted = sorted(bp6_matches, key=lambda x: x['sort_odds'])  # Lower draw odds first
+top_25.extend(bp6_sorted[:4])  # Minimum 4 BP6 matches
+
+# STEP 2: Add remaining BP6 matches if any
+if len(bp6_sorted) > 4:
+    top_25.extend(bp6_sorted[4:])
+
+# STEP 3: Add BP7 matches (high scoring signals)
+bp7_sorted = sorted(bp7_matches, key=lambda x: x['confidence'], reverse=True)
+top_25.extend(bp7_sorted)
+
+# STEP 4: Add BP1-BP5 matches (home wins) sorted by confidence
+bp1_5_sorted = sorted(bp1_5_matches, key=lambda x: x['confidence'], reverse=True)
+top_25.extend(bp1_5_sorted)
+
+# Take only first 25
+top_25 = top_25[:25]
+
+print(f"\n📊 TOP 25 COMPOSITION:")
+bp_count = {}
+for m in top_25:
     bp = m['bp']
-    bp_counts[bp] = bp_counts.get(bp, 0) + 1
-
-print("\n📊 BREAKDOWN BY BLUEPRINT:")
+    bp_count[bp] = bp_count.get(bp, 0) + 1
 for bp in ['BP6', 'BP7', 'BP1', 'BP2', 'BP3', 'BP4', 'BP5']:
-    count = bp_counts.get(bp, 0)
+    count = bp_count.get(bp, 0)
     if count > 0:
         print(f"   {bp}: {count} matches")
 
-# Sort by confidence (higher first, but draws will be lower)
-all_matches.sort(key=lambda x: x['confidence'], reverse=True)
+# ============================================================
+# BUILD TELEGRAM MESSAGE
+# ============================================================
 
-# Take top 25
-top_matches = all_matches[:25]
-
-# Build message
-msg = f"⚽ BLUEPRINT RESULTS - DRAW INCLUDED\n"
-msg += f"📅 {datetime.now().strftime('%Y-%m-%d')}\n"
+msg = f"⚽ BLUEPRINT RESULTS - {datetime.now().strftime('%Y-%m-%d')}\n"
 msg += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-msg += f"📊 Total qualified: {len(all_matches)} | Showing TOP {len(top_matches)}\n"
+msg += f"📊 Total qualified: {len(bp6_matches) + len(bp7_matches) + len(bp1_5_matches)}\n"
+msg += f"🎯 BP6 Draws: {len(bp6_matches)} | Showing TOP 25\n"
 msg += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
 
-for i, m in enumerate(top_matches, 1):
+for i, m in enumerate(top_25, 1):
     row = m['row']
     
-    # Set tier based on confidence
-    if m['confidence'] >= 85:
+    # Set tier
+    if m['bp'] == 'BP1':
         tier = "🔥 GOLD"
-    elif m['confidence'] >= 70:
+    elif m['bp'] in ['BP2', 'BP3', 'BP4', 'BP5']:
         tier = "✅ SILVER"
     else:
         tier = "⚠️ BRONZE"
     
-    # Highlight draw plays
-    if m['bp'] in ['BP6', 'BP7']:
-        draw_indicator = " 🎯 DRAW SIGNAL"
-    else:
-        draw_indicator = ""
+    # Highlight BP6 draws
+    draw_marker = " 🎯 DRAW PICK" if m['bp'] == 'BP6' else ""
     
-    msg += f"{i}. {tier} {m['bp']}: {m['name']}{draw_indicator}\n"
+    msg += f"{i}. {tier} {m['bp']}: {m['name']}{draw_marker}\n"
     msg += f"   🏟️ {row['Home Team']} vs {row['Away Team']}\n"
     msg += f"   🏆 {row['Competition']}\n"
     msg += f"   📊 {row['Odds Home']} | {row['Odds Draw']} | {row['Odds Away']}\n"
@@ -215,4 +211,4 @@ else:
     telegram.send_telegram_message(msg)
     print("Sent successfully")
 
-print("\n✅ Done!")
+print("\n✅ Done! BP6 draws are compulsory in top 25")
