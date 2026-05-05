@@ -1,85 +1,130 @@
+import os
+import sys
 import pandas as pd
-import numpy as np
 from datetime import datetime
 
-print("=" * 60)
-print("📊 PRODUCTION SYSTEM - 25 MATCHES INCLUDING DRAWS")
-print(f"⏰ {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-print("=" * 60)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from filter_engine import TelegramIntegrator, FilterConfig
 
-# Load the CSV file
-df = pd.read_csv('matches_today (5).csv')
+print("="*60)
+print("ðŸ“Š PRODUCTION SYSTEM - 25 MATCHES INCLUDING DRAWS")
+print(f"â° {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+print("="*60)
 
+CSV_FILE = "matches_today.csv"
+
+if not os.path.exists(CSV_FILE):
+    print(f"ERROR: {CSV_FILE} not found")
+    sys.exit(1)
+
+df = pd.read_csv(CSV_FILE)
 print(f"Loaded {len(df)} rows")
 
-# === FIX: Clean odds columns before conversion ===
-odds_columns = ['Odds Home', 'Odds Draw', 'Odds Away']
+# Filter valid odds
+df = df[df['Odds Home'] != '-']
+df = df[df['Odds Draw'] != '-']
+df = df[df['Odds Away'] != '-']
 
-for col in odds_columns:
-    # Replace any non-numeric placeholders with NaN
-    df[col] = df[col].replace(['-', '', 'Scheduled', 'Finished', 'FRO', 'Awaiting', 'Half Time', 'Cancelled', 'Live'], np.nan)
-    # Convert to numeric, any invalid becomes NaN
-    df[col] = pd.to_numeric(df[col], errors='coerce')
-
-# Option 1: Keep only rows that have ALL three odds (for draw analysis)
-df_clean = df.dropna(subset=odds_columns)
-
-# Option 2: If you prefer to keep rows with at least one odd, use this instead:
-# df_clean = df.dropna(subset=['Odds Home', 'Odds Draw', 'Odds Away'], how='all')
-
-print(f"Rows with valid odds: {len(df_clean)}")
-print(f"Rows removed (invalid odds): {len(df) - len(df_clean)}")
-
-# Continue with the clean dataframe
-df = df_clean
-
-# Now these conversions will work safely
 df['Odds Home'] = df['Odds Home'].astype(float)
 df['Odds Draw'] = df['Odds Draw'].astype(float)
 df['Odds Away'] = df['Odds Away'].astype(float)
 
-# === Your existing analysis logic below ===
-# Example: Find matches with high draw probability
-df['Draw_Implied_Prob'] = 1 / df['Odds Draw']
-df['Draw_Edge'] = df['Draw_Implied_Prob'] - (1/3)  # Compare to 33.3% baseline
+print(f"Matches with odds: {len(df)}")
 
-# Top 10 matches most likely to end in a draw
-top_draws = df.nlargest(10, 'Draw_Implied_Prob')[['Home Team', 'Away Team', 'Competition', 'Odds Draw', 'Draw_Implied_Prob']]
+# Store all qualified matches
+all_matches = []
 
-print("\n" + "=" * 60)
-print("🎯 TOP 10 MATCHES MOST LIKELY TO END IN A DRAW")
-print("=" * 60)
-for idx, row in top_draws.iterrows():
-    print(f"{row['Home Team']} vs {row['Away Team']}")
-    print(f"  League: {row['Competition']} | Draw Odds: {row['Odds Draw']:.2f} ({row['Draw_Implied_Prob']:.1%})")
-    print()
+for _, row in df.iterrows():
+    h = row['Odds Home']
+    d = row['Odds Draw']
+    a = row['Odds Away']
+    
+    # BP1: Home 1.20-1.29, Away >= 10.0
+    if 1.20 <= h <= 1.29 and a >= 10.0:
+        all_matches.append(('BP1', 'THE ELITE HOME BANKER', 'Straight Home Win', 'Ultra-Low', 95, row))
+    
+    # BP2: Home 1.30-1.36, Away >= 9.0
+    elif 1.30 <= h <= 1.36 and a >= 9.0:
+        all_matches.append(('BP2', 'THE PRIMARY FAVORITE', 'Home Win', 'Low', 90, row))
+    
+    # BP3: Home 1.30-1.36, Away 7.0-8.99
+    elif 1.30 <= h <= 1.36 and 7.0 <= a <= 8.99:
+        all_matches.append(('BP3', 'THE MODERATE FAVORITE SAFETY', '1X & Over 1.5 Goals', 'Low-Moderate', 85, row))
+    
+    # BP4: Home 1.72-1.80
+    elif 1.72 <= h <= 1.80:
+        all_matches.append(('BP4', 'THE GOAL ENGINE', 'Over 1.5 Goals', 'Moderate', 75, row))
+    
+    # BP5: Home 1.90-2.02
+    elif 1.90 <= h <= 2.02:
+        all_matches.append(('BP5', 'THE DEFENSIVE TRAP', '1X & Under 3.5 FT', 'Moderate', 70, row))
+    
+    # BP6: Draw 2.75-3.39
+    elif 2.75 <= d <= 3.39:
+        all_matches.append(('BP6', 'THE STRONG DRAW', 'Full Time Draw (X)', 'High (Strategic)', 50, row))
+    
+    # BP7A: Draw 3.40-3.56
+    elif 3.40 <= d <= 3.56:
+        all_matches.append(('BP7', 'THE HIGH-SCORING SIGNALS (A)', 'GG / Over 2.5 Goals', 'Moderate-High', 60, row))
+    
+    # BP7B: Draw 3.60-3.75
+    elif 3.60 <= d <= 3.75:
+        all_matches.append(('BP7', 'THE HIGH-SCORING SIGNALS (B)', 'HT 0.5 Goals / Over 2.5 Goals', 'Moderate-High', 60, row))
 
-# Additional analysis: Draw odds range distribution
-print("=" * 60)
-print("📈 DRAW ODDS DISTRIBUTION")
-print("=" * 60)
-bins = [0, 2.5, 3.0, 3.5, 4.0, 5.0, float('inf')]
-labels = ['<2.50', '2.50-2.99', '3.00-3.49', '3.50-3.99', '4.00-4.99', '5.00+']
-df['Odds Draw Range'] = pd.cut(df['Odds Draw'], bins=bins, labels=labels)
-range_counts = df['Odds Draw Range'].value_counts().sort_index()
-for rng, count in range_counts.items():
-    pct = count / len(df) * 100
-    print(f"  {rng}: {count} matches ({pct:.1f}%)")
+print(f"Total qualified for all blueprints: {len(all_matches)}")
 
-# Group by competition for draw rate analysis
-print("\n" + "=" * 60)
-print("🏆 DRAW ODDS BY COMPETITION (Top 10 by avg draw probability)")
-print("=" * 60)
-comp_stats = df.groupby('Competition').agg({
-    'Odds Draw': 'mean',
-    'Draw_Implied_Prob': 'mean'
-}).round(3)
-comp_stats.columns = ['Avg Draw Odds', 'Avg Draw Prob']
-comp_stats = comp_stats.sort_values('Avg Draw Prob', ascending=False).head(10)
+if len(all_matches) == 0:
+    print("No matches qualified")
+    sys.exit(1)
 
-for comp, row in comp_stats.iterrows():
-    print(f"  {comp}: {row['Avg Draw Odds']:.2f} ({row['Avg Draw Prob']:.1%})")
+# Sort by confidence (higher first, but draws have lower confidence so they appear after)
+all_matches.sort(key=lambda x: x[4], reverse=True)
 
-print("\n" + "=" * 60)
-print("✅ Production run completed successfully")
-print("=" * 60)
+# Take top 25 matches
+top_matches = all_matches[:25]
+
+print(f"\nðŸ“Š BREAKDOWN OF TOP 25:")
+bp_count = {}
+for m in top_matches:
+    bp = m[0]
+    bp_count[bp] = bp_count.get(bp, 0) + 1
+for bp, count in sorted(bp_count.items()):
+    print(f"   {bp}: {count} matches")
+
+# Build message
+msg = f"âš½ BLUEPRINT RESULTS - {datetime.now().strftime('%Y-%m-%d')}\n"
+msg += "â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n"
+msg += f"ðŸ“Š Total qualified: {len(all_matches)} | Showing TOP 25\n"
+msg += "â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n"
+
+for i, m in enumerate(top_matches, 1):
+    bp, name, play, risk, conf, row = m
+    
+    if conf >= 85:
+        tier = "ðŸ”¥ GOLD"
+    elif conf >= 70:
+        tier = "âœ… SILVER"
+    else:
+        tier = "âš ï¸ BRONZE"
+    
+    msg += f"\n{i}. {tier} {bp}: {name}\n"
+    msg += f"   ðŸŸï¸ {row['Home Team']} vs {row['Away Team']}\n"
+    msg += f"   ðŸ† {row['Competition']}\n"
+    msg += f"   ðŸ“Š {row['Odds Home']} | {row['Odds Draw']} | {row['Odds Away']}\n"
+    msg += f"   ðŸŽ¯ {play}\n"
+    msg += f"   âš ï¸ {risk}\n"
+    msg += f"   ðŸ“ˆ Confidence: {conf}%\n"
+    msg += "â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n"
+
+# Send to Telegram
+telegram = TelegramIntegrator(bot_token=FilterConfig.TELEGRAM_BOT_TOKEN, chat_id=FilterConfig.TELEGRAM_CHAT_ID)
+
+if len(msg) > 4000:
+    telegram.send_telegram_message(msg[:3900])
+    telegram.send_telegram_message("CONTINUED...\n" + msg[3900:])
+    print("Sent in 2 parts")
+else:
+    telegram.send_telegram_message(msg)
+    print("Sent successfully")
+
+print("\nâœ… Done!")
