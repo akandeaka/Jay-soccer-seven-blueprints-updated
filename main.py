@@ -1,6 +1,36 @@
 """
 Main Orchestrator - Runs the complete system
 """
+def run(self, input_text: str = None):
+    """Run the complete system pipeline"""
+    
+    print("\n" + "="*60)
+    print("⚽ SOCCER BLUEPRINT SYSTEM WITH AI ANALYSIS")
+    print("="*60)
+    print(f"📅 Run started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    
+    # STEP 1: Parse input data
+    print("\n" + "─"*40)
+    print("📥 STEP 1: PARSING INPUT DATA")
+    print("─"*40)
+    
+    if input_text is None:
+        if os.path.exists(Config.INPUT_FILE):
+            with open(Config.INPUT_FILE, 'r') as f:
+                input_text = f.read()
+            print(f"✅ Loaded input from {Config.INPUT_FILE}")
+        else:
+            print(f"❌ No input file found. Please provide Soccer24 data.")
+            print(f"   Create {Config.INPUT_FILE} with copied data")
+            print(f"\n📝 Example format for {Config.INPUT_FILE}:")
+            print("   Manchester United vs Liverpool")
+            print("   Premier League")
+            print("   2.10 | 3.40 | 3.30")
+            print("   Over 2.5: 1.75 | Under 2.5: 2.05")
+            print("   BTTS Yes: 1.65 | BTTS No: 2.15")
+            return False
+    
+    # Continue with the rest of the code...
 
 import os
 import sys
