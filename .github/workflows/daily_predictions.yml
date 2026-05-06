@@ -111,3 +111,6 @@ jobs:
           performance_report.md
           validated_results.csv
           prediction_history.json
+          # .github/workflows/daily_predictions.yml
+env:
+  ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
