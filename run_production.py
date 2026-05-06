@@ -11,7 +11,7 @@ from datetime import datetime
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 # Import your Telegram module – adjust class name if needed
-from telegram_integration import TelegramIntegration
+from telegram_integration import TelegramIntegrator
 from config import FilterConfig  # assumed to contain bot token & chat id
 
 # ============================================================
