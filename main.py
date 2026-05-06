@@ -1,5 +1,5 @@
 """
-Main Orchestrator - Runs the complete system
+Main Orchestrator - Runs the complete system with API data
 """
 
 import os
@@ -14,6 +14,7 @@ from ai_analyzer import AIAnalyzer
 from accumulator_builder import AccumulatorBuilder
 from telegram_sender import TelegramSender
 from results_validator import ResultsValidator
+from api_fetcher import APIDataManager
 
 
 class SoccerBlueprintSystem:
@@ -30,48 +31,50 @@ class SoccerBlueprintSystem:
             self.config.TELEGRAM_CHAT_ID
         )
         self.validator = ResultsValidator()
+        self.api_manager = APIDataManager()
     
     def run(self, input_text: str = None):
         """
         Run the complete system pipeline
-        
-        Args:
-            input_text: Raw copied text from Soccer24
-                       If None, reads from input_matches.txt
+        Automatically uses API if available, otherwise falls back to manual input
         """
         print("\n" + "="*60)
         print("⚽ SOCCER BLUEPRINT SYSTEM WITH AI ANALYSIS")
         print("="*60)
         print(f"📅 Run started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         
-        # STEP 1: Parse input data
+        # STEP 1: Get match data (API first, then manual fallback)
         print("\n" + "─"*40)
-        print("📥 STEP 1: PARSING INPUT DATA")
+        print("📥 STEP 1: GETTING MATCH DATA")
         print("─"*40)
         
-        if input_text is None:
-            if os.path.exists(Config.INPUT_FILE):
-                with open(Config.INPUT_FILE, 'r') as f:
-                    input_text = f.read()
-                print(f"✅ Loaded input from {Config.INPUT_FILE}")
-            else:
-                print(f"❌ No input file found. Please provide Soccer24 data.")
-                print(f"   Create {Config.INPUT_FILE} with copied data")
-                print(f"\n📝 Example format for {Config.INPUT_FILE}:")
-                print("   Manchester United vs Liverpool")
-                print("   Premier League")
-                print("   2.10 | 3.40 | 3.30")
-                print("   Over 2.5: 1.75 | Under 2.5: 2.05")
-                print("   BTTS Yes: 1.65 | BTTS No: 2.15")
-                return False
+        df = pd.DataFrame()
         
-        matches = self.parser.parse_match_text(input_text)
-        df = self.parser.create_dataframe(matches)
-        print(f"✅ Parsed {len(matches)} matches")
+        # Try API first
+        if Config.USE_API:
+            print("🔄 Fetching data from API...")
+            df = self.api_manager.get_todays_matches()
+        
+        # Fallback to manual input if API fails or no data
+        if df.empty and input_text:
+            print("🔄 Falling back to manual input...")
+            matches = self.parser.parse_match_text(input_text)
+            df = self.parser.create_dataframe(matches)
+        elif df.empty and os.path.exists(Config.INPUT_FILE):
+            print("🔄 Falling back to input_matches.txt...")
+            with open(Config.INPUT_FILE, 'r') as f:
+                input_text = f.read()
+            matches = self.parser.parse_match_text(input_text)
+            df = self.parser.create_dataframe(matches)
         
         if df.empty:
-            print("❌ No matches parsed")
+            print("❌ No data available. Please check API keys or provide input_matches.txt")
+            print("\n💡 To fix:")
+            print("   1. Add ODDS_API_KEY to GitHub Secrets")
+            print("   2. OR create input_matches.txt manually")
             return False
+        
+        print(f"✅ Loaded {len(df)} matches for analysis")
         
         # STEP 2: Apply Blueprint Filter
         print("\n" + "─"*40)
@@ -95,6 +98,17 @@ class SoccerBlueprintSystem:
         print("\n" + "─"*40)
         print("🤖 STEP 3: AI ANALYSIS")
         print("─"*40)
+        
+        # For BP7 matches, fetch BTTS records from stats API
+        for match in bp_matches:
+            if match.get('blueprint') == 'BP7':
+                home_team = match.get('match', '').split(' vs ')[0]
+                league = match.get('league', '')
+                btts_record = self.api_manager.stats_fetcher.get_btts_record_for_match(
+                    home_team, '', league
+                )
+                if btts_record:
+                    match['btts_record'] = btts_record
         
         ai_analyzed = self.ai_analyzer.analyze_batch(bp_matches)
         print(f"✅ {len(ai_analyzed)} matches passed AI validation (≥60% confidence)")
@@ -143,7 +157,6 @@ class SoccerBlueprintSystem:
         print("💾 STEP 6: SAVING RESULTS")
         print("─"*40)
         
-        # Save predictions
         try:
             with open("predictions.json", "w") as f:
                 json.dump(ai_analyzed, f, indent=2)
@@ -156,7 +169,7 @@ class SoccerBlueprintSystem:
         print("✅ SYSTEM EXECUTION COMPLETE")
         print("="*60)
         print(f"📊 Summary:")
-        print(f"   Total input matches: {len(matches)}")
+        print(f"   Total input matches: {len(df)}")
         print(f"   Blueprint passed: {len(bp_matches)}")
         print(f"   AI validated: {len(ai_analyzed)}")
         
@@ -172,7 +185,7 @@ class SoccerBlueprintSystem:
 def main():
     """Main entry point"""
     
-    # Check if input provided via command line
+    # Check if input provided via command line (manual mode)
     if len(sys.argv) > 1:
         input_file = sys.argv[1]
         try:
