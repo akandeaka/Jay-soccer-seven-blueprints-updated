@@ -1,1 +1,17 @@
+Manchester United vs Liverpool
+Premier League
+2.10 | 3.40 | 3.30
+Over 2.5: 1.75 | Under 2.5: 2.05
+BTTS Yes: 1.65 | BTTS No: 2.15
 
+Real Madrid vs Barcelona
+La Liga
+1.85 | 3.60 | 4.00
+Over 2.5: 1.65 | Under 2.5: 2.20
+BTTS Yes: 1.55 | BTTS No: 2.35
+
+Bayern Munich vs Dortmund
+Bundesliga
+1.55 | 4.20 | 5.50
+Over 2.5: 1.45 | Under 2.5: 2.70
+BTTS Yes: 1.45 | BTTS No: 2.65
