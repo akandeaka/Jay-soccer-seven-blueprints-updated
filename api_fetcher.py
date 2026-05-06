@@ -24,9 +24,10 @@ class OddsAPIFetcher:
     def get_upcoming_matches(self, sport: str = 'soccer_epl') -> List[Dict]:
         """
         Fetch all upcoming matches with odds for today
+        Returns ONLY real data from API - NO DEMO DATA
         """
         if not self.api_key:
-            print("⚠️ No API key found. Falling back to manual input.")
+            print("⚠️ No API key found. Returning empty data.")
             return []
         
         url = f"{self.base_url}/sports/{sport}/odds"
@@ -52,11 +53,12 @@ class OddsAPIFetcher:
                 if match_data:
                     matches.append(match_data)
             
-            print(f"✅ Fetched {len(matches)} matches from The Odds API")
+            print(f"✅ Fetched {len(matches)} REAL matches from The Odds API")
             return matches
             
         except Exception as e:
             print(f"❌ Error fetching from Odds API: {e}")
+            print("   No demo data will be generated. Check your API key.")
             return []
     
     def _parse_fixture(self, fixture: Dict) -> Optional[Dict]:
@@ -65,8 +67,11 @@ class OddsAPIFetcher:
         """
         try:
             # Extract teams
-            home_team = fixture.get('home_team', 'Unknown')
-            away_team = fixture.get('away_team', 'Unknown')
+            home_team = fixture.get('home_team', '')
+            away_team = fixture.get('away_team', '')
+            
+            if not home_team or not away_team:
+                return None
             
             # Extract odds from bookmakers (use first bookmaker as primary)
             bookmakers = fixture.get('bookmakers', [])
@@ -90,7 +95,6 @@ class OddsAPIFetcher:
                 outcomes = market.get('outcomes', [])
                 
                 if market_key == 'h2h':
-                    # Head-to-head market (Home, Draw, Away)
                     for outcome in outcomes:
                         name = outcome.get('name', '')
                         price = outcome.get('price', 0)
@@ -102,7 +106,6 @@ class OddsAPIFetcher:
                             draw_odds = price
                 
                 elif market_key == 'btts':
-                    # Both Teams to Score market
                     for outcome in outcomes:
                         name = outcome.get('name', '')
                         price = outcome.get('price', 0)
@@ -110,7 +113,6 @@ class OddsAPIFetcher:
                             btts_yes_odds = price
                 
                 elif market_key == 'totals':
-                    # Over/Under market
                     for outcome in outcomes:
                         name = outcome.get('name', '')
                         price = outcome.get('price', 0)
@@ -121,6 +123,10 @@ class OddsAPIFetcher:
                                 over_25_odds = price
                             elif 'Under' in name:
                                 under_25_odds = price
+            
+            # Only return if we have minimum required odds
+            if home_odds == 0 or draw_odds == 0 or away_odds == 0:
+                return None
             
             # Get league name from sport title
             league = fixture.get('sport_title', 'Unknown').replace('Soccer - ', '')
@@ -145,22 +151,18 @@ class OddsAPIFetcher:
 class FootballDataFetcher:
     """
     Fetches historical team form and BTTS records from Football-Data.org
-    This is needed for BP7 (GG Record)
     """
     
     def __init__(self, api_key: str):
         self.api_key = api_key
         self.base_url = "https://api.football-data.org/v4"
-        self.headers = {'X-Auth-Token': api_key}
+        self.headers = {'X-Auth-Token': api_key} if api_key else {}
     
     def get_team_form(self, team_name: str, league_code: str = 'PL') -> Dict:
-        """
-        Get team's recent form including BTTS record
-        """
+        """Get team's recent form including BTTS record"""
         if not self.api_key:
             return {'btts_record': None, 'form_score': 50}
         
-        # Map common leagues to API codes
         league_codes = {
             'premier league': 'PL',
             'bundesliga': 'BL1',
@@ -179,7 +181,6 @@ class FootballDataFetcher:
             response = requests.get(url, headers=self.headers, params=params, timeout=30)
             data = response.json()
             
-            # Find matches involving the team
             team_matches = []
             for match in data.get('matches', []):
                 home = match.get('homeTeam', {}).get('name', '')
@@ -189,25 +190,19 @@ class FootballDataFetcher:
                     home_score = match.get('score', {}).get('fullTime', {}).get('home', 0)
                     away_score = match.get('score', {}).get('fullTime', {}).get('away', 0)
                     
-                    btts = (home_score > 0 and away_score > 0)
-                    team_matches.append({'btts': btts, 'home_score': home_score, 'away_score': away_score})
+                    if home_score is not None and away_score is not None:
+                        btts = (home_score > 0 and away_score > 0)
+                        team_matches.append({'btts': btts})
             
-            # Calculate BTTS record (3/5 or 7/10)
+            if len(team_matches) >= 10:
+                btts_count = sum(1 for m in team_matches[:10] if m['btts'])
+                if btts_count >= 7:
+                    return {'btts_record': f"{btts_count}/10", 'form_score': (btts_count/10)*100}
+            
             if len(team_matches) >= 5:
-                last_5 = team_matches[:5]
-                btts_5 = sum(1 for m in last_5 if m['btts'])
-                
-                if len(team_matches) >= 10:
-                    last_10 = team_matches[:10]
-                    btts_10 = sum(1 for m in last_10 if m['btts'])
-                    
-                    if btts_10 >= 7:
-                        return {'btts_record': f"{btts_10}/10", 'form_score': (btts_10/10)*100}
-                    elif btts_5 >= 3:
-                        return {'btts_record': f"{btts_5}/5", 'form_score': (btts_5/5)*100}
-            
-            if btts_5 >= 3:
-                return {'btts_record': f"{btts_5}/5", 'form_score': (btts_5/5)*100}
+                btts_count = sum(1 for m in team_matches[:5] if m['btts'])
+                if btts_count >= 3:
+                    return {'btts_record': f"{btts_count}/5", 'form_score': (btts_count/5)*100}
             
             return {'btts_record': None, 'form_score': 50}
             
@@ -215,17 +210,13 @@ class FootballDataFetcher:
             print(f"⚠️ Could not fetch form for {team_name}: {e}")
             return {'btts_record': None, 'form_score': 50}
     
-    def get_btts_record_for_match(self, home_team: str, away_team: str, league: str) -> str:
-        """
-        Get combined BTTS record for both teams
-        Used by BP7 to check if GG record meets criteria
-        """
+    def get_btts_record_for_match(self, home_team: str, away_team: str, league: str) -> Optional[str]:
+        """Get combined BTTS record for both teams"""
         home_form = self.get_team_form(home_team, league)
         away_form = self.get_team_form(away_team, league)
         
-        # Return the better record for validation
         if home_form['btts_record'] and away_form['btts_record']:
-            # Both teams have good records
+            # Return the better record
             return max(home_form['btts_record'], away_form['btts_record'])
         elif home_form['btts_record']:
             return home_form['btts_record']
@@ -236,39 +227,40 @@ class FootballDataFetcher:
 
 
 class APIDataManager:
-    """
-    Main data manager that orchestrates both APIs
-    """
+    """Main data manager that orchestrates both APIs"""
     
     def __init__(self):
         self.odds_fetcher = OddsAPIFetcher(os.getenv('ODDS_API_KEY', ''))
         self.stats_fetcher = FootballDataFetcher(os.getenv('FOOTBALL_DATA_API_KEY', ''))
     
     def get_todays_matches(self) -> pd.DataFrame:
-        """
-        Get all matches for today with complete data
-        This is the main method called by your system
-        """
-        # Fetch from multiple sports/leagues
+        """Get all matches for today with complete data - REAL DATA ONLY"""
         all_matches = []
         
-        sports = ['soccer_epl', 'soccer_spain_la_liga', 'soccer_germany_bundesliga', 
-                  'soccer_italy_serie_a', 'soccer_france_ligue_one', 'soccer_netherlands_eredivisie']
+        sports = [
+            'soccer_epl', 
+            'soccer_spain_la_liga', 
+            'soccer_germany_bundesliga', 
+            'soccer_italy_serie_a', 
+            'soccer_france_ligue_one', 
+            'soccer_netherlands_eredivisie'
+        ]
         
         for sport in sports:
             matches = self.odds_fetcher.get_upcoming_matches(sport)
             all_matches.extend(matches)
-            time.sleep(0.5)  # Rate limiting
+            time.sleep(0.5)
         
-        # Convert to DataFrame
-        df = pd.DataFrame(all_matches)
-        
-        if df.empty:
-            print("⚠️ No matches fetched from API. Falling back to manual input.")
+        if not all_matches:
+            print("❌ No real matches fetched from API.")
+            print("   Possible reasons:")
+            print("   1. No API key configured")
+            print("   2. No matches scheduled for today")
+            print("   3. API rate limit reached")
             return pd.DataFrame()
         
-        # Remove matches with missing odds
+        df = pd.DataFrame(all_matches)
         df = df[(df['home_odds'] > 0) & (df['draw_odds'] > 0) & (df['away_odds'] > 0)]
         
-        print(f"✅ Total {len(df)} matches ready for blueprint analysis")
+        print(f"✅ Total {len(df)} REAL matches ready for blueprint analysis")
         return df
