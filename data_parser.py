@@ -1,5 +1,5 @@
 """
-Parse matches from Soccer24 copy/paste data
+Data Parser - Supports both API fetch AND manual copy/paste from Soccer24
 """
 
 import re
@@ -9,18 +9,12 @@ from datetime import datetime
 
 
 class Soccer24Parser:
-    """Parse copied text from Soccer24 website"""
+    """Parse matches from either API or manual copy/paste"""
     
     def parse_match_text(self, raw_text: str) -> List[Dict]:
         """
         Parse raw copied text from Soccer24 into structured match data
-        
-        Expected format example:
-        "Manchester United vs Liverpool
-         Premier League
-         2.10 | 3.40 | 3.30
-         Over 2.5: 1.75 | Under 2.5: 2.05
-         BTTS Yes: 1.65 | BTTS No: 2.15"
+        This is the MANUAL method (fallback)
         """
         matches = []
         lines = [line.strip() for line in raw_text.strip().split('\n') if line.strip()]
@@ -29,7 +23,7 @@ class Soccer24Parser:
         while i < len(lines):
             match_data = {}
             
-            # Get match name (Team vs Team)
+            # Get match name
             if ' vs ' in lines[i]:
                 match_data['match'] = lines[i]
                 i += 1
@@ -42,7 +36,7 @@ class Soccer24Parser:
                 match_data['league'] = lines[i]
                 i += 1
             
-            # Get main odds (Home | Draw | Away)
+            # Get main odds
             if i < len(lines) and '|' in lines[i]:
                 odds = re.findall(r'(\d+\.\d+)', lines[i])
                 if len(odds) >= 3:
@@ -68,7 +62,7 @@ class Soccer24Parser:
                     match_data['btts_yes_odds'] = float(btts_match.group(1))
                 i += 1
             
-            # Add default values if missing
+            # Set defaults
             match_data.setdefault('over_25_odds', 0)
             match_data.setdefault('under_25_odds', 0)
             match_data.setdefault('btts_yes_odds', 0)
@@ -95,9 +89,3 @@ class Soccer24Parser:
                 df[col] = pd.to_numeric(df[col], errors='coerce')
         
         return df
-    
-    def save_input(self, raw_text: str, filename: str = "input_matches.txt"):
-        """Save raw input for processing"""
-        with open(filename, 'w') as f:
-            f.write(raw_text)
-        print(f"✅ Saved input to {filename}")
