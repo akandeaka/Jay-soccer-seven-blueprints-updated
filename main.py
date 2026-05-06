@@ -5,6 +5,7 @@ Main Orchestrator - Runs the complete system with API data
 import os
 import sys
 import json
+import pandas as pd
 from datetime import datetime
 
 from config import Config
@@ -53,7 +54,11 @@ class SoccerBlueprintSystem:
         # Try API first
         if Config.USE_API:
             print("🔄 Fetching data from API...")
-            df = self.api_manager.get_todays_matches()
+            try:
+                df = self.api_manager.get_todays_matches()
+            except Exception as e:
+                print(f"⚠️ API error: {e}")
+                df = pd.DataFrame()
         
         # Fallback to manual input if API fails or no data
         if df.empty and input_text:
@@ -62,10 +67,13 @@ class SoccerBlueprintSystem:
             df = self.parser.create_dataframe(matches)
         elif df.empty and os.path.exists(Config.INPUT_FILE):
             print("🔄 Falling back to input_matches.txt...")
-            with open(Config.INPUT_FILE, 'r') as f:
-                input_text = f.read()
-            matches = self.parser.parse_match_text(input_text)
-            df = self.parser.create_dataframe(matches)
+            try:
+                with open(Config.INPUT_FILE, 'r') as f:
+                    input_text = f.read()
+                matches = self.parser.parse_match_text(input_text)
+                df = self.parser.create_dataframe(matches)
+            except Exception as e:
+                print(f"⚠️ Error reading input file: {e}")
         
         if df.empty:
             print("❌ No data available. Please check API keys or provide input_matches.txt")
@@ -102,13 +110,22 @@ class SoccerBlueprintSystem:
         # For BP7 matches, fetch BTTS records from stats API
         for match in bp_matches:
             if match.get('blueprint') == 'BP7':
-                home_team = match.get('match', '').split(' vs ')[0]
-                league = match.get('league', '')
-                btts_record = self.api_manager.stats_fetcher.get_btts_record_for_match(
-                    home_team, '', league
-                )
-                if btts_record:
-                    match['btts_record'] = btts_record
+                try:
+                    match_name = match.get('match', '')
+                    if ' vs ' in match_name:
+                        home_team = match_name.split(' vs ')[0]
+                    else:
+                        home_team = match_name
+                    league = match.get('league', '')
+                    
+                    if hasattr(self.api_manager, 'stats_fetcher') and self.api_manager.stats_fetcher:
+                        btts_record = self.api_manager.stats_fetcher.get_btts_record_for_match(
+                            home_team, '', league
+                        )
+                        if btts_record:
+                            match['btts_record'] = btts_record
+                except Exception as e:
+                    print(f"⚠️ Could not fetch BTTS record for {match.get('match', 'Unknown')}: {e}")
         
         ai_analyzed = self.ai_analyzer.analyze_batch(bp_matches)
         print(f"✅ {len(ai_analyzed)} matches passed AI validation (≥60% confidence)")
@@ -133,7 +150,7 @@ class SoccerBlueprintSystem:
         accumulators = self.accumulator_builder.build_accumulators(ai_analyzed)
         
         for acc_name, acc_data in accumulators.items():
-            if 'error' not in acc_data and acc_data:
+            if acc_data and 'error' not in acc_data:
                 matches_count = len(acc_data.get('matches', []))
                 odds = acc_data.get('total_odds', 0)
                 print(f"   {acc_name}: {matches_count} matches @ {odds} odds")
