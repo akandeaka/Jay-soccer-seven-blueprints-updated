@@ -1,36 +1,6 @@
 """
 Main Orchestrator - Runs the complete system
 """
-def run(self, input_text: str = None):
-    """Run the complete system pipeline"""
-    
-    print("\n" + "="*60)
-    print("⚽ SOCCER BLUEPRINT SYSTEM WITH AI ANALYSIS")
-    print("="*60)
-    print(f"📅 Run started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    
-    # STEP 1: Parse input data
-    print("\n" + "─"*40)
-    print("📥 STEP 1: PARSING INPUT DATA")
-    print("─"*40)
-    
-    if input_text is None:
-        if os.path.exists(Config.INPUT_FILE):
-            with open(Config.INPUT_FILE, 'r') as f:
-                input_text = f.read()
-            print(f"✅ Loaded input from {Config.INPUT_FILE}")
-        else:
-            print(f"❌ No input file found. Please provide Soccer24 data.")
-            print(f"   Create {Config.INPUT_FILE} with copied data")
-            print(f"\n📝 Example format for {Config.INPUT_FILE}:")
-            print("   Manchester United vs Liverpool")
-            print("   Premier League")
-            print("   2.10 | 3.40 | 3.30")
-            print("   Over 2.5: 1.75 | Under 2.5: 2.05")
-            print("   BTTS Yes: 1.65 | BTTS No: 2.15")
-            return False
-    
-    # Continue with the rest of the code...
 
 import os
 import sys
@@ -87,6 +57,12 @@ class SoccerBlueprintSystem:
             else:
                 print(f"❌ No input file found. Please provide Soccer24 data.")
                 print(f"   Create {Config.INPUT_FILE} with copied data")
+                print(f"\n📝 Example format for {Config.INPUT_FILE}:")
+                print("   Manchester United vs Liverpool")
+                print("   Premier League")
+                print("   2.10 | 3.40 | 3.30")
+                print("   Over 2.5: 1.75 | Under 2.5: 2.05")
+                print("   BTTS Yes: 1.65 | BTTS No: 2.15")
                 return False
         
         matches = self.parser.parse_match_text(input_text)
@@ -130,7 +106,10 @@ class SoccerBlueprintSystem:
         # Display top AI picks
         print("\n🎯 TOP AI PICKS:")
         for i, match in enumerate(ai_analyzed[:5], 1):
-            print(f"   {i}. {match['match'][:40]} - {match['play']} ({match['ai_confidence']:.0f}%)")
+            match_name = match.get('match', 'Unknown')[:40]
+            play = match.get('play', 'Unknown')
+            confidence = match.get('ai_confidence', 0)
+            print(f"   {i}. {match_name} - {play} ({confidence:.0f}%)")
         
         # STEP 4: Build Accumulators
         print("\n" + "─"*40)
@@ -140,48 +119,37 @@ class SoccerBlueprintSystem:
         accumulators = self.accumulator_builder.build_accumulators(ai_analyzed)
         
         for acc_name, acc_data in accumulators.items():
-            if 'error' not in acc_data:
-                print(f"   {acc_name}: {len(acc_data['matches'])} matches @ {acc_data['total_odds']} odds")
+            if 'error' not in acc_data and acc_data:
+                matches_count = len(acc_data.get('matches', []))
+                odds = acc_data.get('total_odds', 0)
+                print(f"   {acc_name}: {matches_count} matches @ {odds} odds")
         
         # STEP 5: Send to Telegram
         print("\n" + "─"*40)
         print("📱 STEP 5: SENDING TO TELEGRAM")
         print("─"*40)
         
-        success = self.telegram.send_predictions(ai_analyzed, accumulators)
+        try:
+            success = self.telegram.send_predictions(ai_analyzed, accumulators)
+            if success:
+                print("✅ Predictions sent to Telegram")
+            else:
+                print("⚠️ Failed to send to Telegram (continuing)")
+        except Exception as e:
+            print(f"⚠️ Telegram error: {e}")
         
-        if success:
-            print("✅ Predictions sent to Telegram")
-        else:
-            print("⚠️ Failed to send to Telegram (continuing)")
-        
-        # STEP 6: Validate Results (if actual results available)
+        # STEP 6: Save results
         print("\n" + "─"*40)
-        print("✅ STEP 6: VALIDATING RESULTS")
-        print("─"*40)
-        
-        actual_results = self.validator.load_actual_results("actual_results.csv")
-        
-        if not actual_results.empty:
-            validated = self.validator.validate_batch(ai_analyzed, actual_results)
-            report = self.validator.generate_report(validated)
-            print(f"✅ Validation complete. Accuracy: {sum(1 for v in validated if v['is_correct'])/len(validated)*100:.1f}%")
-            
-            # Send report to Telegram
-            self.telegram.send_message(f"📊 *Daily Performance Report*\n\n{report[:500]}...")
-        else:
-            print("⚠️ No actual results available for validation")
-            print("   Create actual_results.csv with columns: match,home_score,away_score,result")
-        
-        # STEP 7: Save results
-        print("\n" + "─"*40)
-        print("💾 STEP 7: SAVING RESULTS")
+        print("💾 STEP 6: SAVING RESULTS")
         print("─"*40)
         
         # Save predictions
-        with open("predictions.json", "w") as f:
-            json.dump(ai_analyzed, f, indent=2)
-        print("✅ Predictions saved to predictions.json")
+        try:
+            with open("predictions.json", "w") as f:
+                json.dump(ai_analyzed, f, indent=2)
+            print("✅ Predictions saved to predictions.json")
+        except Exception as e:
+            print(f"❌ Error saving predictions: {e}")
         
         # Summary
         print("\n" + "="*60)
@@ -191,11 +159,11 @@ class SoccerBlueprintSystem:
         print(f"   Total input matches: {len(matches)}")
         print(f"   Blueprint passed: {len(bp_matches)}")
         print(f"   AI validated: {len(ai_analyzed)}")
-        print(f"   Accumulators built: {len([a for a in accumulators.values() if 'error' not in a])}")
+        
+        valid_accs = [a for a in accumulators.values() if a and 'error' not in a]
+        print(f"   Accumulators built: {len(valid_accs)}")
         print(f"\n📁 Output files:")
         print(f"   - predictions.json")
-        print(f"   - performance_report.md")
-        print(f"   - input_matches.txt (source)")
         print("\n✨ Done!")
         
         return True
@@ -207,8 +175,12 @@ def main():
     # Check if input provided via command line
     if len(sys.argv) > 1:
         input_file = sys.argv[1]
-        with open(input_file, 'r') as f:
-            input_text = f.read()
+        try:
+            with open(input_file, 'r') as f:
+                input_text = f.read()
+        except Exception as e:
+            print(f"❌ Error reading {input_file}: {e}")
+            sys.exit(1)
     else:
         input_text = None
     
