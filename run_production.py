@@ -1,162 +1,185 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+"""
+Production Runner for Soccer Blueprints Filter Engine
+"""
 
+import os
 import sys
-import io
 import pandas as pd
-import numpy as np
 from datetime import datetime
 
-# Force UTF-8 for console output (fixes mojibake)
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-
-# Import your Telegram module – adjust class name if needed
+# Import required modules
 from telegram_integration import TelegramIntegrator
-from config import FilterConfig  # assumed to contain bot token & chat id
 
-# ============================================================
-# 1. LOAD AND CLEAN DATA
-# ============================================================
+# Try to import filter engine components
+try:
+    from blueprint_scanner import BlueprintScanner
+    from filter_engine import FilterEngine
+except ImportError as e:
+    print(f"❌ Failed to import required modules: {e}")
+    print("   Make sure blueprint_scanner.py and filter_engine.py exist")
+    sys.exit(1)
 
-df = pd.read_csv('matches_today (2).csv', encoding='utf-8')
 
-# Clean odds columns: replace non-numeric with NaN
-for col in ['Odds Home', 'Odds Draw', 'Odds Away']:
-    df[col] = pd.to_numeric(df[col], errors='coerce')
-
-# Remove rows missing any odds or not scheduled (optional: keep only 'Scheduled')
-df = df.dropna(subset=['Odds Home', 'Odds Draw', 'Odds Away'])
-df = df[df['Status'].str.lower() == 'scheduled']
-
-print(f"Loaded {len(df)} qualifying matches")
-
-# ============================================================
-# 2. BLUEPRINT CLASSIFICATION
-# ============================================================
-
-def classify_match(row):
-    home = row['Odds Home']
-    draw = row['Odds Draw']
-    away = row['Odds Away']
+def load_environment_config():
+    """Load configuration from environment variables"""
+    config = {
+        'TELEGRAM_BOT_TOKEN': os.getenv('TELEGRAM_BOT_TOKEN'),
+        'TELEGRAM_CHAT_ID': os.getenv('TELEGRAM_CHAT_ID'),
+        'DEBUG_MODE': os.getenv('DEBUG_MODE', 'False').lower() == 'true',
+        'SEND_TO_TELEGRAM': os.getenv('SEND_TO_TELEGRAM', 'True').lower() == 'true'
+    }
     
-    # GOLD BP1: ELITE HOME BANKER (odds ≤ 1.30)
-    if home <= 1.30:
-        return ('🔥 GOLD BP1: THE ELITE HOME BANKER',
-                'Straight Home Win',
-                'Ultra-Low',
-                95)
+    # Validate required config
+    if config['SEND_TO_TELEGRAM']:
+        if not config['TELEGRAM_BOT_TOKEN'] or not config['TELEGRAM_CHAT_ID']:
+            print("⚠️ Warning: Telegram credentials missing. Messages will not be sent.")
+            config['SEND_TO_TELEGRAM'] = False
     
-    # GOLD BP2: PRIMARY FAVORITE (1.31 ≤ odds ≤ 1.45)
-    if home <= 1.45:
-        return ('🔥 GOLD BP2: THE PRIMARY FAVORITE',
-                'Home Win',
-                'Low',
-                90)
+    return config
+
+
+def load_match_data(filepath: str = "match_data.csv") -> pd.DataFrame:
+    """Load match data from CSV file"""
+    try:
+        if not os.path.exists(filepath):
+            print(f"❌ Match data file not found: {filepath}")
+            return None
+        
+        df = pd.read_csv(filepath)
+        print(f"✅ Loaded {len(df)} matches from {filepath}")
+        return df
     
-    # GOLD BP3: MODERATE FAVORITE SAFETY (1.46 ≤ odds ≤ 1.70)
-    if home <= 1.70:
-        return ('🔥 GOLD BP3: THE MODERATE FAVORITE SAFETY',
-                '1X & Over 1.5 Goals',
-                'Low-Moderate',
-                85)
+    except Exception as e:
+        print(f"❌ Error loading match data: {e}")
+        return None
+
+
+def run_production_pipeline(match_data: pd.DataFrame, config: dict):
+    """Run the complete production pipeline"""
+    print("\n" + "="*60)
+    print("🏆 JAY SOCCER BLUEPRINTS - PRODUCTION PIPELINE")
+    print("="*60)
+    print(f"📅 Run started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"🔧 Debug mode: {config['DEBUG_MODE']}")
+    print(f"📤 Send to Telegram: {config['SEND_TO_TELEGRAM']}")
     
-    # SILVER BP4: GOAL ENGINE (home odds 1.71 – 2.10, draws > 3.0)
-    if home <= 2.10 and draw > 3.0:
-        return ('✅ SILVER BP4: THE GOAL ENGINE',
-                'Over 1.5 Goals',
-                'Moderate',
-                75)
+    # Stage 1: Blueprint Scanner
+    print("\n" + "─"*40)
+    print("📊 STAGE 1: BLUEPRINT SCANNER")
+    print("─"*40)
     
-    # SILVER BP5: DEFENSIVE TRAP (home odds 1.90 – 2.20, home or draw)
-    if 1.90 <= home <= 2.20:
-        return ('✅ SILVER BP5: THE DEFENSIVE TRAP',
-                '1X & Under 3.5 FT',
-                'Moderate',
-                70)
+    scanner = BlueprintScanner()
+    blueprint_results = scanner.scan_matches(match_data)
     
-    # BRONZE BP7: HIGH-SCORING SIGNALS (odds > 2.20, both teams expected to score)
-    # Simplified: home > 2.20 and away not too heavy favorite
-    if home > 2.20 and away < 3.00:
-        # Decide between A (GG/Over2.5) and B (HT 0.5/Over2.5) – take A for simplicity
-        return ('⚠️ BRONZE BP7: THE HIGH-SCORING SIGNALS (A)',
-                'GG / Over 2.5 Goals',
-                'Moderate-High',
-                60)
+    if blueprint_results.empty:
+        print("❌ No matches passed the blueprint scanner")
+        return False
     
-    # Fallback (should not happen with our filtered data)
-    return ('⚪ UNCLASSIFIED',
-            'None',
-            'Unknown',
-            50)
+    total_qualified = len(blueprint_results)
+    print(f"✅ {total_qualified} matches passed blueprint scan")
+    
+    # Stage 2: Filter Engine
+    print("\n" + "─"*40)
+    print("⚙️ STAGE 2: FILTER ENGINE")
+    print("─"*40)
+    
+    filter_engine = FilterEngine()
+    final_results = filter_engine.apply_filters(blueprint_results)
+    
+    if final_results.empty:
+        print("❌ No matches passed the filter engine")
+        return False
+    
+    print(f"✅ {len(final_results)} matches passed all filters")
+    
+    # Display summary statistics
+    print("\n" + "─"*40)
+    print("📈 RESULTS SUMMARY")
+    print("─"*40)
+    
+    high_conf = len(final_results[final_results['Confidence'] >= 65])
+    medium_conf = len(final_results[(final_results['Confidence'] >= 50) & (final_results['Confidence'] < 65)])
+    
+    print(f"🔥 High confidence (65%+): {high_conf} matches")
+    print(f"⚠️ Medium confidence (50-64%): {medium_conf} matches")
+    print(f"📊 Average confidence: {final_results['Confidence'].mean():.1f}%")
+    
+    # Display top 5 picks
+    print("\n" + "─"*40)
+    print("🎯 TOP 5 PICKS")
+    print("─"*40)
+    
+    top_picks = final_results.nlargest(5, 'Confidence')
+    for idx, row in top_picks.iterrows():
+        print(f"\n{idx+1}. {row['Match']}")
+        print(f"   League: {row['League']}")
+        print(f"   Play: {row['Play']}")
+        print(f"   Confidence: {row['Confidence']:.0f}%")
+    
+    # Stage 3: Telegram Integration
+    if config['SEND_TO_TELEGRAM']:
+        print("\n" + "─"*40)
+        print("📱 STAGE 3: TELEGRAM INTEGRATION")
+        print("─"*40)
+        
+        telegram = TelegramIntegrator(
+            bot_token=config['TELEGRAM_BOT_TOKEN'],
+            chat_id=config['TELEGRAM_CHAT_ID']
+        )
+        
+        # Get original text for context (if available)
+        original_text = "Soccer Blueprints Filter Results"
+        
+        # Send results to Telegram
+        success = telegram.process_and_send(
+            results_df=final_results,
+            original_text=original_text,
+            total_qualified=total_qualified,
+            send=True
+        )
+        
+        if success:
+            print("✅ Results sent to Telegram successfully")
+        else:
+            print("❌ Failed to send results to Telegram")
+    
+    # Save results to CSV
+    output_file = f"filtered_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    final_results.to_csv(output_file, index=False)
+    print(f"\n💾 Results saved to: {output_file}")
+    
+    print("\n" + "="*60)
+    print("✅ PRODUCTION PIPELINE COMPLETED SUCCESSFULLY")
+    print("="*60)
+    
+    return True
 
-# Apply classification
-results = []
-for idx, row in df.iterrows():
-    bp, play, risk, conf = classify_match(row)
-    results.append((bp, play, risk, conf, row))
 
-# Sort by confidence descending, then by odds home ascending
-results.sort(key=lambda x: (-x[3], x[4]['Odds Home']))
-
-all_matches = results
-top_matches = all_matches[:25]
-
-# ============================================================
-# 3. DISPLAY BREAKDOWN
-# ============================================================
-
-print("\n📊 BREAKDOWN OF TOP 25:")
-bp_count = {}
-for m in top_matches:
-    bp = m[0]
-    bp_count[bp] = bp_count.get(bp, 0) + 1
-for bp, count in sorted(bp_count.items()):
-    print(f"   {bp}: {count} matches")
-
-# ============================================================
-# 4. BUILD TELEGRAM MESSAGE (CLEAN UTF-8)
-# ============================================================
-
-msg = f"⚽ BLUEPRINT RESULTS - {datetime.now().strftime('%Y-%m-%d')}\n"
-msg += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-msg += f"📊 Total qualified: {len(all_matches)} | Showing TOP 25\n"
-msg += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-
-for i, m in enumerate(top_matches, 1):
-    bp, play, risk, conf, row = m
-
-    # Determine tier (already in bp string, but we can keep)
-    if "GOLD" in bp:
-        tier = "🔥 GOLD"
-    elif "SILVER" in bp:
-        tier = "✅ SILVER"
+def main():
+    """Main execution function"""
+    print("🚀 Starting Soccer Blueprints Production Pipeline...")
+    
+    # Load configuration
+    config = load_environment_config()
+    
+    # Load match data
+    match_data = load_match_data("match_data.csv")
+    
+    if match_data is None:
+        print("❌ Cannot proceed without match data")
+        sys.exit(1)
+    
+    # Run production pipeline
+    success = run_production_pipeline(match_data, config)
+    
+    if success:
+        print("\n✨ Pipeline completed successfully!")
+        sys.exit(0)
     else:
-        tier = "⚠️ BRONZE"
+        print("\n❌ Pipeline failed!")
+        sys.exit(1)
 
-    msg += f"\n{i}. {bp}\n"
-    msg += f"   🏟️ {row['Home Team']} vs {row['Away Team']}\n"
-    msg += f"   🏆 {row['Competition']}\n"
-    msg += f"   📊 {row['Odds Home']} | {row['Odds Draw']} | {row['Odds Away']}\n"
-    msg += f"   🎯 {play}\n"
-    msg += f"   ⚠️ {risk}\n"
-    msg += f"   📈 Confidence: {conf}%\n"
-    msg += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
 
-# ============================================================
-# 5. SEND TO TELEGRAM
-# ============================================================
-
-telegram = TelegramIntegration(
-    bot_token=FilterConfig.TELEGRAM_BOT_TOKEN,
-    chat_id=FilterConfig.TELEGRAM_CHAT_ID
-)
-
-if len(msg) > 4000:
-    telegram.send_telegram_message(msg[:3900])
-    telegram.send_telegram_message("CONTINUED...\n" + msg[3900:])
-    print("Sent in 2 parts")
-else:
-    telegram.send_telegram_message(msg)
-    print("Sent successfully")
-
-print("\n✅ Done!")
+if __name__ == "__main__":
+    main()
