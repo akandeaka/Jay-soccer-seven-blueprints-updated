@@ -1,12 +1,15 @@
-name: Daily Soccer Predictions
+name: Daily Soccer Predictions & Validation
 
 on:
   schedule:
-    - cron: '0 10 * * *'  # Run daily at 10 AM
-  workflow_dispatch:  # Allow manual trigger
+    - cron: '0 10 * * *'   # Run predictions at 10 AM daily
+    - cron: '0 1 * * *'    # Run validation at 1 AM daily
+  workflow_dispatch:        # Manual trigger
 
 jobs:
+  # Job 1: Run predictions at 10 AM
   run-predictions:
+    if: github.event.schedule == '0 10 * * *' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     
     steps:
@@ -22,17 +25,89 @@ jobs:
       run: |
         pip install -r requirements.txt
     
+    - name: Check for input file
+      id: check_input
+      run: |
+        if [ -f "input_matches.txt" ]; then
+          echo "exists=true" >> $GITHUB_OUTPUT
+        else
+          echo "exists=false" >> $GITHUB_OUTPUT
+        fi
+    
     - name: Run prediction system
+      if: steps.check_input.outputs.exists == 'true'
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        SPORTMONKS_API_KEY: ${{ secrets.SPORTMONKS_API_KEY }}
+        FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+      run: |
+        python main.py
+    
+    - name: Save predictions
+      if: steps.check_input.outputs.exists == 'true'
+      uses: actions/upload-artifact@v4
+      with:
+        name: predictions
+        path: |
+          predictions.json
+          input_matches.txt
+    
+    - name: Send no-input notification
+      if: steps.check_input.outputs.exists == 'false'
       env:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       run: |
-        python main.py
+        python -c "
+        import requests
+        message = '⚠️ No input_matches.txt found for predictions'
+        url = f'https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage'
+        requests.post(url, json={'chat_id': '${{ secrets.TELEGRAM_CHAT_ID }}', 'text': message})
+        "
+
+  # Job 2: Run validation at 1 AM
+  run-validation:
+    if: github.event.schedule == '0 1 * * *' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    needs: run-predictions
+    continue-on-error: true  # Continue even if predictions job didn't run
     
-    - name: Upload results
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install beautifulsoup4  # For web scraping fallback
+    
+    - name: Download previous predictions
+      uses: actions/download-artifact@v4
+      with:
+        name: predictions
+        path: ./
+      continue-on-error: true
+    
+    - name: Run validation
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        SPORTMONKS_API_KEY: ${{ secrets.SPORTMONKS_API_KEY }}
+        FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+      run: |
+        python validation_runner.py
+    
+    - name: Upload validation results
       uses: actions/upload-artifact@v4
       with:
-        name: prediction-results
+        name: validation-results
         path: |
-          predictions.json
           performance_report.md
+          validated_results.csv
+          prediction_history.json
