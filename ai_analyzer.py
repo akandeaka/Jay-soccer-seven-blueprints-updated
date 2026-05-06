@@ -55,8 +55,9 @@ class AIAnalyzer:
         # Calculate head-to-head factor
         h2h_factor = self._calculate_h2h_factor(teams)
         
-        # Calculate league trend factor
-        league_trend = self._calculate_league_trend(match.get('league', ''))
+        # Calculate league trend factor - FIXED: pass league name
+        league = match.get('league', '')
+        league_trend = self._calculate_league_trend(league)
         
         # Calculate injury/suspension factor (simulated)
         injury_factor = self._calculate_injury_factor(teams)
@@ -76,9 +77,9 @@ class AIAnalyzer:
         # Adjusted confidence (60-95 range)
         adjusted_confidence = min(95, max(60, confidence * (0.7 + ai_adjustment * 0.3)))
         
-        # Determine if AI validates or suggests alternative
+        # Determine if AI validates or suggests alternative - FIXED: pass match parameter
         ai_decision, alternative = self._ai_decision(
-            blueprint, adjusted_confidence, form_score, teams
+            blueprint, adjusted_confidence, form_score, match
         )
         
         return {
@@ -130,7 +131,7 @@ class AIAnalyzer:
         """Calculate motivation factor (derby, relegation, title race)"""
         return random.uniform(0.5, 1.0)
     
-    def _ai_decision(self, blueprint: str, confidence: float, form_score: float, teams: Tuple[str, str]) -> Tuple[str, str]:
+    def _ai_decision(self, blueprint: str, confidence: float, form_score: float, match: Dict) -> Tuple[str, str]:
         """AI decides to validate or suggest alternative"""
         if confidence >= 80 and form_score >= 0.7:
             return "VALIDATED", match.get('play', 'Original pick')
