@@ -56,7 +56,6 @@ class BlueprintEngine:
         
         # BP7: BTTS Value Spot (requires GG record from AI)
         if 1.40 <= btts_yes <= 1.69:
-            # GG record will be checked by AI analyzer
             return self._create_result('BP7', match, 'Both Teams to Score', 'Low-Moderate', 75, requires_gg=True)
         
         # BP8: High-Scoring Signals (requires high-scoring league)
@@ -104,23 +103,3 @@ class BlueprintEngine:
     def get_stats(self) -> Dict:
         """Get blueprint statistics"""
         return self.blueprint_stats
-        # Add to your blueprint_engine.py
-def get_odds_for_blueprint(self, fixture_id):
-    """Fetch odds from API for all 8 blueprints"""
-    
-    odds_data = self.odds_api.get_odds(fixture_id)
-    
-    return {
-        # BP1-BP3, BP6, BP8
-        'home_odds': odds_data['home_win'],
-        'draw_odds': odds_data['draw'],
-        'away_odds': odds_data['away_win'],
-        
-        # BP4, BP5, BP8
-        'over_25_odds': odds_data['over_25'],
-        'under_25_odds': odds_data['under_25'],
-        
-        # BP7 - Most important for your system
-        'btts_yes_odds': odds_data['btts_yes'],
-        'btts_record': self.get_btts_trend(fixture_id)  # "3/5" or "7/10"
-    }
