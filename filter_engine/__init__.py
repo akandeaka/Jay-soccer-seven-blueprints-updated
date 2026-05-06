@@ -1,5 +1,5 @@
 """
-Filter Engine for JAY SOCCER BLUEPRINTS
+Filter Engine for JAY SOCCER BLUEPRINTS - Updated with 8 Blueprints
 """
 
 from .blueprint_filter import BlueprintFilterEngine
