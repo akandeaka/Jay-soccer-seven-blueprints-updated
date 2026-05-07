@@ -29,6 +29,12 @@ jobs:
       run: |
         pip install -r requirements.txt
     
+    - name: Delete cache files
+      run: |
+        rm -f predictions.json
+        rm -f *.json
+        echo "✅ Deleted cache files"
+    
     - name: Check for input file
       id: check_input
       run: |
@@ -43,8 +49,6 @@ jobs:
       env:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        SPORTMONKS_API_KEY: ${{ secrets.SPORTMONKS_API_KEY }}
-        FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
       run: |
         python main.py
     
@@ -64,11 +68,11 @@ jobs:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       run: |
         python -c "
-        import requests
-        message = '⚠️ No input_matches.txt found for predictions'
-        url = f'https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage'
-        requests.post(url, json={'chat_id': '${{ secrets.TELEGRAM_CHAT_ID }}', 'text': message})
-        "
+import requests
+message = '⚠️ No input_matches.txt found for predictions'
+url = f'https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage'
+requests.post(url, json={'chat_id': '${{ secrets.TELEGRAM_CHAT_ID }}', 'text': message})
+"
 
   # Job 2: Run validation at 1 AM
   run-validation:
@@ -102,8 +106,6 @@ jobs:
       env:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        SPORTMONKS_API_KEY: ${{ secrets.SPORTMONKS_API_KEY }}
-        FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
       run: |
         python validation_runner.py
     
@@ -115,8 +117,3 @@ jobs:
           performance_report.md
           validated_results.csv
           prediction_history.json
-          - name: Delete cache files
-  run: |
-    rm -f predictions.json
-    rm -f *.json
-    echo "✅ Deleted cache files"
