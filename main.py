@@ -205,50 +205,95 @@ def build_accumulators(predictions):
     
     accumulators = {}
     
-    # 2 odds accumulator (2-3 matches)
+    def build_accumulators(predictions):
+    """
+    Build accumulators at 2, 4, 7, 10 odds targets
+    EACH ACCUMULATOR HAS UNIQUE MATCHES - NO DUPLICATES ACROSS ACCUMULATORS
+    """
+    
+    if len(predictions) < 2:
+        return {}
+    
+    # Set odds for each prediction
+    for p in predictions:
+        play = p['play']
+        if 'Home Win' in play:
+            p['odds'] = p['home_odds']
+        elif 'Draw' in play:
+            p['odds'] = p['draw_odds']
+        else:
+            p['odds'] = 1.50
+    
+    # Sort by confidence (highest first)
+    sorted_picks = sorted(predictions, key=lambda x: x['confidence'], reverse=True)
+    
+    accumulators = {}
+    used_matches = set()  # Track which matches are already used
+    
+    # Helper function to get unused picks
+    def get_unused_picks(limit=None):
+        available = [p for p in sorted_picks if p['match'] not in used_matches]
+        if limit:
+            return available[:limit]
+        return available
+    
+    # 2 ODDS ACCUMULATOR (2-3 matches)
+    available = get_unused_picks(10)
     for n in [2, 3]:
-        for combo in combinations(predictions[:8], n):
+        for combo in combinations(available, n):
             total = 1
             for m in combo:
                 total *= m['odds']
             if 1.8 <= total <= 2.5:
                 accumulators['2_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
+                # Mark these matches as used
+                for m in combo:
+                    used_matches.add(m['match'])
                 break
         if '2_ODDS' in accumulators:
             break
     
-    # 4 odds accumulator (4 matches)
-    for combo in combinations(predictions[:10], 4):
+    # 4 ODDS ACCUMULATOR (4 matches) - using remaining picks
+    available = get_unused_picks(12)
+    for combo in combinations(available, 4):
         total = 1
         for m in combo:
             total *= m['odds']
         if 3.5 <= total <= 5.0:
             accumulators['4_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
+            for m in combo:
+                used_matches.add(m['match'])
             break
     
-    # 7 odds accumulator (5 matches)
-    for combo in combinations(predictions[:12], 5):
+    # 7 ODDS ACCUMULATOR (5 matches) - using remaining picks
+    available = get_unused_picks(15)
+    for combo in combinations(available, 5):
         total = 1
         for m in combo:
             total *= m['odds']
         if 6.0 <= total <= 8.5:
             accumulators['7_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
+            for m in combo:
+                used_matches.add(m['match'])
             break
     
-    # 10 odds accumulator (5-6 matches)
+    # 10 ODDS ACCUMULATOR (5-6 matches) - using remaining picks
+    available = get_unused_picks(20)
     for n in [5, 6]:
-        for combo in combinations(predictions[:15], n):
-            total = 1
-            for m in combo:
-                total *= m['odds']
-            if 9.0 <= total <= 12.0:
-                accumulators['10_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
-                break
+        if len(available) >= n:
+            for combo in combinations(available, n):
+                total = 1
+                for m in combo:
+                    total *= m['odds']
+                if 9.0 <= total <= 12.0:
+                    accumulators['10_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
+                    for m in combo:
+                        used_matches.add(m['match'])
+                    break
         if '10_ODDS' in accumulators:
             break
     
     return accumulators
-
 # ============================================================
 # FUNCTION 6: SEND TO TELEGRAM
 # ============================================================
