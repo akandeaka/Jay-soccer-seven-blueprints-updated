@@ -1,7 +1,13 @@
 """
 Main Orchestrator - Runs the complete blueprint system
 """
+# Add this at the beginning of the run() method
+import os
 
+# Delete old cache at the start of every run
+if os.path.exists("predictions.json"):
+    os.remove("predictions.json")
+    print("🗑️ Deleted old predictions.json cache")
 import os
 import sys
 import json
