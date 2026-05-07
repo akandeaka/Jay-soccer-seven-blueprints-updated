@@ -1,5 +1,5 @@
 """
-Main Orchestrator - Runs the complete system with API data
+Main Orchestrator - Runs the complete system with API data - NO DEMOS
 """
 
 import os
@@ -19,7 +19,7 @@ from api_fetcher import APIDataManager
 
 
 class SoccerBlueprintSystem:
-    """Main system orchestrator"""
+    """Main system orchestrator - REAL DATA ONLY"""
     
     def __init__(self):
         self.config = Config()
@@ -35,54 +35,30 @@ class SoccerBlueprintSystem:
         self.api_manager = APIDataManager()
     
     def run(self, input_text: str = None):
-        """
-        Run the complete system pipeline
-        Automatically uses API if available, otherwise falls back to manual input
-        """
+        """Run the complete system pipeline - REAL MATCHES ONLY"""
+        
         print("\n" + "="*60)
         print("⚽ SOCCER BLUEPRINT SYSTEM WITH AI ANALYSIS")
+        print("🤖 REAL MATCHES ONLY - NO DEMO DATA")
         print("="*60)
         print(f"📅 Run started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         
-        # STEP 1: Get match data (API first, then manual fallback)
+        # STEP 1: Get match data from API only
         print("\n" + "─"*40)
-        print("📥 STEP 1: GETTING MATCH DATA")
+        print("📥 STEP 1: FETCHING REAL MATCH DATA")
         print("─"*40)
         
-        df = pd.DataFrame()
-        
-        # Try API first
-        if Config.USE_API:
-            print("🔄 Fetching data from API...")
-            try:
-                df = self.api_manager.get_todays_matches()
-            except Exception as e:
-                print(f"⚠️ API error: {e}")
-                df = pd.DataFrame()
-        
-        # Fallback to manual input if API fails or no data
-        if df.empty and input_text:
-            print("🔄 Falling back to manual input...")
-            matches = self.parser.parse_match_text(input_text)
-            df = self.parser.create_dataframe(matches)
-        elif df.empty and os.path.exists(Config.INPUT_FILE):
-            print("🔄 Falling back to input_matches.txt...")
-            try:
-                with open(Config.INPUT_FILE, 'r') as f:
-                    input_text = f.read()
-                matches = self.parser.parse_match_text(input_text)
-                df = self.parser.create_dataframe(matches)
-            except Exception as e:
-                print(f"⚠️ Error reading input file: {e}")
+        df = self.api_manager.get_todays_matches()
         
         if df.empty:
-            print("❌ No data available. Please check API keys or provide input_matches.txt")
-            print("\n💡 To fix:")
-            print("   1. Add ODDS_API_KEY to GitHub Secrets")
-            print("   2. OR create input_matches.txt manually")
+            print("\n❌ No real matches available.")
+            print("\n💡 Options:")
+            print("   1. Check your ODDS_API_KEY secret")
+            print("   2. Wait for matches to be scheduled")
+            print("   3. Use manual input_matches.txt (set USE_API=False in config)")
             return False
         
-        print(f"✅ Loaded {len(df)} matches for analysis")
+        print(f"\n✅ Loaded {len(df)} REAL matches for analysis")
         
         # STEP 2: Apply Blueprint Filter
         print("\n" + "─"*40)
@@ -92,40 +68,38 @@ class SoccerBlueprintSystem:
         bp_matches = self.blueprint_engine.filter_matches(df)
         print(f"✅ {len(bp_matches)} matches passed blueprint criteria")
         
+        if len(bp_matches) == 0:
+            print("❌ No matches passed blueprint filter")
+            return False
+        
         # Print blueprint statistics
         stats = self.blueprint_engine.get_stats()
         for bp, count in stats.items():
             if count > 0:
                 print(f"   {bp}: {count} matches")
         
-        if len(bp_matches) == 0:
-            print("❌ No matches passed blueprint filter")
-            return False
-        
         # STEP 3: AI Analysis
         print("\n" + "─"*40)
         print("🤖 STEP 3: AI ANALYSIS")
         print("─"*40)
         
-        # For BP7 matches, fetch BTTS records from stats API
+        # For BP7 matches, fetch BTTS records
         for match in bp_matches:
             if match.get('blueprint') == 'BP7':
                 try:
                     match_name = match.get('match', '')
                     if ' vs ' in match_name:
                         home_team = match_name.split(' vs ')[0]
-                    else:
-                        home_team = match_name
-                    league = match.get('league', '')
-                    
-                    if hasattr(self.api_manager, 'stats_fetcher') and self.api_manager.stats_fetcher:
+                        league = match.get('league', '')
+                        
                         btts_record = self.api_manager.stats_fetcher.get_btts_record_for_match(
                             home_team, '', league
                         )
                         if btts_record:
                             match['btts_record'] = btts_record
+                            print(f"   📊 {home_team}: BTTS {btts_record} in recent matches")
                 except Exception as e:
-                    print(f"⚠️ Could not fetch BTTS record for {match.get('match', 'Unknown')}: {e}")
+                    pass
         
         ai_analyzed = self.ai_analyzer.analyze_batch(bp_matches)
         print(f"✅ {len(ai_analyzed)} matches passed AI validation (≥60% confidence)")
@@ -137,12 +111,13 @@ class SoccerBlueprintSystem:
         # Display top AI picks
         print("\n🎯 TOP AI PICKS:")
         for i, match in enumerate(ai_analyzed[:5], 1):
-            match_name = match.get('match', 'Unknown')[:40]
+            match_name = match.get('match', 'Unknown')[:50]
             play = match.get('play', 'Unknown')
             confidence = match.get('ai_confidence', 0)
-            print(f"   {i}. {match_name} - {play} ({confidence:.0f}%)")
+            print(f"   {i}. {match_name}")
+            print(f"      🎯 {play} ({confidence:.0f}% confidence)")
         
-        # STEP 4: Build Accumulators
+        # STEP 4: Build Accumulators (with duplicate team prevention)
         print("\n" + "─"*40)
         print("🎰 STEP 4: BUILDING ACCUMULATORS")
         print("─"*40)
@@ -165,7 +140,7 @@ class SoccerBlueprintSystem:
             if success:
                 print("✅ Predictions sent to Telegram")
             else:
-                print("⚠️ Failed to send to Telegram (continuing)")
+                print("⚠️ Failed to send to Telegram")
         except Exception as e:
             print(f"⚠️ Telegram error: {e}")
         
@@ -186,14 +161,12 @@ class SoccerBlueprintSystem:
         print("✅ SYSTEM EXECUTION COMPLETE")
         print("="*60)
         print(f"📊 Summary:")
-        print(f"   Total input matches: {len(df)}")
+        print(f"   Total REAL matches: {len(df)}")
         print(f"   Blueprint passed: {len(bp_matches)}")
         print(f"   AI validated: {len(ai_analyzed)}")
         
         valid_accs = [a for a in accumulators.values() if a and 'error' not in a]
         print(f"   Accumulators built: {len(valid_accs)}")
-        print(f"\n📁 Output files:")
-        print(f"   - predictions.json")
         print("\n✨ Done!")
         
         return True
@@ -201,22 +174,8 @@ class SoccerBlueprintSystem:
 
 def main():
     """Main entry point"""
-    
-    # Check if input provided via command line (manual mode)
-    if len(sys.argv) > 1:
-        input_file = sys.argv[1]
-        try:
-            with open(input_file, 'r') as f:
-                input_text = f.read()
-        except Exception as e:
-            print(f"❌ Error reading {input_file}: {e}")
-            sys.exit(1)
-    else:
-        input_text = None
-    
     system = SoccerBlueprintSystem()
-    success = system.run(input_text)
-    
+    success = system.run()
     sys.exit(0 if success else 1)
 
 
