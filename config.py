@@ -10,20 +10,8 @@ class Config:
     TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
     TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
     
-    # API Keys
-    ODDS_API_KEY = os.getenv('ODDS_API_KEY', '')
-    FOOTBALL_DATA_API_KEY = os.getenv('FOOTBALL_DATA_API_KEY', '')
-    
-    # File Paths (for manual fallback only)
+    # File Paths
     INPUT_FILE = "input_matches.txt"
-    RESULTS_FILE = "results.csv"
-    REPORT_FILE = "performance_report.md"
-    
-    # API Settings
-    USE_API = True  # Set to False to use manual copy/paste instead
-    SPORT = 'soccer'
-    REGIONS = 'uk'
-    MARKETS = 'h2h,totals'  # Only supported markets for free tier
     
     # Accumulator Targets
     ACCUMULATOR_TARGETS = {
@@ -37,7 +25,3 @@ class Config:
     HIGH_CONFIDENCE = 75
     MEDIUM_CONFIDENCE = 60
     LOW_CONFIDENCE = 50
-    
-    # AI Analysis Settings
-    AI_TREND_DAYS = 7
-    MIN_RECENT_FORM = 5
