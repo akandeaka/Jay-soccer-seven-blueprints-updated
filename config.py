@@ -21,9 +21,9 @@ class Config:
     
     # API Settings
     USE_API = True  # Set to False to use manual copy/paste instead
-    SPORT = 'soccer'  # Options: 'soccer_epl', 'soccer_spain_la_liga', etc.
-    REGIONS = 'uk'  # 'uk', 'us', 'eu', 'au'
-    MARKETS = 'h2h,totals'  # REMOVED 'btts' - not supported by free tier
+    SPORT = 'soccer'
+    REGIONS = 'uk'
+    MARKETS = 'h2h,totals'  # Only supported markets for free tier
     
     # Accumulator Targets
     ACCUMULATOR_TARGETS = {
