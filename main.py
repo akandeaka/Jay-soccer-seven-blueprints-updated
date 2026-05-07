@@ -1,6 +1,7 @@
 """
-SOCCER BLUEPRINT SYSTEM
-READS ONLY FROM input_matches.txt - NO DEMO DATA IN CODE
+SOCCER BLUEPRINT SYSTEM - 8 BLUEPRINTS
+BP6: Full Time Draw (X)
+READS ONLY FROM input_matches.txt
 """
 
 import os
@@ -19,30 +20,54 @@ TELEGRAM_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
 INPUT_FILE = "input_matches.txt"
 
-# League classifications (for AI decisions - NOT demo data)
+# High scoring leagues for BP7 and BP8
 HIGH_SCORING_LEAGUES = [
     'bundesliga', 'eredivisie', 'premier league', 
     'epl', 'serie a', 'ligue 1', 'la liga'
 ]
 
 # ============================================================
-# FUNCTION 1: PARSE INPUT FILE (ONLY SOURCE OF DATA)
+# FUNCTION 1: CONVERT CSV/TAB FORMAT TO SYSTEM FORMAT
+# ============================================================
+
+def convert_csv_format():
+    """Convert CSV/tab format to system format if needed"""
+    
+    with open(INPUT_FILE, 'r') as f:
+        content = f.read()
+    
+    # Check if it's in CSV/tab format (has tabs and no '|')
+    if '\t' in content and '|' not in content:
+        print("\n📋 Detected CSV/tab format - converting...")
+        lines = content.split('\n')
+        data_lines = [l for l in lines[1:] if l.strip() and '\t' in l]
+        
+        output = []
+        for line in data_lines:
+            parts = line.strip().split('\t')
+            if len(parts) >= 5:
+                output.append(parts[0].strip())
+                output.append(parts[1].strip())
+                output.append(f"{parts[2].strip()} | {parts[3].strip()} | {parts[4].strip()}")
+                output.append('')
+        
+        with open(INPUT_FILE, 'w') as f:
+            f.write('\n'.join(output))
+        
+        print(f"✅ Converted {len(output)//4} matches to correct format")
+        return True
+    
+    return False
+
+# ============================================================
+# FUNCTION 2: PARSE INPUT FILE
 # ============================================================
 
 def parse_matches():
-    """
-    READ MATCHES ONLY FROM input_matches.txt
-    IF FILE IS EMPTY OR MISSING, RETURN EMPTY LIST
-    NO DEMO DATA WHATSOEVER
-    """
+    """Read matches from input_matches.txt"""
     
     if not os.path.exists(INPUT_FILE):
         print(f"\n❌ {INPUT_FILE} not found!")
-        print("\n📝 Please create input_matches.txt with matches in this format:")
-        print("   Team A vs Team B")
-        print("   League Name")
-        print("   1.55 | 4.20 | 5.50")
-        print("")
         return []
     
     with open(INPUT_FILE, 'r') as f:
@@ -92,11 +117,11 @@ def parse_matches():
     return matches
 
 # ============================================================
-# FUNCTION 2: APPLY 8 BLUEPRINTS (PURE LOGIC)
+# FUNCTION 3: APPLY 8 BLUEPRINTS
 # ============================================================
 
 def apply_blueprints(match):
-    """Apply 8 blueprints - NO DEMO TEAMS, ONLY ODDS LOGIC"""
+    """Apply all 8 blueprints to a match"""
     
     home = match.get('home_odds', 0)
     draw = match.get('draw_odds', 0)
@@ -125,13 +150,16 @@ def apply_blueprints(match):
     if 1.90 <= home <= 2.02:
         return ('BP5', '1X & Under 3.5 FT', 70)
     
-    # BP6: Strong Draw
+    # BP6: Strong Draw - FULL TIME DRAW
     if 2.75 <= draw <= 3.39:
-        return ('BP6', 'Full Time Draw', 50)
+        return ('BP6', 'Full Time Draw (X)', 50)
     
     # BP7: BTTS Value Spot
     if 1.40 <= home <= 1.69:
-        return ('BP7', 'Both Teams to Score - YES' if is_high_scoring else 'Both Teams to Score - NO', 75 if is_high_scoring else 65)
+        if is_high_scoring:
+            return ('BP7', 'Both Teams to Score - YES', 75)
+        else:
+            return ('BP7', 'Both Teams to Score - NO', 65)
     
     # BP8: High-Scoring Signals
     if 3.60 <= draw <= 3.75 and is_high_scoring:
@@ -140,35 +168,23 @@ def apply_blueprints(match):
     return None
 
 # ============================================================
-# FUNCTION 3: AI ANALYSIS
+# FUNCTION 4: AI ANALYSIS
 # ============================================================
 
 def ai_analyze(match, bp_result):
     """AI validates or suggests alternative"""
     
     bp, play, conf = bp_result
-    league = match.get('league', '').lower()
-    is_high_scoring = any(hl in league for hl in HIGH_SCORING_LEAGUES)
     
     if conf >= 75:
         return conf, "VALIDATED", play
     elif conf >= 60:
         return conf, "CONFIRMED", play
     else:
-        alternatives = {
-            'BP1': 'Double Chance Home/Draw',
-            'BP2': 'Home Win or Draw',
-            'BP3': 'Over 1.5 Goals',
-            'BP4': 'Under 1.5 Goals',
-            'BP5': 'Over 2.5 Goals',
-            'BP6': 'Draw No Bet',
-            'BP7': 'Over 2.5 Goals' if is_high_scoring else 'Under 2.5 Goals',
-            'BP8': 'Over 2.5 Goals'
-        }
-        return conf, "ALTERNATIVE", alternatives.get(bp, 'Value Bet')
+        return conf, "ALTERNATIVE", play
 
 # ============================================================
-# FUNCTION 4: BUILD ACCUMULATORS
+# FUNCTION 5: BUILD ACCUMULATORS
 # ============================================================
 
 def build_accumulators(predictions):
@@ -177,6 +193,7 @@ def build_accumulators(predictions):
     if len(predictions) < 2:
         return {}
     
+    # Set odds for each prediction
     for p in predictions:
         play = p['play']
         if 'Home Win' in play:
@@ -188,17 +205,20 @@ def build_accumulators(predictions):
     
     accumulators = {}
     
-    # 2 odds
-    for combo in combinations(predictions[:6], 2):
-        total = 1
-        for m in combo:
-            total *= m['odds']
-        if 1.8 <= total <= 2.5:
-            accumulators['2_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
+    # 2 odds accumulator (2-3 matches)
+    for n in [2, 3]:
+        for combo in combinations(predictions[:8], n):
+            total = 1
+            for m in combo:
+                total *= m['odds']
+            if 1.8 <= total <= 2.5:
+                accumulators['2_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
+                break
+        if '2_ODDS' in accumulators:
             break
     
-    # 4 odds
-    for combo in combinations(predictions[:8], 4):
+    # 4 odds accumulator (4 matches)
+    for combo in combinations(predictions[:10], 4):
         total = 1
         for m in combo:
             total *= m['odds']
@@ -206,8 +226,8 @@ def build_accumulators(predictions):
             accumulators['4_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
             break
     
-    # 7 odds
-    for combo in combinations(predictions[:10], 5):
+    # 7 odds accumulator (5 matches)
+    for combo in combinations(predictions[:12], 5):
         total = 1
         for m in combo:
             total *= m['odds']
@@ -215,25 +235,28 @@ def build_accumulators(predictions):
             accumulators['7_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
             break
     
-    # 10 odds
-    for combo in combinations(predictions[:12], 5):
-        total = 1
-        for m in combo:
-            total *= m['odds']
-        if 9.0 <= total <= 12.0:
-            accumulators['10_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
+    # 10 odds accumulator (5-6 matches)
+    for n in [5, 6]:
+        for combo in combinations(predictions[:15], n):
+            total = 1
+            for m in combo:
+                total *= m['odds']
+            if 9.0 <= total <= 12.0:
+                accumulators['10_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
+                break
+        if '10_ODDS' in accumulators:
             break
     
     return accumulators
 
 # ============================================================
-# FUNCTION 5: SEND TO TELEGRAM
+# FUNCTION 6: SEND TO TELEGRAM
 # ============================================================
 
 def send_telegram(message):
     """Send message to Telegram"""
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
-        print("⚠️ Telegram not configured")
+        print("⚠️ Telegram not configured - skipping")
         return False
     
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
@@ -255,28 +278,31 @@ def send_telegram(message):
 def main():
     print("\n" + "="*60)
     print("⚽ JAY SOCCER BLUEPRINTS SYSTEM")
-    print("READS ONLY FROM input_matches.txt")
+    print("8 BLUEPRINTS | BP6: FULL TIME DRAW")
     print("="*60)
     print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
     # Delete old cache
     if os.path.exists("predictions.json"):
         os.remove("predictions.json")
+        print("🗑️ Deleted old cache")
     
-    # ONLY READ FROM INPUT FILE - NO DEMO DATA
+    # Convert CSV format if needed
+    if os.path.exists(INPUT_FILE):
+        convert_csv_format()
+    
+    # Parse matches
     matches = parse_matches()
     
     if not matches:
         print("\n❌ No matches found in input_matches.txt")
-        print("\n📝 Please add matches to input_matches.txt in this format:")
+        print("\n📝 Expected format:")
         print("   Team A vs Team B")
         print("   League Name")
         print("   1.55 | 4.20 | 5.50")
         return 1
     
-    print(f"\n📊 Loaded {len(matches)} matches from input_matches.txt:")
-    for m in matches:
-        print(f"   - {m['match']} ({m['league']})")
+    print(f"\n📊 Loaded {len(matches)} matches")
     
     # Apply blueprints
     predictions = []
@@ -300,7 +326,6 @@ def main():
     
     if not predictions:
         print("\n❌ No matches passed any blueprint")
-        print("   (Check odds ranges in input_matches.txt)")
         return 1
     
     print(f"\n✅ {len(predictions)} matches passed blueprints:")
@@ -310,7 +335,7 @@ def main():
     # Build accumulators
     accumulators = build_accumulators(predictions)
     
-    # Build message
+    # Build Telegram message
     message = f"""⚽ JAY SOCCER BLUEPRINTS - AI PREDICTIONS
 📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -337,12 +362,21 @@ def main():
     
     message += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⚠️ Always bet responsibly!\n📊 AI predictions for informational purposes only."
     
+    # Send to Telegram
     send_telegram(message)
     
+    # Save results
     with open("predictions.json", "w") as f:
         json.dump(predictions, f, indent=2)
     
-    print("\n✅ Done!")
+    print("\n" + "="*60)
+    print("✅ SYSTEM EXECUTION COMPLETE")
+    print("="*60)
+    print(f"\n📊 SUMMARY:")
+    print(f"   Matches read: {len(matches)}")
+    print(f"   Matches passed: {len(predictions)}")
+    print(f"   Accumulators built: {len(accumulators)}")
+    
     return 0
 
 if __name__ == "__main__":
