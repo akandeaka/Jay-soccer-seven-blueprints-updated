@@ -1,29 +1,26 @@
 """
 Blueprint Engine - 8 Soccer Betting Blueprints
+NO DEMO DATA - Only processes real matches passed to it
 """
 
 import pandas as pd
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional
 
 
 class BlueprintEngine:
     """Apply 8 blueprints to filter matches"""
     
-    # High-scoring leagues for BP8
     HIGH_SCORING_LEAGUES = [
         'bundesliga', 'eredivisie', 'premier league', 
         'serie a', 'ligue 1', 'epl', 'premiership'
     ]
     
     def __init__(self):
-        self.results = []
         self.blueprint_stats = {f'BP{i}': 0 for i in range(1, 9)}
     
     def classify_blueprint(self, match: Dict) -> Optional[Dict]:
-        """
-        Classify match against all 8 blueprints
-        Returns blueprint data if matched
-        """
+        """Classify match against all 8 blueprints"""
+        
         home = match.get('home_odds', 0)
         draw = match.get('draw_odds', 0)
         away = match.get('away_odds', 0)
@@ -54,18 +51,17 @@ class BlueprintEngine:
         if 2.75 <= draw <= 3.39:
             return self._create_result('BP6', match, 'Full Time Draw', 'High', 50)
         
-        # BP7: BTTS Value Spot (requires GG record from AI)
+        # BP7: BTTS Value Spot
         if 1.40 <= btts_yes <= 1.69:
             return self._create_result('BP7', match, 'Both Teams to Score', 'Low-Moderate', 75, requires_gg=True)
         
-        # BP8: High-Scoring Signals (requires high-scoring league)
+        # BP8: High-Scoring Signals
         if 3.60 <= draw <= 3.75 and self._is_high_scoring_league(league):
             return self._create_result('BP8', match, 'HT 0.5 / Over 2.5 Goals', 'Moderate-High', 60)
         
         return None
     
     def _create_result(self, bp: str, match: Dict, play: str, risk: str, confidence: int, requires_gg: bool = False) -> Dict:
-        """Create standardized result dictionary"""
         return {
             'blueprint': bp,
             'match': match.get('match', 'Unknown'),
@@ -81,7 +77,6 @@ class BlueprintEngine:
         }
     
     def _is_high_scoring_league(self, league: str) -> bool:
-        """Check if league is high-scoring"""
         for hl in self.HIGH_SCORING_LEAGUES:
             if hl in league.lower():
                 return True
@@ -101,5 +96,4 @@ class BlueprintEngine:
         return results
     
     def get_stats(self) -> Dict:
-        """Get blueprint statistics"""
         return self.blueprint_stats
