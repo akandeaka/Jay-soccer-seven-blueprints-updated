@@ -1,5 +1,5 @@
 """
-API Fetcher - ONLY real data, NO demos, NO fallbacks
+API Fetcher - ONLY real matches from API, NO DEMO DATA
 """
 
 import requests
@@ -7,6 +7,7 @@ import pandas as pd
 from typing import List, Dict, Optional
 import os
 import time
+from datetime import datetime
 
 
 class OddsAPIFetcher:
@@ -19,7 +20,7 @@ class OddsAPIFetcher:
     def test_api_key(self) -> bool:
         """Test if API key is valid"""
         if not self.api_key:
-            print("❌ No API key found in environment variables")
+            print("❌ No API key found")
             return False
         
         url = f"{self.base_url}/sports"
@@ -31,13 +32,13 @@ class OddsAPIFetcher:
                 print("✅ API key is VALID")
                 return True
             else:
-                print(f"❌ API key is INVALID (Status: {response.status_code})")
+                print(f"❌ API key INVALID (Status: {response.status_code})")
                 return False
         except Exception as e:
             print(f"❌ Cannot reach API: {e}")
             return False
     
-    def get_upcoming_matches(self, sport: str = 'soccer_epl') -> List[Dict]:
+    def get_upcoming_matches(self, sport: str) -> List[Dict]:
         """Fetch REAL upcoming matches - NO DEMO DATA"""
         
         if not self.api_key:
@@ -47,7 +48,7 @@ class OddsAPIFetcher:
         params = {
             'apiKey': self.api_key,
             'regions': 'uk',
-            'markets': 'h2h,totals',  # Only supported markets
+            'markets': 'h2h,totals',
             'oddsFormat': 'decimal'
         }
         
@@ -124,7 +125,6 @@ class OddsAPIFetcher:
             if home_odds == 0 or draw_odds == 0 or away_odds == 0:
                 return None
             
-            # Get league name
             sport_title = fixture.get('sport_title', '')
             league = sport_title.replace('Soccer - ', '').replace('soccer_', '').replace('_', ' ').title()
             
@@ -134,7 +134,7 @@ class OddsAPIFetcher:
                 'home_odds': home_odds,
                 'draw_odds': draw_odds,
                 'away_odds': away_odds,
-                'btts_yes_odds': 0,  # Will be estimated separately
+                'btts_yes_odds': 0,
                 'over_25_odds': over_25_odds,
                 'under_25_odds': under_25_odds,
                 'commence_time': fixture.get('commence_time', '')
@@ -145,30 +145,24 @@ class OddsAPIFetcher:
 
 
 class APIDataManager:
-    """Main data manager - REAL DATA ONLY"""
+    """Main data manager - REAL DATA ONLY, NO DEMOS"""
     
     def __init__(self):
         self.odds_fetcher = OddsAPIFetcher(os.getenv('ODDS_API_KEY', ''))
     
     def get_todays_matches(self) -> pd.DataFrame:
-        """Get REAL matches - Returns EMPTY if no data"""
+        """Get REAL matches - Returns EMPTY DataFrame if no data"""
         
         print("="*60)
         print("🌐 FETCHING REAL MATCHES FROM API")
         print("="*60)
         
-        # Test API key first
         if not self.odds_fetcher.test_api_key():
             print("\n❌ API KEY ISSUE - Cannot fetch real matches")
-            print("\n💡 Please check:")
-            print("   1. Your ODDS_API_KEY secret is set correctly")
-            print("   2. Your API subscription is active")
-            print("   3. You have not exceeded rate limits")
             return pd.DataFrame()
         
         all_matches = []
         
-        # List of sports to fetch
         sports = [
             'soccer_epl',
             'soccer_spain_la_liga', 
@@ -194,11 +188,10 @@ class APIDataManager:
             print("2. API rate limit reached")
             print("3. API key has insufficient permissions")
             print("\n💡 The system will NOT generate fake data.")
-            print("   Check back when matches are scheduled.")
             return pd.DataFrame()
         
         df = pd.DataFrame(all_matches)
-        print(f"\n✅ TOTAL: {len(df)} REAL MATCHES READY FOR ANALYSIS")
+        print(f"\n✅ TOTAL: {len(df)} REAL MATCHES READY")
         print(f"   First match: {df.iloc[0]['match']}")
         
         return df
