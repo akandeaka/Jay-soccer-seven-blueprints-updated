@@ -1,13 +1,7 @@
 """
 Main Orchestrator - Runs the complete blueprint system
 """
-# Add this at the beginning of the run() method
-import os
 
-# Delete old cache at the start of every run
-if os.path.exists("predictions.json"):
-    os.remove("predictions.json")
-    print("🗑️ Deleted old predictions.json cache")
 import os
 import sys
 import json
@@ -43,9 +37,18 @@ class SoccerBlueprintSystem:
         print("="*60)
         print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         
+        # DELETE OLD CACHE AT START OF EVERY RUN
+        if os.path.exists("predictions.json"):
+            os.remove("predictions.json")
+            print("🗑️ Deleted old predictions.json cache")
+        
         # Check for input file
         if not os.path.exists(Config.INPUT_FILE):
             print(f"\n❌ {Config.INPUT_FILE} not found!")
+            print("\n📝 Please create input_matches.txt with matches in this format:")
+            print("   Bayern Munich vs Dortmund")
+            print("   Bundesliga")
+            print("   1.55 | 4.20 | 5.50")
             return False
         
         # Read and parse input
@@ -57,9 +60,15 @@ class SoccerBlueprintSystem:
         
         if df.empty:
             print("\n❌ No valid matches found in input_matches.txt")
+            print("\n📝 Expected format:")
+            print("   Bayern Munich vs Dortmund")
+            print("   Bundesliga")
+            print("   1.55 | 4.20 | 5.50")
             return False
         
-        print(f"\n✅ Loaded {len(df)} matches")
+        print(f"\n✅ Loaded {len(df)} matches:")
+        for _, row in df.iterrows():
+            print(f"   - {row['match']} ({row['league']})")
         
         # Apply blueprints
         bp_matches = self.blueprint_engine.filter_matches(df)
