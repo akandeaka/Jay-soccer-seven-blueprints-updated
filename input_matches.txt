@@ -1,139 +1,17 @@
-Match	Competition	1 (Home)	X (Draw)	2 (Away)
-Aston Villa vs Nottingham	Europa League - Play Offs	1.73	3.9	4.5
-Freiburg vs Braga	Europa League - Play Offs	1.7	3.7	5
-Crystal Palace vs Shakhtar Donetsk	Conference League - Play Offs	1.57	4.2	5.75
-Strasbourg vs Rayo Vallecano	Conference League - Play Offs	1.91	3.6	4
-Iliria Fushe-Kruje vs Besa Kavaje	Abissnet Superiore - Relegation	2.04	3.22	3.32
-Pogradeci vs Kastrioti	Abissnet Superiore - Relegation	1.33	5	7.26
-Mostaganem vs Saoura	Ligue 1	13.5	4.3	1.26
-Paradou vs Constantine	Ligue 1	3.01	2.93	2.35
-Oran vs ASO Chlef	Ligue 1	1.43	3.64	7.95
-Banfield 2 vs Union de Santa Fe 2	Reserve League - Apertura	2.82	2.83	2.47
-Barracas Central 2 vs Godoy Cruz 2	Reserve League - Apertura	1.99	3.2	3.5
-Colon Santa Fe 2 vs Boca Juniors 2	Reserve League - Apertura	4.86	3.25	1.7
-Estudiantes L.P. 2 vs Newells Old Boys 2	Reserve League - Apertura	2.12	3.05	3.31
-Ind. Rivadavia 2 vs Deportivo Riestra 2	Reserve League - Apertura	2.08	3.1	3.36
-Tigre 2 vs Aldosivi 2	Reserve League - Apertura	1.8	3.18	4.34
-San Martin S.J. 2 vs Belgrano 2	Reserve League - Apertura	6.93	4.4	1.37
-Caiquetio vs River Plate	Division di Honor - Relegation	2.8	3.52	2.28
-Solomon Kings vs Tahiti United	OFC Pro League - Losers stage	2.04	3.35	3.19
-Vanuatu United vs PNG Hekari	OFC Pro League - Losers stage	1.69	3.78	4.07
-Cebrayil vs Baku Sporting	I Liqa	5.1	3.7	1.52
-Juventus-SP vs Ferroviaria	Paulista A2 - Play Offs	2.73	2.91	2.5
-Penapolense vs Inter de Bebedouro	Paulista A4 - Play Offs	2.31	3.09	3.09
-Gama vs Rio Branco ES	Copa Centro-Oeste - Play Offs	1.79	3.47	4.29
-Nacional-AM vs Porto Velho	Copa Norte - Play Offs	1.75	3.82	4.02
-America MG vs Cianorte	Copa Sul-Sudeste	1.59	3.73	5.44
-Avai vs Sampaio Correa FE	Copa Sul-Sudeste	1.33	5.1	7.51
-Juventude vs Tombense	Copa Sul-Sudeste	2.7	3.07	2.6
-Operario-PR vs Chapecoense-SC	Copa Sul-Sudeste	2.34	2.99	3.13
-Sao Bernardo vs SER Caxias	Copa Sul-Sudeste	2.25	3.25	3.04
-Volta Redonda vs Novorizontino	Copa Sul-Sudeste	2.16	3.29	3.19
-Sport Recife vs ASA	Copa do Nordeste - Play Offs	1.36	4.2	7.5
-Vitoria vs Ceara	Copa do Nordeste - Play Offs	1.83	3.3	3.9
-Confianca vs Fortaleza	Copa do Nordeste - Play Offs	3.6	2.88	2.2
-Brasil de Pelotas vs Internacional	Recopa Gaucho	6.31	3.62	1.5
-Avai U20 vs America MG U20	Brasileiro U20	2.95	3.22	2.21
-Flamengo RJ U20 vs Palmeiras U20	Brasileiro U20	2.92	3.2	2.24
-Vasco U20 vs Santos U20	Brasileiro U20	2.09	3.3	3.13
-Ferroviaria W vs Santos W	Paulista Women	1.71	3.53	4.93
-Perolas Negras W vs Sao Joao PI W	Copa do Brasil Women	1.49	3.84	5.88
-Svay Rieng vs Boeung Ket	CPL - Championship Group	1.74	3.7	3.89
-Ottawa Rapid W vs Vancouver Rise W	NSL Women	1.89	3.55	3.45
-Patriotas vs Chico	Copa Colombia - First stage	2.15	3.25	3.3
-Jaguares de Cordoba vs Real Cundinamarca	Copa Colombia - First stage	1.65	3.4	5.75
-Llaneros vs Atletico F.C.	Copa Colombia - First stage	2.25	3.2	3.1
-Hluboka nad Vltavou vs Milin	4. liga - Group A	1.3	5.1	7.95
-Olesnik vs Jindrichuv Hradec	Jihocesky KP	1.46	5.1	4.79
-Orlova vs Mesto Albrechtice	Moravskoslezsky KP	2.3	4.4	2.3
-Sigma Olomouc U19 vs FK Pardubice U19	U19 League	2.02	3.74	2.95
-Cuenca Juniors vs Cumbaya	Serie B	1.74	3.1	4.91
-Ind. Juniors vs Gualaceo	Serie B	1.89	2.99	4.2
-San Antonio vs Vinotinto	Serie B	2.81	2.89	2.43
-El Gaish vs Ghazl El Mahallah	Premier League - Relegation Group	2.37	2.38	3.89
-Haras El Hodood vs ZED	Premier League - Relegation Group	1.81	3.1	4.49
-National Bank Egypt vs El Ismaily	Premier League - Relegation Group	1.84	2.9	4.76
-Aswan SC vs El Daklyeh	Division 2 A	2.32	2.99	2.98
-Baladiyat El Mahalla vs Maleyeit Kafr El Zayiat	Division 2 A	1.88	2.8	4.72
-El Mansoura vs Asyut Petroleum	Division 2 A	3.97	2.63	2.13
-La Viena vs El-Entag El-Harby	Division 2 A	1.92	2.9	4.25
-Proxy vs Al Qanah	Division 2 A	3.55	2.46	2.42
-Raya vs Tanta	Division 2 A	3.78	3.25	1.89
-Tersana vs Abu Qir Semad	Division 2 A	4.71	2.97	1.81
-WE SC vs Al-Sekka	Division 2 A	2.3	2.75	3.3
-Metapan vs Luis Angel Firpo	Primera Division - Clausura - Play Offs	3.32	3.37	2.13
-Cacahuatique vs FAS	Primera Division - Clausura - Play Offs	4.99	3.4	1.65
-Elva vs FC Tallinn	Esiliiga	1.56	4.3	4.39
-PK-35 vs Mikkeli	Ykkosliiga	1.68	3.54	4.52
-SJK Akatemia 2 vs Huima / Urho	Kakkonen Group C	1.92	3.82	3.15
-Fortune vs TMT	GFA League	1.68	3.04	5.63
-Dinamo Tbilisi vs Spaeri	Crystalbet Erovnuli Liga	1.83	3.3	3.96
-Gonio vs Didube	Liga 3	2.18	3.4	2.94
-Guria vs Khobi	Liga 3	1.46	4.4	5.62
-Iberia 2010 vs Margveti 2006	Liga 3	2.5	3.3	2.55
-Loco. Tbilisi vs Betlemi	Liga 3	2.88	3.7	2.12
-Iberia 1999 2 vs Merani Tbilisi	Liga 3	2.04	3.6	3.13
-Tbilisi 2025 vs WIT Georgia	Liga 3	2.12	3.5	3.03
-Olancho vs Genesis	Liga Nacional - Clausura - Triangulares	1.65	3.99	4.72
-Olimpia vs Marathon	Liga Nacional - Clausura - Triangulares	1.81	2.99	4.66
-Al Najaf vs Baghdad	Stars League	2.49	3.02	2.64
-Al Jazeera Amman vs Al Salt	Premier League	2.81	3.1	2.37
-Al Ramtha vs Al Buqaa	Premier League	1.8	3.64	3.71
-Tukums 2000 vs Ogre United	Virsliga	1.65	3.64	4.53
-Auda vs Grobina	Virsliga	1.4	4.1	6.99
-Stade Malien vs AS Sofa	Coupe du Mali	1.21	5.5	10.5
-USFAS Bamako vs Diarra	Coupe du Mali	2.36	2.7	3.26
-Nouakchott King's vs Nouakchott Academy	Ligue 1	2.48	3.15	2.55
-Hunters vs Khangarid	Premier League	7.34	6.7	1.24
-Difaa El Jadidi vs Hassania Agadir	Botola Pro	2.8	2.75	2.55
-Berkane vs Union Touarga	Botola Pro	1.39	3.94	7.9
-FAR Rabat vs Olympique de Safi	Botola Pro	1.33	4.2	7.5
-Diriangen vs Matagalpa	Liga Primera - Clausura - Winners	1.48	4.1	5
-Esteli vs Jalapa	Liga Primera - Clausura - Winners	1.42	4.33	5.5
-Toluca vs Los Angeles FC	CONCACAF Champions Cup	1.5	4.2	5
-LKS Lodz vs Grodzisk M.	Division 1	1.57	3.75	4.75
-Steaua Bucuresti vs Sepsi Sf. Gheorghe	Liga 2 - Championship Group	5.3	3.64	1.64
-Almaz Antey U19 vs FK Rostov U19	Youth League	3.92	3.42	1.81
-Spartak Moscow U19 vs Zenit U19	Youth League	3.5	3.42	1.92
-Dynamo Makhachkala U19 vs Ural U19	Youth League	2.96	3.14	2.26
-Fakel Voronezh U19 vs CSKA Moscow U19	Youth League	7.55	4.75	1.32
-Lokomotiv Moscow U19 vs Krasnodar U19	Youth League	2.12	3.62	2.84
-Rubin Kazan U19 vs Konoplev Academy U19	Youth League	2.91	3.1	2.31
-Nizhny Novgorod U19 vs Rodina Moscow U19	Youth League	5.27	3.76	1.55
-Dynamo Moscow U19 vs Chertanovo M. U19	Youth League	1.74	3.54	4.12
-Krasnodar vs Dynamo Moscow	Russian Cup - Play Offs	2.11	3.74	3.58
-Al-Merreikh vs Etincelles	Premier League	1.45	3.54	7.75
-APR vs Al-Hilal Omdurman	Premier League	2.71	2.93	2.48
-Al Shabab vs Al Nassr	Saudi Professional League	7	5	1.3
-Borac 1926 vs Graficar Beograd	Mozzart Bet Prva Liga - Relegation Group	1.85	3.24	3.97
-Dinamo Jug vs Usce	Mozzart Bet Prva Liga - Relegation Group	1.37	4.15	7.5
-Dubocica vs FAP	Mozzart Bet Prva Liga - Relegation Group	1.86	3.28	3.86
-Tekstilac Odzaci vs Smederevo	Mozzart Bet Prva Liga - Relegation Group	2.21	3.04	3.12
-Saint Louis vs Real Maldives	Premier League	2.87	3.62	2.1
-Freetown City vs Bai Bureh Warriors	Premier League	3.62	3.05	2.01
-Slovan Ljubljana vs NK Jesenice	2. SNL	1.67	3.8	4.34
-Ind. Rivadavia (Arg) vs Fluminense (Bra)	Copa Libertadores - Group Stage	2.3	3	3.4
-Santa Fe (Col) vs Corinthians (Bra)	Copa Libertadores - Group Stage	3.4	2.8	2.5
-Deportes Tolima (Col) vs Nacional (Uru)	Copa Libertadores - Group Stage	1.91	3.4	4.33
-U. Catolica (Chi) vs Cruzeiro (Bra)	Copa Libertadores - Group Stage	2.9	3.1	2.55
-Mirassol (Bra) vs LDU Quito (Ecu)	Copa Libertadores - Group Stage	1.53	4.1	6.25
-Platense (Arg) vs Penarol (Uru)	Copa Libertadores - Group Stage	2.15	3.1	3.75
-Barracas Central (Arg) vs Olimpia Asuncion (Par)	Copa Sudamericana - Group Stage	3	3	2.55
-Macara (Ecu) vs Tigre (Arg)	Copa Sudamericana - Group Stage	2.4	3	3.3
-Botafogo RJ (Bra) vs Racing Club (Arg)	Copa Sudamericana - Group Stage	2.35	3.2	3.25
-Alianza Atl. (Per) vs America De Cali (Col)	Copa Sudamericana - Group Stage	2.9	3.1	2.5
-Boston River (Uru) vs Millonarios (Col)	Copa Sudamericana - Group Stage	4.33	3.5	1.85
-O'Higgins (Chi) vs Sao Paulo (Bra)	Copa Sudamericana - Group Stage	3.1	3.25	2.38
-Robinhood vs Leo Victor	SML	1.63	4.13	4.48
-Sleipner vs Syrianska	Division 2 - Södra Svealand	1.59	4.2	4.26
-Elfsborg W vs Jitex W	Elitettan Women	1.43	4.45	5.64
-Bodrumspor vs Pendikspor	1. Lig - Play Offs	2.1	3.25	3
-Corum vs Keciorengucu	1. Lig - Play Offs	1.6	3.6	4.75
-Al Ain U23 vs Al Sharjah U23	Pro League U23	1.76	3.72	3.79
-Al Nasr U23 vs Shabab Al-Ahli Dubai U23	Pro League U23	2.38	3.5	2.51
-Al Wasl U23 vs Al Wahda U23	Pro League U23	1.92	3.62	3.28
-New Mexico vs El Paso	USL Championship	2.34	3.52	2.8
-Sporting Kansas City II vs Ventura County	MLS Next Pro	3.39	3.91	1.93
-Charlotte Independ. vs Boise	USL League One	2.14	3.54	3.13
-Fort Wayne vs Portland Hearts of Pine	USL League One	2.71	3.54	2.4
-Utah Royals W vs Houston Dash W	NWSL Women	1.9	3.42	3.53
+Manchester United vs Liverpool
+Premier League
+2.10 | 3.40 | 3.30
+Over 2.5: 1.75 | Under 2.5: 2.05
+BTTS Yes: 1.65 | BTTS No: 2.15
+
+Real Madrid vs Barcelona
+La Liga
+1.85 | 3.60 | 4.00
+Over 2.5: 1.65 | Under 2.5: 2.20
+BTTS Yes: 1.55 | BTTS No: 2.35
+
+Bayern Munich vs Dortmund
+Bundesliga
+1.55 | 4.20 | 5.50
+Over 2.5: 1.45 | Under 2.5: 2.70
+BTTS Yes: 1.45 | BTTS No: 2.65
