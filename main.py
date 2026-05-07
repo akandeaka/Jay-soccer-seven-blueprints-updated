@@ -1,6 +1,5 @@
 """
-Main Orchestrator - MANUAL MODE ONLY
-Reads ONLY from input_matches.txt
+Main Orchestrator - Runs the complete blueprint system
 """
 
 import os
@@ -18,6 +17,8 @@ from telegram_sender import TelegramSender
 
 
 class SoccerBlueprintSystem:
+    """Main system orchestrator"""
+    
     def __init__(self):
         self.parser = Soccer24Parser()
         self.blueprint_engine = BlueprintEngine()
@@ -29,17 +30,19 @@ class SoccerBlueprintSystem:
         )
     
     def run(self):
-        print("\n" + "="*60)
-        print("⚽ SOCCER BLUEPRINT SYSTEM")
-        print("📋 READING FROM input_matches.txt ONLY")
-        print("="*60)
+        """Run the complete system pipeline"""
         
-        # Check input file
+        print("\n" + "="*60)
+        print("⚽ JAY SOCCER BLUEPRINTS - 8 BLUEPRINT SYSTEM")
+        print("="*60)
+        print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        
+        # Check for input file
         if not os.path.exists(Config.INPUT_FILE):
             print(f"\n❌ {Config.INPUT_FILE} not found!")
             return False
         
-        # Read and parse
+        # Read and parse input
         with open(Config.INPUT_FILE, 'r') as f:
             input_text = f.read()
         
@@ -47,17 +50,23 @@ class SoccerBlueprintSystem:
         df = self.parser.create_dataframe(matches)
         
         if df.empty:
-            print("❌ No valid matches found in input_matches.txt")
+            print("\n❌ No valid matches found in input_matches.txt")
             return False
         
-        print(f"\n✅ Loaded {len(df)} matches from input_matches.txt")
+        print(f"\n✅ Loaded {len(df)} matches")
         
         # Apply blueprints
         bp_matches = self.blueprint_engine.filter_matches(df)
         
         if not bp_matches:
-            print("❌ No matches passed blueprint filter")
+            print("❌ No matches passed any blueprint")
             return False
+        
+        print(f"\n✅ {len(bp_matches)} matches passed blueprints:")
+        stats = self.blueprint_engine.get_stats()
+        for bp, count in stats.items():
+            if count > 0:
+                print(f"   {bp}: {count} matches")
         
         # AI Analysis
         ai_analyzed = self.ai_analyzer.analyze_batch(bp_matches)
@@ -66,10 +75,14 @@ class SoccerBlueprintSystem:
         accumulators = self.accumulator_builder.build_accumulators(ai_analyzed)
         
         # Send to Telegram
-        self.telegram.send_predictions(ai_analyzed, accumulators)
+        success = self.telegram.send_predictions(ai_analyzed, accumulators)
+        
+        # Save results
+        with open("predictions.json", "w") as f:
+            json.dump(ai_analyzed, f, indent=2)
         
         print("\n✅ Done!")
-        return True
+        return success
 
 
 def main():
