@@ -115,3 +115,8 @@ jobs:
           performance_report.md
           validated_results.csv
           prediction_history.json
+          - name: Delete cache files
+  run: |
+    rm -f predictions.json
+    rm -f *.json
+    echo "✅ Deleted cache files"
