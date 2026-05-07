@@ -1,4 +1,6 @@
 """
+# In config.py - already configured
+FOOTBALL_DATA_API_KEY = os.getenv('FOOTBALL_DATA_API_KEY', '')
 Configuration for Soccer Blueprint System
 """
 
