@@ -1,11 +1,10 @@
 """
 API Fetcher - Automatically fetches match data and odds from APIs
-No more manual copy/paste from Soccer24!
+NO DEMO DATA - Only real matches from API
 """
 
 import requests
 import pandas as pd
-from datetime import datetime, timedelta
 from typing import List, Dict, Optional
 import os
 import time
@@ -14,7 +13,7 @@ import time
 class OddsAPIFetcher:
     """
     Fetches live odds from The Odds API
-    Provides: Home/Draw/Away odds, BTTS odds, Over/Under odds
+    Returns ONLY real data - NO DEMOS
     """
     
     def __init__(self, api_key: str):
@@ -24,10 +23,11 @@ class OddsAPIFetcher:
     def get_upcoming_matches(self, sport: str = 'soccer_epl') -> List[Dict]:
         """
         Fetch all upcoming matches with odds for today
-        Returns ONLY real data from API - NO DEMO DATA
+        Returns EMPTY list if no real data available
         """
         if not self.api_key:
-            print("⚠️ No API key found. Returning empty data.")
+            print("❌ No API key found. Cannot fetch real matches.")
+            print("   Please add ODDS_API_KEY to GitHub Secrets")
             return []
         
         url = f"{self.base_url}/sports/{sport}/odds"
@@ -41,11 +41,24 @@ class OddsAPIFetcher:
         
         try:
             response = requests.get(url, params=params, timeout=30)
+            
+            # Check if request was successful
+            if response.status_code != 200:
+                print(f"❌ API Error: {response.status_code}")
+                print(f"   Response: {response.text[:200]}")
+                return []
+            
             data = response.json()
             
-            # Check remaining requests (free tier has 500/month)
+            # Check if data is empty
+            if not data:
+                print(f"⚠️ No matches found for {sport} today")
+                return []
+            
+            # Check remaining requests
             remaining = response.headers.get('x-requests-remaining', 'N/A')
-            print(f"📊 API requests remaining: {remaining}")
+            if remaining != 'N/A':
+                print(f"📊 API requests remaining: {remaining}")
             
             matches = []
             for fixture in data:
@@ -53,27 +66,32 @@ class OddsAPIFetcher:
                 if match_data:
                     matches.append(match_data)
             
-            print(f"✅ Fetched {len(matches)} REAL matches from The Odds API")
             return matches
             
+        except requests.exceptions.Timeout:
+            print(f"❌ Timeout fetching {sport}")
+            return []
+        except requests.exceptions.ConnectionError:
+            print(f"❌ Connection error fetching {sport}")
+            return []
         except Exception as e:
-            print(f"❌ Error fetching from Odds API: {e}")
-            print("   No demo data will be generated. Check your API key.")
+            print(f"❌ Error fetching {sport}: {e}")
             return []
     
     def _parse_fixture(self, fixture: Dict) -> Optional[Dict]:
         """
         Parse a single fixture into the format your blueprint engine expects
+        Returns None if data is invalid
         """
         try:
-            # Extract teams
+            # Extract teams - MUST have valid team names
             home_team = fixture.get('home_team', '')
             away_team = fixture.get('away_team', '')
             
             if not home_team or not away_team:
                 return None
             
-            # Extract odds from bookmakers (use first bookmaker as primary)
+            # Extract odds from bookmakers
             bookmakers = fixture.get('bookmakers', [])
             if not bookmakers:
                 return None
@@ -124,12 +142,13 @@ class OddsAPIFetcher:
                             elif 'Under' in name:
                                 under_25_odds = price
             
-            # Only return if we have minimum required odds
+            # MUST have minimum required odds to proceed
             if home_odds == 0 or draw_odds == 0 or away_odds == 0:
                 return None
             
-            # Get league name from sport title
-            league = fixture.get('sport_title', 'Unknown').replace('Soccer - ', '')
+            # Get league name
+            league = fixture.get('sport_title', '')
+            league = league.replace('Soccer - ', '').replace('soccer_', '').replace('_', ' ').title()
             
             return {
                 'match': f"{home_team} vs {away_team}",
@@ -144,7 +163,6 @@ class OddsAPIFetcher:
             }
             
         except Exception as e:
-            print(f"❌ Error parsing fixture: {e}")
             return None
 
 
@@ -179,6 +197,10 @@ class FootballDataFetcher:
         
         try:
             response = requests.get(url, headers=self.headers, params=params, timeout=30)
+            
+            if response.status_code != 200:
+                return {'btts_record': None, 'form_score': 50}
+            
             data = response.json()
             
             team_matches = []
@@ -187,8 +209,8 @@ class FootballDataFetcher:
                 away = match.get('awayTeam', {}).get('name', '')
                 
                 if team_name.lower() in home.lower() or team_name.lower() in away.lower():
-                    home_score = match.get('score', {}).get('fullTime', {}).get('home', 0)
-                    away_score = match.get('score', {}).get('fullTime', {}).get('away', 0)
+                    home_score = match.get('score', {}).get('fullTime', {}).get('home')
+                    away_score = match.get('score', {}).get('fullTime', {}).get('away')
                     
                     if home_score is not None and away_score is not None:
                         btts = (home_score > 0 and away_score > 0)
@@ -206,17 +228,18 @@ class FootballDataFetcher:
             
             return {'btts_record': None, 'form_score': 50}
             
-        except Exception as e:
-            print(f"⚠️ Could not fetch form for {team_name}: {e}")
+        except Exception:
             return {'btts_record': None, 'form_score': 50}
     
     def get_btts_record_for_match(self, home_team: str, away_team: str, league: str) -> Optional[str]:
         """Get combined BTTS record for both teams"""
+        if not self.api_key:
+            return None
+        
         home_form = self.get_team_form(home_team, league)
         away_form = self.get_team_form(away_team, league)
         
         if home_form['btts_record'] and away_form['btts_record']:
-            # Return the better record
             return max(home_form['btts_record'], away_form['btts_record'])
         elif home_form['btts_record']:
             return home_form['btts_record']
@@ -227,40 +250,63 @@ class FootballDataFetcher:
 
 
 class APIDataManager:
-    """Main data manager that orchestrates both APIs"""
+    """Main data manager that orchestrates both APIs - REAL DATA ONLY"""
     
     def __init__(self):
         self.odds_fetcher = OddsAPIFetcher(os.getenv('ODDS_API_KEY', ''))
         self.stats_fetcher = FootballDataFetcher(os.getenv('FOOTBALL_DATA_API_KEY', ''))
     
     def get_todays_matches(self) -> pd.DataFrame:
-        """Get all matches for today with complete data - REAL DATA ONLY"""
+        """
+        Get all matches for today - REAL DATA ONLY
+        Returns EMPTY DataFrame if no real data available
+        """
+        print("🌐 Fetching REAL matches from The Odds API...")
+        
         all_matches = []
         
+        # List of soccer leagues to fetch
         sports = [
-            'soccer_epl', 
-            'soccer_spain_la_liga', 
-            'soccer_germany_bundesliga', 
-            'soccer_italy_serie_a', 
-            'soccer_france_ligue_one', 
-            'soccer_netherlands_eredivisie'
+            ('soccer_epl', 'Premier League'),
+            ('soccer_spain_la_liga', 'La Liga'),
+            ('soccer_germany_bundesliga', 'Bundesliga'),
+            ('soccer_italy_serie_a', 'Serie A'),
+            ('soccer_france_ligue_one', 'Ligue 1'),
+            ('soccer_netherlands_eredivisie', 'Eredivisie'),
         ]
         
-        for sport in sports:
+        for sport, league_name in sports:
+            print(f"   Fetching {league_name}...")
             matches = self.odds_fetcher.get_upcoming_matches(sport)
-            all_matches.extend(matches)
-            time.sleep(0.5)
+            
+            if matches:
+                print(f"      ✅ Found {len(matches)} matches")
+                all_matches.extend(matches)
+            else:
+                print(f"      ⚠️ No matches found")
+            
+            time.sleep(0.5)  # Rate limiting
         
         if not all_matches:
-            print("❌ No real matches fetched from API.")
-            print("   Possible reasons:")
-            print("   1. No API key configured")
-            print("   2. No matches scheduled for today")
-            print("   3. API rate limit reached")
+            print("\n" + "="*60)
+            print("❌ NO REAL MATCHES FOUND")
+            print("="*60)
+            print("\nPossible reasons:")
+            print("1. No matches scheduled for today")
+            print("2. API key is invalid or expired")
+            print("3. API rate limit reached")
+            print("\n💡 To fix:")
+            print("   - Check your API key at https://the-odds-api.com")
+            print("   - Or use manual input_matches.txt file")
             return pd.DataFrame()
         
+        # Convert to DataFrame
         df = pd.DataFrame(all_matches)
+        
+        # Remove matches with missing odds
         df = df[(df['home_odds'] > 0) & (df['draw_odds'] > 0) & (df['away_odds'] > 0)]
         
-        print(f"✅ Total {len(df)} REAL matches ready for blueprint analysis")
+        print(f"\n✅ TOTAL {len(df)} REAL MATCHES READY FOR ANALYSIS")
+        print(f"   Leagues: {df['league'].nunique()} different leagues")
+        
         return df
