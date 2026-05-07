@@ -324,10 +324,25 @@ def main():
         print("\n❌ No matches passed any blueprint")
         return 1
     
-    print(f"\n✅ {len(predictions)} matches passed blueprints:")
+        print(f"\n✅ {len(predictions)} matches passed blueprints:")
     for p in predictions:
         print(f"   {p['blueprint']}: {p['match']} - {p['play']} ({p['confidence']:.0f}%) - {p['decision']}")
     
+    # ============================================================
+    # DEBUG: VERIFY SYSTEM PICKS FOR ACCUMULATORS
+    # ============================================================
+    print("\n" + "="*60)
+    print("🔍 DEBUG: SYSTEM PICKS AVAILABLE FOR ACCUMULATORS")
+    print("="*60)
+    for i, p in enumerate(predictions, 1):
+        print(f"   {i}. {p['blueprint']}: {p['match']}")
+        print(f"      Play: {p['play']}")
+        print(f"      Confidence: {p['confidence']:.0f}%")
+        print(f"      Odds: {p.get('odds', 'N/A')}")
+    print("="*60)
+    # ============================================================
+    
+    # Build accumulators
     accumulators = build_accumulators(predictions)
     
     # Build message
