@@ -1,6 +1,4 @@
 """
-# In config.py - already configured
-FOOTBALL_DATA_API_KEY = os.getenv('FOOTBALL_DATA_API_KEY', '')
 Configuration for Soccer Blueprint System
 """
 
@@ -25,7 +23,7 @@ class Config:
     USE_API = True  # Set to False to use manual copy/paste instead
     SPORT = 'soccer'  # Options: 'soccer_epl', 'soccer_spain_la_liga', etc.
     REGIONS = 'uk'  # 'uk', 'us', 'eu', 'au'
-    MARKETS = 'h2h,btts,totals'  # Get home/draw/away + BTTS + Over/Under
+    MARKETS = 'h2h,totals'  # REMOVED 'btts' - not supported by free tier
     
     # Accumulator Targets
     ACCUMULATOR_TARGETS = {
