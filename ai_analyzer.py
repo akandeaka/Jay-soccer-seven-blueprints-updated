@@ -1,25 +1,17 @@
 """
 AI Analyzer - Smart analysis of blueprint matches
+NO DEMO DATA - Only analyzes real matches passed to it
 """
 
-import pandas as pd
 import random
 from typing import List, Dict, Tuple
-from datetime import datetime, timedelta
 
 
 class AIAnalyzer:
-    """
-    AI-based match analyzer
-    Uses current trends, form, and historical patterns
-    """
+    """AI-based match analyzer - ONLY processes real matches"""
     
     def __init__(self):
-        # Simulated team form database
-        # In production, this would connect to a real API
-        self.form_database = self._initialize_form_database()
-        
-        # League scoring averages
+        # League scoring averages for BP8 validation
         self.league_avg_goals = {
             'bundesliga': 3.2,
             'eredivisie': 3.1,
@@ -28,87 +20,48 @@ class AIAnalyzer:
             'ligue 1': 2.7,
             'la liga': 2.5
         }
-        
-        # Current month factor (for seasonal trends)
-        self.current_month = datetime.now().month
-        
-    def _initialize_form_database(self) -> Dict:
-        """Initialize simulated form database"""
-        # In production, this would fetch real data
-        return {}
     
     def analyze_match(self, match: Dict) -> Dict:
         """
         Analyze a single match with AI
-        Returns validated prediction or alternative
+        Returns analyzed match with confidence score
         """
-        match_name = match.get('match', '')
+        # Get blueprint base confidence
         blueprint = match.get('blueprint', '')
         confidence = match.get('confidence', 50)
         
-        # Extract team names
-        teams = self._extract_teams(match_name)
+        # Extract teams for analysis
+        match_name = match.get('match', '')
         
-        # Calculate form score (1-10)
-        form_score = self._calculate_form_score(teams)
-        
-        # Calculate head-to-head factor
-        h2h_factor = self._calculate_h2h_factor(teams)
-        
-        # Calculate league trend factor - FIXED: pass league name
-        league = match.get('league', '')
+        # Calculate adjustments based on available data
+        league = match.get('league', '').lower()
         league_trend = self._calculate_league_trend(league)
         
-        # Calculate injury/suspension factor (simulated)
-        injury_factor = self._calculate_injury_factor(teams)
+        # Get BTTS record if available (for BP7)
+        btts_record = match.get('btts_record', None)
+        btts_boost = self._calculate_btts_boost(btts_record)
         
-        # Calculate motivation factor
-        motivation = self._calculate_motivation(teams)
+        # Calculate final confidence
+        adjusted_confidence = confidence * (0.8 + (league_trend * 0.2) + (btts_boost * 0.1))
+        adjusted_confidence = min(95, max(60, adjusted_confidence))
         
-        # Final AI confidence adjustment
-        ai_adjustment = (
-            form_score * 0.3 +
-            h2h_factor * 0.2 +
-            league_trend * 0.2 +
-            injury_factor * 0.15 +
-            motivation * 0.15
-        )
-        
-        # Adjusted confidence (60-95 range)
-        adjusted_confidence = min(95, max(60, confidence * (0.7 + ai_adjustment * 0.3)))
-        
-        # Determine if AI validates or suggests alternative - FIXED: pass match parameter
-        ai_decision, alternative = self._ai_decision(
-            blueprint, adjusted_confidence, form_score, match
-        )
+        # Determine AI decision
+        if adjusted_confidence >= 80:
+            ai_decision = "VALIDATED"
+        elif adjusted_confidence >= 70:
+            ai_decision = "CONFIRMED"
+        elif adjusted_confidence >= 60:
+            ai_decision = "CONSIDER"
+        else:
+            ai_decision = "ALTERNATIVE"
         
         return {
             **match,
             'ai_confidence': round(adjusted_confidence, 1),
             'ai_decision': ai_decision,
-            'ai_alternative': alternative,
-            'form_score': round(form_score, 2),
-            'h2h_factor': round(h2h_factor, 2),
-            'trend_score': round(league_trend, 2)
+            'ai_alternative': match.get('play', ''),
+            'league_trend': round(league_trend, 2)
         }
-    
-    def _extract_teams(self, match_name: str) -> Tuple[str, str]:
-        """Extract home and away team names"""
-        if ' vs ' in match_name:
-            parts = match_name.split(' vs ')
-            return parts[0].strip(), parts[1].strip()
-        return 'Team A', 'Team B'
-    
-    def _calculate_form_score(self, teams: Tuple[str, str]) -> float:
-        """Calculate form score based on recent results (simulated)"""
-        # In production, fetch real recent form
-        # Simulated: random between 0.5 and 1.0
-        return random.uniform(0.5, 1.0)
-    
-    def _calculate_h2h_factor(self, teams: Tuple[str, str]) -> float:
-        """Calculate head-to-head factor (simulated)"""
-        # In production, fetch real H2H data
-        return random.uniform(0.4, 1.0)
     
     def _calculate_league_trend(self, league: str) -> float:
         """Calculate league scoring trend"""
@@ -123,45 +76,40 @@ class AIAnalyzer:
                     return 0.5
         return 0.6
     
-    def _calculate_injury_factor(self, teams: Tuple[str, str]) -> float:
-        """Calculate injury/suspension impact (simulated)"""
-        return random.uniform(0.6, 1.0)
-    
-    def _calculate_motivation(self, teams: Tuple[str, str]) -> float:
-        """Calculate motivation factor (derby, relegation, title race)"""
-        return random.uniform(0.5, 1.0)
-    
-    def _ai_decision(self, blueprint: str, confidence: float, form_score: float, match: Dict) -> Tuple[str, str]:
-        """AI decides to validate or suggest alternative"""
-        if confidence >= 80 and form_score >= 0.7:
-            return "VALIDATED", match.get('play', 'Original pick')
-        elif confidence >= 70 and form_score >= 0.6:
-            return "CONFIRMED", match.get('play', 'Original pick')
-        elif confidence >= 60:
-            return "CONSIDER", match.get('play', 'Original pick')
-        else:
-            # Suggest alternative based on blueprint
-            alternatives = {
-                'BP1': 'Double Chance Home/Draw',
-                'BP2': 'Home Win or Draw',
-                'BP3': 'Over 1.5 Goals',
-                'BP4': 'Over 2.5 Goals',
-                'BP5': 'Under 3.5 Goals',
-                'BP6': 'Draw No Bet',
-                'BP7': 'BTTS Yes',
-                'BP8': 'Over 2.5 Goals'
-            }
-            return "ALTERNATIVE", alternatives.get(blueprint, 'Value Bet')
+    def _calculate_btts_boost(self, btts_record: str) -> float:
+        """Calculate confidence boost from BTTS record"""
+        if not btts_record:
+            return 0
+        
+        try:
+            if '/' in btts_record:
+                hits, total = map(int, btts_record.split('/'))
+                rate = hits / total
+                if rate >= 0.7:  # 7/10 or 3.5/5
+                    return 0.15
+                elif rate >= 0.6:  # 3/5
+                    return 0.10
+        except:
+            pass
+        
+        return 0
     
     def analyze_batch(self, matches: List[Dict]) -> List[Dict]:
-        """Analyze multiple matches"""
+        """
+        Analyze multiple matches
+        Returns ONLY the matches passed in - NO GENERATION
+        """
+        if not matches:
+            print("⚠️ No matches provided to AI analyzer")
+            return []
+        
         analyzed = []
         for match in matches:
             analyzed_match = self.analyze_match(match)
-            # Only keep matches that pass AI threshold
-            if analyzed_match['ai_confidence'] >= 60:
-                analyzed.append(analyzed_match)
+            analyzed.append(analyzed_match)
         
         # Sort by AI confidence
-        analyzed.sort(key=lambda x: x['ai_confidence'], reverse=True)
+        analyzed.sort(key=lambda x: x.get('ai_confidence', 0), reverse=True)
+        
+        print(f"✅ AI analyzed {len(analyzed)} real matches")
         return analyzed
