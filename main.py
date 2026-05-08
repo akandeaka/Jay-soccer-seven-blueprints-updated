@@ -1,8 +1,6 @@
 """
 SOCCER BLUEPRINT SYSTEM - 8 BLUEPRINTS
-BP6: Full Time Draw (X)
-READS ONLY FROM input_matches.txt
-ACCUMULATORS USE ONLY PREDICTIONS (MATCHES THAT PASSED BLUEPRINTS)
+EACH BLUEPRINT SCANS ALL MATCHES AND PICKS THOSE THAT MEET ITS CRITERIA
 """
 
 import os
@@ -114,99 +112,218 @@ def parse_matches():
     return matches
 
 # ============================================================
-# FUNCTION 3: APPLY 8 BLUEPRINTS
+# FUNCTION 3: BP1 - SCAN ALL MATCHES FOR ELITE HOME BANKER
 # ============================================================
 
-def apply_blueprints(match):
-    """Apply all 8 blueprints to a match"""
-    
-    home = match.get('home_odds', 0)
-    draw = match.get('draw_odds', 0)
-    away = match.get('away_odds', 0)
-    league = match.get('league', '').lower()
-    
-    is_high_scoring = any(hl in league for hl in HIGH_SCORING_LEAGUES)
-    
-    # BP1: Elite Home Banker
-    if 1.20 <= home <= 1.29 and away >= 10.0:
-        return ('BP1', 'Straight Home Win', 95, home)
-    
-    # BP2: Primary Favorite
-    if 1.30 <= home <= 1.36 and away >= 9.0:
-        return ('BP2', 'Home Win', 90, home)
-    
-    # BP3: Moderate Favorite Safety
-    if 1.30 <= home <= 1.36 and 7.0 <= away <= 8.99:
-        return ('BP3', '1X & Over 1.5 Goals', 85, home)
-    
-    # BP4: Goal Engine
-    if 1.72 <= home <= 1.80:
-        conf = 75 if is_high_scoring else 65
-        return ('BP4', 'Over 1.5 Goals', conf, home)
-    
-    # BP5: Defensive Trap
-    if 1.90 <= home <= 2.02:
-        return ('BP5', '1X & Under 3.5 FT', 70, home)
-    
-    # BP6: Strong Draw - FULL TIME DRAW
-    if 2.75 <= draw <= 3.39:
-        return ('BP6', 'Full Time Draw (X)', 50, draw)
-    
-    # BP7: BTTS Value Spot
-    if 1.40 <= home <= 1.69:
-        if is_high_scoring:
-            return ('BP7', 'Both Teams to Score - YES', 75, home)
-        else:
-            return ('BP7', 'Both Teams to Score - NO', 65, home)
-    
-    # BP8: High-Scoring Signals
-    if 3.60 <= draw <= 3.75 and is_high_scoring:
-        return ('BP8', 'HT 0.5 / Over 2.5 Goals', 60, draw)
-    
-    return None
+def scan_bp1(matches):
+    """BP1: Scan ALL matches - Pick those with Home 1.20-1.29 & Away ≥10.0"""
+    results = []
+    for match in matches:
+        home = match.get('home_odds', 0)
+        away = match.get('away_odds', 0)
+        if 1.20 <= home <= 1.29 and away >= 10.0:
+            results.append({
+                'match': match['match'],
+                'league': match['league'],
+                'blueprint': 'BP1',
+                'play': 'Straight Home Win',
+                'confidence': 95,
+                'odds_used': home
+            })
+    return results
 
 # ============================================================
-# FUNCTION 4: AI ANALYSIS
+# FUNCTION 4: BP2 - SCAN ALL MATCHES FOR PRIMARY FAVORITE
 # ============================================================
 
-def ai_analyze(match, bp_result):
-    """AI validates or suggests alternative"""
-    bp, play, conf, odds_used = bp_result
+def scan_bp2(matches):
+    """BP2: Scan ALL matches - Pick those with Home 1.30-1.36 & Away ≥9.0"""
+    results = []
+    for match in matches:
+        home = match.get('home_odds', 0)
+        away = match.get('away_odds', 0)
+        if 1.30 <= home <= 1.36 and away >= 9.0:
+            results.append({
+                'match': match['match'],
+                'league': match['league'],
+                'blueprint': 'BP2',
+                'play': 'Home Win',
+                'confidence': 90,
+                'odds_used': home
+            })
+    return results
+
+# ============================================================
+# FUNCTION 5: BP3 - SCAN ALL MATCHES FOR MODERATE FAVORITE SAFETY
+# ============================================================
+
+def scan_bp3(matches):
+    """BP3: Scan ALL matches - Pick those with Home 1.30-1.36 & Away 7.0-8.99"""
+    results = []
+    for match in matches:
+        home = match.get('home_odds', 0)
+        away = match.get('away_odds', 0)
+        if 1.30 <= home <= 1.36 and 7.0 <= away <= 8.99:
+            results.append({
+                'match': match['match'],
+                'league': match['league'],
+                'blueprint': 'BP3',
+                'play': '1X & Over 1.5 Goals',
+                'confidence': 85,
+                'odds_used': home
+            })
+    return results
+
+# ============================================================
+# FUNCTION 6: BP4 - SCAN ALL MATCHES FOR GOAL ENGINE
+# ============================================================
+
+def scan_bp4(matches):
+    """BP4: Scan ALL matches - Pick those with Home 1.72-1.80"""
+    results = []
+    for match in matches:
+        home = match.get('home_odds', 0)
+        league = match.get('league', '').lower()
+        is_high_scoring = any(hl in league for hl in HIGH_SCORING_LEAGUES)
+        
+        if 1.72 <= home <= 1.80:
+            conf = 75 if is_high_scoring else 65
+            results.append({
+                'match': match['match'],
+                'league': match['league'],
+                'blueprint': 'BP4',
+                'play': 'Over 1.5 Goals',
+                'confidence': conf,
+                'odds_used': home
+            })
+    return results
+
+# ============================================================
+# FUNCTION 7: BP5 - SCAN ALL MATCHES FOR DEFENSIVE TRAP
+# ============================================================
+
+def scan_bp5(matches):
+    """BP5: Scan ALL matches - Pick those with Home 1.90-2.02"""
+    results = []
+    for match in matches:
+        home = match.get('home_odds', 0)
+        if 1.90 <= home <= 2.02:
+            results.append({
+                'match': match['match'],
+                'league': match['league'],
+                'blueprint': 'BP5',
+                'play': '1X & Under 3.5 FT',
+                'confidence': 70,
+                'odds_used': home
+            })
+    return results
+
+# ============================================================
+# FUNCTION 8: BP6 - SCAN ALL MATCHES FOR STRONG DRAW
+# ============================================================
+
+def scan_bp6(matches):
+    """BP6: Scan ALL matches - Pick those with Draw 2.75-3.39"""
+    results = []
+    for match in matches:
+        draw = match.get('draw_odds', 0)
+        if 2.75 <= draw <= 3.39:
+            results.append({
+                'match': match['match'],
+                'league': match['league'],
+                'blueprint': 'BP6',
+                'play': 'Full Time Draw (X)',
+                'confidence': 50,
+                'odds_used': draw
+            })
+    return results
+
+# ============================================================
+# FUNCTION 9: BP7 - SCAN ALL MATCHES FOR BTTS VALUE SPOT
+# ============================================================
+
+def scan_bp7(matches):
+    """BP7: Scan ALL matches - Pick those with Home 1.40-1.69"""
+    results = []
+    for match in matches:
+        home = match.get('home_odds', 0)
+        league = match.get('league', '').lower()
+        is_high_scoring = any(hl in league for hl in HIGH_SCORING_LEAGUES)
+        
+        if 1.40 <= home <= 1.69:
+            if is_high_scoring:
+                play = 'Both Teams to Score - YES'
+                conf = 75
+            else:
+                play = 'Both Teams to Score - NO'
+                conf = 65
+            results.append({
+                'match': match['match'],
+                'league': match['league'],
+                'blueprint': 'BP7',
+                'play': play,
+                'confidence': conf,
+                'odds_used': home
+            })
+    return results
+
+# ============================================================
+# FUNCTION 10: BP8 - SCAN ALL MATCHES FOR HIGH-SCORING SIGNALS
+# ============================================================
+
+def scan_bp8(matches):
+    """BP8: Scan ALL matches - Pick those with Draw 3.60-3.75 + high-scoring league"""
+    results = []
+    for match in matches:
+        draw = match.get('draw_odds', 0)
+        league = match.get('league', '').lower()
+        is_high_scoring = any(hl in league for hl in HIGH_SCORING_LEAGUES)
+        
+        if 3.60 <= draw <= 3.75 and is_high_scoring:
+            results.append({
+                'match': match['match'],
+                'league': match['league'],
+                'blueprint': 'BP8',
+                'play': 'HT 0.5 / Over 2.5 Goals',
+                'confidence': 60,
+                'odds_used': draw
+            })
+    return results
+
+# ============================================================
+# FUNCTION 11: AI ANALYSIS
+# ============================================================
+
+def ai_analyze(prediction):
+    """AI validates or confirms the prediction"""
+    conf = prediction['confidence']
     
     if conf >= 75:
-        return conf, "VALIDATED", play, odds_used
+        decision = "VALIDATED"
     elif conf >= 60:
-        return conf, "CONFIRMED", play, odds_used
+        decision = "CONFIRMED"
     else:
-        return conf, "ALTERNATIVE", play, odds_used
+        decision = "ALTERNATIVE"
+    
+    prediction['decision'] = decision
+    return prediction
 
 # ============================================================
-# FUNCTION 5: BUILD ACCUMULATORS (ONLY FROM PREDICTIONS)
+# FUNCTION 12: BUILD ACCUMULATORS (ONLY FROM PREDICTIONS)
 # ============================================================
 
 def build_accumulators(predictions):
     """
     Build accumulators at 2, 4, 7, 10 odds targets
     USES ONLY PREDICTIONS (matches that passed blueprints)
-    NO DUPLICATE MATCHES ACROSS ACCUMULATORS
     """
     
     if len(predictions) < 2:
-        print("\n⚠️ Not enough predictions to build accumulators (need at least 2)")
         return {}
     
-    print(f"\n🔨 Building accumulators from {len(predictions)} predictions:")
-    
-    # Set odds for each prediction based on the play
+    # Set odds for each prediction
     for p in predictions:
-        play = p['play']
-        if 'Home Win' in play:
-            p['odds'] = p.get('home_odds', 1.50)
-        elif 'Draw' in play:
-            p['odds'] = p.get('draw_odds', 1.50)
-        else:
-            p['odds'] = 1.50
-        print(f"   {p['blueprint']}: {p['match']} - {p['play']} (Odds: {p['odds']})")
+        p['odds'] = p['odds_used']
     
     # Sort by confidence (highest first)
     sorted_picks = sorted(predictions, key=lambda x: x['confidence'], reverse=True)
@@ -216,7 +333,7 @@ def build_accumulators(predictions):
     def get_unused_picks():
         return [p for p in sorted_picks if p['match'] not in used_matches]
     
-    # 2 ODDS ACCUMULATOR (2-3 matches)
+    # 2 ODDS ACCUMULATOR
     available = get_unused_picks()
     for n in [2, 3]:
         if len(available) >= n:
@@ -226,18 +343,16 @@ def build_accumulators(predictions):
                     total *= m['odds']
                 if 1.8 <= total <= 2.5:
                     accumulators['2_ODDS'] = {
-                        'matches': combo, 
-                        'odds': round(total, 2),
-                        'plays': [m['play'] for m in combo]
+                        'matches': combo,
+                        'odds': round(total, 2)
                     }
                     for m in combo:
                         used_matches.add(m['match'])
-                    print(f"\n   ✅ 2_ODDS built with {len(combo)} matches @ {round(total, 2)} odds")
                     break
         if '2_ODDS' in accumulators:
             break
     
-    # 4 ODDS ACCUMULATOR (4 matches)
+    # 4 ODDS ACCUMULATOR
     available = get_unused_picks()
     if len(available) >= 4:
         for combo in combinations(available, 4):
@@ -246,16 +361,14 @@ def build_accumulators(predictions):
                 total *= m['odds']
             if 3.5 <= total <= 5.0:
                 accumulators['4_ODDS'] = {
-                    'matches': combo, 
-                    'odds': round(total, 2),
-                    'plays': [m['play'] for m in combo]
+                    'matches': combo,
+                    'odds': round(total, 2)
                 }
                 for m in combo:
                     used_matches.add(m['match'])
-                print(f"   ✅ 4_ODDS built with 4 matches @ {round(total, 2)} odds")
                 break
     
-    # 7 ODDS ACCUMULATOR (5 matches)
+    # 7 ODDS ACCUMULATOR
     available = get_unused_picks()
     if len(available) >= 5:
         for combo in combinations(available, 5):
@@ -264,16 +377,14 @@ def build_accumulators(predictions):
                 total *= m['odds']
             if 6.0 <= total <= 8.5:
                 accumulators['7_ODDS'] = {
-                    'matches': combo, 
-                    'odds': round(total, 2),
-                    'plays': [m['play'] for m in combo]
+                    'matches': combo,
+                    'odds': round(total, 2)
                 }
                 for m in combo:
                     used_matches.add(m['match'])
-                print(f"   ✅ 7_ODDS built with 5 matches @ {round(total, 2)} odds")
                 break
     
-    # 10 ODDS ACCUMULATOR (5-6 matches)
+    # 10 ODDS ACCUMULATOR
     available = get_unused_picks()
     for n in [5, 6]:
         if len(available) >= n:
@@ -283,24 +394,19 @@ def build_accumulators(predictions):
                     total *= m['odds']
                 if 9.0 <= total <= 12.0:
                     accumulators['10_ODDS'] = {
-                        'matches': combo, 
-                        'odds': round(total, 2),
-                        'plays': [m['play'] for m in combo]
+                        'matches': combo,
+                        'odds': round(total, 2)
                     }
                     for m in combo:
                         used_matches.add(m['match'])
-                    print(f"   ✅ 10_ODDS built with {n} matches @ {round(total, 2)} odds")
                     break
         if '10_ODDS' in accumulators:
             break
     
-    if not accumulators:
-        print("   ⚠️ No accumulators could be built from predictions")
-    
     return accumulators
 
 # ============================================================
-# FUNCTION 6: SEND TO TELEGRAM
+# FUNCTION 13: SEND TO TELEGRAM
 # ============================================================
 
 def send_telegram(message):
@@ -322,14 +428,13 @@ def send_telegram(message):
         return False
 
 # ============================================================
-# MAIN SYSTEM
+# MAIN SYSTEM - EACH BLUEPRINT SCANS ALL MATCHES
 # ============================================================
 
 def main():
     print("\n" + "="*60)
     print("⚽ JAY SOCCER BLUEPRINTS SYSTEM")
-    print("8 BLUEPRINTS | BP6: FULL TIME DRAW")
-    print("ACCUMULATORS USE ONLY PREDICTIONS")
+    print("EACH BLUEPRINT SCANS ALL MATCHES")
     print("="*60)
     print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
@@ -342,74 +447,98 @@ def main():
     if os.path.exists(INPUT_FILE):
         convert_csv_format()
     
-    # Parse matches
-    matches = parse_matches()
+    # Parse all matches
+    all_matches = parse_matches()
     
-    if not matches:
+    if not all_matches:
         print("\n❌ No matches found in input_matches.txt")
-        print("\n📝 Expected format:")
-        print("   Team A vs Team B")
-        print("   League Name")
-        print("   1.55 | 4.20 | 5.50")
         return 1
     
-    print(f"\n📊 Loaded {len(matches)} total matches from input file")
+    print(f"\n📊 Loaded {len(all_matches)} total matches for scanning")
     
-    # Apply blueprints to get predictions
-    predictions = []
-    for match in matches:
-        bp_result = apply_blueprints(match)
-        if bp_result:
-            bp, play, conf, odds_used = bp_result
-            ai_conf, ai_decision, ai_play, ai_odds = ai_analyze(match, bp_result)
-            
-            predictions.append({
-                'match': match['match'],
-                'league': match['league'],
-                'blueprint': bp,
-                'play': ai_play,
-                'confidence': ai_conf,
-                'decision': ai_decision,
-                'odds_used': ai_odds,
-                'home_odds': match.get('home_odds', 0),
-                'draw_odds': match.get('draw_odds', 0),
-                'away_odds': match.get('away_odds', 0)
-            })
-    
-    if not predictions:
-        print("\n❌ No matches passed any blueprint")
-        return 1
-    
-    # Display predictions (THESE ARE THE ONLY MATCHES FOR ACCUMULATORS)
-    print(f"\n✅ {len(predictions)} matches passed blueprints (THESE ARE YOUR SYSTEM PICKS):")
+    # EACH BLUEPRINT SCANS ALL MATCHES INDEPENDENTLY
+    print("\n" + "="*60)
+    print("🔍 SCANNING MATCHES WITH EACH BLUEPRINT")
     print("="*60)
-    for i, p in enumerate(predictions, 1):
+    
+    bp1_picks = scan_bp1(all_matches)
+    print(f"   BP1 found: {len(bp1_picks)} matches")
+    
+    bp2_picks = scan_bp2(all_matches)
+    print(f"   BP2 found: {len(bp2_picks)} matches")
+    
+    bp3_picks = scan_bp3(all_matches)
+    print(f"   BP3 found: {len(bp3_picks)} matches")
+    
+    bp4_picks = scan_bp4(all_matches)
+    print(f"   BP4 found: {len(bp4_picks)} matches")
+    
+    bp5_picks = scan_bp5(all_matches)
+    print(f"   BP5 found: {len(bp5_picks)} matches")
+    
+    bp6_picks = scan_bp6(all_matches)
+    print(f"   BP6 found: {len(bp6_picks)} matches")
+    
+    bp7_picks = scan_bp7(all_matches)
+    print(f"   BP7 found: {len(bp7_picks)} matches")
+    
+    bp8_picks = scan_bp8(all_matches)
+    print(f"   BP8 found: {len(bp8_picks)} matches")
+    
+    # Combine all picks
+    all_predictions = []
+    all_predictions.extend(bp1_picks)
+    all_predictions.extend(bp2_picks)
+    all_predictions.extend(bp3_picks)
+    all_predictions.extend(bp4_picks)
+    all_predictions.extend(bp5_picks)
+    all_predictions.extend(bp6_picks)
+    all_predictions.extend(bp7_picks)
+    all_predictions.extend(bp8_picks)
+    
+    if not all_predictions:
+        print("\n❌ No matches passed any blueprint criteria")
+        return 1
+    
+    # Apply AI analysis to each prediction
+    for p in all_predictions:
+        p = ai_analyze(p)
+    
+    # Remove duplicates (same match picked by multiple blueprints)
+    unique_predictions = []
+    seen_matches = set()
+    for p in all_predictions:
+        if p['match'] not in seen_matches:
+            unique_predictions.append(p)
+            seen_matches.add(p['match'])
+    
+    print(f"\n✅ TOTAL UNIQUE PICKS: {len(unique_predictions)}")
+    print("="*60)
+    for i, p in enumerate(unique_predictions, 1):
         print(f"   {i}. {p['blueprint']}: {p['match']}")
         print(f"      Play: {p['play']}")
-        print(f"      Confidence: {p['confidence']:.0f}%")
-        print(f"      Decision: {p['decision']}")
-    print("="*60)
+        print(f"      Confidence: {p['confidence']}% - {p['decision']}")
     
-    # Build accumulators (ONLY from predictions)
-    accumulators = build_accumulators(predictions)
+    # Build accumulators
+    accumulators = build_accumulators(unique_predictions)
     
     # Build Telegram message
     message = f"""⚽ JAY SOCCER BLUEPRINTS - AI PREDICTIONS
 📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📊 AI ANALYZED PICKS ({len(predictions)} matches)
+📊 BLUEPRINT SCAN RESULTS ({len(unique_predictions)} picks)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
     
-    for p in predictions[:20]:
-        emoji = "✅" if p['decision'] == 'VALIDATED' else "🟡" if p['decision'] == 'CONFIRMED' else "⚠️"
-        message += f"""
-{emoji} {p['blueprint']}: {p['match']}
-   🎯 {p['play']}
-   📈 AI Confidence: {p['confidence']:.0f}%
-   🔍 Decision: {p['decision']}
-"""
+    # Group by blueprint for better readability
+    for bp in ['BP1', 'BP2', 'BP3', 'BP4', 'BP5', 'BP6', 'BP7', 'BP8']:
+        bp_picks = [p for p in unique_predictions if p['blueprint'] == bp]
+        if bp_picks:
+            message += f"\n🔵 {bp} - {bp_picks[0]['play']}\n"
+            for p in bp_picks:
+                emoji = "✅" if p['decision'] == 'VALIDATED' else "🟡" if p['decision'] == 'CONFIRMED' else "⚠️"
+                message += f"   {emoji} {p['match']} (Confidence: {p['confidence']}%)\n"
     
     if accumulators:
         message += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎰 ACCUMULATOR PICKS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
@@ -417,7 +546,6 @@ def main():
             target = name.split('_')[0]
             message += f"\n{name} (Target: {target} odds)\nTotal Odds: {acc['odds']}\n"
             for i, m in enumerate(acc['matches'], 1):
-                # Truncate long match names
                 match_name = m['match'][:40] + "..." if len(m['match']) > 40 else m['match']
                 message += f"   {i}. {match_name}\n"
                 message += f"      🎯 {m['play']}\n"
@@ -429,20 +557,23 @@ def main():
     
     # Save results
     with open("predictions.json", "w") as f:
-        json.dump(predictions, f, indent=2)
+        json.dump(unique_predictions, f, indent=2)
     
     print("\n" + "="*60)
     print("✅ SYSTEM EXECUTION COMPLETE")
     print("="*60)
     print(f"\n📊 SUMMARY:")
-    print(f"   Total matches in input file: {len(matches)}")
-    print(f"   Matches that passed blueprints: {len(predictions)}")
+    print(f"   Total matches scanned: {len(all_matches)}")
+    print(f"   BP1 picks: {len(bp1_picks)}")
+    print(f"   BP2 picks: {len(bp2_picks)}")
+    print(f"   BP3 picks: {len(bp3_picks)}")
+    print(f"   BP4 picks: {len(bp4_picks)}")
+    print(f"   BP5 picks: {len(bp5_picks)}")
+    print(f"   BP6 picks: {len(bp6_picks)}")
+    print(f"   BP7 picks: {len(bp7_picks)}")
+    print(f"   BP8 picks: {len(bp8_picks)}")
+    print(f"   Total unique picks: {len(unique_predictions)}")
     print(f"   Accumulators built: {len(accumulators)}")
-    
-    if accumulators:
-        print(f"\n📈 ACCUMULATORS BUILT FROM PREDICTIONS ONLY:")
-        for name, acc in accumulators.items():
-            print(f"   {name}: {len(acc['matches'])} matches @ {acc['odds']} odds")
     
     return 0
 
