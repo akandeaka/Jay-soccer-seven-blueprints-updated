@@ -179,7 +179,7 @@ def ai_analyze(match, bp_result):
         return conf, "ALTERNATIVE", play
 
 # ============================================================
-# FUNCTION 5: BUILD ACCUMULATORS
+# FUNCTION 5: BUILD ACCUMULATORS (WITH PLAY TYPE PRESERVED)
 # ============================================================
 
 def build_accumulators(predictions):
@@ -191,7 +191,7 @@ def build_accumulators(predictions):
     if len(predictions) < 2:
         return {}
     
-    # Set odds for each prediction
+    # Set odds for each prediction and ensure play is preserved
     for p in predictions:
         play = p.get('play', '')
         if 'Home Win' in play:
@@ -200,9 +200,8 @@ def build_accumulators(predictions):
             p['odds'] = p.get('draw_odds', 1.50)
         else:
             p['odds'] = 1.50
-        # Ensure play is preserved
-        if 'play' not in p:
-            p['play'] = play
+        # Ensure play is in the dict
+        p['play'] = play
     
     # Sort by confidence (highest first)
     sorted_picks = sorted(predictions, key=lambda x: x.get('confidence', 0), reverse=True)
@@ -283,8 +282,9 @@ def build_accumulators(predictions):
             break
     
     return accumulators
+
 # ============================================================
-# FUNCTION 6: SEND TO TELEGRAM (WORKING VERSION)
+# FUNCTION 6: SEND TO TELEGRAM
 # ============================================================
 
 def send_telegram(message):
@@ -292,6 +292,10 @@ def send_telegram(message):
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
         print("⚠️ Telegram not configured - skipping")
         return False
+    
+    # Truncate if too long
+    if len(message) > 4096:
+        message = message[:4000] + "\n\n... (truncated)"
     
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     try:
@@ -396,8 +400,15 @@ def main():
         for name, acc in accumulators.items():
             target = name.split('_')[0]
             message += f"\n{name} (Target: {target} odds)\nTotal Odds: {acc['odds']}\n"
-            for i, m in enumerate(acc['matches'][:3], 1):
-                message += f"   {i}. {m['match'][:35]}...\n"
+            for i, m in enumerate(acc['matches'], 1):
+                # Truncate match name if too long
+                match_name = m.get('match', 'Unknown')[:40]
+                if len(m.get('match', '')) > 40:
+                    match_name += "..."
+                # Get the play - THIS IS THE FIX!
+                play = m.get('play', 'Unknown')
+                message += f"   {i}. {match_name}\n"
+                message += f"      🎯 {play}\n"
     
     message += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⚠️ Always bet responsibly!\n📊 AI predictions for informational purposes only."
     
@@ -418,13 +429,6 @@ def main():
     print(f"   Accumulators built: {len(accumulators)}")
     
     return 0
-    for i, m in enumerate(acc['matches'], 1):
-    match_name = m.get('match', 'Unknown')[:40]
-    if len(m.get('match', '')) > 40:
-        match_name += "..."
-    play = m.get('play', 'Unknown')
-    message += f"   {i}. {match_name}\n"
-    message += f"      🎯 {play}\n"
 
 if __name__ == "__main__":
     sys.exit(main())
