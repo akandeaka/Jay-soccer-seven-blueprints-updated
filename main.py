@@ -183,28 +183,34 @@ def ai_analyze(match, bp_result):
 # ============================================================
 
 def build_accumulators(predictions):
-    """Build accumulators at 2, 4, 7, 10 odds targets"""
+    """
+    Build accumulators at 2, 4, 7, 10 odds targets
+    Preserves play type for each match
+    """
     
     if len(predictions) < 2:
         return {}
     
     # Set odds for each prediction
     for p in predictions:
-        play = p['play']
+        play = p.get('play', '')
         if 'Home Win' in play:
-            p['odds'] = p['home_odds']
+            p['odds'] = p.get('home_odds', 1.50)
         elif 'Draw' in play:
-            p['odds'] = p['draw_odds']
+            p['odds'] = p.get('draw_odds', 1.50)
         else:
             p['odds'] = 1.50
+        # Ensure play is preserved
+        if 'play' not in p:
+            p['play'] = play
     
     # Sort by confidence (highest first)
-    sorted_picks = sorted(predictions, key=lambda x: x['confidence'], reverse=True)
+    sorted_picks = sorted(predictions, key=lambda x: x.get('confidence', 0), reverse=True)
     accumulators = {}
     used_matches = set()
     
     def get_unused_picks(limit=None):
-        available = [p for p in sorted_picks if p['match'] not in used_matches]
+        available = [p for p in sorted_picks if p.get('match') not in used_matches]
         if limit:
             return available[:limit]
         return available
@@ -215,11 +221,14 @@ def build_accumulators(predictions):
         for combo in combinations(available, n):
             total = 1
             for m in combo:
-                total *= m['odds']
+                total *= m.get('odds', 1.50)
             if 1.8 <= total <= 2.5:
-                accumulators['2_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
+                accumulators['2_ODDS'] = {
+                    'matches': list(combo),
+                    'odds': round(total, 2)
+                }
                 for m in combo:
-                    used_matches.add(m['match'])
+                    used_matches.add(m.get('match'))
                 break
         if '2_ODDS' in accumulators:
             break
@@ -229,11 +238,14 @@ def build_accumulators(predictions):
     for combo in combinations(available, 4):
         total = 1
         for m in combo:
-            total *= m['odds']
+            total *= m.get('odds', 1.50)
         if 3.5 <= total <= 5.0:
-            accumulators['4_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
+            accumulators['4_ODDS'] = {
+                'matches': list(combo),
+                'odds': round(total, 2)
+            }
             for m in combo:
-                used_matches.add(m['match'])
+                used_matches.add(m.get('match'))
             break
     
     # 7 ODDS ACCUMULATOR (5 matches)
@@ -241,11 +253,14 @@ def build_accumulators(predictions):
     for combo in combinations(available, 5):
         total = 1
         for m in combo:
-            total *= m['odds']
+            total *= m.get('odds', 1.50)
         if 6.0 <= total <= 8.5:
-            accumulators['7_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
+            accumulators['7_ODDS'] = {
+                'matches': list(combo),
+                'odds': round(total, 2)
+            }
             for m in combo:
-                used_matches.add(m['match'])
+                used_matches.add(m.get('match'))
             break
     
     # 10 ODDS ACCUMULATOR (5-6 matches)
@@ -255,17 +270,19 @@ def build_accumulators(predictions):
             for combo in combinations(available, n):
                 total = 1
                 for m in combo:
-                    total *= m['odds']
+                    total *= m.get('odds', 1.50)
                 if 9.0 <= total <= 12.0:
-                    accumulators['10_ODDS'] = {'matches': combo, 'odds': round(total, 2)}
+                    accumulators['10_ODDS'] = {
+                        'matches': list(combo),
+                        'odds': round(total, 2)
+                    }
                     for m in combo:
-                        used_matches.add(m['match'])
+                        used_matches.add(m.get('match'))
                     break
         if '10_ODDS' in accumulators:
             break
     
     return accumulators
-
 # ============================================================
 # FUNCTION 6: SEND TO TELEGRAM (WORKING VERSION)
 # ============================================================
@@ -401,6 +418,13 @@ def main():
     print(f"   Accumulators built: {len(accumulators)}")
     
     return 0
+    for i, m in enumerate(acc['matches'], 1):
+    match_name = m.get('match', 'Unknown')[:40]
+    if len(m.get('match', '')) > 40:
+        match_name += "..."
+    play = m.get('play', 'Unknown')
+    message += f"   {i}. {match_name}\n"
+    message += f"      🎯 {play}\n"
 
 if __name__ == "__main__":
     sys.exit(main())
