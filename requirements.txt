@@ -1,3 +1,4 @@
+cat > requirements.txt << 'EOF'
 requests>=2.28.0
 pandas>=1.5.0
 python-dotenv>=0.19.0
@@ -6,3 +7,4 @@ pytz
 scikit-learn
 numpy
 sports-betting
+EOF
