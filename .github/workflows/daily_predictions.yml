@@ -6,6 +6,9 @@ on:
     - cron: '0 1 * * *'    # Run validation at 1 AM daily
   workflow_dispatch:
 
+env:
+  ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+
 jobs:
   # Job 1: Run predictions at 10 AM
   run-predictions:
@@ -24,7 +27,23 @@ jobs:
       run: |
         pip install -r requirements.txt
     
+    - name: Delete cache files
+      run: |
+        rm -f predictions.json
+        rm -f *.json
+        echo "✅ Deleted cache files"
+    
+    - name: Check for input file
+      id: check_input
+      run: |
+        if [ -f "input_matches.txt" ]; then
+          echo "exists=true" >> $GITHUB_OUTPUT
+        else
+          echo "exists=false" >> $GITHUB_OUTPUT
+        fi
+    
     - name: Run prediction system
+      if: steps.check_input.outputs.exists == 'true'
       env:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -32,10 +51,26 @@ jobs:
         python main.py
     
     - name: Save predictions
+      if: steps.check_input.outputs.exists == 'true'
       uses: actions/upload-artifact@v4
       with:
         name: predictions
-        path: predictions.json
+        path: |
+          predictions.json
+          input_matches.txt
+    
+    - name: Send no-input notification
+      if: steps.check_input.outputs.exists == 'false'
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      run: |
+        python -c "
+import requests
+message = '⚠️ No input_matches.txt found for predictions'
+url = f'https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage'
+requests.post(url, json={'chat_id': '${{ secrets.TELEGRAM_CHAT_ID }}', 'text': message})
+"
 
   # Job 2: Run validation at 1 AM
   run-validation:
@@ -55,7 +90,6 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-        pip install pandas
     
     - name: Download previous predictions
       uses: actions/download-artifact@v4
@@ -68,6 +102,7 @@ jobs:
       env:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
       run: |
         python run_validation.py
     
@@ -77,4 +112,5 @@ jobs:
         name: validation-results
         path: |
           performance_report.md
+          validated_results.csv
           prediction_history.json
