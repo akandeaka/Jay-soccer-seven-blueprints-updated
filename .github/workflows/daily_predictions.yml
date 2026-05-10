@@ -2,12 +2,9 @@ name: Daily Soccer Predictions & Validation
 
 on:
   schedule:
-    - cron: '0 10 * * *'   # Run predictions at 10 AM daily
-    - cron: '0 1 * * *'    # Run validation at 1 AM daily
+    - cron: '0 10 * * *'
+    - cron: '0 1 * * *'
   workflow_dispatch:
-
-env:
-  ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
 jobs:
   # Job 1: Run predictions at 10 AM
@@ -27,23 +24,7 @@ jobs:
       run: |
         pip install -r requirements.txt
     
-    - name: Delete cache files
-      run: |
-        rm -f predictions.json
-        rm -f *.json
-        echo "✅ Deleted cache files"
-    
-    - name: Check for input file
-      id: check_input
-      run: |
-        if [ -f "input_matches.txt" ]; then
-          echo "exists=true" >> $GITHUB_OUTPUT
-        else
-          echo "exists=false" >> $GITHUB_OUTPUT
-        fi
-    
     - name: Run prediction system
-      if: steps.check_input.outputs.exists == 'true'
       env:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -51,26 +32,10 @@ jobs:
         python main.py
     
     - name: Save predictions
-      if: steps.check_input.outputs.exists == 'true'
       uses: actions/upload-artifact@v4
       with:
         name: predictions
-        path: |
-          predictions.json
-          input_matches.txt
-    
-    - name: Send no-input notification
-      if: steps.check_input.outputs.exists == 'false'
-      env:
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-      run: |
-        python -c "
-import requests
-message = '⚠️ No input_matches.txt found for predictions'
-url = f'https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage'
-requests.post(url, json={'chat_id': '${{ secrets.TELEGRAM_CHAT_ID }}', 'text': message})
-"
+        path: predictions.json
 
   # Job 2: Run validation at 1 AM
   run-validation:
@@ -91,12 +56,21 @@ requests.post(url, json={'chat_id': '${{ secrets.TELEGRAM_CHAT_ID }}', 'text': m
       run: |
         pip install -r requirements.txt
     
-    - name: Download previous predictions
+    - name: Debug - Check if API key is available
+      run: |
+        if [ -n "$FOOTBALL_DATA_API_KEY" ]; then
+          echo "✅ FOOTBALL_DATA_API_KEY is set"
+        else
+          echo "❌ FOOTBALL_DATA_API_KEY is NOT set"
+        fi
+      env:
+        FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+    
+    - name: Download predictions
       uses: actions/download-artifact@v4
       with:
         name: predictions
         path: ./
-      continue-on-error: true
     
     - name: Run validation
       env:
@@ -106,11 +80,10 @@ requests.post(url, json={'chat_id': '${{ secrets.TELEGRAM_CHAT_ID }}', 'text': m
       run: |
         python run_validation.py
     
-    - name: Upload validation results
+    - name: Upload results
       uses: actions/upload-artifact@v4
       with:
         name: validation-results
         path: |
           performance_report.md
-          validated_results.csv
           prediction_history.json
