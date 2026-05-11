@@ -2,8 +2,8 @@ name: Daily Soccer Predictions & Validation
 
 on:
   schedule:
-    - cron: '0 10 * * *'
-    - cron: '0 1 * * *'
+    - cron: '0 10 * * *'   # Predictions at 10 AM
+    - cron: '0 1 * * *'    # Validation at 1 AM
   workflow_dispatch:
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
     
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        pip install requests
     
     - name: Run prediction system
       env:
@@ -37,12 +37,10 @@ jobs:
         name: predictions
         path: predictions.json
 
-  # Job 2: Run validation at 1 AM
+  # Job 2: Run validation at 1 AM using FILE-BASED method
   run-validation:
     runs-on: ubuntu-latest
     needs: run-predictions
-    continue-on-error: true
-    
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -54,17 +52,7 @@ jobs:
     
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
-    
-    - name: Debug - Check if API key is available
-      run: |
-        if [ -n "$FOOTBALL_DATA_API_KEY" ]; then
-          echo "✅ FOOTBALL_DATA_API_KEY is set"
-        else
-          echo "❌ FOOTBALL_DATA_API_KEY is NOT set"
-        fi
-      env:
-        FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+        pip install requests
     
     - name: Download predictions
       uses: actions/download-artifact@v4
@@ -72,18 +60,15 @@ jobs:
         name: predictions
         path: ./
     
-    - name: Run validation
+    - name: Run validation (FILE-BASED)
       env:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
       run: |
-        python run_validation.py
+        python validate_from_file.py
     
-    - name: Upload results
+    - name: Upload validation report
       uses: actions/upload-artifact@v4
       with:
-        name: validation-results
-        path: |
-          performance_report.md
-          prediction_history.json
+        name: validation-report
+        path: validation_report.md
