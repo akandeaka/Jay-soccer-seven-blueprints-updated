@@ -1,6 +1,6 @@
 """
 Blueprint Engine - 8 Blueprints UPDATED
-BP6: Draw or GG / Draw or Under 2.5
+BP6: Draw or GG / Draw or Under 2.5 (NO "Full Time Draw")
 BP8: Over 2.5 Goals ONLY if 0-0 odds > 20
 """
 
@@ -15,7 +15,7 @@ APPROVED_LEAGUES = [
     'mls', 'argentina', 'brazil', 'mexico', 'colombia', 'chile',
     'czech republic', 'poland', 'greece', 'denmark', 'sweden', 'norway',
     'austria', 'switzerland', 'croatia', 'serbia', 'bulgaria', 'romania',
-    'ukraine', 'israel'
+    'ukraine', 'israel', 'korea', 'japan', 'china'
 ]
 
 LOW_QUALITY_KEYWORDS = [
@@ -25,17 +25,13 @@ LOW_QUALITY_KEYWORDS = [
 
 
 def get_league_quality(league_name):
-    """Return quality multiplier (1.0 = high, 0.5 = low, 0 = exclude)"""
     league_lower = league_name.lower()
-    
     for kw in LOW_QUALITY_KEYWORDS:
         if kw in league_lower:
             return 0.3
-    
     for approved in APPROVED_LEAGUES:
         if approved in league_lower:
             return 1.0
-    
     return 0.6
 
 
@@ -82,27 +78,30 @@ def check_bp5(home):
 
 
 def check_bp6(draw, league, home_goals_avg=1.2, away_goals_avg=1.2):
-    """IMPROVED BP6: Draw or GG / Draw or Under 2.5"""
+    """IMPROVED BP6: Draw or GG / Draw or Under 2.5 - NO MORE Full Time Draw"""
     if not (2.75 <= draw <= 3.39):
         return None
     
     avg_goals = (home_goals_avg + away_goals_avg) / 2
-    league_quality = get_league_quality(league)
+    league_lower = league.lower()
     
-    is_high_scoring = (avg_goals >= 1.3 or any(hl in league.lower() for hl in HIGH_SCORING_LEAGUES))
-    is_low_scoring = (avg_goals <= 1.0 or 'serie b' in league.lower() or 'ligue 2' in league.lower())
+    # High scoring leagues
+    high_scoring = ['bundesliga', 'eredivisie', 'premier league', 'epl', 'serie a', 'ligue 1', 'la liga']
+    # Low scoring leagues
+    low_scoring = ['serie b', 'ligue 2', 'japan', 'j1', 'j2', 'korea', 'k-league', 'china']
     
-    quality_adjustment = league_quality
+    is_high = (avg_goals >= 1.3 or any(hl in league_lower for hl in high_scoring))
+    is_low = (avg_goals <= 1.0 or any(ll in league_lower for ll in low_scoring))
     
-    if is_high_scoring:
-        conf = int(68 * quality_adjustment)
-        return ('BP6', 'Draw or GG (Draw OR Both Teams to Score)', max(conf, 55))
-    elif is_low_scoring:
-        conf = int(72 * quality_adjustment)
-        return ('BP6', 'Draw or Under 2.5 Goals', max(conf, 55))
+    if is_high:
+        return ('BP6', 'Draw or GG (Draw OR Both Teams to Score)', 68)
+    elif is_low:
+        return ('BP6', 'Draw or Under 2.5 Goals', 72)
     else:
-        conf = int(55 * quality_adjustment)
-        return ('BP6', 'Full Time Draw', max(conf, 45))
+        # Default for Korean, Japanese leagues (medium to low scoring)
+        if 'korea' in league_lower or 'japan' in league_lower:
+            return ('BP6', 'Draw or Under 2.5 Goals', 65)
+        return ('BP6', 'Draw or Under 2.5 Goals', 60)
 
 
 def check_bp7(home, league):
