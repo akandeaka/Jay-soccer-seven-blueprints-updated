@@ -87,7 +87,7 @@ def parse_matches():
 
 
 def build_accumulators(predictions):
-    """Build 2_ODDS, 4_ODDS, 7_ODDS, 10_ODDS - with quality filter"""
+    """Build 2_ODDS, 4_ODDS, 7_ODDS, 10_ODDS - with quality filter and fallbacks"""
     
     # Apply quality filter first
     filtered_picks = [p for p in predictions if is_high_quality_pick(p)]
@@ -100,6 +100,119 @@ def build_accumulators(predictions):
     if len(filtered_picks) < 2:
         print("   ⚠️ Not enough high quality picks for accumulators")
         return {}
+    
+    # Set odds for each pick
+    for p in filtered_picks:
+        play = p.get('play', '')
+        if 'Home Win' in play:
+            p['odds'] = p.get('home_odds', 1.50)
+        elif 'Draw' in play:
+            p['odds'] = p.get('draw_odds', 1.50)
+        else:
+            p['odds'] = 1.50
+    
+    sorted_picks = sorted(filtered_picks, key=lambda x: x['confidence'], reverse=True)
+    accumulators = {}
+    used = set()
+    
+    def get_unused():
+        return [p for p in sorted_picks if p['match'] not in used]
+    
+    # ============================================================
+    # 2 ODDS ACCUMULATOR
+    # ============================================================
+    available = get_unused()
+    for n in [2, 3]:
+        for combo in combinations(available[:8], n):
+            total = 1
+            for m in combo:
+                total *= m['odds']
+            if 1.8 <= total <= 2.5:
+                accumulators['2_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
+                for m in combo:
+                    used.add(m['match'])
+                print(f"   ✅ 2_ODDS built: {round(total, 2)} odds")
+                break
+        if '2_ODDS' in accumulators:
+            break
+    
+    # ============================================================
+    # 4 ODDS ACCUMULATOR (WITH FALLBACK)
+    # ============================================================
+    available = get_unused()
+    found_4_odds = False
+    
+    # First try: Exact target range
+    for combo in combinations(available[:15], 4):
+        total = 1
+        for m in combo:
+            total *= m['odds']
+        if 3.5 <= total <= 5.0:
+            accumulators['4_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
+            for m in combo:
+                used.add(m['match'])
+            found_4_odds = True
+            print(f"   ✅ 4_ODDS built (exact): {round(total, 2)} odds")
+            break
+    
+    # Fallback: If not found, use closest to 4.0
+    if not found_4_odds and len(available) >= 4:
+        best_combo = None
+        best_diff = float('inf')
+        best_total = 0
+        for combo in combinations(available[:15], 4):
+            total = 1
+            for m in combo:
+                total *= m['odds']
+            diff = abs(total - 4.0)
+            if diff < best_diff:
+                best_diff = diff
+                best_combo = combo
+                best_total = total
+        
+        if best_combo:
+            accumulators['4_ODDS'] = {'matches': list(best_combo), 'odds': round(best_total, 2)}
+            for m in best_combo:
+                used.add(m['match'])
+            print(f"   ✅ 4_ODDS built (fallback): {round(best_total, 2)} odds")
+    
+    # ============================================================
+    # 7 ODDS ACCUMULATOR
+    # ============================================================
+    available = get_unused()
+    for combo in combinations(available[:15], 5):
+        total = 1
+        for m in combo:
+            total *= m['odds']
+        if 6.0 <= total <= 8.5:
+            accumulators['7_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
+            for m in combo:
+                used.add(m['match'])
+            print(f"   ✅ 7_ODDS built: {round(total, 2)} odds")
+            break
+    
+    # ============================================================
+    # 10 ODDS ACCUMULATOR
+    # ============================================================
+    available = get_unused()
+    for n in [5, 6]:
+        for combo in combinations(available[:20], n):
+            total = 1
+            for m in combo:
+                total *= m['odds']
+            if 9.0 <= total <= 12.0:
+                accumulators['10_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
+                print(f"   ✅ 10_ODDS built: {round(total, 2)} odds")
+                break
+        if '10_ODDS' in accumulators:
+            break
+    
+    # Print summary
+    print(f"\n📈 ACCUMULATOR SUMMARY:")
+    for name, acc in accumulators.items():
+        print(f"   {name}: {len(acc['matches'])} matches @ {acc['odds']} odds")
+    
+    return accumulators
     
     # Set odds for each pick
     for p in filtered_picks:
