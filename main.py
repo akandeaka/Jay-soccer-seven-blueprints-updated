@@ -1,7 +1,6 @@
 """
-SOCCER BLUEPRINT SYSTEM - 8 BLUEPRINTS
-BP6: Full Time Draw (X)
-READS ONLY FROM input_matches.txt
+SOCCER BLUEPRINT SYSTEM - SMART QUALITY SCORING
+Prioritizes best matches, penalizes poor performers
 """
 
 import os
@@ -27,7 +26,98 @@ HIGH_SCORING_LEAGUES = [
 ]
 
 # ============================================================
-# FUNCTION 1: CONVERT CSV/TAB FORMAT TO SYSTEM FORMAT
+# QUALITY SCORING CONFIGURATION
+# ============================================================
+
+# League quality multipliers (Top leagues = higher score)
+LEAGUE_QUALITY = {
+    # Top 5 European Leagues (highest quality)
+    'premier league': 1.0,
+    'bundesliga': 1.0,
+    'la liga': 1.0,
+    'serie a': 1.0,
+    'ligue 1': 1.0,
+    
+    # Second tier European
+    'championship': 0.85,
+    'eredivisie': 0.85,
+    'primeira liga': 0.85,
+    'belgian': 0.75,
+    'scottish': 0.75,
+    
+    # South American top divisions (medium quality)
+    'argentina': 0.65,
+    'brazil': 0.65,
+    'brasil': 0.65,
+    'chile': 0.60,
+    'colombia': 0.60,
+    
+    # Lower leagues, reserves, youth (penalized - low quality)
+    'reserve': 0.25,
+    'u20': 0.20,
+    'u19': 0.20,
+    'u21': 0.20,
+    'b': 0.20,  # B teams
+    '2': 0.25,  # Second divisions
+    '3': 0.20,  # Third divisions
+}
+
+# Blueprint historical performance (from validation)
+# Lower score = penalized, Higher score = rewarded
+BLUEPRINT_PERFORMANCE = {
+    'BP1': 1.0,   # 66.7% accuracy
+    'BP2': 1.0,   # 100% accuracy
+    'BP3': 0.7,   # 57.1% accuracy
+    'BP4': 0.85,  # 68.9% accuracy
+    'BP5': 0.9,   # 75% accuracy
+    'BP6': 0.35,  # 32% accuracy - HEAVILY PENALIZED
+    'BP7': 0.55,  # 42.9% accuracy
+    'BP8': 0.7,   # 55% accuracy
+}
+
+# Minimum quality score to be considered for accumulators
+MIN_QUALITY_SCORE = 55
+
+# ============================================================
+# FUNCTION: Calculate quality score for a match
+# ============================================================
+
+def calculate_quality_score(match):
+    """
+    Calculate quality score (0-100) based on:
+    - League quality (0-40 points)
+    - Blueprint performance (0-30 points)
+    - AI Confidence (0-30 points)
+    """
+    
+    # Factor 1: League quality (0-40 points)
+    league = match.get('league', '').lower()
+    league_score = 20  # Default mid score
+    
+    for key, multiplier in LEAGUE_QUALITY.items():
+        if key in league:
+            league_score = 40 * multiplier
+            break
+    
+    # Apply additional penalty for reserve/youth leagues
+    if 'reserve' in league or 'u20' in league or 'u19' in league or 'b' in league.split():
+        league_score = league_score * 0.5
+    
+    # Factor 2: Blueprint performance (0-30 points)
+    bp = match.get('blueprint', '')
+    bp_score = 30 * BLUEPRINT_PERFORMANCE.get(bp, 0.5)
+    
+    # Factor 3: AI Confidence (0-30 points)
+    confidence = match.get('confidence', 50)
+    confidence_score = 30 * (confidence / 100)
+    
+    # Total quality score
+    quality_score = league_score + bp_score + confidence_score
+    
+    return round(quality_score, 1)
+
+# ============================================================
+# FUNCTION: Convert CSV/TAB FORMAT TO SYSTEM FORMAT
 # ============================================================
 
 def convert_csv_format():
@@ -62,7 +152,7 @@ def convert_csv_format():
     return False
 
 # ============================================================
-# FUNCTION 2: PARSE INPUT FILE
+# FUNCTION: PARSE INPUT FILE
 # ============================================================
 
 def parse_matches():
@@ -113,7 +203,7 @@ def parse_matches():
     return matches
 
 # ============================================================
-# FUNCTION 3: APPLY 8 BLUEPRINTS
+# FUNCTION: APPLY 8 BLUEPRINTS
 # ============================================================
 
 def apply_blueprints(match):
@@ -146,7 +236,7 @@ def apply_blueprints(match):
     if 1.90 <= home <= 2.02:
         return ('BP5', '1X & Under 3.5 FT', 70)
     
-    # BP6: Strong Draw - FULL TIME DRAW
+    # BP6: Strong Draw - FULL TIME DRAW (Penalized)
     if 2.75 <= draw <= 3.39:
         return ('BP6', 'Full Time Draw (X)', 50)
     
@@ -164,7 +254,7 @@ def apply_blueprints(match):
     return None
 
 # ============================================================
-# FUNCTION 4: AI ANALYSIS
+# FUNCTION: AI ANALYSIS
 # ============================================================
 
 def ai_analyze(match, bp_result):
@@ -179,20 +269,22 @@ def ai_analyze(match, bp_result):
         return conf, "ALTERNATIVE", play
 
 # ============================================================
-# FUNCTION 5: BUILD ACCUMULATORS (WITH PLAY TYPE PRESERVED)
+# FUNCTION: SMART ACCUMULATOR BUILDER (Quality-based)
 # ============================================================
 
-def build_accumulators(predictions):
+def build_smart_accumulators(predictions):
     """
-    Build accumulators at 2, 4, 7, 10 odds targets
-    Preserves play type for each match
+    Build accumulators using ONLY highest quality matches
+    Prioritizes top leagues, strong blueprints, high confidence
     """
     
     if len(predictions) < 2:
         return {}
     
-    # Set odds for each prediction and ensure play is preserved
+    # Calculate quality score for each prediction
     for p in predictions:
+        p['quality_score'] = calculate_quality_score(p)
+        # Set odds
         play = p.get('play', '')
         if 'Home Win' in play:
             p['odds'] = p.get('home_odds', 1.50)
@@ -200,91 +292,93 @@ def build_accumulators(predictions):
             p['odds'] = p.get('draw_odds', 1.50)
         else:
             p['odds'] = 1.50
-        # Ensure play is in the dict
-        p['play'] = play
     
-    # Sort by confidence (highest first)
-    sorted_picks = sorted(predictions, key=lambda x: x.get('confidence', 0), reverse=True)
+    # Filter: Only keep matches with quality score >= minimum
+    quality_picks = [p for p in predictions if p.get('quality_score', 0) >= MIN_QUALITY_SCORE]
+    
+    print(f"\n🎯 QUALITY FILTER:")
+    print(f"   Total predictions: {len(predictions)}")
+    print(f"   High quality (≥{MIN_QUALITY_SCORE}): {len(quality_picks)}")
+    print(f"   Excluded (poor quality): {len(predictions) - len(quality_picks)}")
+    
+    if len(quality_picks) < 2:
+        print("   ⚠️ Not enough high quality picks for accumulators")
+        return {}
+    
+    # Sort by quality score (highest first)
+    sorted_picks = sorted(quality_picks, key=lambda x: x['quality_score'], reverse=True)
+    
+    # Show top quality picks
+    print(f"\n🏆 TOP QUALITY PICKS (from ALL matches, no bias):")
+    for i, p in enumerate(sorted_picks[:15], 1):
+        print(f"   {i}. {p['blueprint']}: {p['match'][:45]} (Quality: {p['quality_score']})")
+    
     accumulators = {}
     used_matches = set()
     
-    def get_unused_picks(limit=None):
-        available = [p for p in sorted_picks if p.get('match') not in used_matches]
-        if limit:
-            return available[:limit]
-        return available
+    def get_unused():
+        return [p for p in sorted_picks if p['match'] not in used_matches]
     
-    # 2 ODDS ACCUMULATOR (2-3 matches)
-    available = get_unused_picks(10)
-    for n in [2, 3]:
-        for combo in combinations(available, n):
-            total = 1
-            for m in combo:
-                total *= m.get('odds', 1.50)
-            if 1.8 <= total <= 2.5:
-                accumulators['2_ODDS'] = {
-                    'matches': list(combo),
-                    'odds': round(total, 2)
-                }
-                for m in combo:
-                    used_matches.add(m.get('match'))
-                break
-        if '2_ODDS' in accumulators:
-            break
+    # 2 ODDS ACCUMULATOR - Top 2 picks
+    available = get_unused()
+    if len(available) >= 2:
+        combo = available[:2]
+        total = combo[0]['odds'] * combo[1]['odds']
+        accumulators['2_ODDS'] = {
+            'matches': combo,
+            'odds': round(total, 2),
+            'avg_quality': round((combo[0]['quality_score'] + combo[1]['quality_score']) / 2, 1)
+        }
+        for m in combo:
+            used_matches.add(m['match'])
     
-    # 4 ODDS ACCUMULATOR (4 matches)
-    available = get_unused_picks(12)
-    for combo in combinations(available, 4):
+    # 4 ODDS ACCUMULATOR - Next 4 picks
+    available = get_unused()
+    if len(available) >= 4:
+        combo = available[:4]
         total = 1
         for m in combo:
-            total *= m.get('odds', 1.50)
-        if 3.5 <= total <= 5.0:
-            accumulators['4_ODDS'] = {
-                'matches': list(combo),
-                'odds': round(total, 2)
-            }
-            for m in combo:
-                used_matches.add(m.get('match'))
-            break
+            total *= m['odds']
+        accumulators['4_ODDS'] = {
+            'matches': combo,
+            'odds': round(total, 2),
+            'avg_quality': round(sum(m['quality_score'] for m in combo) / 4, 1)
+        }
+        for m in combo:
+            used_matches.add(m['match'])
     
-    # 7 ODDS ACCUMULATOR (5 matches)
-    available = get_unused_picks(15)
-    for combo in combinations(available, 5):
+    # 7 ODDS ACCUMULATOR - Next 5 picks
+    available = get_unused()
+    if len(available) >= 5:
+        combo = available[:5]
         total = 1
         for m in combo:
-            total *= m.get('odds', 1.50)
-        if 6.0 <= total <= 8.5:
-            accumulators['7_ODDS'] = {
-                'matches': list(combo),
-                'odds': round(total, 2)
-            }
-            for m in combo:
-                used_matches.add(m.get('match'))
-            break
+            total *= m['odds']
+        accumulators['7_ODDS'] = {
+            'matches': combo,
+            'odds': round(total, 2),
+            'avg_quality': round(sum(m['quality_score'] for m in combo) / 5, 1)
+        }
+        for m in combo:
+            used_matches.add(m['match'])
     
-    # 10 ODDS ACCUMULATOR (5-6 matches)
-    available = get_unused_picks(20)
-    for n in [5, 6]:
-        if len(available) >= n:
-            for combo in combinations(available, n):
-                total = 1
-                for m in combo:
-                    total *= m.get('odds', 1.50)
-                if 9.0 <= total <= 12.0:
-                    accumulators['10_ODDS'] = {
-                        'matches': list(combo),
-                        'odds': round(total, 2)
-                    }
-                    for m in combo:
-                        used_matches.add(m.get('match'))
-                    break
-        if '10_ODDS' in accumulators:
-            break
+    # 10 ODDS ACCUMULATOR - Next 5-6 picks
+    available = get_unused()
+    if len(available) >= 5:
+        combo = available[:6] if len(available) >= 6 else available[:5]
+        total = 1
+        for m in combo:
+            total *= m['odds']
+        accumulators['10_ODDS'] = {
+            'matches': combo,
+            'odds': round(total, 2),
+            'avg_quality': round(sum(m['quality_score'] for m in combo) / len(combo), 1)
+        }
     
     return accumulators
 
 # ============================================================
-# FUNCTION 6: SEND TO TELEGRAM
+# FUNCTION: SEND TO TELEGRAM
 # ============================================================
 
 def send_telegram(message):
@@ -293,7 +387,6 @@ def send_telegram(message):
         print("⚠️ Telegram not configured - skipping")
         return False
     
-    # Truncate if too long
     if len(message) > 4096:
         message = message[:4000] + "\n\n... (truncated)"
     
@@ -315,13 +408,28 @@ def send_telegram(message):
         return False
 
 # ============================================================
+# FUNCTION: DISPLAY QUALITY BREAKDOWN IN MESSAGE
+# ============================================================
+
+def format_quality_score(score):
+    """Format quality score with emoji"""
+    if score >= 80:
+        return f"🔥 {score}"
+    elif score >= 70:
+        return f"✅ {score}"
+    elif score >= 60:
+        return f"🟡 {score}"
+    else:
+        return f"⚠️ {score}"
+
+# ============================================================
 # MAIN SYSTEM
 # ============================================================
 
 def main():
     print("\n" + "="*60)
     print("⚽ JAY SOCCER BLUEPRINTS SYSTEM")
-    print("8 BLUEPRINTS | BP6: FULL TIME DRAW")
+    print("SMART QUALITY SCORING | NO BIAS")
     print("="*60)
     print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
@@ -345,9 +453,9 @@ def main():
         print("   1.55 | 4.20 | 5.50")
         return 1
     
-    print(f"\n📊 Loaded {len(matches)} matches")
+    print(f"\n📊 Loaded {len(matches)} total matches")
     
-    # Apply blueprints
+    # Apply blueprints to get predictions
     predictions = []
     for match in matches:
         bp_result = apply_blueprints(match)
@@ -362,53 +470,64 @@ def main():
                 'play': ai_play,
                 'confidence': ai_conf,
                 'decision': ai_decision,
-                'home_odds': match['home_odds'],
-                'draw_odds': match['draw_odds'],
-                'away_odds': match['away_odds']
+                'home_odds': match.get('home_odds', 0),
+                'draw_odds': match.get('draw_odds', 0),
+                'away_odds': match.get('away_odds', 0)
             })
     
     if not predictions:
         print("\n❌ No matches passed any blueprint")
         return 1
     
-    print(f"\n✅ {len(predictions)} matches passed blueprints:")
-    for p in predictions:
-        print(f"   {p['blueprint']}: {p['match']} - {p['play']} ({p['confidence']:.0f}%) - {p['decision']}")
+    print(f"\n✅ {len(predictions)} matches passed blueprints")
     
-    # Build accumulators
-    accumulators = build_accumulators(predictions)
+    # Calculate quality scores for all predictions
+    for p in predictions:
+        p['quality_score'] = calculate_quality_score(p)
+    
+    # Sort by quality score for display
+    sorted_by_quality = sorted(predictions, key=lambda x: x['quality_score'], reverse=True)
+    
+    print(f"\n🏆 TOP 15 PICKS BY QUALITY SCORE (from ALL matches, no bias):")
+    print("="*60)
+    for i, p in enumerate(sorted_by_quality[:15], 1):
+        quality_emoji = "🔥" if p['quality_score'] >= 80 else "✅" if p['quality_score'] >= 70 else "🟡" if p['quality_score'] >= 60 else "⚠️"
+        print(f"   {i}. {quality_emoji} {p['blueprint']}: {p['match'][:45]}")
+        print(f"      League: {p['league']} | Quality: {p['quality_score']}")
+        print(f"      Play: {p['play']} | Confidence: {p['confidence']}%")
+    
+    # Build smart accumulators (quality-based)
+    accumulators = build_smart_accumulators(predictions)
     
     # Build Telegram message
     message = f"""⚽ JAY SOCCER BLUEPRINTS - AI PREDICTIONS
 📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}
+🏆 SMART QUALITY SCORING ACTIVE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📊 AI ANALYZED PICKS
+📊 TOP QUALITY PICKS (from ALL matches)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
     
-    for p in predictions[:15]:
+    for i, p in enumerate(sorted_by_quality[:20], 1):
         emoji = "✅" if p['decision'] == 'VALIDATED' else "🟡" if p['decision'] == 'CONFIRMED' else "⚠️"
+        quality_emoji = "🔥" if p['quality_score'] >= 80 else "✅" if p['quality_score'] >= 70 else "🟡" if p['quality_score'] >= 60 else "⚠️"
         message += f"""
 {emoji} {p['blueprint']}: {p['match']}
    🎯 {p['play']}
    📈 AI Confidence: {p['confidence']:.0f}%
-   🔍 Decision: {p['decision']}
+   🏆 Quality Score: {quality_emoji} ({p['quality_score']})
 """
     
     if accumulators:
-        message += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎰 ACCUMULATOR PICKS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        message += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎰 SMART ACCUMULATOR PICKS (Quality-Based)\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         for name, acc in accumulators.items():
             target = name.split('_')[0]
-            message += f"\n{name} (Target: {target} odds)\nTotal Odds: {acc['odds']}\n"
-            for i, m in enumerate(acc['matches'], 1):
-                # Truncate match name if too long
-                match_name = m.get('match', 'Unknown')[:40]
-                if len(m.get('match', '')) > 40:
-                    match_name += "..."
-                # Get the play - THIS IS THE FIX!
-                play = m.get('play', 'Unknown')
+            message += f"\n{name} (Target: {target} odds)\nTotal Odds: {acc['odds']} | Avg Quality: {acc['avg_quality']}\n"
+            for i, m in enumerate(acc['matches'][:3], 1):
+                match_name = m['match'][:40] + "..." if len(m['match']) > 40 else m['match']
                 message += f"   {i}. {match_name}\n"
-                message += f"      🎯 {play}\n"
+                message += f"      🎯 {m['play']} (Quality: {m['quality_score']})\n"
     
     message += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⚠️ Always bet responsibly!\n📊 AI predictions for informational purposes only."
     
@@ -424,9 +543,15 @@ def main():
     print("✅ SYSTEM EXECUTION COMPLETE")
     print("="*60)
     print(f"\n📊 SUMMARY:")
-    print(f"   Matches read: {len(matches)}")
-    print(f"   Matches passed: {len(predictions)}")
+    print(f"   Total matches scanned: {len(matches)}")
+    print(f"   Matches passed blueprints: {len(predictions)}")
+    print(f"   High quality picks (≥{MIN_QUALITY_SCORE}): {len([p for p in predictions if p['quality_score'] >= MIN_QUALITY_SCORE])}")
     print(f"   Accumulators built: {len(accumulators)}")
+    
+    if accumulators:
+        print(f"\n📈 ACCUMULATORS BUILT FROM QUALITY PICKS:")
+        for name, acc in accumulators.items():
+            print(f"   {name}: {len(acc['matches'])} matches @ {acc['odds']} odds (Avg Quality: {acc['avg_quality']})")
     
     return 0
 
