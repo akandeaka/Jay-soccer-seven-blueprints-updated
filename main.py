@@ -2,7 +2,40 @@
 Main System - 8 Blueprints with Accumulator Validation
 Includes: 2_ODDS, 4_ODDS, 7_ODDS, 10_ODDS
 """
-
+def build_accumulators(predictions):
+    # ============================================================
+    # LEAGUE QUALITY FILTER - Remove low quality picks from accumulators
+    # ============================================================
+    
+    LOW_QUALITY_KEYWORDS = [
+        'u20', 'u19', 'u21', 'reserve', '2', 'ii', 'b', 'youth', 'academy',
+        'uganda', 'oman', 'gambia', 'latvia', 'tanzania', 'india', 'bangladesh'
+    ]
+    
+    def is_high_quality(pick):
+        league = pick.get('league', '').lower()
+        match_name = pick.get('match', '').lower()
+        
+        for kw in LOW_QUALITY_KEYWORDS:
+            if kw in league or kw in match_name:
+                return False
+        
+        # Also check blueprint - BP6 is risky
+        if pick.get('blueprint') == 'BP6':
+            return False  # Remove BP6 from accumulators
+            
+        return True
+    
+    # Filter predictions before building accumulators
+    filtered_picks = [p for p in predictions if is_high_quality(p)]
+    
+    print(f"📊 Accumulator Filter: {len(predictions)} → {len(filtered_picks)} picks")
+    
+    if len(filtered_picks) < 2:
+        return {}
+    
+    # Continue with existing accumulator logic using filtered_picks
+    # ... rest of your existing code ...
 import os
 import sys
 import json
