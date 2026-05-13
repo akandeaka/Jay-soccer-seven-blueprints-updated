@@ -1,4649 +1,956 @@
-Liverpool vs Chelsea
-Premier League
-2.00 | 3.75 | 3.40
-RESULT: 1-1 | Draw
+Here is the converted data in the requested format:
 
-Brighton vs Wolves
-Premier League
-1.29 | 6.00 | 9.00
-RESULT: 3-0 | Home Win
+Red Star vs Rodez
+Ligue 1 - Relegation - Play Offs
+2.53 | 3.35 | 2.98
+RESULT: 2-3 | Away Win
 
-Fulham vs Bournemouth
-Premier League
-2.70 | 3.60 | 2.45
-RESULT: 0-1 | Away Win
+Celta Vigo vs Levante
+LaLiga
+1.91 | 3.79 | 4.10
+RESULT: 2-3 | Away Win
 
-Sunderland vs Manchester Utd
-Premier League
-3.20 | 3.60 | 2.15
-RESULT: 0-0 | Draw
-
-Manchester City vs Brentford
-Premier League
-1.36 | 5.50 | 7.00
-RESULT: 3-0 | Home Win
-
-Augsburg vs B. Monchengladbach
-Bundesliga
-1.91 | 4.00 | 3.50
-RESULT: 3-1 | Home Win
-
-Hoffenheim vs Werder Bremen
-Bundesliga
-1.53 | 4.75 | 5.25
-RESULT: 1-0 | Home Win
-
-RB Leipzig vs St. Pauli
-Bundesliga
-1.27 | 6.25 | 9.00
+Betis vs Elche
+LaLiga
+1.66 | 4.27 | 5.21
 RESULT: 2-1 | Home Win
 
-Stuttgart vs Bayer Leverkusen
-Bundesliga
-2.00 | 4.10 | 3.20
-RESULT: 3-1 | Home Win
+Osasuna vs Atl. Madrid
+LaLiga
+2.86 | 3.49 | 2.54
+RESULT: 1-2 | Away Win
 
-Wolfsburg vs Bayern Munich
-Bundesliga
-5.25 | 5.25 | 1.48
-RESULT: 0-1 | Away Win
+USM Alger vs Mostaganem
+Ligue 1
+1.11 | 6.60 | 18.00
+RESULT: 1-1 | Draw
 
-Cagliari vs Udinese
-Serie A
-2.55 | 3.00 | 3.00
+Saoura vs CR Belouizdad
+Ligue 1
+2.37 | 2.83 | 3.40
+RESULT: 0-0 | Draw
+
+Belgrano vs Union de Santa Fe
+Liga Profesional - Apertura - Play Offs
+2.54 | 2.95 | 3.25
+RESULT: 2-0 | Home Win
+
+Aldosivi 2 vs Rosario Central 2
+Reserve League - Apertura
+5.15 | 3.71 | 1.65
+RESULT: 1-0 | Home Win
+
+Defensa y Justicia 2 vs Platense 2
+Reserve League - Apertura
+2.04 | 3.46 | 3.46
+RESULT: 4-0 | Home Win
+
+Estudiantes Rio Cuarto 2 vs Atl. Rafaela 2
+Reserve League - Apertura
+2.62 | 3.08 | 2.77
 RESULT: 0-2 | Away Win
 
-Lazio vs Inter
-Serie A
-4.20 | 3.75 | 1.83
+Gimnasia L.P. 2 vs Banfield 2
+Reserve League - Apertura
+2.18 | 3.25 | 3.30
+RESULT: 2-0 | Home Win
+
+Newells Old Boys 2 vs Quilmes 2
+Reserve League - Apertura
+2.48 | 3.20 | 2.84
+RESULT: 2-0 | Home Win
+
+Racing Club 2 vs Velez Sarsfield 2
+Reserve League - Apertura
+2.70 | 3.37 | 2.49
+RESULT: 1-1 | Draw
+
+Hayq vs Araks Ararat
+First League
+Odds not available
+RESULT: 2-0 | Home Win
+
+Mika vs Shirak Gyumri 2
+First League
+Odds not available
+RESULT: 3-2 | Home Win
+
+Deportivo Nacional vs Estudiantes
+Division di Honor - Relegation
+Odds not available
+RESULT: 10-1 | Home Win
+
+China U17 vs Qatar U17
+AFC Asian Cup U17
+Odds not available
+RESULT: 2-0 | Home Win
+
+Japan U17 vs Indonesia U17
+AFC Asian Cup U17
+Odds not available
+RESULT: 3-1 | Home Win
+
+Saudi Arabia U17 vs Tajikistan U17
+AFC Asian Cup U17
+Odds not available
+RESULT: 5-5 | Draw
+
+Thailand U17 vs Myanmar U17
+AFC Asian Cup U17
+Odds not available
+RESULT: 2-2 | Draw
+
+Canberra White Eagles vs Queanbeyan City
+NPL ACT
+6.17 | 6.43 | 1.33
 RESULT: 0-3 | Away Win
 
-Lecce vs Juventus
-Serie A
-9.00 | 4.50 | 1.40
-RESULT: 0-1 | Away Win
+South Melbourne vs Bula
+OFC Pro League - Winners stage
+1.37 | 5.21 | 6.86
+RESULT: 4-2 | Home Win
 
-Elche vs Alaves
-LaLiga
-2.25 | 3.10 | 3.30
-RESULT: 1-1 | Draw
+Auckland FC 2 vs South Island Utd
+OFC Pro League - Winners stage
+1.57 | 4.38 | 4.95
+RESULT: 5-2 | Home Win
 
-Sevilla vs Espanyol
-LaLiga
-1.95 | 3.25 | 4.33
-RESULT: 2-1 | Home Win
+Brothers U. vs Mohammedan
+Federation Cup - Play Offs
+3.62 | 3.62 | 1.90
+RESULT: 1-2 | Away Win
 
-Atl. Madrid vs Celta Vigo
-LaLiga
-1.80 | 3.75 | 4.20
-RESULT: 0-1 | Away Win
-
-Real Sociedad vs Betis
-LaLiga
-2.60 | 3.50 | 2.63
-RESULT: 2-2 | Draw
-
-USM Alger vs Zamalek
-CAF Confederation Cup - Play Offs
-1.90 | 2.90 | 4.20
-RESULT: 1-0 | Home Win
-
-AF Luftetari vs Librazhd
-Kategoria e Parë - Relegation
-1.37 | 4.20 | 7.41
-RESULT: 1-2 (After Pen) | Away Win
-
-Kukesi vs Bylis B
-Kategoria e Parë - Relegation
-1.26 | 5.50 | 8.65
-RESULT: 1-2 (After Pen) | Away Win
-
-Ben Aknoun vs USM Alger
-Ligue 1
-3.01 | 2.77 | 2.46
-RESULT: Postponed | N/A
-
-Biskra vs US Chaouia
-Ligue 2
-2.13 | 2.23 | 6.21
-RESULT: 1-1 | Draw
-
-Guelson vs Petro Atletico
-Girabola
-10.70 | 5.10 | 1.25
+SA Bulo Bulo vs Universitario de Vinto
+Division Profesional
+2.17 | 3.62 | 3.02
 RESULT: 0-2 | Away Win
 
-Talleres Cordoba vs Belgrano
-Liga Profesional - Apertura - Play Offs
-2.45 | 2.70 | 3.50
-RESULT: 2-1 | Home Win
+BDF XI vs Centre Chiefs
+Premier League
+3.91 | 3.16 | 1.89
+RESULT: 1-2 | Away Win
 
-Boca Juniors vs Huracan
-Liga Profesional - Apertura - Play Offs
-1.71 | 3.20 | 5.75
-RESULT: 3-1 (After ET) | Home Win
+Matebele vs Township Rollers
+Premier League
+2.72 | 2.92 | 2.48
+RESULT: 1-0 | Home Win
 
-Deportivo Moron vs Los Andes
-Primera Nacional
-1.79 | 2.85 | 5.50
-RESULT: 0-0 | Draw
-
-San Telmo vs CA Mitre
-Primera Nacional
-2.40 | 2.75 | 3.40
-RESULT: 0-0 | Draw
-
-Tristan Suarez vs Midland
-Primera Nacional
-2.25 | 3.10 | 3.20
+Londrina vs Sao Bernardo
+Serie B
+2.50 | 2.60 | 3.50
 RESULT: 1-3 | Away Win
 
-San Miguel vs CA Estudiantes
-Primera Nacional
-2.45 | 2.70 | 3.30
-RESULT: 1-1 | Draw
+Inter de Limeira vs Santa Cruz
+Serie C - First stage
+2.03 | 3.33 | 3.64
+RESULT: 1-2 | Away Win
 
-Temperley vs Deportivo Maipu
-Primera Nacional
-2.05 | 3.00 | 3.90
+Maringa FC vs Guarani
+Serie C - First stage
+1.95 | 3.51 | 3.67
 RESULT: 0-5 | Away Win
 
-San Martin S.J. vs Patronato
-Primera Nacional
-1.81 | 3.10 | 5.00
-RESULT: 1-1 | Draw
-
-Atl. Rafaela vs Gimnasia y Tiro
-Primera Nacional
-2.01 | 3.00 | 4.00
+Sao Paulo AP vs Renovacao
+Amapaense 2
+Odds not available
 RESULT: 1-0 | Home Win
 
-Independiente Chivilcoy vs El Linqueno
-Torneo Federal
-1.57 | 3.56 | 6.55
+Nacao vs Tubarao
+Catarinense 2
+4.05 | 3.34 | 1.87
+RESULT: 0-0 | Draw
+
+Araucaria vs Rio Branco PR
+Paranaense 2 - Play Offs
+1.78 | 3.66 | 4.07
 RESULT: 1-0 | Home Win
 
-Excursionistas vs UAI Urquiza
-Primera B
-1.68 | 3.31 | 5.09
+Internacional vs Athletic Club
+Copa Betano do Brasil
+1.32 | 5.24 | 12.00
+RESULT: 3-2 | Home Win
+
+Vitoria U20 vs Gremio U20
+Brasileiro U20
+2.05 | 3.59 | 3.18
+RESULT: 2-1 | Home Win
+
+Palmeiras U20 vs Avai U20
+Brasileiro U20
+1.14 | 7.62 | 14.10
+RESULT: 3-0 | Home Win
+
+Coritiba U20 vs Operario PR U20
+Brasileiro U20 B
+1.53 | 3.91 | 5.92
+RESULT: 3-1 | Home Win
+
+Paysandu PA U20 vs Sport Recife U20
+Brasileiro U20 B
+2.97 | 3.41 | 2.22
+RESULT: 2-0 | Home Win
+
+G3X vs Capim
+Kings League - Brazil - Play Offs
+1.18 | 10.00 | 7.08
+RESULT: 5-2 | Home Win
+
+Dendele vs Fluxo
+Kings League - Brazil - Play Offs
+1.85 | 7.50 | 2.33
+RESULT: 7-7 (7-8 after pens) | Away Win
+
+Palmeiras W vs Atletico-MG W
+Brasileiro Women
+1.25 | 5.33 | 12.80
+RESULT: 4-1 | Home Win
+
+Corinthians W vs Sao Paulo W
+Brasileiro Women
+1.61 | 3.90 | 5.20
+RESULT: 2-1 | Home Win
+
+Vasco W vs Araguari W
+Copa do Brasil Women
+1.01 | 23.00 | 41.00
+RESULT: 5-1 | Home Win
+
+Cherno More vs Lok. Plovdiv
+efbet League - Conference League Group
+2.11 | 3.12 | 3.62
+RESULT: 2-0 | Home Win
+
+Botev Plovdiv vs Arda
+efbet League - Conference League Group
+3.23 | 3.00 | 2.34
+RESULT: 1-2 | Away Win
+
+Spartak Plovdiv vs Rozova Dolina
+Third League - South-East
+Odds not available
+RESULT: 4-0 | Home Win
+
+Curico Unido vs San Marcos de Arica
+Liga de Ascenso
+2.37 | 3.26 | 2.94
+RESULT: 2-2 | Draw
+
+Palestino vs Limache
+Copa de la Liga
+3.66 | 3.60 | 1.93
+RESULT: 3-2 | Home Win
+
+U. Magdalena vs Cartagena
+Primera B - Apertura - Quadrangular
+2.17 | 3.29 | 3.29
+RESULT: 3-0 | Home Win
+
+Dep. Cali vs Bucaramanga
+Copa Colombia - First stage
+2.32 | 2.86 | 3.46
+RESULT: 2-0 | Home Win
+
+Millonarios vs Llaneros
+Copa Colombia - First stage
+1.40 | 4.47 | 7.63
+RESULT: 1-0 | Home Win
+
+Leones vs Orsomarso
+Copa Colombia - First stage
+2.70 | 2.74 | 2.99
+RESULT: 2-0 | Home Win
+
+Real Santander vs Boca Juniors
+Copa Colombia - First stage
+2.41 | 3.42 | 2.77
+RESULT: 0-3 | Away Win
+
+Escorpiones vs Inter San Carlos
+Liga de Ascenso - Clausura - Play Offs
+2.06 | 3.20 | 3.51
+RESULT: 0-1 (AET) | Away Win
+
+Mlada Boleslav vs Dukla Prague
+Chance Liga - Relegation Group
+1.98 | 3.65 | 3.65
+RESULT: 1-2 | Away Win
+
+Slovacko vs Ostrava
+Chance Liga - Relegation Group
+2.28 | 3.50 | 3.05
+RESULT: 2-1 | Home Win
+
+Zlin vs Teplice
+Chance Liga - Relegation Group
+3.14 | 3.34 | 2.30
+RESULT: 2-4 | Away Win
+
+Sparta Prague vs Plzen
+Chance Liga - Championship Group
+2.60 | 3.33 | 2.73
 RESULT: 0-0 | Draw
 
-Brown Adrogue vs Sportivo Italiano
-Primera B
-3.23 | 2.61 | 2.66
-RESULT: 0-0 | Draw
+Chrudim vs Pribram
+ChNL
+2.80 | 3.52 | 2.34
+RESULT: 2-0 | Home Win
 
-Argentino de Merlo vs Liniers
-Primera B
-2.26 | 2.89 | 3.57
+Sternberk vs Vsechovice
+4. liga - Group E
+4.93 | 3.78 | 1.58
+RESULT: 1-4 | Away Win
+
+Celeste vs Don Bosco
+Ligue 1 - Championship Group
+Odds not available
 RESULT: 0-1 | Away Win
 
-Defensores Unidos vs Comunicaciones
-Primera B
-2.94 | 2.94 | 2.57
-RESULT: 1-1 | Draw
+AS Vita Club vs Simba
+Ligue 1 - Championship Group
+Odds not available
+RESULT: 1-0 | Home Win
 
-Deportivo Armenio vs Deportivo Camioneros
-Primera B
-2.34 | 2.80 | 3.52
+Mushuc Runa vs LDU Quito
+Liga Pro
+3.18 | 3.24 | 2.24
 RESULT: 1-3 | Away Win
 
-Flandria vs Dep. Merlo
-Primera B
-2.58 | 2.78 | 3.10
-RESULT: 2-0 | Home Win
+Insutec vs Barcelona SC
+Copa Ecuador
+Odds not available
+RESULT: 2-4 | Away Win
 
-Laferrere vs San Martin Burzaco
-Primera B
-2.36 | 2.83 | 3.41
-RESULT: 0-2 | Away Win
-
-Talleres (R.E) vs Villa San Carlos
-Primera B
-2.11 | 2.89 | 4.02
-RESULT: 1-0 | Home Win
-
-Ituzaingo vs Villa Dalmine
-Primera B
-4.26 | 3.02 | 1.98
-RESULT: 0-2 | Away Win
-
-Argentino de Rosario vs Victoriano A.
-Primera C
-2.70 | 2.81 | 2.91
-RESULT: 1-1 | Draw
-
-Central Ballester vs Claypole
-Primera C
-3.67 | 2.83 | 2.26
-RESULT: 0-0 | Draw
-
-Estrella Del Sur vs Berazategui
-Primera C
-3.01 | 3.01 | 2.46
-RESULT: 0-0 | Draw
-
-Juventud Unida S. M. vs Justo Jose de Urquiza
-Primera C
-2.97 | 2.53 | 2.97
+El Gouna vs Kahrabaa Ismailia
+Premier League - Relegation Group
+2.83 | 2.75 | 2.83
 RESULT: 0-1 | Away Win
 
-Leones de Rosario vs Yupanqui
-Primera C
-1.94 | 3.14 | 4.28
-RESULT: 2-0 | Home Win
+Pharco vs Modern Sport
+Premier League - Relegation Group
+2.86 | 2.70 | 2.86
+RESULT: 0-1 | Away Win
 
-Banfield vs San Martin T.
-Copa Argentina
-1.89 | 2.97 | 4.94
-RESULT: 2-1 (After Pen) | Home Win
-
-Lanus W vs Belgrano W
-Primera A Women - Apertura
-11.80 | 5.65 | 1.22
-RESULT: 3-2 | Home Win
-
-Union de Santa Fe W vs Independiente W
-Primera A Women - Apertura
-2.97 | 3.10 | 2.38
-RESULT: 2-2 | Draw
-
-Alashkert vs FC Gandzasar
-Premier League
-1.37 | 4.25 | 7.31
-RESULT: 3-1 | Home Win
-
-Pyunik Yerevan vs BKMA
-Premier League
-1.28 | 5.35 | 10.20
-RESULT: 2-0 | Home Win
-
-Sporting vs Racing Club Aruba
-Division di Honor - Winners stage
-2.36 | 4.30 | 2.36
-RESULT: 3-2 | Home Win
-
-Bubali vs Dakota
-Division di Honor - Winners stage
-4.63 | 5.14 | 1.49
-RESULT: 0-4 | Away Win
-
-Auckland FC vs Adelaide United
-A-League - Play Offs
-1.96 | 3.80 | 3.50
-RESULT: 1-1 | Draw
-
-Sydney FC vs Newcastle Jets
-A-League - Play Offs
-2.40 | 3.50 | 2.65
-RESULT: 1-1 | Draw
-
-O'Connor Knights vs Monaro Panthers
-NPL ACT
-8.15 | 7.90 | 1.17
+Wadi Degla vs El Ismaily
+Premier League - Relegation Group
+2.01 | 3.10 | 4.02
 RESULT: 2-1 | Home Win
 
-Tuggeranong Utd vs Canberra Olympic
-NPL ACT
-2.30 | 3.80 | 2.41
-RESULT: 6-4 | Home Win
+Southampton vs Middlesbrough
+Championship - Play Offs
+2.43 | 3.42 | 3.06
+RESULT: 2-1 (AET, 1-1 FT) | Home Win
 
-Tigers FC vs Belconnen Utd.
-NPL ACT
-1.51 | 4.68 | 5.20
-RESULT: 3-2 | Home Win
+Crystal Palace U18 vs Aston Villa U18
+Premier League U18
+Odds not available
+RESULT: 1-2 | Away Win
 
-Weston Bears vs Valentine
-NPL Northern NSW
-1.18 | 7.00 | 9.00
+Tottenham U18 vs West Brom U18
+Premier League U18
+Odds not available
+RESULT: 5-2 | Home Win
+
+Brighton U18 vs West Ham U18
+Premier League U18
+Odds not available
+RESULT: 3-1 | Home Win
+
+Real Madrid U21 vs Dortmund II
+Premier League International Cup - Play Offs
+1.80 | 3.85 | 3.95
+RESULT: 0-1 | Away Win
+
+Inter Turku vs Hercules
+Suomen Cup
+1.01 | 17.90 | 28.00
+RESULT: 8-0 | Home Win
+
+SJK vs PEPO
+Suomen Cup
+1.03 | 13.30 | 30.00
+RESULT: 3-0 | Home Win
+
+PK-35 vs KuPS
+Suomen Cup
+8.64 | 4.40 | 1.36
 RESULT: 0-2 | Away Win
 
-Adamstown Rosebud vs Belmont Swansea Utd.
-NPL Northern NSW
-3.40 | 4.33 | 1.70
-RESULT: 2-2 | Draw
-
-Edgeworth E. vs Maitland
-NPL Northern NSW
-1.83 | 4.20 | 3.00
-RESULT: 3-1 | Home Win
-
-WS Wanderers U21 vs Wollongong Wolves
-NPL NSW
-2.44 | 3.60 | 2.35
-RESULT: 0-0 | Draw
-
-SD Raiders vs NWS Spirit
-NPL NSW
-2.54 | 3.53 | 2.54
-RESULT: 0-0 | Draw
-
-APIA Leichhardt vs Sydney Utd
-NPL NSW
-2.08 | 3.74 | 3.12
-RESULT: 2-1 | Home Win
-
-Marconi Stallions vs Sydney Olympic
-NPL NSW
-1.20 | 6.54 | 12.00
-RESULT: 2-2 | Draw
-
-St. George City vs Sutherland Sharks
-NPL NSW
-3.03 | 3.54 | 2.19
+Lozo vs Bitam
+Championnat D1
+Odds not available
 RESULT: 1-0 | Home Win
 
-Queensland Lions vs Moreton City Excelsior
-NPL Queensland
-2.04 | 4.07 | 3.01
+Bombada vs Dutch Lions
+GFA League
+1.98 | 3.00 | 4.14
 RESULT: 2-0 | Home Win
 
-Para vs West Adelaide
-NPL South Australia
-8.30 | 5.95 | 1.23
+Hart Academy vs Hawks
+GFA League
+1.98 | 2.90 | 4.35
+RESULT: 3-2 | Home Win
+
+Samger vs Real Banjul
+GFA League
+3.49 | 2.77 | 2.31
+RESULT: 0-0 | Draw
+
+Team Rhino vs BST Galaxy
+GFA League
+2.46 | 2.85 | 3.10
+RESULT: 2-1 | Home Win
+
+Niendorfer TSV vs Vorwarts-Wacker
+Oberliga Hamburg
+1.77 | 3.44 | 4.06
+RESULT: 2-1 | Home Win
+
+TSV Buchholz 08 vs Teutonia Ottensen
+Oberliga Hamburg
+1.75 | 4.20 | 3.30
+RESULT: 1-2 | Away Win
+
+TuS Koblenz vs Kaiserslautern II
+Oberliga Rheinland-Pfalz/Saar
+3.03 | 3.50 | 2.06
+RESULT: 1-2 | Away Win
+
+Asteras Tripolis vs Panserraikos
+Super League - Relegation Group
+1.84 | 3.08 | 4.97
+RESULT: 2-1 | Home Win
+
+Kifisia vs Atromitos
+Super League - Relegation Group
+2.66 | 3.15 | 2.66
+RESULT: 0-3 | Away Win
+
+Panetolikos vs AEL Larissa
+Super League - Relegation Group
+2.39 | 2.99 | 3.15
 RESULT: 1-1 | Draw
 
-Adelaide United U23 vs NE Metrostars
-NPL South Australia
-4.65 | 4.48 | 1.58
-RESULT: 1-6 | Away Win
+Mohun Bagan vs Inter Kashi
+ISL
+1.28 | 5.25 | 10.10
+RESULT: 0-0 | Draw
 
-Croydon vs FK Beograd
-NPL South Australia
-2.42 | 3.68 | 2.34
-RESULT: 0-2 | Away Win
+Namdhari vs Gokulam
+I-League - Relegation Group
+3.31 | 3.52 | 2.07
+RESULT: 0-1 | Away Win
 
-Adelaide City vs Campbelltown City
-NPL South Australia
-1.98 | 4.14 | 3.10
+Sethu W vs Sesa FA W
+IWL Women
+Odds not available
+RESULT: 1-1 | Draw
+
+Sreebhumi W vs Gokulam Kerala W
+IWL Women
+3.53 | 3.30 | 1.94
+RESULT: 0-1 | Away Win
+
+East Bengal W vs Nita FA W
+IWL Women
+1.15 | 6.90 | 10.50
+RESULT: 2-0 | Home Win
+
+Garhwal United W vs Kickstart W
+IWL Women
+4.72 | 3.90 | 1.58
+RESULT: 0-1 | Away Win
+
+Hapoel Tel Aviv vs Hapoel Petah Tikva
+Ligat ha'Al - Championship Group
+1.23 | 6.40 | 10.20
+RESULT: 1-0 | Home Win
+
+Beitar Jerusalem vs H. Beer Sheva
+Ligat ha'Al - Championship Group
+2.55 | 3.85 | 2.39
+RESULT: 1-1 | Draw
+
+Modena vs Juve Stabia
+Serie B - Play Offs
+2.10 | 3.12 | 3.91
+RESULT: 0-1 | Away Win
+
+Catanzaro vs Avellino
+Serie B - Play Offs
+1.93 | 3.34 | 4.26
+RESULT: 3-0 | Home Win
+
+Olympique Sport vs SOL
+Ligue 1
+Odds not available
+RESULT: 1-4 | Away Win
+
+Al-Faisaly Amman vs Al Ramtha
+Jordan Cup
+1.74 | 3.85 | 4.27
+RESULT: 1-1 (1-2 after pens) | Away Win
+
+Al Hussein vs Al Wehdat
+Jordan Cup
+2.46 | 2.83 | 3.24
+RESULT: 3-1 | Home Win
+
+Okzhetpes W vs Kyzylzhar W
+League Women
+Odds not available
+RESULT: 0-3 | Away Win
+
+Ertis Pavlodar W vs Shakhter Karagandy W
+League Women
+Odds not available
+RESULT: 1-1 | Draw
+
+Aktobe W vs Zhenis Astana W
+League Women
+Odds not available
+RESULT: 13-1 | Home Win
+
+Tobol W vs Altai W
+League Women
+Odds not available
+RESULT: 4-0 | Home Win
+
+FC Astana W vs Yelimay Semey W
+League Women
+Odds not available
+RESULT: 4-0 | Home Win
+
+FK Liepaja vs Ogre United
+Virsliga
+1.33 | 5.28 | 7.79
+RESULT: 4-1 | Home Win
+
+Riga FC vs Auda
+Virsliga
+1.72 | 4.06 | 4.16
+RESULT: 2-4 | Away Win
+
+Chemal vs Nouakchott King's
+Ligue 1
+2.26 | 3.15 | 2.92
+RESULT: 3-4 | Away Win
+
+Black Bulls vs Costa do Sol
+Mocambola
+1.81 | 3.20 | 4.65
+RESULT: 0-0 | Draw
+
+ASFAN vs Espoir
+Super Ligue
+Odds not available
 RESULT: 2-1 | Home Win
 
-Devonport vs Glenorchy Knights
-NPL Tasmania
-1.55 | 4.71 | 4.71
+Urana vs Olympic Niamey
+Super Ligue
+1.74 | 3.00 | 5.47
+RESULT: 0-0 | Draw
+
+Linfield vs Dungannon
+NIFL Premiership - Conference League - Play Offs
+1.48 | 4.84 | 5.35
+RESULT: 3-1 | Home Win
+
+Medkila W vs Tromso W
+Norway Cup Women
+Odds not available
+RESULT: 0-7 | Away Win
+
+Grei W vs Bodo/Glimt W
+Norway Cup Women
+Odds not available
+RESULT: 3-1 | Home Win
+
+Sogndal W vs Brann W
+Norway Cup Women
+Odds not available
+RESULT: 1-5 | Away Win
+
+Alta W vs Roa W
+Norway Cup Women
+Odds not available
+RESULT: 0-10 | Away Win
+
+Arna-Bjornar W vs Asane W
+Norway Cup Women
+2.88 | 3.76 | 2.19
+RESULT: 1-0 | Home Win
+
+Bryne W vs Start W
+Norway Cup Women
+2.80 | 3.52 | 2.34
+RESULT: 1-2 | Away Win
+
+Fana W vs Fyllingsdalen W
+Norway Cup Women
+Odds not available
 RESULT: 2-1 | Home Win
 
-Launceston vs South Hobart
-NPL Tasmania
-4.15 | 4.66 | 1.63
+Ham-Kam W vs Valerenga W
+Norway Cup Women
+Odds not available
 RESULT: 1-8 | Away Win
 
-Riverside Olympic vs South East Utd.
-NPL Tasmania
-1.69 | 5.27 | 3.48
-RESULT: 5-0 | Home Win
+Malvik W vs Rosenborg W
+Norway Cup Women
+Odds not available
+RESULT: 0-15 | Away Win
 
-Launceston United vs Kingborough Lions
-NPL Tasmania
-16.90 | 12.00 | 1.08
-RESULT: 1-7 | Away Win
-
-Avondale FC vs Altona Magic
-NPL Victoria
-1.56 | 4.07 | 5.52
-RESULT: 5-1 | Home Win
-
-George Cross vs Hume City
-NPL Victoria
-2.82 | 3.86 | 2.19
-RESULT: 2-4 | Away Win
-
-Armadale vs Balcatta
-NPL Western Australia
-2.13 | 3.90 | 2.91
-RESULT: 5-0 | Home Win
-
-Perth Glory U23 vs Western Knights
-NPL Western Australia
-2.92 | 3.86 | 2.14
-RESULT: 3-1 | Home Win
-
-Stirling Macedonia vs Dianella White Eagle
-NPL Western Australia
-1.94 | 4.08 | 3.25
-RESULT: 3-4 | Away Win
-
-Macarthur Rams vs Northern Tigers
-NSW League One
-3.35 | 3.87 | 1.91
-RESULT: 2-2 | Draw
-
-Canterbury Bankstown vs Bulls Academy
-NSW League One
-2.37 | 3.70 | 2.58
-RESULT: 1-3 | Away Win
-
-Inter Lions vs Dulwich Hill
-NSW League One
-2.47 | 3.70 | 2.47
-RESULT: 2-0 | Home Win
-
-Newcastle Jets U23 vs Hakoah Sydney
-NSW League One
-1.86 | 4.02 | 3.41
-RESULT: 3-5 | Away Win
-
-Rydalmere Lions vs Hills United
-NSW League One
-2.07 | 3.20 | 3.27
-RESULT: 1-2 | Away Win
-
-Western City Rangers vs Central Coast Mariners U23
-NSW League One
-2.70 | 4.02 | 2.17
+Odd W vs Stabaek W
+Norway Cup Women
+Odds not available
 RESULT: 0-4 | Away Win
 
-Holland Park Hawks vs Caboolture
-Queensland Premier League
-3.24 | 4.18 | 1.92
-RESULT: 3-5 | Away Win
-
-Broadbeach Utd. vs Sunshine Coast Wanderers
-Queensland Premier League
-1.61 | 4.73 | 4.21
-RESULT: 3-0 | Home Win
-
-Modbury Jets vs South Adelaide
-SA State League
-1.18 | 7.28 | 11.40
-RESULT: 4-1 | Home Win
-
-Salisbury Utd. vs Adelaide Atletico
-SA State League
-2.46 | 3.92 | 2.46
-RESULT: 1-2 | Away Win
-
-Adelaide Croatia Raiders vs Blue Eagles
-SA State League
-2.11 | 3.72 | 2.79
-RESULT: 3-4 | Away Win
-
-Taroona vs South Hobart U21
-Tasmania Southern Championship
-2.54 | 4.36 | 2.18
-RESULT: 2-3 | Away Win
-
-University of Tasmania vs Glenorchy Knights U21
-Tasmania Southern Championship
-4.53 | 6.02 | 1.44
-RESULT: 1-2 | Away Win
-
-Langwarrin vs Melbourne Knights
-Victoria Premier League
-4.21 | 4.15 | 1.61
-RESULT: 1-4 | Away Win
-
-Bulleen vs Melbourne Srbija
-Victoria Premier League
-1.73 | 4.25 | 3.49
-RESULT: 0-0 | Draw
-
-Moreland City vs Whittlesea United
-Victoria Premier League 2
-3.17 | 3.99 | 1.94
-RESULT: 1-1 | Draw
-
-Kingston City vs Malvern
-Victoria Premier League 2
-6.22 | 4.75 | 1.37
-RESULT: 0-5 | Away Win
-
-Nunawading City vs Box Hill
-Victoria Premier League 2
-2.70 | 3.71 | 2.26
-RESULT: 1-0 | Home Win
-
-Goulburn Valley Suns vs Bayside Argonauts
-Victoria Premier League 2
-1.85 | 4.22 | 3.29
-RESULT: 3-1 | Home Win
-
-Cockburn City vs Quinns
-WA State League
-3.30 | 4.02 | 1.89
+Sarpsborg 08 W vs Honefoss W
+Norway Cup Women
+10.30 | 5.94 | 1.25
 RESULT: 0-2 | Away Win
 
-Curtin Univ vs Nedlands
-WA State League
-4.89 | 4.89 | 1.49
+Tynset W vs LSK Kvinner W
+Norway Cup Women
+Odds not available
 RESULT: 0-3 | Away Win
 
-Gwelup Croatia vs Murdoch Melville
-WA State League
-1.96 | 3.87 | 3.20
-RESULT: 2-2 | Draw
+Viking W vs Haugesund W
+Norway Cup Women
+5.20 | 4.68 | 1.51
+RESULT: 3-2 | Home Win
 
-Inglewood Utd vs Mandurah City
-WA State League
-2.57 | 3.85 | 2.31
-RESULT: 2-1 | Home Win
-
-Joondalup vs Kingsley Westside
-WA State League
-2.03 | 3.52 | 3.08
-RESULT: 2-1 | Home Win
-
-Melbourne City W vs Melbourne Victory W
-A-League Women - Play Offs
-1.98 | 3.54 | 3.53
-RESULT: 1-0 | Home Win
-
-Auckland FC 2 vs Bula
-OFC Pro League - Winners stage
-1.58 | 4.65 | 4.48
-RESULT: 2-0 | Home Win
-
-South Melbourne vs South Island Utd
-OFC Pro League - Winners stage
-1.44 | 4.85 | 5.92
-RESULT: 4-2 | Home Win
-
-Grazer AK vs Altach
-Bundesliga - Relegation Group
-2.15 | 3.25 | 3.30
-RESULT: 2-2 | Draw
-
-Ried vs Wolfsberger AC
-Bundesliga - Relegation Group
-2.01 | 3.50 | 3.50
-RESULT: 0-1 | Away Win
-
-Tirol vs BW Linz
-Bundesliga - Relegation Group
-2.75 | 3.30 | 2.45
-RESULT: 1-1 | Draw
-
-Donaufeld Wien vs Parndorf
-Regionalliga East
-1.70 | 4.32 | 3.85
-RESULT: 1-4 | Away Win
-
-Leobendorf vs Retz
-Regionalliga East
-1.37 | 4.70 | 7.32
-RESULT: 1-0 | Home Win
-
-Horn vs Kremser
-Regionalliga East
-2.72 | 3.63 | 2.28
-RESULT: 2-0 | Home Win
-
-Weindorf St. Anna vs Deutschlandsberger
-Regionalliga Central
-5.38 | 4.33 | 1.46
-RESULT: 0-1 | Away Win
-
-Seekirchen vs Altach U21
-Regionalliga West
-1.08 | 9.10 | 12.70
-RESULT: 3-4 | Away Win
-
-Wals-Grunau vs Kuchl
-Regionalliga West
-1.98 | 4.35 | 2.90
-RESULT: 1-2 | Away Win
-
-Reichenau vs TSV St. Johann
-Regionalliga West
-1.74 | 3.76 | 3.83
-RESULT: 2-0 | Home Win
-
-FC Lustenau vs Bischofshofen
-Regionalliga West
-2.78 | 4.02 | 2.11
-RESULT: 1-4 | Away Win
-
-Dornbirn vs Kufstein
-Regionalliga West
-1.40 | 4.69 | 6.51
-RESULT: 3-3 | Draw
-
-Kitzbuhel vs Schwaz
-Regionalliga West
-2.29 | 3.34 | 2.66
-RESULT: 2-0 | Home Win
-
-Saalfelden vs Hohenems
-Regionalliga West
-2.45 | 3.84 | 2.25
-RESULT: 2-2 | Draw
-
-Halbturn vs Edelserpentin
-Burgenland
-1.59 | 3.94 | 4.57
-RESULT: 1-0 | Home Win
-
-Horitschon vs Pama
-Burgenland
-2.41 | 3.90 | 2.44
-RESULT: 0-0 | Draw
-
-Klingenbach vs SV Eberau
-Burgenland
-2.62 | 3.22 | 2.38
-RESULT: 0-3 | Away Win
-
-Hallwang vs TSU Bramberg
-Salzburg
-13.10 | 8.07 | 1.14
+Frigg W vs Lyn W
+Norway Cup Women
+Odds not available
 RESULT: 0-4 | Away Win
 
-Lebring vs Koflach
-Steiermark
-1.45 | 4.70 | 5.01
+Sur Club vs Al Khaboora
+Professional League
+1.98 | 2.98 | 4.33
+RESULT: 2-1 | Home Win
+
+Al-Rustaq vs Ibri
+Professional League
+2.87 | 3.03 | 2.56
 RESULT: 2-0 | Home Win
 
-Ilzer SV vs TUS Bad Waltersdorf
-Steiermark
-1.33 | 5.10 | 6.53
-RESULT: 3-3 | Draw
-
-1980 Wien vs Schwechat
-Wien
-1.73 | 4.05 | 3.89
-RESULT: 0-5 | Away Win
-
-Kagran vs Lac Inter
-Wien
-2.35 | 4.19 | 2.40
-RESULT: 1-5 | Away Win
-
-LASK W vs SCR Altach W
-Bundesliga Women - Relegation Group
-2.32 | 3.50 | 2.53
+Cerro Porteno vs Guarani
+Copa de Primera - Apertura
+1.92 | 3.31 | 4.08
 RESULT: 0-0 | Draw
 
-Austria Vienna W vs Sturm Graz W
-Bundesliga Women - Championship Group
-1.20 | 5.70 | 10.70
+Sport Boys vs U. de Deportes
+Liga 1 - Apertura
+3.34 | 3.13 | 2.22
+RESULT: 0-0 | Draw
+
+Zaglebie II vs Carina Gubin
+III Liga - Group III
+1.80 | 4.21 | 3.49
+RESULT: 1-4 | Away Win
+
+FC Voluntari vs Sepsi Sf. Gheorghe
+Liga 2 - Championship Group
+3.14 | 3.25 | 2.26
+RESULT: 2-0 | Home Win
+
+Rayon Sport vs Gorilla
+Peace Cup
+1.62 | 3.40 | 5.92
+RESULT: 0-0 | Draw
+
+Domagnano vs Virtus
+Campionato Sammarinese - Play Offs
+5.70 | 4.66 | 1.47
+RESULT: 2-1 | Home Win
+
+Tre Penne vs La Fiorita
+Campionato Sammarinese - Play Offs
+2.44 | 3.32 | 2.80
+RESULT: 0-1 | Away Win
+
+Al Kholood vs Al Okhdood
+Saudi Professional League
+1.55 | 4.50 | 6.16
+RESULT: 0-0 | Draw
+
+Al Nassr vs Al Hilal
+Saudi Professional League
+2.34 | 3.76 | 2.97
+RESULT: 1-1 | Draw
+
+Dunfermline vs Partick Thistle
+Premiership - Relegation
+2.84 | 3.10 | 2.52
+RESULT: 1-1 | Draw
+
+Aberdeen vs St. Mirren
+Premiership - Relegation Group
+2.17 | 3.46 | 3.43
+RESULT: 0-2 | Away Win
+
+Dundee Utd vs Livingston
+Premiership - Relegation Group
+1.71 | 4.15 | 4.61
+RESULT: 0-0 | Draw
+
+Kilmarnock vs Dundee FC
+Premiership - Relegation Group
+1.64 | 4.44 | 4.88
 RESULT: 3-1 | Home Win
 
-Gabala vs Qarabag
+Clyde vs Hamilton
+League One - Relegation - Play Offs
+2.58 | 3.36 | 2.35
+RESULT: 1-1 | Draw
+
+FAP vs Kabel Novi Sad
+Mozzart Bet Prva Liga - Relegation Group
+2.21 | 3.24 | 2.94
+RESULT: 1-2 | Away Win
+
+Usce vs Trayal Krusevac
+Mozzart Bet Prva Liga - Relegation Group
+Odds not available
+RESULT: 2-0 | Home Win
+
+Gaadiidka vs Elman
+National league
+Odds not available
+RESULT: 1-0 | Home Win
+
+TS Galaxy vs Mamelodi Sundowns
+Betway Premiership
+9.89 | 4.62 | 1.33
+RESULT: 3-2 | Home Win
+
+Gangwon vs Daejeon
+K League 1
+2.33 | 3.21 | 3.21
+RESULT: 2-0 | Home Win
+
+Gwangju FC vs Seoul
+K League 1
+8.67 | 4.22 | 1.43
+RESULT: 0-1 | Away Win
+
+Incheon vs Pohang
+K League 1
+3.23 | 2.73 | 2.66
+RESULT: 0-1 | Away Win
+
+La Capital CF vs xBuyer Team
+Kings League - Spain - Play Offs
+Odds not available
+RESULT: 7-5 | Home Win
+
+Rayo de Barcelona vs Saiyans FC
+Kings League - Spain - Play Offs
+1.43 | 7.00 | 3.85
+RESULT: 7-2 | Home Win
+
+Los Troncos FC vs Porcinos FC
+Kings League - Spain - Play Offs
+3.82 | 7.50 | 1.43
+RESULT: 7-5 | Home Win
+
+Landskrona vs Norrby
+Superettan
+1.97 | 3.30 | 3.87
+RESULT: 1-1 | Draw
+
+Varnamo vs Orebro
+Superettan
+2.10 | 3.29 | 3.46
+RESULT: 0-1 | Away Win
+
+Djurgarden W vs Hammarby W
+Allsvenskan Women
+5.90 | 4.44 | 1.46
+RESULT: 0-2 | Away Win
+
+Grasshoppers vs Winterthur
+Super League - Relegation Group
+2.19 | 3.59 | 2.99
+RESULT: 3-2 | Home Win
+
+Luzern vs Zurich
+Super League - Relegation Group
+1.39 | 5.23 | 6.22
+RESULT: 1-0 | Home Win
+
+Servette vs Lausanne
+Super League - Relegation Group
+1.83 | 3.87 | 3.77
+RESULT: 2-0 | Home Win
+
+Al-Shouleh vs Hottin
 Premier League
-4.95 | 4.95 | 1.50
-RESULT: 1-1 | Draw
-
-Sumqayit vs Araz
-Premier League
-2.63 | 3.42 | 2.53
-RESULT: 2-1 | Home Win
-
-Arambagh vs Mohammedan
-BFL
-4.91 | 4.48 | 1.53
-RESULT: 0-2 | Away Win
-
-Brothers U. vs Rahmatgonj MFS
-BFL
-1.67 | 4.14 | 4.14
-RESULT: 3-1 | Home Win
-
-Slavia Mozyr vs FC Minsk
-Vysshaya Liga
-1.98 | 3.19 | 4.00
+Odds not available
 RESULT: 1-2 | Away Win
 
-Belshina vs Vitebsk
-Vysshaya Liga
-4.19 | 3.38 | 1.87
+Singida Black Stars vs Namungo
+Ligi Kuu Bara
+1.37 | 4.24 | 8.80
 RESULT: 1-0 | Home Win
 
-Zhodino vs Neman
-Vysshaya Liga
-3.08 | 2.88 | 2.52
-RESULT: 1-0 | Home Win
-
-Lida vs Osipovichi
-Pershaya Liga
-1.35 | 4.95 | 6.32
-RESULT: 2-1 | Home Win
-
-Beerschot VA vs Lommel SK
-Jupiler Pro League - Relegation
-1.85 | 4.10 | 3.60
-RESULT: 1-3 | Away Win
-
-RAAL La Louviere vs Cercle Brugge KSV
-Jupiler Pro League - Relegation Group
-2.15 | 3.50 | 2.90
-RESULT: 4-1 | Home Win
-
-Waregem vs Dender
-Jupiler Pro League - Relegation Group
-1.70 | 3.80 | 4.20
-RESULT: 2-1 | Home Win
-
-Club Brugge KV vs St. Truiden
-Jupiler Pro League - Championship Group
-1.38 | 4.75 | 6.00
-RESULT: 2-0 | Home Win
-
-Westerlo W vs Genk W
-Super League Women - Losers stage
-2.75 | 3.44 | 2.24
-RESULT: 0-3 | Away Win
-
-Waregem W vs Gent W
-Super League Women - Losers stage
-1.81 | 3.60 | 4.02
-RESULT: 4-1 | Home Win
-
-Leuven W vs RSC Anderlecht W
-Super League Women - Winners stage
-2.77 | 3.36 | 2.26
+TRA United vs JKT Tanzania
+Ligi Kuu Bara
+2.22 | 2.89 | 3.51
 RESULT: 1-1 | Draw
 
-Club Brugge W vs St. Liege W
-Super League Women - Winners stage
-1.73 | 3.83 | 4.14
-RESULT: 2-1 | Home Win
+JS Omrane vs AS Marsa
+Ligue Professionnelle 1
+2.11 | 3.14 | 3.23
+RESULT: 2-2 | Draw
 
-Guabira vs GV San Jose
-Division Profesional
-1.76 | 3.80 | 3.80
-RESULT: 3-0 | Home Win
-
-Prijedor vs FK Sarajevo
-WWIN Liga BiH
-3.14 | 3.40 | 2.19
-RESULT: 2-4 | Away Win
-
-Radnik Bijeljina vs Zrinjski
-WWIN Liga BiH
-2.01 | 3.30 | 3.71
-RESULT: 0-1 | Away Win
-
-Posusje vs Velez Mostar
-WWIN Liga BiH
-1.40 | 3.88 | 7.80
+Bouchamma vs Korba
+Ligue 2
+Odds not available
 RESULT: 1-1 | Draw
 
-Sloboda vs Bratstvo Gracanica
-Prva Liga - FBiH
-1.57 | 3.60 | 4.75
-RESULT: 1-0 | Home Win
-
-Zvijezda 09 vs Sutjeska Foca
-Prva Liga - RS - Relegation Group
-1.55 | 3.40 | 5.75
-RESULT: 3-0 | Home Win
-
-Coritiba vs Internacional
-Serie A Betano
-2.70 | 3.10 | 2.65
-RESULT: 2-2 | Draw
-
-Fluminense vs Vitoria
-Serie A Betano
-1.51 | 4.33 | 5.75
-RESULT: 2-2 | Draw
-
-Goias vs Vila Nova FC
-Serie B
-2.01 | 3.20 | 3.90
-RESULT: 1-0 | Home Win
-
-Athletic Club vs Cuiaba
-Serie B
-2.65 | 2.70 | 3.10
+Djelma vs Stade Gabesien
+Ligue 2
+Odds not available
 RESULT: 0-0 | Draw
 
-Ponte Preta vs Sport Recife
-Serie B
-3.10 | 3.10 | 2.30
-RESULT: 1-3 | Away Win
-
-Ceara vs Atletico GO
-Serie B
-1.96 | 3.10 | 4.10
-RESULT: 0-1 | Away Win
-
-Itabaiana vs Floresta EC
-Serie C - First stage
-2.14 | 3.13 | 3.54
-RESULT: 0-0 | Draw
-
-Paysandu PA vs Anapolis
-Serie C - First stage
-1.55 | 3.72 | 6.45
-RESULT: 2-1 | Home Win
-
-Maranhao vs Botafogo PB
-Serie C - First stage
-2.43 | 3.10 | 2.99
-RESULT: 3-1 | Home Win
-
-Blumenau vs Sao Joseense
-Serie D
-1.86 | 3.22 | 4.49
-RESULT: 0-0 | Draw
-
-IAPE vs Parnahyba
-Serie D
-2.04 | 3.13 | 3.86
-RESULT: 1-2 | Away Win
-
-Maracana vs Sampaio Correa
-Serie D
-2.45 | 2.70 | 3.44
-RESULT: 1-1 | Draw
-
-Aparecidense vs Brasiliense
-Serie D
-3.03 | 3.01 | 2.46
-RESULT: 2-1 | Home Win
-
-Betim vs CRAC
-Serie D
-1.75 | 3.36 | 4.99
-RESULT: 0-0 | Draw
-
-Capital vs Mixto
-Serie D
-2.06 | 2.95 | 4.11
-RESULT: 1-0 | Home Win
-
-Ceilandia vs Operario VG
-Serie D
-1.77 | 3.33 | 4.93
-RESULT: 0-1 | Away Win
-
-Madureira vs Portuguesa
-Serie D
-4.70 | 3.24 | 1.83
-RESULT: 1-0 | Home Win
-
-Porto-BA vs Real Noroeste
-Serie D
-1.80 | 3.13 | 4.43
-RESULT: 1-2 | Away Win
-
-Pouso Alegre vs America RJ
-Serie D
-1.78 | 3.25 | 4.98
-RESULT: 3-0 | Home Win
-
-Tirol vs AE Altos
-Serie D
-3.00 | 3.23 | 2.34
-RESULT: 1-0 | Home Win
-
-Serra Branca vs Lagarto
-Serie D
-1.68 | 3.45 | 5.49
-RESULT: 0-0 | Draw
-
-Marica vs Noroeste
-Serie D
-2.57 | 3.01 | 2.88
-RESULT: 0-3 | Away Win
-
-Operario MS vs Uberlandia
-Serie D
-3.73 | 2.94 | 2.03
-RESULT: 1-2 | Away Win
-
-Porto Velho vs Independencia
-Serie D
-1.44 | 4.53 | 6.47
-RESULT: 2-1 | Home Win
-
-Sergipe vs Retro
-Serie D
-1.92 | 3.00 | 4.26
-RESULT: 1-0 | Home Win
-
-Uniao Rondonopolis vs Goiatuba
-Serie D
-2.66 | 2.85 | 2.59
-RESULT: 0-0 | Draw
-
-Luverdense vs Gama
-Serie D
-3.03 | 2.87 | 2.56
-RESULT: 1-2 | Away Win
-
-Manaus vs Monte Roraima
-Serie D
-1.62 | 3.54 | 5.98
-RESULT: 0-2 | Away Win
-
-Marcilio Dias vs Brasil de Pelotas
-Serie D
-2.10 | 2.94 | 3.98
-RESULT: 4-1 | Home Win
-
-Piracicaba vs Sampaio Correa FE
-Serie D
-1.59 | 3.64 | 5.98
-RESULT: 2-1 | Home Win
-
-Inhumas vs Primavera AC
-Serie D
-1.95 | 3.38 | 3.83
-RESULT: 0-2 | Away Win
-
-EC Sao Jose vs Azuriz
-Serie D
-1.83 | 3.24 | 4.70
-RESULT: 1-0 | Home Win
-
-Velo Clube vs Nova Iguacu
-Serie D
-2.03 | 2.98 | 4.15
-RESULT: 1-1 | Draw
-
-Audax RJ vs CEAC/Araruama
-Carioca 2
-2.43 | 2.89 | 3.10
-RESULT: 2-3 | Away Win
-
-Resende vs Cabofriense
-Carioca 2
-1.98 | 3.03 | 4.07
-RESULT: 2-2 | Draw
-
-Serrano FC vs Bonsucesso
-Carioca 2
-2.06 | 3.09 | 3.70
-RESULT: 0-0 | Draw
-
-Guarani de Juazeiro vs Barbalha
-Cearense 2
-2.34 | 2.91 | 3.23
-RESULT: 2-1 | Home Win
-
-Uniao Paraense vs Independente
-Paraense A2
-2.97 | 3.30 | 2.27
-RESULT: 1-1 | Draw
-
-Laranja Mecanica vs Paranavai-PR
-Paranaense 2 - Play Offs
-1.98 | 3.43 | 3.53
-RESULT: 1-2 | Away Win
-
-Inter de Bebedouro vs Penapolense
-Paulista A4 - Play Offs
-1.99 | 3.38 | 3.54
-RESULT: 1-1 | Draw
-
-Assisense vs Jose Bonifacio EC
-Paulista B
-3.55 | 3.15 | 1.85
-RESULT: 2-2 | Draw
-
-Manthiqueira vs Barcelona SP
-Paulista B
-1.87 | 3.43 | 3.94
-RESULT: 2-1 | Home Win
-
-Matonense vs Catanduvense
-Paulista B
-1.16 | 6.10 | 9.00
-RESULT: 3-1 | Home Win
-
-Maua vs Itaqua
-Paulista B
-2.15 | 3.35 | 2.65
-RESULT: 1-1 | Draw
-
-Serra vs Vilavelhense
-Copa Espirito Santo
-1.90 | 3.50 | 3.70
-RESULT: 3-2 | Home Win
-
-Vasco da Gama AC U20 vs Galvez U20
-Acreano U20
-5.64 | 4.65 | 1.41
-RESULT: 1-5 | Away Win
-
-Bahia de Feira U20 vs Vitoria U20
-Baiano U20
-4.62 | 4.62 | 1.54
-RESULT: 2-5 | Away Win
-
-Barcelona U20 vs Catuense U20
-Baiano U20
-1.49 | 4.45 | 5.39
-RESULT: 2-1 | Home Win
-
-Estrela De Marco U20 vs Jacuipense U20
-Baiano U20
-2.31 | 3.34 | 2.88
-RESULT: 0-2 | Away Win
-
-Nacao U20 vs Figueirense U20
-Catarinense U20
-4.32 | 3.60 | 1.75
-RESULT: 2-2 | Draw
-
-Avai U20 vs Joinville U20
-Catarinense U20
-1.56 | 4.25 | 4.93
-RESULT: 3-0 | Home Win
-
-Chapecoense-SC U20 vs Criciuma U20
-Catarinense U20
-2.33 | 3.32 | 2.85
-RESULT: 0-3 | Away Win
-
-Fortaleza U20 vs Anjos do Ceu U20
-Cearense U20
-1.08 | 9.91 | 21.00
-RESULT: 5-0 | Home Win
-
-SC Ivoti U20 vs Sao Luiz U20
-Gaucho U20
-2.80 | 3.52 | 2.34
-RESULT: 1-0 | Home Win
-
-Goiania U20 vs Guanabara City U20
-Goiano U20
-2.17 | 3.10 | 3.36
-RESULT: 1-1 | Draw
-
-Goias U20 vs Vila Nova FC U20
-Goiano U20
-2.16 | 3.29 | 3.19
-RESULT: 2-4 | Away Win
-
-Inter de Minas U20 vs Cruzeiro U20
-Mineiro U20
-4.23 | 3.87 | 1.70
-RESULT: 0-1 | Away Win
-
-Nacional de Muriae U20 vs Social U20
-Mineiro U20
-1.77 | 3.84 | 3.94
-RESULT: 2-2 | Draw
-
-Araucaria U20 vs Patriotas U20
-Paranaense U20
-2.16 | 3.59 | 2.95
-RESULT: 1-2 | Away Win
-
-Athletico-PR U20 vs Hope Internacional U20
-Paranaense U20
-1.22 | 6.93 | 8.53
-RESULT: 2-0 | Home Win
-
-Coritiba U20 vs Galo Maringa U20
-Paranaense U20
-1.37 | 5.25 | 6.30
-RESULT: 1-0 | Home Win
-
-Fluminense W vs Santos W
-Brasileiro Women
-1.99 | 3.25 | 3.87
-RESULT: 0-2 | Away Win
-
-Mixto W vs Bahia W
-Brasileiro Women
-5.21 | 3.86 | 1.62
-RESULT: 1-1 | Draw
-
-Paysandu PA W vs Vila Nova FC W
-Brasileiro A2 Women
-2.01 | 3.35 | 3.51
-RESULT: 3-1 | Home Win
-
-Rio Negro W vs Taubate W
-Brasileiro A2 Women
-5.45 | 3.63 | 1.61
-RESULT: 2-0 | Home Win
-
-Montana vs Lok. Sofia
-efbet League - Relegation Group
-2.85 | 3.50 | 2.25
-RESULT: 2-2 | Draw
-
-Levski Sofia vs Ludogorets
-efbet League - Championship Group
-1.81 | 3.40 | 4.33
-RESULT: 0-1 | Away Win
-
-Cherno More vs Botev Plovdiv
-efbet League - Conference League Group
-2.45 | 3.30 | 2.75
-RESULT: 2-0 | Home Win
-
-Kirivong Sok Sen Chey vs Life FC
-CPL - Relegation Group
-2.38 | 3.65 | 2.39
-RESULT: 0-1 | Away Win
-
-Visakha vs Tiffy Army
-CPL - Relegation Group
-1.10 | 6.80 | 17.50
-RESULT: 4-0 | Home Win
-
-Bafang vs Canon Yaounde
-Elite One
-1.94 | 3.26 | 3.87
-RESULT: 0-0 | Draw
-
-Forge vs HFX Wanderers
-Championship
-1.60 | 4.37 | 4.68
-RESULT: 4-0 | Home Win
-
-D. Puerto Montt vs Magallanes
-Liga de Ascenso
-2.22 | 3.48 | 3.03
-RESULT: 2-2 | Draw
-
-Deportes Iquique vs Rangers
-Liga de Ascenso
-1.94 | 3.67 | 3.56
-RESULT: 1-1 | Draw
-
-Recoleta vs CD Santa Cruz
-Liga de Ascenso
-2.45 | 3.44 | 2.70
-RESULT: 1-0 | Home Win
-
-Deportes Temuco vs U. Espanola
-Liga de Ascenso
-2.14 | 3.54 | 3.13
-RESULT: 0-1 | Away Win
-
-Brujas Salamanca vs Trasandino
-Segunda Division
-1.86 | 3.42 | 4.15
-RESULT: 2-0 | Home Win
-
-Santiago City vs Concon National
-Segunda Division
-2.46 | 3.52 | 2.64
-RESULT: 1-1 | Draw
-
-Deportes Rengo vs General Velasquez
-Segunda Division
-3.74 | 3.74 | 1.87
-RESULT: 2-3 | Away Win
-
-Osorno vs Lota Schwager
-Segunda Division
-1.63 | 3.83 | 5.17
-RESULT: 1-0 | Home Win
-
-La Serena vs A. Italiano
-Copa de la Liga
-2.52 | 3.08 | 2.88
-RESULT: 2-4 | Away Win
-
-Cobresal vs U. De Concepcion
-Copa de la Liga
-2.06 | 3.35 | 3.15
-RESULT: 2-1 | Home Win
-
-Colo Colo vs D. Concepcion
-Copa de la Liga
-1.28 | 5.26 | 10.10
-RESULT: 3-1 | Home Win
-
-U. Espanola W vs U. De Chile W
-Primera Division Women
-6.78 | 4.38 | 1.42
-RESULT: 1-1 | Draw
-
-Deportes Iquique W vs Huachipato W
-Primera Division Women
-1.86 | 4.02 | 3.41
-RESULT: 1-0 | Home Win
-
-Shanghai Shenhua vs Chongqing Tonglianglong
-Super League
-1.45 | 4.50 | 6.25
-RESULT: 2-2 | Draw
-
-Chengdu Rongcheng vs Henan Songshan Longmen
-Super League
-1.51 | 4.33 | 5.50
-RESULT: 3-0 | Home Win
-
-Dingnan Ganlian vs Changchun Yatai
-League One
-2.34 | 3.10 | 2.84
-RESULT: 2-3 | Away Win
-
-Nanjing City vs Meizhou Hakka
-League One
-1.82 | 3.38 | 3.90
-RESULT: 2-0 | Home Win
-
-Dalian Kewei vs Shandong Taishan B
-League Two
-2.38 | 2.97 | 3.10
-RESULT: 2-1 | Home Win
-
-Taian Tiankuang vs Nantong Haimen
-League Two
-2.26 | 2.89 | 3.20
-RESULT: 2-1 | Home Win
-
-Shenzhen vs Guizhou Guiyang
-League Two
-2.47 | 3.09 | 2.83
-RESULT: 2-1 | Home Win
-
-Hangzhou Linping vs Ganzhou Ruishi
-League Two
-2.17 | 2.50 | 4.17
-RESULT: 0-1 | Away Win
-
-Jiangxi Lushan vs Wenzhou Professional
-League Two
-1.76 | 3.00 | 5.01
-RESULT: 3-1 | Home Win
-
-Wuhan Three Towns B vs Guangzhou Dandelion
-League Two
-3.94 | 2.78 | 2.05
-RESULT: 0-0 | Draw
-
-Changchun Dazhong W vs Guangxi Pingguo W
-Super League Women
-1.97 | 3.30 | 3.71
-RESULT: 1-0 | Home Win
-
-Jiangsu Suning W vs Shaanxi Changan W
-Super League Women
-1.54 | 3.70 | 6.17
-RESULT: 1-0 | Home Win
-
-Liaoning W vs Sichuan W
-Super League Women
-1.51 | 3.78 | 6.39
-RESULT: 3-1 | Home Win
-
-Guangdong Meizhou W vs Zhejiang W
-Super League Women
-1.62 | 3.71 | 5.15
-RESULT: 0-1 | Away Win
-
-Inter Bogotá vs Atl. Nacional
-Primera A - Apertura - Play Offs
-3.30 | 3.00 | 2.30
-RESULT: 1-2 | Away Win
-
-Cartagena vs U. Magdalena
-Primera B - Apertura - Quadrangular
-2.21 | 3.26 | 3.22
-RESULT: 2-1 | Home Win
-
-Orsomarso vs Cucuta
-Copa Colombia - First stage
-2.80 | 3.00 | 2.70
-RESULT: 1-1 | Draw
-
-Dep. Cali W vs Real Santander W
-Liga Women
-1.04 | 10.60 | 49.00
-RESULT: 4-0 | Home Win
-
-Din. Zagreb vs Hajduk Split
-HNL
-1.65 | 3.80 | 4.20
-RESULT: 2-0 | Home Win
-
-Varazdin vs Lok. Zagreb
-HNL
-1.90 | 3.30 | 3.60
-RESULT: 1-1 | Draw
-
-Cibalia vs Sesvete
-Prva NL
-2.15 | 3.00 | 3.20
-RESULT: 2-0 | Home Win
-
-Dubrava vs Orijent
-Prva NL
-3.40 | 3.30 | 1.95
-RESULT: 1-0 | Home Win
-
-Dugopolje vs Bijelo Brdo
-Prva NL
-1.30 | 4.33 | 8.00
-RESULT: 1-2 | Away Win
-
-Bjelovar vs Uljanik Pula
-Druga NL
-1.92 | 3.38 | 3.51
-RESULT: 3-4 | Away Win
-
-Croatia Dakovo vs Dragovoljac
-Druga NL
-3.42 | 3.52 | 1.98
-RESULT: 0-1 | Away Win
-
-Grobnican vs Lucko
-Druga NL
-1.85 | 3.70 | 3.70
-RESULT: 2-2 | Draw
-
-Jadran LP vs Varteks Varazdin
-Druga NL
-1.25 | 5.00 | 9.85
-RESULT: 2-1 | Home Win
-
-Kustosija vs Dugo Selo
-Druga NL
-1.13 | 5.90 | 17.50
-RESULT: 4-0 | Home Win
-
-Radnik Krizevci vs Solin
-Druga NL
-1.90 | 3.44 | 3.51
-RESULT: 2-1 | Home Win
-
-Segesta vs Mladost Zdralovi
-Druga NL
-1.98 | 3.40 | 3.31
-RESULT: 0-1 | Away Win
-
-Uskok Klis vs Trnje
-Druga NL
-1.43 | 4.80 | 5.16
-RESULT: 2-1 | Home Win
-
-AEL Limassol vs Ol. Nicosia
-Cyprus League - Relegation Group
-3.10 | 3.30 | 2.25
-RESULT: 1-3 | Away Win
-
-Omonia Aradippou vs Chloraka
-Cyprus League - Relegation Group
-1.83 | 3.75 | 3.90
-RESULT: 2-1 | Home Win
-
-Paralimni vs Achnas
-Cyprus League - Relegation Group
-13.00 | 7.48 | 1.17
-RESULT: 1-3 | Away Win
-
-Dukla Prague vs Slovacko
-Chance Liga - Relegation Group
-2.50 | 3.20 | 2.60
-RESULT: 0-1 | Away Win
-
-Mlada Boleslav vs Zlin
-Chance Liga - Relegation Group
-1.70 | 3.50 | 4.50
-RESULT: 1-1 | Draw
-
-Teplice vs Ostrava
-Chance Liga - Relegation Group
-2.88 | 3.10 | 2.35
-RESULT: 2-1 | Home Win
-
-Plzen vs Liberec
-Chance Liga - Championship Group
-1.73 | 3.40 | 4.50
-RESULT: 2-0 | Home Win
-
-Slavia Prague vs Sparta Prague
-Chance Liga - Championship Group
-1.57 | 3.90 | 5.00
-RESULT: 3-2 (Abandoned) | Home Win
-
-Prostejov vs Ceske Budejovice
-ChNL
-1.85 | 3.60 | 3.40
-RESULT: 1-1 | Draw
-
-Motorlet Prague vs Pisek
-3. CFL - Group A
-2.02 | 3.26 | 3.33
-RESULT: 1-1 | Draw
-
-Kraluv Dvur vs Aritma Prague
-3. CFL - Group A
-1.85 | 3.44 | 3.70
-RESULT: 2-0 | Home Win
-
-SK Kladno vs Admira Prague
-3. CFL - Group A
-1.19 | 5.75 | 11.20
-RESULT: 1-3 | Away Win
-
-Banik Most-Sous vs Mlada Boleslav B
-3. CFL - Group B
-1.44 | 4.25 | 5.81
-RESULT: 1-1 | Draw
-
-Velvary vs Jablonec B
-3. CFL - Group B
-2.23 | 3.44 | 2.76
-RESULT: 3-1 | Home Win
-
-Usti nad Orlici vs Benatky n. Jiz.
-3. CFL - Group B
-2.83 | 3.74 | 2.08
-RESULT: 3-2 | Home Win
-
-Trinec vs Polanka nad Odrou
-3. MSFL
-1.12 | 6.80 | 13.50
-RESULT: 3-0 | Home Win
-
-Hodonin vs Nove Mesto na Morave
-3. MSFL
-1.29 | 5.25 | 7.37
-RESULT: 0-1 | Away Win
-
-Vitkovice vs FK Frydek-Mistek
-3. MSFL
-3.50 | 3.22 | 1.98
-RESULT: 2-2 | Draw
-
-Olympie Brezova vs Ostrov
-4. liga - Group B
-4.12 | 3.84 | 1.67
-RESULT: 0-2 | Away Win
-
-Spoje Prague vs Predni Kopanina
-4. liga - Group B
-1.24 | 5.10 | 10.00
-RESULT: 0-1 | Away Win
-
-Steti vs Usti nad Labem B
-4. liga - Group B
-2.96 | 3.54 | 2.08
-RESULT: 3-3 | Draw
-
-Prepere vs Svitavy
-4. liga - Group C
-1.27 | 5.15 | 8.30
-RESULT: 1-0 | Home Win
-
-Chrudim B vs Hlinsko
-4. liga - Group C
-1.97 | 3.68 | 3.10
-RESULT: 5-0 | Home Win
-
-Breclav vs Batov
-4. liga - Group E
-1.96 | 3.35 | 3.41
-RESULT: 0-1 | Away Win
-
-Ostrava U19 vs Brno U19
-U19 League
-1.88 | 3.80 | 3.26
-RESULT: 2-1 (Abandoned) | Home Win
-
-Karvina U19 vs Liberec U19
-U19 League
-1.37 | 5.00 | 5.84
-RESULT: 3-2 | Home Win
-
-Prague Raptors W vs Sparta Prague B W
-2. Liga Women - Promotion Group
-1.81 | 4.35 | 3.13
-RESULT: 1-0 | Home Win
-
-Hvidovre IF vs Lyngby
-1st Division - Promotion Group
-2.85 | 3.50 | 2.25
-RESULT: 0-2 | Away Win
-
-Horsens vs Hillerod
-1st Division - Promotion Group
-2.15 | 3.20 | 3.30
-RESULT: 4-0 | Home Win
-
-Esbjerg vs Kolding IF
-1st Division - Promotion Group
-2.10 | 3.60 | 3.00
-RESULT: 3-0 | Home Win
-
-Aarhus Fremad vs Koge
-1st Division - Relegation Group
-1.56 | 3.80 | 4.75
-RESULT: 0-0 | Draw
-
-Naestved vs Vendsyssel
-2nd Division - Promotion Group
-2.77 | 3.48 | 2.38
-RESULT: 1-3 | Away Win
-
-VSK Aarhus vs Ishoj
-2nd Division - Relegation Group
-2.20 | 3.24 | 2.97
+EGS Gafsa vs Sidi Bouzid
+Ligue 2
+Odds not available
 RESULT: 5-2 | Home Win
 
-F. Amager vs Brabrand
-2nd Division - Relegation Group
-2.21 | 3.36 | 3.15
+Kalaa vs Jendouba Sport
+Ligue 2
+Odds not available
+RESULT: 1-3 | Away Win
+
+Kasserine vs Ksour Essef
+Ligue 2
+Odds not available
 RESULT: 1-0 | Home Win
 
-Naesby vs Horsholm-Usserod
-3rd Division - Promotion Group
-1.68 | 4.68 | 3.85
-RESULT: 5-0 | Home Win
-
-Vanlose vs Nykobing
-3rd Division - Promotion Group
-3.31 | 3.88 | 1.97
-RESULT: 0-3 | Away Win
-
-Vejgaard vs Holbaek
-3rd Division - Relegation Group
-4.54 | 3.88 | 1.69
-RESULT: 0-2 | Away Win
-
-Fortuna Hjorring W vs Aarhus W
-A-Liga Women - Championship Group
-1.64 | 3.66 | 4.58
-RESULT: 2-1 | Home Win
-
-Koge W vs Brondby W
-A-Liga Women - Championship Group
-1.86 | 3.62 | 3.73
-RESULT: 0-1 | Away Win
-
-B93 W vs Esbjerg W
-B-Liga Women - Relegation
-1.37 | 5.25 | 6.30
-RESULT: 0-0 | Draw
-
-Delfines Del Este vs Salcedo
-LDF - Play Offs
-2.31 | 3.26 | 3.03
-RESULT: 2-2 (After Pen) | Draw
-
-Orense vs Leones del Norte
-Liga Pro
-1.51 | 3.50 | 6.50
-RESULT: 2-0 | Home Win
-
-Tecnico U. vs Delfin
-Liga Pro
-1.81 | 3.00 | 4.33
-RESULT: 4-0 | Home Win
-
-Guayaquil City vs Dep. Cuenca
-Liga Pro
-2.15 | 3.10 | 3.25
-RESULT: 0-1 | Away Win
-
-Aucas vs U. Catolica
-Liga Pro
-2.40 | 3.25 | 2.65
-RESULT: 2-1 | Home Win
-
-EL Nacional vs 22 de Julio
-Serie B
-2.25 | 3.55 | 2.93
+Moknine vs Ariana
+Ligue 2
+Odds not available
 RESULT: 1-1 | Draw
 
-Middlesbrough vs Southampton
-Championship - Play Offs
-2.01 | 3.50 | 3.40
+PS Sakiet Eddaier vs Redeyef
+Ligue 2
+Odds not available
+RESULT: 5-0 | Home Win
+
+BUL vs Lugazi
+Premier League
+1.42 | 4.33 | 6.02
 RESULT: 0-0 | Draw
 
-Stevenage vs Stockport County
-League One - Play Offs
-2.65 | 3.10 | 2.65
-RESULT: 0-1 | Away Win
+Maroons vs Entebbe UPPC
+Premier League
+Odds not available
+RESULT: 0-0 | Draw
 
-Bolton vs Bradford City
-League One - Play Offs
-1.76 | 3.20 | 4.10
-RESULT: 1-0 | Home Win
+Police vs Vipers
+Premier League
+5.97 | 3.24 | 1.60
+RESULT: 0-0 | Draw
 
-South Shields vs Kidderminster
-National League North - Play Offs
-1.83 | 3.60 | 3.40
-RESULT: 0-2 | Away Win
+URA SC vs Calvary
+Premier League
+1.37 | 4.70 | 7.32
+RESULT: 1-1 | Draw
 
-Hornchurch vs Torquay
-National League South - Play Offs
-2.65 | 3.43 | 2.50
-RESULT: 3-2 (After ET) | Home Win
-
-Aston Villa W vs Arsenal W
-WSL
-11.00 | 6.00 | 1.19
-RESULT: 0-3 | Away Win
-
-Levadia vs Harju JK Laagri
-Meistriliiga
-1.07 | 8.20 | 19.50
-RESULT: 3-0 | Home Win
-
-Parnu JK Vaprus vs Narva
-Meistriliiga
-2.44 | 3.80 | 2.52
-RESULT: 2-0 | Home Win
-
-Flora U21 vs Viimsi JK
-Esiliiga
-5.21 | 4.69 | 1.50
-RESULT: 0-4 | Away Win
-
-Maardu vs Nomme Utd U21
-Esiliiga
-1.92 | 4.54 | 3.04
-RESULT: 2-1 | Home Win
-
-Tallinna Kalev vs Tartu Welco
-Esiliiga
-5.90 | 5.39 | 1.40
-RESULT: 2-0 | Home Win
-
-Johvi Phoenix vs Tabasalu
-Esiliiga B
-1.50 | 5.18 | 4.49
-RESULT: 1-2 | Away Win
-
-Tammeka U21 vs Legion
-Esiliiga B
-1.13 | 9.02 | 12.00
-RESULT: 12-0 | Home Win
-
-Elva W vs Harju JK Laagri W
-Meistriliiga Women
-3.58 | 4.43 | 1.74
-RESULT: 3-1 | Home Win
-
-Saku Sporting W vs Viimsi JK W
-Meistriliiga Women
-2.26 | 3.71 | 2.70
+Express vs Kitara
+Premier League
+4.99 | 3.54 | 1.62
 RESULT: 3-2 | Home Win
 
-Paide Linnameeskond W vs Flora W
-Meistriliiga Women
-2.17 | 3.82 | 2.79
-RESULT: 2-4 | Away Win
-
-St. George vs Mekelle 70 Enderta
+Oleksandriya vs FK Zorya Luhansk
 Premier League
-2.23 | 2.90 | 3.63
-RESULT: 1-0 | Home Win
+2.92 | 3.34 | 2.34
+RESULT: 1-2 | Away Win
 
-Adama City vs Shire Endaselassie
+Epitsentr vs Polissya Zhytomyr
+Premier League
+6.51 | 3.75 | 1.54
+RESULT: 3-2 | Home Win
+
+Metalist 1925 vs Karpaty Lviv
 Premier League
 2.19 | 3.14 | 3.40
-RESULT: 4-0 | Home Win
-
-Hadiya Hossana vs Hawassa
-Premier League
-3.26 | 2.94 | 2.37
-RESULT: 1-0 | Home Win
-
-Ethiopia Bunna vs Mechal
-Premier League
-3.40 | 2.93 | 2.30
-RESULT: 1-1 | Draw
-
-Shamrock Rovers W vs Sligo Rovers W
-All-Island Cup Women
-1.32 | 6.38 | 6.11
-RESULT: 3-1 | Home Win
-
-Shelbourne W vs Bohemians WFC W
-All-Island Cup Women
-1.49 | 5.16 | 4.64
-RESULT: 2-1 | Home Win
-
-B36 Torshavn vs Klaksvik
-Premier League
-3.87 | 3.72 | 1.81
-RESULT: 1-1 | Draw
-
-IF Fuglafjordur vs Sandur
-1. Deild
-3.64 | 4.10 | 1.72
 RESULT: 2-2 | Draw
 
-HB Torshavn 2 vs Vikingur 2
-1. Deild
-3.30 | 3.92 | 1.91
-RESULT: 0-1 | Away Win
-
-Inter Turku vs Jaro
-Veikkausliiga
-1.50 | 3.80 | 6.00
-RESULT: 2-0 | Home Win
-
-VPS vs Gnistan
-Veikkausliiga
-1.83 | 3.50 | 3.75
-RESULT: 1-1 | Draw
-
-Jippo vs Klubi 04
-Ykkosliiga
-1.42 | 4.59 | 6.83
-RESULT: 1-1 | Draw
-
-KTP vs KaPa
-Ykkosliiga
-1.48 | 4.61 | 5.64
-RESULT: 2-1 | Home Win
-
-SJK Akatemia vs JaPS
-Ykkosliiga
-2.56 | 3.48 | 2.56
-RESULT: 0-2 | Away Win
-
-OLS Oulu vs JJK Jyvaskyla
-Ykkonen
-1.53 | 4.20 | 4.50
-RESULT: 2-1 | Home Win
-
-Rovaniemi vs TPV
-Ykkonen
-1.36 | 4.50 | 6.50
-RESULT: 1-0 | Home Win
-
-SalPa vs KPV Kokkola
-Ykkonen
-1.27 | 5.00 | 8.50
-RESULT: 6-0 | Home Win
-
-KuPS Akatemia vs Jazz Pori
-Ykkonen
-1.80 | 3.90 | 3.25
-RESULT: 1-2 | Away Win
-
-Tampere Utd vs Keski-Uusimaa
-Ykkonen
-1.60 | 4.00 | 4.00
-RESULT: 0-0 | Draw
-
-VJS vs Inter Turku 2
-Ykkonen
-1.55 | 4.50 | 4.20
-RESULT: 3-2 | Home Win
-
-PPJ vs HIFK
-Kakkonen Group A
-3.67 | 4.33 | 1.68
-RESULT: 1-1 | Draw
-
-MyPa vs HPS
-Kakkonen Group A
-1.90 | 4.50 | 3.11
+Veres-Rivne vs Kryvbas
+Premier League
+2.65 | 3.53 | 2.45
 RESULT: 1-3 | Away Win
 
-PEPO vs Kiffen
-Kakkonen Group A
-1.71 | 4.35 | 3.93
-RESULT: 2-1 | Home Win
-
-Abo vs GrIFK
-Kakkonen Group B
-1.50 | 4.10 | 5.32
-RESULT: 3-1 | Home Win
-
-P-Iirot Rauma vs EBK
-Kakkonen Group B
-1.66 | 4.73 | 3.95
-RESULT: 1-0 | Home Win
-
-MuSa vs HJS
-Kakkonen Group B
-6.52 | 5.43 | 1.37
-RESULT: 0-2 | Away Win
-
-NJS vs EPS
-Kakkonen Group B
-3.53 | 4.36 | 1.79
-RESULT: 1-2 | Away Win
-
-GBK Kokkola vs Jaro 2
-Kakkonen Group C
-2.56 | 4.28 | 2.25
-RESULT: 0-2 | Away Win
-
-Hercules vs TP-47
-Kakkonen Group C
-1.97 | 4.15 | 3.11
-RESULT: 1-2 | Away Win
-
-Vaajakoski vs Narpes Kraft
-Kakkonen Group C
-2.25 | 3.98 | 2.67
-RESULT: 4-5 | Away Win
-
-Ilves W vs KuPS W
-Kansallinen Liiga Women
-10.20 | 6.12 | 1.22
-RESULT: 2-3 | Away Win
-
-PK-35 Vantaa W vs Aland Utd W
-Kansallinen Liiga Women
-5.64 | 4.61 | 1.46
-RESULT: 0-5 | Away Win
-
-HJK W vs Gnistan W
-Kansallinen Liiga Women
-1.14 | 6.47 | 21.00
-RESULT: 5-0 | Home Win
-
-PKKU W vs TPS W
-Kansallinen Ykkonen Women
-2.06 | 4.02 | 2.89
-RESULT: 3-1 | Home Win
-
-Annecy vs Rodez
-Ligue 2
-2.30 | 3.50 | 2.90
-RESULT: 1-2 | Away Win
-
-Bastia vs Le Mans
-Ligue 2
-3.20 | 3.50 | 2.20
-RESULT: 0-2 (Abandoned) | Away Win
-
-Clermont vs Guingamp
-Ligue 2
-2.55 | 3.80 | 2.45
-RESULT: 1-0 | Home Win
-
-Grenoble vs Troyes
-Ligue 2
-3.40 | 3.80 | 1.95
-RESULT: 1-0 | Home Win
-
-Laval vs Boulogne
-Ligue 2
-1.80 | 3.60 | 4.20
-RESULT: 2-1 | Home Win
-
-Nancy vs Dunkerque
-Ligue 2
-2.75 | 3.40 | 2.50
-RESULT: 3-2 | Home Win
-
-Red Star vs Montpellier
-Ligue 2
-1.73 | 3.75 | 4.50
-RESULT: 1-1 | Draw
-
-Reims vs Pau FC
-Ligue 2
-1.36 | 5.50 | 7.00
-RESULT: 5-3 | Home Win
-
-St Etienne vs Amiens
-Ligue 2
-1.18 | 7.00 | 12.00
-RESULT: 5-0 | Home Win
-
-Bourg en Bresse vs Valenciennes
-National
-1.97 | 3.21 | 4.03
-RESULT: 1-0 | Home Win
-
-Caen vs Concarneau
-National
-2.29 | 3.12 | 3.22
-RESULT: 0-0 | Draw
-
-Chateauroux vs Sochaux
-National
-4.26 | 3.89 | 1.73
-RESULT: 2-1 | Home Win
-
-Le Puy-en-Velay vs Dijon
-National
-3.64 | 3.33 | 2.03
-RESULT: 1-2 | Away Win
-
-Orleans vs Fleury-Merogis
-National
-3.41 | 3.35 | 2.10
-RESULT: 2-0 | Home Win
-
-Paris 13 Atl. vs Aubagne
-National
-1.63 | 3.67 | 5.50
-RESULT: 1-1 | Draw
-
-Rouen vs Versailles
-National
-2.26 | 3.25 | 3.14
-RESULT: 1-3 | Away Win
-
-Stade Briochin vs Quevilly Rouen
-National
-3.14 | 3.14 | 2.30
-RESULT: 3-0 | Home Win
-
-Angouleme CFC vs Lorient II
-National 2 - Group A
-2.05 | 3.13 | 3.41
-RESULT: 3-2 | Home Win
-
-Bordeaux vs Les Herbiers
-National 2 - Group A
-1.50 | 4.37 | 5.72
-RESULT: 1-0 | Home Win
-
-Chateaubriant vs Bayonne
-National 2 - Group A
-2.41 | 3.72 | 2.33
-RESULT: 2-1 | Home Win
-
-Granville vs Avranches
-National 2 - Group A
-1.88 | 3.52 | 3.51
-RESULT: 1-1 | Draw
-
-La Roche vs Chauray
-National 2 - Group A
-1.40 | 4.55 | 7.36
-RESULT: 4-1 | Home Win
-
-Saint-Malo vs Dinan
-National 2 - Group A
-1.88 | 3.54 | 3.95
-RESULT: 2-1 | Home Win
-
-Saumur Olympique vs Montlouis
-National 2 - Group A
-2.43 | 3.35 | 2.48
-RESULT: 0-0 | Draw
-
-Stade Poitevin vs St. Colomban Locmine
-National 2 - Group A
-2.10 | 3.37 | 3.37
-RESULT: 1-1 | Draw
-
-Biesheim vs Furiani Agliani
-National 2 - Group B
-2.31 | 3.13 | 2.87
-RESULT: 2-1 | Home Win
-
-Blois vs Beauvais
-National 2 - Group B
-3.25 | 3.25 | 2.20
-RESULT: 4-1 | Home Win
-
-Borgo vs Thionville
-National 2 - Group B
-2.69 | 3.18 | 2.35
-RESULT: 3-0 | Home Win
-
-Chambly vs Colmar
-National 2 - Group B
-2.09 | 3.24 | 3.55
-RESULT: 6-0 | Home Win
-
-Chantilly vs Bourges 18
-National 2 - Group B
-2.45 | 3.48 | 2.40
-RESULT: 1-1 | Draw
-
-Haguenau vs Dieppe
-National 2 - Group B
-2.48 | 3.45 | 2.66
-RESULT: 3-1 | Home Win
-
-Saint-Pryve vs Epinal
-National 2 - Group B
-2.18 | 3.33 | 3.22
-RESULT: 4-2 | Home Win
-
-Wasquehal vs Feignies-Aulnoye
-National 2 - Group B
-3.77 | 3.66 | 1.89
-RESULT: 0-2 | Away Win
-
-Creteil vs Limonest
-National 2 - Group C
-1.98 | 3.38 | 3.74
-RESULT: 2-0 | Home Win
-
-FC 93 vs Frejus Saint Raphael
-National 2 - Group C
-2.14 | 3.23 | 3.44
-RESULT: 1-0 | Home Win
-
-GOAL FC vs Andrezieux
-National 2 - Group C
-2.46 | 3.46 | 2.67
-RESULT: 0-0 | Draw
-
-Grasse vs GFA74
-National 2 - Group C
-2.23 | 3.33 | 3.12
-RESULT: 1-2 | Away Win
-
-Lusitanos vs Hyeres
-National 2 - Group C
-1.62 | 3.61 | 5.68
-RESULT: 1-1 | Draw
-
-Nimes vs Istres
-National 2 - Group C
-1.54 | 4.06 | 5.73
-RESULT: 3-0 | Home Win
-
-Rousset Ste Victoire vs Cannes
-National 2 - Group C
-13.10 | 6.54 | 1.19
-RESULT: 1-3 | Away Win
-
-Saint Priest vs Toulon
-National 2 - Group C
-2.19 | 3.40 | 3.14
-RESULT: 2-2 | Draw
-
-Bochum vs Hannover
-2. Bundesliga
-3.50 | 3.80 | 1.91
-RESULT: 1-1 | Draw
-
-Braunschweig vs SG Dynamo Dresden
-2. Bundesliga
-2.50 | 3.25 | 2.75
-RESULT: 2-1 | Home Win
-
-Holstein Kiel vs Magdeburg
-2. Bundesliga
-3.00 | 3.90 | 2.15
-RESULT: 1-3 | Away Win
-
-Nurnberg vs Schalke
-2. Bundesliga
-2.45 | 3.60 | 2.60
-RESULT: 3-0 | Home Win
-
-Cottbus vs Wehen
-3. Liga
-1.53 | 4.50 | 4.20
-RESULT: 2-1 | Home Win
-
-Hansa Rostock vs Stuttgart II
-3. Liga
-1.67 | 4.00 | 3.75
-RESULT: 5-3 | Home Win
-
-Munich 1860 vs Ingolstadt
-3. Liga
-2.15 | 3.60 | 2.70
-RESULT: 1-2 | Away Win
-
-RW Essen vs Verl
-3. Liga
-2.15 | 3.80 | 2.63
-RESULT: 1-0 | Home Win
-
-VfL Osnabruck vs Ulm
-3. Liga
-1.57 | 3.90 | 4.50
-RESULT: 1-1 | Draw
-
-Mannheim vs Regensburg
-3. Liga
-2.35 | 3.70 | 2.38
-RESULT: 1-0 | Home Win
-
-SC Weiche-08 vs Norderstedt
-Regionalliga North
-1.88 | 3.90 | 3.20
-RESULT: 2-2 | Draw
-
-Werder Bremen II vs Jeddeloh
-Regionalliga North
-2.28 | 3.90 | 2.39
-RESULT: 4-0 | Home Win
-
-Hannoverscher SC vs Hannover II
-Regionalliga North
-3.63 | 4.65 | 1.64
-RESULT: 2-0 | Home Win
-
-Emden vs Lubeck
-Regionalliga North
-1.69 | 4.00 | 3.87
-RESULT: 1-1 | Draw
-
-Lohne vs Schoningen
-Regionalliga North
-2.27 | 3.38 | 2.74
-RESULT: 4-4 | Draw
-
-BFC Preussen vs Meuselwitz
-Regionalliga Nordost
-1.94 | 3.84 | 3.08
-RESULT: 2-1 | Home Win
-
-Erfurt vs Hertha Zehlendorf
-Regionalliga Nordost
-1.23 | 5.85 | 8.50
-RESULT: 5-2 | Home Win
-
-Chemnitzer vs Zwickau
-Regionalliga Nordost
-2.51 | 3.56 | 2.57
-RESULT: 3-2 | Home Win
-
-Bonner vs Lotte
-Regionalliga West
-2.28 | 3.40 | 2.71
-RESULT: 1-2 | Away Win
-
-Dusseldorf II vs Wuppertal
-Regionalliga West
-1.99 | 3.44 | 3.25
-RESULT: 2-2 | Draw
-
-Fortuna Koln vs Siegen
-Regionalliga West
-1.51 | 3.90 | 5.45
-RESULT: 2-1 | Home Win
-
-Oberhausen vs B. Monchengladbach II
-Regionalliga West
-1.83 | 3.74 | 3.48
-RESULT: 1-0 | Home Win
-
-Rodinghausen vs Wiedenbruck
-Regionalliga West
-1.70 | 3.86 | 3.93
-RESULT: 0-1 | Away Win
-
-Schalke II vs Bocholt
-Regionalliga West
-2.11 | 3.72 | 2.79
-RESULT: 1-0 | Home Win
-
-Bahlinger vs Eintracht Trier
-Regionalliga Sudwest
-2.92 | 3.72 | 2.04
-RESULT: 2-2 | Draw
-
-FC 08 Homburg vs Alzenau
-Regionalliga Sudwest
-1.17 | 6.50 | 10.60
-RESULT: 5-2 | Home Win
-
-Freiberg vs Sandhausen
-Regionalliga Sudwest
-1.96 | 3.64 | 3.16
-RESULT: 1-2 | Away Win
-
-Freiburg II vs Offenbach
-Regionalliga Sudwest
-1.80 | 3.84 | 3.50
-RESULT: 1-3 | Away Win
-
-FSV Frankfurt vs Mainz II
-Regionalliga Sudwest
-1.79 | 3.82 | 3.56
-RESULT: 1-1 | Draw
-
-Grossaspach vs Fulda-Lehnerz
-Regionalliga Sudwest
-1.51 | 4.20 | 4.97
-RESULT: 0-2 | Away Win
-
-Kassel vs Steinbach Haiger
-Regionalliga Sudwest
-2.14 | 4.10 | 2.50
-RESULT: 2-0 | Home Win
-
-Walldorf vs Stutt. Kickers
-Regionalliga Sudwest
-3.26 | 3.68 | 1.91
-RESULT: 0-1 | Away Win
-
-Schott Mainz vs Balingen
-Regionalliga Sudwest
-1.74 | 3.96 | 3.64
-RESULT: 2-3 | Away Win
-
-Bayreuth vs Nurnberg II
-Regionalliga Bayern
-4.70 | 4.50 | 1.50
-RESULT: 0-0 | Draw
-
-Burghausen vs Ansbach
-Regionalliga Bayern
-1.94 | 3.58 | 3.26
-RESULT: 3-0 | Home Win
-
-Furth II vs Augsburg II
-Regionalliga Bayern
-2.42 | 3.55 | 2.39
-RESULT: 0-1 | Away Win
-
-Hankofen-Hailing vs Illertissen
-Regionalliga Bayern
-6.02 | 4.33 | 1.42
-RESULT: 1-5 | Away Win
-
-Schwaben Augsburg vs Aubstadt
-Regionalliga Bayern
-2.13 | 3.72 | 2.75
-RESULT: 3-1 | Home Win
-
-Wurzburger Kickers vs Unterhaching
-Regionalliga Bayern
-1.94 | 3.35 | 3.47
-RESULT: 4-0 | Home Win
-
-Koln W vs Hamburger SV W
-Bundesliga Women
-1.55 | 4.49 | 4.92
-RESULT: 2-1 | Home Win
-
-Freiburg W vs Wolfsburg W
-Bundesliga Women
-4.67 | 4.67 | 1.56
-RESULT: 2-4 | Away Win
-
-Bayern Munich W vs Eintracht Frankfurt W
-Bundesliga Women
-1.49 | 4.70 | 5.48
-RESULT: 2-0 | Home Win
-
-Panserraikos vs Kifisia
-Super League - Relegation Group
-3.50 | 2.82 | 2.30
-RESULT: 1-2 | Away Win
-
-AEL Larissa vs Asteras Tripolis
-Super League - Relegation Group
-2.70 | 3.00 | 2.70
-RESULT: 1-1 | Draw
-
-Atromitos vs Panetolikos
-Super League - Relegation Group
-1.86 | 3.40 | 4.10
-RESULT: 1-2 | Away Win
-
-Southern District vs Eastern District
-Premier League - Relegation Group
-1.99 | 3.66 | 3.41
-RESULT: 2-2 | Draw
-
-Eastern AA vs Tai Po
-Premier League - Championship Group
-3.34 | 3.90 | 1.95
-RESULT: 2-4 | Away Win
-
-Ferencvaros vs Zalaegerszegi
-Hungarian Cup
-1.61 | 4.10 | 4.87
-RESULT: 1-0 (After ET) | Home Win
-
-Pecsi MFC W vs DVTK W
-NB I Women
-1.90 | 3.81 | 3.40
-RESULT: 1-1 | Draw
-
-Ferencvaros W vs Szent Mihaly W
-NB I Women
-1.05 | 19.00 | 24.00
-RESULT: 5-1 | Home Win
-
-Szekszardi W vs Gyor W
-NB I Women
-12.10 | 7.57 | 1.15
-RESULT: 1-5 | Away Win
-
-MTK Hungaria W vs Ujpest W
-NB I Women
-1.18 | 6.98 | 10.70
-RESULT: 2-0 | Home Win
-
-Budaorsi SC W vs Puskas Academy W
-NB I Women
-31.00 | 15.90 | 1.02
-RESULT: 0-11 | Away Win
-
-Aegir vs Grotta
-Division 1
-2.23 | 3.63 | 2.90
-RESULT: 0-1 | Away Win
-
-Vestri vs Kopavogur
-Division 1
-2.39 | 3.74 | 2.60
-RESULT: 4-3 | Home Win
-
-Volsungur vs Throttur
-Division 1
-6.22 | 5.14 | 1.40
-RESULT: 0-3 | Away Win
-
-Hviti vs Selfoss
-Division 2
-4.16 | 4.94 | 1.60
-RESULT: 1-1 | Draw
-
-KFA vs Kari
-Division 2
-1.61 | 4.48 | 4.48
-RESULT: 2-4 | Away Win
-
-KFG Gardabaer vs Throttur Vogar
-Division 2
-4.49 | 4.92 | 1.55
-RESULT: 3-1 | Home Win
-
-Olafsvik vs Kormakur/Hvot
-Division 2
-1.63 | 4.34 | 4.48
-RESULT: 0-2 | Away Win
-
-Fjolnir vs Dalvik/Reynir
-Division 2
-2.08 | 3.95 | 2.98
-RESULT: 2-1 | Home Win
-
-Haukar vs Magni
-Division 2
-1.57 | 4.54 | 4.71
-RESULT: 6-1 | Home Win
-
-Goa vs Mohun Bagan
-ISL
-4.50 | 3.70 | 1.60
-RESULT: 1-1 | Draw
-
-Jamshedpur vs Bengaluru FC
-ISL
-1.70 | 3.40 | 4.20
-RESULT: 0-1 | Away Win
-
-Chanmari vs Dempo
-I-League - Promotion Group
-3.01 | 3.55 | 2.20
-RESULT: 2-0 | Home Win
-
-United SC vs Sudeva Delhi
-I-League 2
-1.96 | 3.50 | 3.50
-RESULT: 1-0 | Home Win
-
-Sreebhumi W vs Nita FA W
-IWL Women
-2.80 | 3.38 | 2.23
-RESULT: 3-3 | Draw
-
-Kickstart W vs Gokulam Kerala W
-IWL Women
-3.21 | 3.45 | 2.00
-RESULT: 1-0 | Home Win
-
-Garhwal United W vs Sethu W
-IWL Women
-13.00 | 6.40 | 1.14
-RESULT: 2-1 | Home Win
-
-Arema FC vs PSM Makassar
-Super League
-2.21 | 3.24 | 2.94
-RESULT: 3-0 | Home Win
-
-Persis Solo vs Persebaya
-Super League
-2.25 | 3.48 | 2.97
-RESULT: 0-0 | Draw
-
-PSS Sleman vs Garudayaksa
-Championship - Play Offs
-1.68 | 3.05 | 5.62
-RESULT: 2-3 (After Pen) | Away Win
-
-Maccabi Bnei Raina vs Kiryat Shmona
-Ligat ha'Al - Relegation Group
-3.40 | 3.20 | 2.00
-RESULT: 1-1 | Draw
-
-Hapoel Petah Tikva vs H. Beer Sheva
-Ligat ha'Al - Championship Group
-7.00 | 4.50 | 1.33
-RESULT: 2-4 | Away Win
-
-Hapoel Tel Aviv vs Maccabi Tel Aviv
-Ligat ha'Al - Championship Group
-2.50 | 3.20 | 2.50
-RESULT: 1-1 | Draw
-
-Maccabi Haifa vs Beitar Jerusalem
-Ligat ha'Al - Championship Group
-4.50 | 4.20 | 1.53
-RESULT: 3-0 | Home Win
-
-Bra vs Torres
-Serie C - Play Out
-3.14 | 3.25 | 2.26
-RESULT: 0-1 | Away Win
-
-AS Biellese vs Varese FC
-Serie D - Group A - Play Offs
-2.23 | 3.22 | 3.22
-RESULT: 1-2 | Away Win
-
-Benevento vs Arezzo
-Super Cup (Serie C)
-1.95 | 3.49 | 3.70
-RESULT: 1-0 | Home Win
-
-Cesena U20 vs Juventus U20
-Primavera 1
-1.54 | 4.32 | 5.31
-RESULT: 0-1 | Away Win
-
-Parma U20 vs AC Milan U20
-Primavera 1
-1.50 | 4.08 | 6.40
-RESULT: 4-2 | Home Win
-
-Ascoli U19 vs Empoli U19
-Primavera 2
-4.98 | 4.72 | 1.52
-RESULT: 1-2 | Away Win
-
-Benevento U19 vs Bari U19
-Primavera 2
-2.26 | 3.67 | 2.83
-RESULT: 2-1 | Home Win
-
-Brescia U19 vs Sudtirol U19
-Primavera 2
-2.82 | 3.45 | 2.35
-RESULT: 1-3 | Away Win
-
-Entella U19 vs Como U19
-Primavera 2
-3.25 | 3.67 | 2.05
-RESULT: 2-2 | Draw
-
-Lecco U19 vs Sampdoria U19
-Primavera 2
-1.87 | 3.84 | 3.64
-RESULT: 1-3 | Away Win
-
-Modena U19 vs Cittadella U19
-Primavera 2
-1.65 | 4.29 | 4.39
-RESULT: 1-1 | Draw
-
-Monopoli U19 vs Cosenza U19
-Primavera 2
-1.83 | 3.87 | 3.77
-RESULT: 1-1 | Draw
-
-Padova U19 vs Udinese U19
-Primavera 2
-3.69 | 3.90 | 1.85
-RESULT: 3-1 | Home Win
-
-Palermo U19 vs Perugia U19
-Primavera 2
-3.03 | 3.54 | 2.19
-RESULT: 0-1 | Away Win
-
-Pisa U19 vs Spezia U19
-Primavera 2
-1.88 | 3.91 | 3.55
-RESULT: 2-1 | Home Win
-
-Pro Vercelli U19 vs AlbinoLeffe U19
-Primavera 2
-1.83 | 3.98 | 3.67
-RESULT: 2-2 | Draw
-
-Salernitana U19 vs Avellino U19
-Primavera 2
-4.08 | 3.98 | 1.74
-RESULT: 1-0 | Home Win
-
-Ternana U19 vs Pescara U19
-Primavera 2
-2.60 | 3.74 | 2.39
-RESULT: 2-2 | Draw
-
-Como W vs Napoli W
-Serie A Women
-2.98 | 3.63 | 2.18
-RESULT: 0-0 | Draw
-
-Genoa W vs Fiorentina W
-Serie A Women
-4.70 | 4.18 | 1.62
-RESULT: 2-3 | Away Win
-
-Mito vs Urawa Reds
-J1 League
-3.90 | 3.30 | 1.91
-RESULT: 1-4 | Away Win
-
-Cerezo Osaka vs V-Varen Nagasaki
-J1 League
-1.62 | 4.00 | 4.50
-RESULT: 3-2 | Home Win
-
-Hokkaido Consadole Sapporo vs Omiya Ardija
-J2/J3 League
-2.29 | 3.28 | 2.79
-RESULT: 4-3 | Home Win
-
-Iwaki vs Kofu
-J2/J3 League
-1.89 | 3.28 | 3.77
-RESULT: 0-1 | Away Win
-
-Kusatsu vs Tochigi City
-J2/J3 League
-2.10 | 3.45 | 3.00
-RESULT: 0-1 (After Pen) | Away Win
-
-Osaka vs Imabari
-J2/J3 League
-2.14 | 3.10 | 3.23
-RESULT: 1-2 | Away Win
-
-Renofa Yamaguchi vs Tegevajaro Miyazaki
-J2/J3 League
-2.38 | 3.18 | 2.67
-RESULT: 0-1 | Away Win
-
-Nagano vs Gifu
-J2/J3 League
-3.86 | 3.50 | 1.90
-RESULT: 2-3 | Away Win
-
-Albirex Niigata W vs Nojima Stella W
-WE League Women
-1.94 | 3.66 | 3.56
-RESULT: 0-2 | Away Win
-
-Nittaidai W vs NGU Nagoya W
-Nadeshiko League Women
-6.70 | 3.61 | 1.53
-RESULT: 0-8 | Away Win
-
-Vonds I. W vs Yokohama FC Seagulls W
-Nadeshiko League Women
-4.93 | 3.89 | 1.61
-RESULT: 0-4 | Away Win
-
-Okzhetpes vs Atyrau
-Premier League
-1.99 | 3.24 | 3.86
-RESULT: 0-0 | Draw
-
-Zhetysu Taldykorgan vs Zhenis
-Premier League
-2.90 | 2.77 | 2.77
-RESULT: 2-3 | Away Win
-
-Yelimay Semey vs Kaspij Aktau
-Premier League
-1.34 | 4.90 | 8.42
-RESULT: 0-1 | Away Win
-
-FC Astana vs Kyzylzhar
-Premier League
-1.73 | 3.46 | 4.97
-RESULT: 2-1 | Home Win
-
-Tobol vs Ertis Pavlodar
-Premier League
-1.90 | 3.58 | 3.79
-RESULT: 1-0 | Home Win
-
-Darajani Gogo vs Equity Bank
-Super League
-3.13 | 4.05 | 1.87
-RESULT: 0-4 | Away Win
-
-Nairobi City vs Vihiga United
-Super League
-1.49 | 4.32 | 5.66
-RESULT: 0-1 | Away Win
-
-Drita vs FC Ballkani
-Superliga
-1.96 | 3.30 | 3.72
-RESULT: 2-0 | Home Win
-
-Bishkek City vs Talant
-Premier Liga
-2.74 | 3.45 | 2.41
-RESULT: 0-0 | Draw
-
-Alga vs Alay Osh
-Premier Liga
-2.09 | 3.55 | 3.24
-RESULT: 0-0 | Draw
-
-Tukums 2000 2 vs Marupe
-Nakotnes liga
-3.32 | 3.98 | 1.89
-RESULT: 1-2 | Away Win
-
-Super Nova 2 vs Rezekne
-Nakotnes liga
-1.32 | 5.46 | 7.28
-RESULT: 1-0 | Home Win
-
-Valmiera vs Alberts JDFS
-Nakotnes liga
-1.58 | 4.46 | 4.46
-RESULT: 1-1 | Draw
-
-JFK Ventspils vs Metta
-Nakotnes liga
-13.10 | 6.54 | 1.18
-RESULT: 0-1 | Away Win
-
-Riga Mariners vs FK Smiltene
-Nakotnes liga
-1.25 | 6.31 | 8.41
-RESULT: 1-0 | Home Win
-
-Hegelmann vs FA Siauliai
-TOPLYGA
-2.23 | 3.52 | 2.98
-RESULT: 1-1 | Draw
-
-Dziugas Telsiai vs Riteriai
-TOPLYGA
-1.22 | 6.20 | 11.30
-RESULT: 1-0 | Home Win
-
-FK Minija vs Dainava Alytus
-I Lyga
-1.56 | 4.05 | 5.19
-RESULT: 3-1 | Home Win
-
-Atmosfera vs Babrungas
-I Lyga
-2.58 | 3.40 | 2.32
-RESULT: 1-1 | Draw
-
-BFA Vilnius vs Garliava
-I Lyga
-2.77 | 3.49 | 2.31
-RESULT: 1-2 | Away Win
-
-Artilheiros vs Benfica
-Elite League
-16.90 | 9.95 | 1.09
-RESULT: 1-5 | Away Win
-
-University of Macau vs Gala
-Elite League
-14.90 | 11.90 | 1.08
-RESULT: 0-3 | Away Win
-
-Civo Utd vs Ekhaya
-Super League
-1.85 | 3.09 | 4.62
-RESULT: 1-0 | Home Win
-
-MAFCO vs Creck Sporting
-Super League
-2.02 | 2.71 | 4.64
-RESULT: 0-0 | Draw
-
-Moyale Barracks vs Chitipa United
-Super League
-2.11 | 2.96 | 3.71
-RESULT: 3-2 | Home Win
-
-DPMM vs Sabah
-Super League
-2.35 | 3.48 | 2.52
-RESULT: 0-1 | Away Win
-
-Melaka FC vs Kuching City FC
-Super League
-5.51 | 4.09 | 1.55
-RESULT: 1-3 | Away Win
-
-Binga vs Real Bamako
-Premiere Division
-3.22 | 2.86 | 2.45
-RESULT: 1-0 | Home Win
-
-Valletta vs Floriana
-Premier League - Play Offs
-3.33 | 3.07 | 2.20
-RESULT: 0-1 (After Pen) | Away Win
-
-Marsaxlokk vs Hamrun
-Premier League - Play Offs
-3.81 | 3.40 | 1.90
-RESULT: 2-1 (After ET) | Home Win
-
-Gendrim vs Ksar
-Ligue 1
-1.65 | 3.35 | 4.90
-RESULT: 1-4 | Away Win
-
-Club America U21 vs Pachuca U21
-Liga MX U21 - Clausura - Play Offs
-2.28 | 3.34 | 2.91
-RESULT: 2-2 | Draw
-
-Dacia Buiucani vs Milsami
-Super Liga - Championship Group
-3.03 | 3.80 | 1.97
-RESULT: 1-2 | Away Win
-
-Khovd Western vs Central Stallions
-Premier League
-27.00 | 16.50 | 1.02
-RESULT: 1-1 | Draw
-
-Khangarid vs Deren
-Premier League
-3.19 | 4.12 | 1.90
-RESULT: 2-1 | Home Win
-
-Arsenal Tivat vs Sutjeska
-Prva Crnogorska Liga
-3.95 | 4.55 | 1.59
-RESULT: 1-1 | Draw
-
-Raja Casablanca vs Wydad AC
-Botola Pro
-2.20 | 3.10 | 3.00
-RESULT: 0-1 | Away Win
-
-Jeunesse Massira vs KAC Kenitra
-Botola 2
-2.05 | 2.74 | 4.02
-RESULT: 1-1 | Draw
-
-Jeunesse Sportive Soualem vs Chabab Atlas Khenifra
-Botola 2
-2.12 | 2.85 | 3.88
-RESULT: 0-1 | Away Win
-
-US Boujaad vs Raja Beni Mellal
-Botola 2
-2.03 | 2.76 | 4.06
-RESULT: 2-1 | Home Win
-
-Wydad Fes vs Chabab Benguerir
-Botola 2
-2.03 | 2.86 | 4.17
-RESULT: 1-1 | Draw
-
-Costa do Sol vs Ferroviario Maputo
-Mocambola
-2.28 | 2.90 | 3.37
-RESULT: 1-0 | Home Win
-
-Willem II vs Waalwijk
-Eerste Divisie - Promotion
-1.91 | 3.75 | 3.40
-RESULT: 1-1 | Draw
-
-De Graafschap vs Almere City
-Eerste Divisie - Promotion
-2.05 | 4.20 | 2.82
-RESULT: 2-2 | Draw
-
-ACV Assen vs Quick Boys
-Tweede Divisie
-4.74 | 4.43 | 1.58
-RESULT: 1-2 | Away Win
-
-Barendrecht vs Hoek
-Tweede Divisie
-3.99 | 4.72 | 1.65
-RESULT: 4-2 | Home Win
-
-Rijnsburgse Boys vs Jong Sparta Rotterdam
-Tweede Divisie
-1.44 | 5.33 | 5.33
-RESULT: 4-2 | Home Win
-
-IJsselmeervogels vs Hardenberg
-Tweede Divisie
-2.76 | 3.78 | 2.26
-RESULT: 2-0 | Home Win
-
-Kozakken Boys vs GVVV
-Tweede Divisie
-2.41 | 3.88 | 2.52
-RESULT: 3-1 | Home Win
-
-AFC vs Excelsior Maassluis
-Tweede Divisie
-2.10 | 3.66 | 3.14
-RESULT: 3-2 | Home Win
-
-Jong Almere City vs RKAV Volendam
-Tweede Divisie
-1.86 | 4.15 | 3.42
-RESULT: 3-2 | Home Win
-
-Katwijk vs HFC
-Tweede Divisie
-1.47 | 4.66 | 5.70
-RESULT: 4-0 | Home Win
-
-De Treffers vs Spakenburg
-Tweede Divisie
-1.80 | 4.22 | 3.60
-RESULT: 0-0 | Draw
-
-Noordwijk vs SteDoCo
-Derde Divisie
-1.88 | 4.07 | 3.44
-RESULT: 3-1 | Home Win
-
-Scheveningen vs ASWH
-Derde Divisie
-1.92 | 3.50 | 3.39
-RESULT: 2-2 | Draw
-
-VV Zwaluwen vs TOGB
-Derde Divisie
-1.91 | 4.39 | 3.14
-RESULT: 0-1 | Away Win
-
-Groene Ster vs Kloetinge
-Derde Divisie
-4.23 | 3.81 | 1.75
-RESULT: 1-2 | Away Win
-
-Hoogeveen vs Eemdijk
-Derde Divisie
-2.70 | 3.84 | 2.28
-RESULT: 1-0 | Home Win
-
-Groningen U21 vs Feyenoord U21
-Divisie 1 U21 - Spring Season
-2.95 | 4.11 | 2.01
-RESULT: 2-0 | Home Win
-
-Sittard U21 vs Den Haag U21
-Divisie 1 U21 - Spring Season
-2.91 | 4.27 | 1.98
-RESULT: 2-6 | Away Win
-
-Willem II U21 vs Graafschap U21
-Divisie 1 U21 - Spring Season
-1.87 | 3.92 | 3.21
-RESULT: 2-1 | Home Win
-
-Feyenoord U19 vs PSV U19
-Divisie 1 U19 - Spring Season
-1.79 | 3.96 | 3.44
-RESULT: 2-3 | Away Win
-
-Shkendija vs Struga
-1. MFL
-2.32 | 3.20 | 2.97
-RESULT: 3-1 | Home Win
-
-Vardar vs Sileks
-1. MFL
-1.05 | 11.90 | 23.00
-RESULT: 2-1 | Home Win
-
-Cliftonville vs Dungannon
-NIFL Premiership - Conference League - Play Offs
-1.71 | 4.03 | 4.24
-RESULT: 1-2 | Away Win
-
-Sarpsborg 08 vs Fredrikstad
-Eliteserien
-1.85 | 3.50 | 3.50
-RESULT: 2-1 | Home Win
-
-Lysekloster vs Pors
-Division 2 - Group 1
-1.93 | 3.74 | 3.54
-RESULT: 1-2 | Away Win
-
-Notodden vs Kvik Halden
-Division 2 - Group 1
-2.06 | 3.82 | 3.10
-RESULT: 1-1 | Draw
-
-Eidsvold TF vs Follo
-Division 2 - Group 2
-1.33 | 5.67 | 7.08
-RESULT: 4-1 | Home Win
-
-Junkeren vs Kjelsas
-Division 2 - Group 2
-3.87 | 4.19 | 1.74
-RESULT: 2-3 | Away Win
-
-Stjordals Blink vs Skeid
-Division 2 - Group 2
-2.25 | 3.20 | 2.91
-RESULT: 0-1 | Away Win
-
-Grei vs Lokomotiv Oslo
-Division 3 - Group 1
-2.45 | 4.26 | 2.29
-RESULT: 4-4 | Draw
-
-Ready vs Nordstrand
-Division 3 - Group 1
-1.66 | 4.90 | 3.61
-RESULT: 3-0 | Home Win
-
-Asker vs Heming
-Division 3 - Group 1
-1.47 | 4.70 | 4.80
-RESULT: 5-0 | Home Win
-
-Konnerud vs Gamle Oslo
-Division 3 - Group 1
-3.42 | 4.33 | 1.73
-RESULT: 2-4 | Away Win
-
-Strindheim vs Volda TI
-Division 3 - Group 2
-2.23 | 4.05 | 2.59
-RESULT: 2-1 | Home Win
-
-Melhus vs Nardo
-Division 3 - Group 2
-1.74 | 4.15 | 3.50
-RESULT: 2-2 | Draw
-
-Byasen vs Ranheim 2
-Division 3 - Group 2
-1.55 | 4.90 | 4.33
-RESULT: 3-2 | Home Win
-
-Spjelkavik vs Aalesund 2
-Division 3 - Group 2
-1.28 | 5.95 | 6.57
-RESULT: 2-2 | Draw
-
-Vindbjart vs Staal Jorpeland
-Division 3 - Group 4
-1.37 | 6.00 | 5.48
-RESULT: 3-3 | Draw
-
-Stromsgodset 2 vs Alta
-Division 3 - Group 5
-3.62 | 4.24 | 1.76
-RESULT: 3-2 | Home Win
-
-Skjetten vs Floya
-Division 3 - Group 5
-2.38 | 4.14 | 2.38
-RESULT: 1-3 | Away Win
-
-Drobak-Frogn vs Lillehammer
-Division 3 - Group 6
-4.20 | 4.15 | 1.62
-RESULT: 2-2 | Draw
-
-Bodo/Glimt vs Brann
-NM Cup
-1.65 | 4.20 | 4.33
-RESULT: 4-3 (After Pen) | Home Win
-
-Fyllingsdalen W vs Tromso W
-Division 1 Women
-4.12 | 3.80 | 1.68
-RESULT: 1-7 | Away Win
-
-Grei W vs Arna-Bjornar W
-Division 1 Women
-3.81 | 3.78 | 1.74
-RESULT: 2-4 | Away Win
-
-Kolbotn W vs Bryne W
-Division 1 Women
-1.39 | 4.65 | 6.01
-RESULT: 0-1 | Away Win
-
-Frigg W vs Klepp W
-Division 1 Women
-2.69 | 3.72 | 2.28
-RESULT: 3-2 | Home Win
-
-Viking W vs Start W
-Division 1 Women
-1.88 | 3.90 | 3.44
-RESULT: 3-4 | Away Win
-
-Odd W vs Asane W
-Division 1 Women
-4.38 | 3.65 | 1.67
-RESULT: 2-2 | Draw
-
-2 de Mayo vs Rubio Nu
-Copa de Primera - Apertura
-2.45 | 2.90 | 2.70
-RESULT: 2-0 | Home Win
-
-Independiente FBC vs 3 de Noviembre
-Division Intermedia
-2.12 | 3.20 | 3.51
-RESULT: 2-0 | Home Win
-
-Tacuary vs Fernando de la Mora
-Division Intermedia
-2.63 | 3.16 | 2.69
-RESULT: 1-2 | Away Win
-
-Moquegua vs AD Tarma
-Liga 1 - Apertura
-2.20 | 3.10 | 3.25
-RESULT: 2-2 | Draw
-
-Grau vs Cienciano
-Liga 1 - Apertura
-1.90 | 3.40 | 3.90
-RESULT: 1-2 | Away Win
-
-Binacional vs Ayacucho
-Liga 2
-1.94 | 3.27 | 3.83
-RESULT: 0-2 | Away Win
-
-Llacuabamba vs Cesar Vallejo
-Liga 2
-1.78 | 3.51 | 4.24
-RESULT: 2-0 | Home Win
-
-Carlos Mannucci vs Union Comercio
-Liga 2
-2.66 | 3.13 | 2.61
-RESULT: 0-0 | Draw
-
-Tacna Heroica vs Alianza Huanuco
-Liga 2
-1.92 | 3.52 | 3.63
-RESULT: 0-0 | Draw
-
-Killas W vs Yanapuma W
-Liga Women - Apertura
-4.66 | 4.24 | 1.58
-RESULT: 1-1 | Draw
-
-Flamengo FBC W vs FBC Melgar W
-Liga Women - Apertura
-4.43 | 3.99 | 1.66
-RESULT: 1-2 | Away Win
-
-Widzew Lodz vs Lechia Gdansk
-Ekstraklasa
-2.15 | 3.20 | 3.20
-RESULT: 3-1 | Home Win
-
-Jagiellonia vs Pogon Szczecin
-Ekstraklasa
-1.70 | 3.80 | 4.20
-RESULT: 3-2 | Home Win
-
-Gornik Zabrze vs Zaglebie
-Ekstraklasa
-1.62 | 3.40 | 5.25
-RESULT: 0-2 | Away Win
-
-Pruszkow vs Polonia Bytom
-Division 1
-2.55 | 3.30 | 2.35
-RESULT: 1-4 | Away Win
-
-Stal Mielec vs Puszcza
-Division 1
-2.38 | 3.20 | 2.60
-RESULT: 1-1 | Draw
-
-Wieczysta Krakow vs Legnica
-Division 1
-1.85 | 4.20 | 3.00
-RESULT: 0-1 | Away Win
-
-Slask Wroclaw II vs KKS Kalisz
-Division 2
-1.90 | 3.58 | 3.79
-RESULT: 2-3 | Away Win
-
-Podhale Nowy Targ vs Chojniczanka
-Division 2
-1.77 | 3.74 | 4.25
-RESULT: 3-2 | Home Win
-
-Ol. Grudziadz vs Bielsko-Biala
-Division 2
-1.60 | 3.85 | 5.46
-RESULT: 2-0 | Home Win
-
-Legia II vs Zabki
-III Liga - Group I
-1.28 | 5.84 | 7.96
-RESULT: 2-0 | Home Win
-
-Plock II vs T. Mazowiecki
-III Liga - Group I
-2.44 | 3.73 | 2.49
-RESULT: 2-2 | Draw
-
-Biala Piska vs Swit Mazowiecki
-III Liga - Group I
-6.10 | 4.35 | 1.37
-RESULT: 0-2 | Away Win
-
-Wasilkow vs Warta Sieradz
-III Liga - Group I
-3.30 | 3.60 | 1.85
-RESULT: 0-3 | Away Win
-
-Suwalki vs Mlawa
-III Liga - Group I
-1.75 | 4.02 | 3.82
-RESULT: 2-0 | Home Win
-
-Cartusia Kartuzy vs Lech Poznan II
-III Liga - Group II
-3.12 | 4.16 | 1.93
-RESULT: 0-0 | Draw
-
-Pogon Szczecin II vs Kluczevia Stargard
-III Liga - Group II
-3.04 | 3.54 | 2.04
-RESULT: 2-1 | Home Win
-
-Elana Torun vs Zawisza
-III Liga - Group II
-2.98 | 4.22 | 1.97
-RESULT: 0-3 | Away Win
-
-Wrzesnia vs Luzino
-III Liga - Group II
-3.63 | 4.04 | 1.79
-RESULT: 0-1 | Away Win
-
-Swinoujscie vs Wda Swiecie
-III Liga - Group II
-1.48 | 4.60 | 5.37
-RESULT: 0-3 | Away Win
-
-BKS Sparta Katowice vs Woliborz
-III Liga - Group III
-1.88 | 3.69 | 3.59
-RESULT: 1-0 | Home Win
-
-Skra vs Gornik Zabrze II
-III Liga - Group III
-2.62 | 3.90 | 2.26
-RESULT: 1-2 | Away Win
-
-Warta Gorzow vs Nysa
-III Liga - Group III
-1.92 | 3.63 | 3.52
-RESULT: 1-0 | Home Win
-
-Zielona Gora vs Pawlowice
-III Liga - Group III
-1.05 | 8.90 | 19.50
-RESULT: 1-0 | Home Win
-
-Cracovia II vs Stal Krasnik
-III Liga - Group IV
-1.68 | 3.94 | 4.35
-RESULT: 1-2 | Away Win
-
-Korona Kielce II vs Lubaczow
-III Liga - Group IV
-2.06 | 4.02 | 2.89
-RESULT: 3-1 | Home Win
-
-Avia Swidnik vs Siarka Tarnobrzeg
-III Liga - Group IV
-1.54 | 3.82 | 5.27
-RESULT: 1-0 | Home Win
-
-Czarni Polaniec vs Wislanie Skawina
-III Liga - Group IV
-2.17 | 3.72 | 2.85
-RESULT: 1-0 | Home Win
-
-Ostrowiec Swietokrzyski vs Wisla II
-III Liga - Group IV
-1.68 | 3.50 | 4.54
-RESULT: 3-4 | Away Win
-
-Lech Poznan U19 vs R. Rzeszow U19
-Central Youth League
-1.22 | 5.75 | 9.35
-RESULT: 0-1 | Away Win
-
-Odra Opole U19 vs Lechia G. U19
-Central Youth League
-3.91 | 4.05 | 1.67
-RESULT: 1-2 | Away Win
-
-Legnica U19 vs Escola Warszawa U19
-Central Youth League
-1.98 | 3.72 | 3.05
-RESULT: 2-2 | Draw
-
-Arkonia Szczecin U19 vs Legia U19
-Central Youth League
-6.81 | 4.80 | 1.34
-RESULT: 1-3 | Away Win
-
-Lech-UAM Poznan W vs UKS SMS Lodz W
-Ekstraliga Women
-4.22 | 4.12 | 1.66
-RESULT: 1-1 | Draw
-
-UJ Krakow W vs Gdansk W
-Ekstraliga Women
-2.37 | 3.60 | 2.63
-RESULT: 2-0 | Home Win
-
-GKS Katowice W vs Slask Wroclaw W
-Ekstraliga Women
-1.63 | 4.48 | 4.13
-RESULT: 2-1 | Home Win
-
-Tczew W vs Pogon Szczecin W
-Ekstraliga Women
-23.00 | 15.30 | 1.03
-RESULT: 0-3 | Away Win
-
-Chaves vs Leixoes
-Liga Portugal 2
-2.15 | 3.20 | 3.10
-RESULT: 1-2 | Away Win
-
-Feirense vs Oliveirense
-Liga Portugal 2
-1.95 | 3.50 | 3.20
-RESULT: 1-2 | Away Win
-
-Felgueiras vs Portimonense
-Liga Portugal 2
-2.05 | 3.20 | 3.20
-RESULT: 1-1 | Draw
-
-Penafiel vs Maritimo
-Liga Portugal 2
-1.80 | 3.30 | 3.90
-RESULT: 1-0 | Home Win
-
-SC Farense vs Pacos Ferreira
-Liga Portugal 2
-1.85 | 3.40 | 3.60
-RESULT: 1-1 | Draw
-
-Sporting CP B vs FC Porto B
-Liga Portugal 2
-1.85 | 3.60 | 3.40
-RESULT: 0-1 | Away Win
-
-Benfica B vs Academico Viseu
-Liga Portugal 2
-3.10 | 3.40 | 2.00
-RESULT: 0-2 | Away Win
-
-Lusitania FC vs Torreense
-Liga Portugal 2
-3.30 | 3.40 | 1.95
-RESULT: 1-2 | Away Win
-
-Vizela vs Leiria
-Liga Portugal 2
-2.20 | 3.40 | 2.80
-RESULT: 1-0 | Home Win
-
-Trofense vs Vitoria Guimaraes B
-Liga 3 - Promotion Group
-2.66 | 3.64 | 2.39
-RESULT: 1-1 | Draw
-
-Mafra vs Academica
-Liga 3 - Promotion Group
-2.97 | 3.21 | 2.38
-RESULT: 3-3 | Draw
-
-Gil Vicente U19 vs Santa Clara U19
-Campeonato Nacional U19 - Championship Group
-2.97 | 4.03 | 2.06
-RESULT: 1-0 | Home Win
-
-FC Porto U19 vs Famalicao U19
-Campeonato Nacional U19 - Championship Group
-1.20 | 7.19 | 10.30
-RESULT: 3-2 | Home Win
-
-Al-Gharafa vs Al-Sadd
-Emir Cup
-5.27 | 4.74 | 1.50
-RESULT: 4-1 | Home Win
-
-Otelul vs Farul Constanta
-Superliga - Relegation Group
-2.45 | 3.10 | 2.75
-RESULT: 3-2 | Home Win
-
-U. Cluj vs FC Rapid Bucuresti
-Superliga - Championship Group
-1.73 | 3.40 | 4.50
-RESULT: 1-0 | Home Win
-
-Chindia Targoviste vs Corvinul
-Liga 2 - Championship Group
-4.28 | 3.75 | 1.75
-RESULT: 1-0 | Home Win
-
-Ceahlaul vs Metalul Buzau
-Liga 2 - Relegation Group
-8.55 | 4.70 | 1.30
-RESULT: 0-3 | Away Win
-
-Concordia vs CSM Satu Mare
-Liga 2 - Relegation Group
-3.44 | 3.74 | 1.84
-RESULT: 2-2 | Draw
-
-CS Din. Bucuresti vs FC ASA Tg. Mures
-Liga 2 - Relegation Group
-5.17 | 4.15 | 1.50
-RESULT: 1-3 | Away Win
-
-CSC Dumbravita vs Afumati
-Liga 2 - Relegation Group
-1.72 | 3.16 | 4.91
-RESULT: 1-0 | Home Win
-
-CSM Slatina vs Poli Iasi
-Liga 2 - Relegation Group
-1.40 | 4.15 | 6.83
-RESULT: 1-0 | Home Win
-
-Selimbar vs FC Bacau
-Liga 2 - Relegation Group
-1.67 | 3.44 | 4.74
-RESULT: 4-1 | Home Win
-
-Tunari vs CSM Resita
-Liga 2 - Relegation Group
-2.38 | 3.30 | 2.57
-RESULT: 3-1 | Home Win
-
-Valenii de Munte vs Mogosoaia
-Liga 3 - Seria 4 - Relegation Group
-1.85 | 3.80 | 3.60
-RESULT: 1-2 | Away Win
-
-CS U Craiova 2 vs Jiul Petrosani
-Liga 3 - Promotion Group
-1.41 | 4.29 | 7.16
-RESULT: 1-1 | Draw
-
-Popesti Leordeni vs Moreni
-Liga 3 - Promotion Group
-1.46 | 4.44 | 5.90
-RESULT: 1-1 | Draw
-
-Unirea Alba-Iulia vs SCM Zalau
-Liga 3 - Promotion Group
-1.49 | 4.32 | 5.66
-RESULT: 3-0 | Home Win
-
-Virtus vs Domagnano
-Campionato Sammarinese - Play Offs
-1.25 | 6.35 | 9.23
-RESULT: 2-1 | Home Win
-
-La Fiorita vs Tre Penne
-Campionato Sammarinese - Play Offs
-2.42 | 3.05 | 3.05
-RESULT: 1-1 | Draw
-
-Al Khaleej vs Al Ettifaq
-Saudi Professional League
-2.70 | 3.40 | 2.25
-RESULT: 0-5 | Away Win
-
-Al Najma vs Al Hazem
-Saudi Professional League
-2.90 | 3.40 | 2.10
-RESULT: 2-2 | Draw
-
-Al Fayha vs Al Qadsiah
-Saudi Professional League
-6.50 | 4.75 | 1.30
-RESULT: 1-2 | Away Win
-
-Al Jandal vs Al Wehda
-Division 1
-3.64 | 3.64 | 1.93
-RESULT: 1-2 | Away Win
-
-Al Batin vs Al Taee
-Division 1
-2.91 | 3.74 | 2.18
-RESULT: 4-1 | Home Win
-
-Abha vs Al Adalah
-Division 1
-1.28 | 6.26 | 7.97
-RESULT: 0-1 | Away Win
-
-Al Anwar vs Al Diriyah
-Division 1
-7.06 | 5.98 | 1.32
-RESULT: 4-2 | Home Win
-
-Al Bukiryah vs Al-Faisaly
-Division 1
-8.62 | 7.47 | 1.22
-RESULT: 0-2 | Away Win
-
-Al Jabalain vs Al Arabi
-Division 1
-1.37 | 5.67 | 6.21
-RESULT: 4-0 | Home Win
-
-Al Jubail vs Al-Ula
-Division 1
-9.85 | 6.74 | 1.22
-RESULT: 0-2 | Away Win
-
-Al Zulfi vs Al Raed
-Division 1
-3.21 | 3.82 | 2.02
-RESULT: 2-2 | Draw
-
-Jeddah vs Al Orubah
-Division 1
-4.98 | 4.30 | 1.57
-RESULT: 0-4 | Away Win
-
-Aberdeen vs Dundee Utd
-Premiership - Relegation Group
-2.05 | 3.40 | 3.40
-RESULT: 2-0 | Home Win
-
-Dundee FC vs Livingston
-Premiership - Relegation Group
-1.76 | 4.00 | 4.00
-RESULT: 3-0 | Home Win
-
-St. Mirren vs Kilmarnock
-Premiership - Relegation Group
-1.91 | 3.40 | 3.80
-RESULT: 0-3 | Away Win
-
-Falkirk vs Hibernian
-Premiership - Championship Group
-2.01 | 3.40 | 3.40
-RESULT: 1-3 | Away Win
-
-Motherwell vs Hearts
-Premiership - Championship Group
-2.85 | 3.40 | 2.30
-RESULT: 1-1 | Draw
-
-Airdrieonians vs Alloa
-Championship - Relegation
-1.80 | 4.00 | 3.50
-RESULT: 1-2 | Away Win
-
-Stenhousemuir vs Queen of South
-Championship - Relegation
-2.55 | 3.40 | 2.55
-RESULT: 3-2 (After Pen) | Home Win
-
-Hamilton vs Forfar Athletic
-League One - Relegation - Play Offs
-1.80 | 4.00 | 3.30
-RESULT: 2-1 | Home Win
-
-Spartans vs Clyde
-League One - Relegation - Play Offs
-1.85 | 3.40 | 3.50
-RESULT: 1-1 | Draw
-
-Brora Rangers vs Edinburgh City
-League Two - Relegation - Play Offs
-2.00 | 3.60 | 3.00
-RESULT: 1-1 | Draw
-
-Zeleznicar Pancevo vs Radnik
-Mozzart Bet Super Liga - Championship Group
-1.55 | 3.70 | 6.00
-RESULT: 1-1 | Draw
-
-Crvena zvezda vs Novi Pazar
-Mozzart Bet Super Liga - Championship Group
-1.13 | 8.50 | 15.00
-RESULT: 1-2 | Away Win
-
-Partizan vs OFK Beograd Mozzart Bet
-Mozzart Bet Super Liga - Championship Group
-1.60 | 4.20 | 4.75
-RESULT: 1-1 | Draw
-
-Bhantal vs Wilberforce Strikers
-Premier League
-2.01 | 2.84 | 4.33
-RESULT: 0-0 | Draw
-
-East End Lions vs Ports Authority
-Premier League
-2.57 | 2.83 | 2.96
-RESULT: 0-0 | Draw
-
-Balestier Khalsa vs Tanjong Pagar
-Premier League
-1.42 | 5.00 | 4.75
-RESULT: 6-0 | Home Win
-
-Young Lions vs Geylang
-Premier League
-6.00 | 5.00 | 1.33
-RESULT: 2-2 | Draw
-
-Ruzomberok vs Trencin
-Nike liga - Relegation Group
-1.90 | 3.60 | 3.75
-RESULT: 4-3 | Home Win
-
-Presov vs Skalica
-Nike liga - Relegation Group
-2.18 | 3.38 | 3.18
-RESULT: 3-0 | Home Win
-
-Michalovce vs Dun. Streda
-Nike liga - Championship Group
-3.52 | 3.62 | 1.96
-RESULT: 2-1 | Home Win
-
-Podbrezova vs Slovan Bratislava
-Nike liga - Championship Group
-3.18 | 3.78 | 2.04
-RESULT: 1-2 | Away Win
-
-MSK Lucenec vs Rimavska Sobota
-3. Liga - Central
-1.72 | 3.84 | 3.85
-RESULT: 4-1 | Home Win
-
-MSK Martin vs Filakovo
-3. Liga - Central
-1.64 | 3.92 | 4.22
-RESULT: 3-1 | Home Win
-
-Oravske Vesele vs MFK Bytca
-3. Liga - Central
-3.31 | 3.52 | 1.94
-RESULT: 0-2 | Away Win
-
-Kezmarok vs Raslavice
-3. Liga - East
-1.93 | 3.55 | 3.32
-RESULT: 2-1 | Home Win
-
-Lipany vs Spisska Nova Ves
-3. Liga - East
-4.47 | 3.70 | 1.65
-RESULT: 0-2 | Away Win
-
-Lok. Kosice vs Vranov
-3. Liga - East
-1.43 | 4.30 | 5.91
-RESULT: 1-1 | Draw
-
-Medzev vs Sabinov
-3. Liga - East
-1.53 | 4.15 | 4.86
-RESULT: 3-1 | Home Win
-
-Poprad vs Stropkov
-3. Liga - East
-2.10 | 3.45 | 2.98
-RESULT: 3-0 | Home Win
-
-Banik Prievidza vs Dun. Streda B
-3. Liga - West
-1.54 | 4.10 | 4.81
-RESULT: 3-0 | Home Win
-
-FKM Nove Zamky vs Galanta
-3. Liga - West
-5.87 | 4.05 | 1.46
-RESULT: 1-0 | Home Win
-
-Gabcikovo vs Belusa
-3. Liga - West
-2.43 | 3.48 | 2.42
-RESULT: 1-1 | Draw
-
-Malacky vs Trencin B
-3. Liga - West
-2.83 | 3.29 | 2.37
-RESULT: 1-0 | Home Win
-
-MSK Senec vs Petrzalka B
-3. Liga - West
-1.41 | 4.40 | 6.07
-RESULT: 1-0 | Home Win
-
-Sala vs Castkovce
-3. Liga - West
-2.08 | 3.64 | 2.90
-RESULT: 2-1 | Home Win
-
-Trnava W vs Trencin W
-1. Liga Women - Relegation Group
-1.71 | 4.20 | 3.89
-RESULT: 0-0 | Draw
-
-Bravo vs Radomlje
-Prva liga
-1.50 | 4.65 | 5.36
-RESULT: 2-1 | Home Win
-
-Koper vs Aluminij
-Prva liga
-1.33 | 5.92 | 6.73
-RESULT: 1-0 | Home Win
-
-Maribor vs O. Ljubljana
-Prva liga
-1.88 | 4.07 | 3.44
-RESULT: 0-1 (Abandoned) | Away Win
-
-Ilirija vs Bilje
-2. SNL
-1.54 | 3.84 | 5.22
-RESULT: 1-0 | Home Win
-
-NK Bistrica vs Grosuplje
-2. SNL
-5.43 | 3.66 | 1.55
-RESULT: 0-4 | Away Win
-
-Hajdina vs Dobrovce
-3. SNL - East
-1.37 | 4.65 | 6.39
-RESULT: 3-0 | Home Win
-
-Zavrc vs Race
-3. SNL - East
-1.68 | 4.20 | 3.74
-RESULT: 1-1 | Draw
-
-Brezice vs Podvinci
-3. SNL - East
-1.24 | 5.10 | 10.00
-RESULT: 3-1 | Home Win
-
-Korotan vs Videm
-3. SNL - East
-2.79 | 3.42 | 2.22
+FC Kudrivka U19 vs Rukh Lviv U19
+U19 League
+Odds not available
 RESULT: 2-5 | Away Win
 
-Sencur vs Dob
-3. SNL - West
-2.21 | 3.34 | 2.86
-RESULT: 1-0 | Home Win
-
-Sobec Lesce vs Vrhnika
-3. SNL - West
-6.82 | 4.25 | 1.39
-RESULT: 1-5 | Away Win
-
-Golden Arrows vs Polokwane
-Betway Premiership
-2.60 | 2.80 | 3.06
-RESULT: 0-0 | Draw
-
-Marumo Gallants vs Richards Bay
-Betway Premiership
-2.32 | 2.99 | 3.30
-RESULT: 1-1 | Draw
-
-Orbit College vs AmaZulu
-Betway Premiership
-3.67 | 2.93 | 2.19
-RESULT: 0-0 | Draw
-
-TS Galaxy vs Chippa Utd.
-Betway Premiership
-2.10 | 3.08 | 3.70
-RESULT: 1-1 | Draw
-
-Mamelodi Sundowns vs Siwelele
-Betway Premiership
-1.24 | 5.33 | 13.20
-RESULT: 7-4 | Home Win
-
-Magesi vs Orlando Pirates
-Betway Premiership
-16.30 | 5.71 | 1.20
-RESULT: 0-3 | Away Win
-
-Amazulu U23 vs TS Galaxy U23
-Diski Challenge
-2.69 | 3.22 | 2.32
-RESULT: 0-1 | Away Win
-
-Kaizer Chiefs U23 vs Chippa Utd. U23
-Diski Challenge
-1.13 | 6.85 | 12.70
-RESULT: 11-0 | Home Win
-
-Marumo Gallants U23 vs Orbit College U23
-Diski Challenge
-3.00 | 3.40 | 2.11
-RESULT: 4-1 | Home Win
-
-Orlando Pirates U23 vs Mamelodi Sundowns U23
-Diski Challenge
-2.06 | 3.30 | 3.19
-RESULT: 2-0 | Home Win
-
-Polokwane U23 vs Golden Arrows U23
-Diski Challenge
-3.07 | 3.22 | 2.15
-RESULT: 1-3 | Away Win
-
-Sekhukhune U23 vs Richards Bay U23
-Diski Challenge
-1.68 | 3.58 | 4.41
-RESULT: 0-4 | Away Win
-
-Stellenbosch U23 vs Siwelele U23
-Diski Challenge
-2.07 | 3.35 | 3.13
-RESULT: 3-2 | Home Win
-
-Jeju SK vs Seoul
-K League 1
-3.25 | 3.00 | 2.25
-RESULT: 2-1 | Home Win
-
-Gimcheon Sangmu vs Incheon
-K League 1
-2.20 | 3.20 | 3.10
-RESULT: 0-3 | Away Win
-
-Gwangju FC vs Gangwon
-K League 1
-7.00 | 3.75 | 1.48
-RESULT: 0-0 | Draw
-
-Daejeon vs Pohang
-K League 1
-2.00 | 3.10 | 3.70
-RESULT: 0-2 | Away Win
-
-Asan vs Seoul E-Land
-K League 2
-3.00 | 3.20 | 2.15
-RESULT: 3-0 | Home Win
-
-Hwaseong vs Suwon FC
-K League 2
-3.20 | 3.10 | 2.10
-RESULT: 1-1 | Draw
-
-Cheongju vs Gimpo FC
-K League 2
-4.10 | 2.88 | 1.91
-RESULT: 1-1 | Draw
-
-Suwon Bluewings vs Daegu
-K League 2
-2.00 | 3.30 | 3.20
-RESULT: 0-0 | Draw
-
-Busan Kyotong vs Mokpo
-K3 League
-1.69 | 3.65 | 4.95
-RESULT: 3-0 | Home Win
-
-Chuncheon vs Pocheon
-K3 League
-3.64 | 3.43 | 1.98
-RESULT: 0-1 | Away Win
-
-Jeonbuk 2 vs Yeoju Citizen
-K3 League
-2.92 | 3.34 | 2.34
-RESULT: 2-0 | Home Win
-
-Yangpyeong vs Changwon
-K3 League
-3.22 | 3.33 | 2.18
-RESULT: 1-0 | Home Win
-
-Ulsan Citizen vs Siheung Citizen
-K3 League
-4.65 | 3.72 | 1.70
-RESULT: 0-1 | Away Win
-
-Sejong Sportstoto W vs Gangjin Swans W
-WK League Women
-1.86 | 3.52 | 3.83
-RESULT: 3-1 | Home Win
-
-Ceuta vs Castellon
-LaLiga2
-5.50 | 5.00 | 1.42
-RESULT: 1-1 | Draw
-
-Albacete vs Cultural Leonesa
-LaLiga2
-2.40 | 3.00 | 3.10
-RESULT: 2-1 | Home Win
-
-Burgos CF vs Almeria
-LaLiga2
-2.35 | 3.20 | 3.00
-RESULT: 0-0 | Draw
-
-Valladolid vs Zaragoza
-LaLiga2
-1.76 | 3.25 | 4.10
-RESULT: 2-0 | Home Win
-
-Malaga vs Gijon
-LaLiga2
-1.57 | 4.20 | 4.75
-RESULT: 2-1 | Home Win
-
-Barakaldo vs AD Merida
-Primera RFEF - Group 1
-1.62 | 3.40 | 4.75
-RESULT: 2-0 | Home Win
-
-Pontevedra vs Ath Bilbao B
-Primera RFEF - Group 1
-2.15 | 3.10 | 3.00
+Shakhtar Donetsk U19 vs Obolon Kiev U19
+U19 League
+Odds not available
 RESULT: 4-0 | Home Win
 
-Guadalajara vs Arenteiro
-Primera RFEF - Group 1
-1.36 | 3.90 | 7.50
+LNZ Cherkasy U19 vs SC Poltava U19
+U19 League
+Odds not available
+RESULT: 5-0 | Home Win
+
+Dyn. Kyiv U19 vs Kolos Kovalivka U19
+U19 League
+Odds not available
 RESULT: 2-0 | Home Win
 
-Ponferradina vs Real Aviles
-Primera RFEF - Group 1
-1.80 | 3.25 | 3.90
-RESULT: 3-1 | Home Win
-
-Unionistas vs Tenerife
-Primera RFEF - Group 1
-1.80 | 3.30 | 3.90
+Zhytomyr W vs Ladomir W
+Championship Women - Relegation Group
+Odds not available
 RESULT: 2-1 | Home Win
 
-Cacereno vs Real Madrid B
-Primera RFEF - Group 1
-2.45 | 3.20 | 2.55
-RESULT: 4-1 | Home Win
+Metalist 1925 W vs SeaSters Odesa W
+Championship Women - Championship Group
+Odds not available
+RESULT: 1-0 | Home Win
 
-Hercules vs UD Ibiza
-Primera RFEF - Group 2
-2.90 | 2.30 | 2.90
-RESULT: 2-1 | Home Win
-
-Sanluqueno vs Algeciras
-Primera RFEF - Group 2
-4.50 | 3.20 | 1.70
-RESULT: 0-1 | Away Win
-
-CD Coria vs Deportiva Minera
-Segunda RFEF - Promotion Play Offs
-2.74 | 3.03 | 2.66
-RESULT: 0-0 | Draw
-
-Reus FCR vs UD Ourense
-Segunda RFEF - Promotion Play Offs
-1.90 | 3.23 | 4.26
-RESULT: 2-0 | Home Win
-
-Tudelano vs Oviedo B
-Segunda RFEF - Promotion Play Offs
-1.79 | 3.63 | 4.25
-RESULT: 0-1 | Away Win
-
-Xerez CD vs Conquense
-Segunda RFEF - Promotion Play Offs
-2.23 | 2.79 | 3.82
-RESULT: 1-1 | Draw
-
-Atletico Arteixo vs Silva SD
-Tercera RFEF - Group 1
-1.87 | 3.30 | 3.95
+Al Wasl U23 vs Al Jazira U23
+Pro League U23
+2.29 | 3.35 | 2.73
 RESULT: 2-2 | Draw
 
-Bezana vs Guarnizo
-Tercera RFEF - Group 3
-3.15 | 3.30 | 2.08
-RESULT: 1-1 | Draw
-
-Castro vs Tropezon
-Tercera RFEF - Group 3
-5.59 | 3.50 | 1.57
-RESULT: 0-2 | Away Win
-
-Durango vs Santurtzi
-Tercera RFEF - Group 4
-1.88 | 3.34 | 3.70
-RESULT: 4-1 | Home Win
-
-UE Tona vs FC L'escala
-Tercera RFEF - Group 5
-2.01 | 3.13 | 3.52
-RESULT: 2-0 | Home Win
-
-Manresa vs San Cristobal CP
-Tercera RFEF - Group 5
-1.46 | 3.78 | 6.57
-RESULT: 2-0 | Home Win
-
-Castellonense vs Atzeneta
-Tercera RFEF - Group 6
-1.67 | 3.10 | 4.35
-RESULT: 0-1 | Away Win
-
-CD Bunol vs Alzira
-Tercera RFEF - Group 6
-1.91 | 2.88 | 3.60
-RESULT: 1-0 | Home Win
-
-Crevillente vs Roda
-Tercera RFEF - Group 6
-2.20 | 2.85 | 2.95
-RESULT: 2-0 | Home Win
-
-La Nucia vs Recambios Colon
-Tercera RFEF - Group 6
-1.27 | 4.20 | 8.00
-RESULT: 3-0 | Home Win
-
-Ontinyent 1931 vs Levante B
-Tercera RFEF - Group 6
-3.20 | 2.95 | 2.00
-RESULT: 0-1 | Away Win
-
-Saguntino vs Hercules B
-Tercera RFEF - Group 6
-1.55 | 3.30 | 4.90
-RESULT: 3-0 | Home Win
-
-Utiel vs Vall de Uxo
-Tercera RFEF - Group 6
-2.65 | 2.60 | 2.60
-RESULT: 1-0 | Home Win
-
-Manacor vs Mallorca B
-Tercera RFEF - Group 11
-3.38 | 3.10 | 2.07
-RESULT: 1-1 | Draw
-
-Villarrubia vs Huracan de Balazote
-Tercera RFEF - Group 18
-1.41 | 3.55 | 6.00
-RESULT: 1-0 | Home Win
-
-Espanyol W vs Badalona W
-Liga F Women
-3.12 | 3.43 | 2.18
-RESULT: 1-1 | Draw
-
-Real Sociedad W vs Granada CF W
-Liga F Women
-1.37 | 4.74 | 7.90
-RESULT: 3-0 | Home Win
-
-Eibar W vs Alhama W
-Liga F Women
-2.34 | 3.23 | 3.00
-RESULT: 2-0 | Home Win
-
-Athletic Bilbao W vs Dep. La Coruna W
-Liga F Women
-1.60 | 4.02 | 5.15
-RESULT: 0-1 | Away Win
-
-CA Osasuna W vs Villarreal W
-Primera Federacion Women - Promotion - Play Offs
-1.85 | 3.33 | 4.20
-RESULT: 1-2 | Away Win
-
-Degerfors vs Mjallby
-Allsvenskan
-3.50 | 3.20 | 2.05
-RESULT: 1-4 | Away Win
-
-Goteborg vs Hammarby
-Allsvenskan
-5.50 | 3.90 | 1.56
-RESULT: 0-1 | Away Win
-
-Vasteras SK vs GAIS
-Allsvenskan
-3.20 | 3.30 | 2.20
-RESULT: 0-1 | Away Win
-
-Nordic United vs Oster
-Superettan
-2.30 | 3.40 | 2.60
-RESULT: 4-2 | Home Win
-
-Oddevold vs Landskrona
-Superettan
-2.00 | 3.20 | 3.30
-RESULT: 1-1 | Draw
-
-Ostersund vs Falkenberg
-Superettan
-2.05 | 3.30 | 3.10
+Ittihad Kalba U23 vs Al Nasr U23
+Pro League U23
+2.20 | 3.78 | 2.54
 RESULT: 2-2 | Draw
 
-Norrby vs Helsingborg
-Superettan
-2.10 | 3.25 | 3.00
-RESULT: 3-3 | Draw
-
-Sandviken vs Ljungskile
-Superettan
-2.60 | 3.40 | 2.30
-RESULT: 1-0 | Home Win
-
-Sundsvall vs Norrkoping
-Superettan
-3.90 | 3.25 | 1.80
-RESULT: 1-3 | Away Win
-
-Arlanda vs Sollentuna
-Division 1 - Norra
-1.74 | 3.95 | 4.16
-RESULT: 1-1 | Draw
-
-Umea FC vs Gefle
-Division 1 - Norra1.93 | 3.48 | 3.79
-RESULT: 2-2 | Draw
-
-FBK Karlstad vs Jarfalla
-Division 1 - Norra
-1.87 | 3.84 | 3.64
-RESULT: 2-0 | Home Win
-
-Hammarby TFF vs Assyriska FF
-Division 1 - Norra
-1.51 | 4.40 | 5.50
+Al Wahda U23 vs Khorfakkan U23
+Pro League U23
+1.42 | 4.45 | 5.80
 RESULT: 4-0 | Home Win
 
-Karlbergs vs Karlstad
-Division 1 - Norra
-2.46 | 3.66 | 2.57
-RESULT: 0-0 | Draw
-
-Stocksund vs Stockholm Internazionale
-Division 1 - Norra
-8.85 | 5.81 | 1.28
-RESULT: 1-6 | Away Win
-
-Olympic vs Kristianstad
-Division 1 - Södra
-2.13 | 3.90 | 2.91
-RESULT: 2-0 | Home Win
-
-Eskilsminne vs Utsikten
-Division 1 - Södra
-1.69 | 3.91 | 4.52
-RESULT: 4-0 | Home Win
-
-Rosengard vs Tvaaker
-Division 1 - Södra
-1.71 | 3.89 | 4.36
-RESULT: 0-1 | Away Win
-
-Skovde AIK vs Angelholm
-Division 1 - Södra
-2.86 | 3.84 | 2.18
-RESULT: 1-1 | Draw
-
-Trollhattan vs Lunds
-Division 1 - Södra
-2.14 | 3.66 | 3.03
-RESULT: 1-1 | Draw
-
-Friska Viljor vs IFK Ostersund
-Division 2 - Norrland
-2.71 | 3.70 | 2.16
-RESULT: 1-1 | Draw
-
-Grebbestad vs Ahlafors IF
-Division 2 - Norra Götaland
-2.44 | 3.68 | 2.32
-RESULT: 0-2 | Away Win
-
-Motala vs IFK Skovde
-Division 2 - Norra Götaland
-2.42 | 3.81 | 2.47
-RESULT: 0-4 | Away Win
-
-Skara vs Husqvarna
-Division 2 - Norra Götaland
-3.56 | 3.82 | 1.79
-RESULT: 1-1 | Draw
-
-Gute vs Taby
-Division 2 - Norra Svealand
-3.06 | 3.48 | 2.05
-RESULT: 2-2 | Draw
-
-Enskede vs Sunnersta AIF
-Division 2 - Norra Svealand
-1.96 | 3.87 | 3.20
-RESULT: 1-1 | Draw
-
-Helges vs Viggbyholms
-Division 2 - Norra Svealand
-5.50 | 4.60 | 1.36
-RESULT: 2-0 | Home Win
-
-IK Franke vs Falu
-Division 2 - Norra Svealand
-2.71 | 3.56 | 2.21
-RESULT: 1-2 | Away Win
-
-Korsnas vs Skiljebo
-Division 2 - Norra Svealand
-3.79 | 3.75 | 1.75
-RESULT: 0-2 | Away Win
-
-Kungsangen vs Bollstanas
-Division 2 - Norra Svealand
-2.17 | 3.72 | 2.85
-RESULT: 1-1 | Draw
-
-Lilla Torg vs Vaxjo Norra
-Division 2 - Södra Götaland
-4.37 | 4.16 | 1.63
-RESULT: 1-1 | Draw
-
-Oskarshamn vs Torns
-Division 2 - Södra Götaland
-1.44 | 4.46 | 6.17
-RESULT: 6-1 | Home Win
-
-Osterlen vs IFK Berga
-Division 2 - Södra Götaland
-2.21 | 3.45 | 2.79
-RESULT: 1-2 | Away Win
-
-Karlslund vs Lindo FF
-Division 2 - Södra Svealand
-2.91 | 3.64 | 2.07
-RESULT: 0-0 | Draw
-
-Farsta vs Orebro Syr.
-Division 2 - Södra Svealand
-2.17 | 3.72 | 2.69
-RESULT: 1-0 | Home Win
-
-Haninge vs Fittja
-Division 2 - Södra Svealand
-1.81 | 4.13 | 3.51
-RESULT: 5-2 | Home Win
-
-Smedby vs Ragsved
-Division 2 - Södra Svealand
-2.20 | 3.78 | 2.76
-RESULT: 0-2 | Away Win
-
-Frolunda vs Astrio
-Division 2 - Västra Götaland
-1.40 | 5.37 | 5.62
-RESULT: 5-3 | Home Win
-
-IF Brommapojkarna W vs Eskilstuna Utd W
-Allsvenskan Women
-1.90 | 3.70 | 3.50
-RESULT: 0-1 | Away Win
-
-Kristianstad W vs Norrkoping W
-Allsvenskan Women
-1.72 | 3.87 | 4.13
-RESULT: 2-2 | Draw
-
-Vaxjo DFF W vs AIK W
-Allsvenskan Women
-2.89 | 3.41 | 2.27
-RESULT: 3-3 | Draw
-
-Gamla Upsala W vs Umea W
-Elitettan Women
-5.43 | 4.50 | 1.44
+Cerro Largo vs Penarol
+Liga AUF Uruguaya - Apertura
+4.06 | 3.34 | 1.91
 RESULT: 2-3 | Away Win
 
-Husqvarna W vs Enskede W
-Elitettan Women
-1.71 | 4.14 | 3.93
-RESULT: 0-1 | Away Win
-
-Orebro SK W vs Hacken B W
-Elitettan Women
-1.61 | 3.80 | 4.62
-RESULT: 2-1 | Home Win
-
-Trelleborg W vs Alingsas W
-Elitettan Women
-1.65 | 3.75 | 4.38
-RESULT: 1-0 | Home Win
-
-Winterthur vs Lausanne
-Super League - Relegation Group
-2.50 | 3.60 | 2.50
-RESULT: 2-1 | Home Win
-
-Zurich vs Grasshoppers
-Super League - Relegation Group
-2.65 | 3.40 | 2.45
-RESULT: 2-1 | Home Win
-
-Luzern vs Servette
-Super League - Relegation Group
-2.15 | 3.80 | 2.85
-RESULT: 3-3 | Draw
-
-Luzern II vs Bruhl
-Promotion League
-4.36 | 4.40 | 1.55
-RESULT: 2-2 | Draw
-
-Basel II vs Kriens
-Promotion League
-5.95 | 4.80 | 1.38
-RESULT: 3-1 | Home Win
-
-Bavois vs Lausanne II
-Promotion League
-1.70 | 4.62 | 3.80
-RESULT: 2-1 | Home Win
-
-Zurich II vs Vevey
-Promotion League
-1.15 | 6.35 | 12.00
-RESULT: 8-1 | Home Win
-
-Lugano II vs Grand-Saconnex
-Promotion League
-3.86 | 4.07 | 1.77
-RESULT: 0-3 | Away Win
-
-Paradiso vs Cham
-Promotion League
-2.02 | 3.82 | 3.21
-RESULT: 0-2 | Away Win
-
-Young Boys II vs Kreuzlingen
-Promotion League
-1.70 | 3.95 | 3.85
+Dep. Tachira vs Metropolitanos
+Liga FUTVE - Apertura - Quadrangular
+1.60 | 3.74 | 5.66
 RESULT: 1-1 | Draw
 
-Biel vs Schaffhausen
-Promotion League
-1.83 | 3.98 | 3.67
-RESULT: 1-0 | Home Win
-
-Oberwallis Naters vs Prishtina Bern
-1.Liga Classic Group 1
-2.94 | 3.72 | 2.03
-RESULT: 2-1 | Home Win
-
-La Chaux-De-Fonds vs Meyrin
-1.Liga Classic Group 1
-2.79 | 3.55 | 2.17
-RESULT: 2-1 | Home Win
-
-Lancy vs Martigny
-1.Liga Classic Group 1
-2.03 | 3.90 | 3.12
-RESULT: 2-1 | Home Win
-
-Payerne vs Servette U21
-1.Liga Classic Group 1
-4.31 | 4.15 | 1.59
-RESULT: 0-6 | Away Win
-
-Sion II vs Sarraz-Eclepens
-1.Liga Classic Group 1
-1.90 | 4.15 | 3.00
-RESULT: 0-2 | Away Win
-
-Chenois vs Portalban
-1.Liga Classic Group 1
-1.90 | 3.88 | 3.52
-RESULT: 1-0 | Home Win
-
-Wohlen vs Courtetelle
-1.Liga Classic Group 2
-2.85 | 3.72 | 2.23
-RESULT: 0-1 | Away Win
-
-Collina d'Oro vs St. Gallen II
-1.Liga Classic Group 3
-2.04 | 3.54 | 3.04
-RESULT: 0-2 | Away Win
-
-Freienbach vs Winterthur II
-1.Liga Classic Group 3
-2.83 | 3.70 | 2.09
-RESULT: 0-2 | Away Win
-
-Wettswil-Bonstetten vs Kosova
-1.Liga Classic Group 3
-1.32 | 4.95 | 7.02
-RESULT: 2-2 | Draw
-
-YF Juventus vs Eschen/Mauren
-1.Liga Classic Group 3
-1.09 | 8.30 | 13.00
-RESULT: 1-2 | Away Win
-
-Mendrisio vs Dietikon
-1.Liga Classic Group 3
-2.29 | 3.38 | 2.63
-RESULT: 4-3 | Home Win
-
-Singida Black Stars vs Mtibwa Sugar
-Ligi Kuu Bara
-1.42 | 4.18 | 7.32
-RESULT: 4-0 | Home Win
-
-Young Africans vs Coastal Union
-Ligi Kuu Bara
-1.01 | 11.50 | 28.00
-RESULT: 3-0 | Home Win
-
-JKT Tanzania vs Mbeya City
-Ligi Kuu Bara
-1.70 | 3.29 | 5.39
-RESULT: 1-0 | Home Win
-
-Nong Bua Pitchaya vs Police Tero
-Thai League 2 - Promotion - Play Offs
-1.61 | 3.90 | 4.47
-RESULT: 3-1 | Home Win
-
-Pattani vs Chainat
-Thai League 2 - Promotion - Play Offs
-1.61 | 4.10 | 4.61
-RESULT: 2-1 | Home Win
-
-AS Marsa vs CS Sfaxien
-Ligue Professionnelle 1
-9.80 | 3.94 | 1.34
-RESULT: 0-3 | Away Win
-
-Etoile Sahel vs CA Bizertin
-Ligue Professionnelle 1
-1.76 | 3.15 | 4.65
-RESULT: 1-0 | Home Win
-
-Zarzis vs Metlaoui
-Ligue Professionnelle 1
-1.76 | 3.28 | 4.39
-RESULT: 1-0 | Home Win
-
-Alanyaspor vs Kayserispor
-Super Lig
-2.50 | 3.50 | 2.50
-RESULT: 3-1 | Home Win
-
-Basaksehir vs Samsunspor
-Super Lig
-1.76 | 4.00 | 4.00
-RESULT: 3-0 | Home Win
-
-Besiktas vs Trabzonspor
-Super Lig
-1.68 | 4.33 | 3.80
-RESULT: 1-2 | Away Win
-
-Eyupspor vs Rizespor
-Super Lig
-2.82 | 3.60 | 2.25
-RESULT: 4-0 | Home Win
-
-Galatasaray vs Antalyaspor
-Super Lig
-1.08 | 9.00 | 19.00
-RESULT: 4-2 | Home Win
-
-Genclerbirligi vs Kasimpasa
-Super Lig
-2.20 | 3.10 | 3.40
-RESULT: 3-2 | Home Win
-
-Goztepe vs Gaziantep
-Super Lig
-1.53 | 4.33 | 5.00
-RESULT: 2-1 | Home Win
-
-Kocaelispor vs Karagumruk
-Super Lig
-2.05 | 3.40 | 3.50
-RESULT: 0-1 | Away Win
-
-Konyaspor vs Fenerbahce
-Super Lig
-4.50 | 3.90 | 1.62
-RESULT: 0-3 | Away Win
-
-Mardin 1969 vs Musspor
-2. Lig Play Offs
-2.68 | 3.61 | 2.32
-RESULT: 2-1 | Home Win
-
-Fatih Vatan Spor W vs Amed SK W
-Super Lig Women
-10.50 | 7.20 | 1.14
-RESULT: 2-5 | Away Win
-
-Kitara vs NEC FC
-Premier League
-1.84 | 2.89 | 4.72
-RESULT: 0-1 | Away Win
-
-Rukh Lviv vs Veres-Rivne
-Premier League
-2.88 | 2.94 | 2.62
-RESULT: 0-0 | Draw
-
-LNZ Cherkasy vs Dyn. Kyiv
-Premier League
-3.14 | 3.14 | 2.30
-RESULT: 0-0 | Draw
-
-FK Zorya Luhansk vs Metalist 1925
-Premier League
-3.91 | 3.39 | 1.93
-RESULT: 1-1 | Draw
-
-Obolon vs Epitsentr
-Premier League
-2.94 | 3.02 | 2.52
-RESULT: 2-2 | Draw
-
-FC Chernihiv vs Ch. Odesa
-Persha Liga
-3.12 | 2.82 | 2.35
-RESULT: 2-2 | Draw
-
-Bukovyna vs Vorskla Poltava
-Persha Liga
-1.14 | 6.08 | 13.90
-RESULT: 6-0 | Home Win
-
-Metalist Kharkiv vs Podillya Khmelnytskyi
-Persha Liga
-1.66 | 3.37 | 4.92
-RESULT: 3-0 | Home Win
-
-Nyva Ternopil vs Fenix Mariupol
-Persha Liga
-4.39 | 3.40 | 1.83
-RESULT: 0-3 | Away Win
-
-Danubio vs Albion
-Liga AUF Uruguaya - Apertura
-2.45 | 3.00 | 2.70
-RESULT: 0-1 | Away Win
-
-Central Esp. vs Racing Montevideo
-Liga AUF Uruguaya - Apertura
-4.00 | 3.10 | 1.83
-RESULT: 2-0 | Home Win
-
-Atenas vs Uruguay Montevideo
-Segunda Division
-2.42 | 3.46 | 2.73
-RESULT: 2-1 | Home Win
-
-La Luz vs Colon
-Segunda Division
-2.63 | 3.06 | 2.77
-RESULT: 0-0 | Draw
-
-Paysandu FC vs Huracan FC
-Segunda Division
-2.40 | 3.23 | 2.92
-RESULT: 2-2 | Draw
-
-Plaza Colonia vs Fenix
-Segunda Division
-2.34 | 3.23 | 3.00
-RESULT: 0-1 | Away Win
-
-Toronto FC vs Inter Miami
-MLS
-4.50 | 4.75 | 1.57
-RESULT: 2-4 | Away Win
-
-Chicago Fire vs New York Red Bulls
-MLS
-1.45 | 5.00 | 5.75
+Afghanistan U20 vs Turkmenistan U20
+Friendly International
+Odds not available
 RESULT: 1-3 | Away Win
 
-CF Montreal vs Orlando City
-MLS
-1.91 | 3.80 | 3.50
+Uzbekistan U20 vs Kyrgyzstan U20
+Friendly International
+Odds not available
 RESULT: 2-0 | Home Win
 
-Lexington vs Monterey Bay
-USL Championship
-1.52 | 4.08 | 6.02
-RESULT: 3-1 | Home Win
-
-Colorado Springs vs Orange County SC
-USL Championship
-1.67 | 3.87 | 4.70
-RESULT: 2-2 | Draw
-
-Inter Miami II vs Chattanooga
-MLS Next Pro
-4.37 | 4.37 | 1.63
-RESULT: 1-2 | Away Win
-
-Chicago Fire II vs Crown Legacy
-MLS Next Pro
-3.02 | 4.19 | 2.00
-RESULT: 3-2 | Home Win
-
-San Jose Earthquakes II vs Vancouver Whitecaps 2
-MLS Next Pro
-1.80 | 4.06 | 3.75
-RESULT: 6-1 | Home Win
-
-St. Louis City 2 vs Houston Dynamo 2
-MLS Next Pro
-1.92 | 3.95 | 3.38
-RESULT: 1-4 | Away Win
-
-Chattanooga Red Wolves vs Sarasota Paradise
-USL League One
-1.75 | 3.68 | 4.41
-RESULT: 4-1 | Home Win
-
-Orlando Pride W vs North Carolina Courage W
-NWSL Women
-2.14 | 3.86 | 2.92
-RESULT: 1-0 | Home Win
-
-Gotham W vs Boston Legacy W
-NWSL Women
-1.40 | 4.69 | 7.03
-RESULT: 1-1 | Draw
-
-Metropolitanos vs Estudiantes Merida
-Liga FUTVE - Apertura - Quadrangular
-2.06 | 3.04 | 3.95
+NAPSA Stars vs Zanaco
+Super League
+2.62 | 2.83 | 3.01
 RESULT: 2-0 | Home Win
-
-La Guaira vs Portuguesa
-Liga FUTVE - Apertura - Quadrangular
-2.11 | 2.99 | 3.42
-RESULT: 1-1 | Draw
-
-Aragua vs Avila
-Liga FUTVE 2
-1.94 | 3.17 | 3.99
-RESULT: 1-1 | Draw
-
-Frontera vs Yaracuyanos
-Liga FUTVE 2
-2.85 | 3.22 | 2.38
-RESULT: 1-1 | Draw
-
-Monagas B vs Mineros
-Liga FUTVE 2
-1.89 | 3.26 | 4.08
-RESULT: 2-2 | Draw
-
-Zamora 2 vs Atletico Barinas
-Liga FUTVE 2
-1.85 | 3.33 | 4.20
-RESULT: 2-2 | Draw
-
-Barquisimeto vs Urena
-Liga FUTVE 2
-1.70 | 3.61 | 4.64
-RESULT: 0-0 | Draw
-
-Phu Dong Ninh Binh vs Hai Phong
-V.League 1
-1.75 | 3.58 | 4.56
-RESULT: 2-1 | Home Win
-
-Thanh Hoa vs Hanoi FC
-V.League 1
-5.47 | 4.06 | 1.56
-RESULT: 1-0 | Home Win
-
-Ho Chi Minh City vs Long An
-V.League 2
-2.32 | 3.30 | 2.89
-RESULT: 0-0 | Draw
-
-Quang Ninh vs Dong Thap
-V.League 2
-1.94 | 3.17 | 3.99
-RESULT: 0-1 | Away Win
-
-Xuan Thien Phu Tho vs Van Hien
-V.League 2
-1.65 | 3.71 | 4.89
-RESULT: 2-0 | Home Win
-```
