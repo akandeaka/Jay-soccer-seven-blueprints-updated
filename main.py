@@ -1,5 +1,6 @@
 """
 Main System - 8 Blueprints with Accumulator Validation
+COMPLETE WORKING VERSION
 """
 
 import os
@@ -24,6 +25,8 @@ INPUT_FILE = "input_matches.txt"
 # ============================================================
 
 def parse_matches():
+    """Read matches from input_matches.txt"""
+    
     if not os.path.exists(INPUT_FILE):
         print(f"\n❌ {INPUT_FILE} not found!")
         return []
@@ -32,6 +35,7 @@ def parse_matches():
         content = f.read().strip()
     
     if not content:
+        print(f"\n❌ {INPUT_FILE} is empty!")
         return []
     
     lines = [l.strip() for l in content.split('\n') if l.strip()]
@@ -72,6 +76,8 @@ def parse_matches():
 # ============================================================
 
 def build_accumulators(predictions):
+    """Build accumulators from predictions"""
+    
     if len(predictions) < 2:
         return {}
     
@@ -109,6 +115,8 @@ def build_accumulators(predictions):
             total *= m['odds']
         if 3.5 <= total <= 5.0:
             accumulators['4_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
+            for m in combo:
+                used.add(m['match'])
             break
     
     # 7 ODDS
@@ -119,81 +127,95 @@ def build_accumulators(predictions):
             total *= m['odds']
         if 6.0 <= total <= 8.5:
             accumulators['7_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
+            for m in combo:
+                used.add(m['match'])
             break
     
     return accumulators
 
 # ============================================================
-# VALIDATE ACCUMULATORS AGAINST RESULTS
-# ============================================================
-
-def validate_accumulator(accumulator, validation_results):
-    """Check if accumulator picks were successful"""
-    results = []
-    for match in accumulator['matches']:
-        match_name = match['match']
-        predicted_play = match['play']
-        
-        actual = validation_results.get(match_name)
-        if actual:
-            is_correct = False
-            home, away = actual['home_score'], actual['away_score']
-            
-            if 'Home Win' in predicted_play:
-                is_correct = (home > away)
-            elif 'Draw' in predicted_play:
-                is_correct = (home == away)
-            elif 'Both Teams to Score' in predicted_play:
-                is_correct = (home > 0 and away > 0)
-            elif 'Over 1.5' in predicted_play:
-                is_correct = (home + away > 1)
-            elif 'Under 3.5' in predicted_play:
-                is_correct = (home + away < 4)
-            elif 'Over 2.5' in predicted_play:
-                is_correct = (home + away > 2)
-            
-            results.append({
-                'match': match_name,
-                'predicted': predicted_play,
-                'actual': f"{home}-{away}",
-                'correct': is_correct
-            })
-    
-    return results
-
-# ============================================================
-# LOAD VALIDATION RESULTS
+# LOAD VALIDATION RESULTS (for accumulator validation)
 # ============================================================
 
 def load_validation_results():
     """Load actual results from validation_results.txt"""
+    
     if not os.path.exists("validation_results.txt"):
         return {}
     
     results = {}
     with open("validation_results.txt", 'r') as f:
         for line in f:
+            line = line.strip()
             if 'RESULT:' in line:
-                parts = line.strip().split('|')
+                parts = line.split('|')
                 match = parts[0].replace('RESULT:', '').strip()
-                score = parts[1].strip()
+                score = parts[1].strip() if len(parts) > 1 else ''
                 if '-' in score:
-                    home, away = score.split('-')
-                    results[match] = {'home_score': int(home), 'away_score': int(away)}
+                    home_score, away_score = score.split('-')
+                    results[match] = {
+                        'home_score': int(home_score.strip()),
+                        'away_score': int(away_score.strip())
+                    }
     return results
+
+# ============================================================
+# CHECK IF PREDICTION WAS CORRECT
+# ============================================================
+
+def is_prediction_correct(predicted_play, actual):
+    """Check if a prediction was correct"""
+    
+    home = actual['home_score']
+    away = actual['away_score']
+    total_goals = home + away
+    
+    if 'Home Win' in predicted_play:
+        return home > away
+    elif 'Draw' in predicted_play:
+        return home == away
+    elif 'Both Teams to Score - YES' in predicted_play:
+        return home > 0 and away > 0
+    elif 'Both Teams to Score - NO' in predicted_play:
+        return home == 0 or away == 0
+    elif 'Over 1.5' in predicted_play:
+        return total_goals > 1
+    elif 'Under 3.5' in predicted_play:
+        return total_goals < 4
+    elif 'Over 2.5' in predicted_play:
+        return total_goals > 2
+    elif '1X & Over 1.5' in predicted_play:
+        return (home >= away) and total_goals > 1
+    elif '1X & Under 3.5' in predicted_play:
+        return (home >= away) and total_goals < 4
+    elif 'Draw or GG' in predicted_play:
+        return (home == away) or (home > 0 and away > 0)
+    elif 'Draw or Under 2.5' in predicted_play:
+        return (home == away) or total_goals < 3
+    
+    return False
 
 # ============================================================
 # SEND TO TELEGRAM
 # ============================================================
 
 def send_telegram(message):
+    """Send message to Telegram"""
+    
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
-        print("⚠️ Telegram not configured")
+        print("⚠️ Telegram not configured - skipping")
         return False
+    
+    if len(message) > 4096:
+        message = message[:4000] + "\n\n... (truncated)"
     
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     try:
-        r = requests.post(url, json={'chat_id': TELEGRAM_CHAT_ID, 'text': message, 'parse_mode': 'HTML'}, timeout=30)
+        r = requests.post(url, json={
+            'chat_id': TELEGRAM_CHAT_ID,
+            'text': message,
+            'parse_mode': 'HTML'
+        }, timeout=30)
         return r.json().get('ok', False)
     except Exception as e:
         print(f"❌ Telegram error: {e}")
@@ -205,18 +227,21 @@ def send_telegram(message):
 
 def main():
     print("\n" + "="*60)
-    print("⚽ JAY SOCCER BLUEPRINTS SYSTEM (UPDATED)")
-    print("BP6: Draw or GG / Draw or Under 2.5")
-    print("BP8: Over 2.5 Goals with 0-0 odds validation")
+    print("⚽ JAY SOCCER BLUEPRINTS SYSTEM")
+    print("8 BLUEPRINTS | ACCUMULATOR VALIDATION")
     print("="*60)
+    print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
-    # Delete cache
+    # Delete old cache
     if os.path.exists("predictions.json"):
         os.remove("predictions.json")
+        print("🗑️ Deleted old cache")
     
     # Parse matches
     matches = parse_matches()
+    
     if not matches:
+        print("\n❌ No matches found in input_matches.txt")
         return 1
     
     print(f"\n📊 Loaded {len(matches)} matches")
@@ -224,13 +249,14 @@ def main():
     # Apply blueprints
     engine = BlueprintEngine()
     predictions = []
+    
     for match in matches:
         result = engine.classify(match)
         if result:
             predictions.append(result)
     
     if not predictions:
-        print("❌ No matches passed any blueprint")
+        print("\n❌ No matches passed any blueprint")
         return 1
     
     print(f"\n✅ {len(predictions)} matches passed blueprints")
@@ -238,66 +264,70 @@ def main():
     # Build accumulators
     accumulators = build_accumulators(predictions)
     
-    # Load validation results (if available)
+    # Load validation results (for showing accumulator results)
     validation_results = load_validation_results()
+    has_validation = len(validation_results) > 0
     
-    # Build message
+    # Build Telegram message
     message = f"""⚽ JAY SOCCER BLUEPRINTS - PREDICTIONS
 📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📊 PICKS ({len(predictions)})
+📊 BLUEPRINT PICKS ({len(predictions)})
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
     
-    for p in predictions[:15]:
-        emoji = "✅" if p['confidence'] >= 75 else "🟡"
-        message += f"\n{emoji} {p['blueprint']}: {p['match']}\n   🎯 {p['play']} | Confidence: {p['confidence']}%"
+    # Add individual picks
+    for p in predictions[:20]:
+        emoji = "✅" if p['confidence'] >= 75 else "🟡" if p['confidence'] >= 60 else "⚠️"
+        message += f"""
+{emoji} {p['blueprint']}: {p['match']}
+   🎯 {p['play']}
+   📈 Confidence: {p['confidence']}%
+"""
     
+    # Add accumulators with validation results
     if accumulators:
-        message += "\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎰 ACCUMULATORS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        message += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎰 ACCUMULATOR PICKS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         
         for name, acc in accumulators.items():
             message += f"\n{name} | Total Odds: {acc['odds']}\n"
             
-            # Show each match with validation if available
-            for m in acc['matches']:
-                match_name = m['match'][:40]
+            for match in acc['matches']:
+                match_name = match['match'][:45]
+                match_play = match['play']
                 message += f"   • {match_name}\n"
-                message += f"     🎯 {m['play']}\n"
+                message += f"     🎯 {match_play}\n"
                 
-                # SHOW VALIDATION RESULT IF AVAILABLE
-                if validation_results and match_name in validation_results:
+                # Show validation result if available
+                if has_validation and match_name in validation_results:
                     actual = validation_results[match_name]
                     actual_score = f"{actual['home_score']}-{actual['away_score']}"
-                    
-                    # Determine if prediction was correct
-                    is_correct = False
-                    if 'Home Win' in m['play']:
-                        is_correct = (actual['home_score'] > actual['away_score'])
-                    elif 'Draw' in m['play']:
-                        is_correct = (actual['home_score'] == actual['away_score'])
-                    elif 'Both Teams to Score' in m['play']:
-                        is_correct = (actual['home_score'] > 0 and actual['away_score'] > 0)
-                    elif 'Over 1.5' in m['play']:
-                        is_correct = (actual['home_score'] + actual['away_score'] > 1)
-                    elif 'Under 3.5' in m['play']:
-                        is_correct = (actual['home_score'] + actual['away_score'] < 4)
-                    elif 'Over 2.5' in m['play']:
-                        is_correct = (actual['home_score'] + actual['away_score'] > 2)
-                    
-                    status = "✅" if is_correct else "❌"
+                    correct = is_prediction_correct(match_play, actual)
+                    status = "✅" if correct else "❌"
                     message += f"     {status} Actual: {actual_score}\n"
+                elif has_validation:
+                    message += f"     ⚠️ Result not found\n"
     
-    message += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⚠️ Bet responsibly!"
+    message += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⚠️ Always bet responsibly!\n📊 AI predictions for informational purposes only."
     
     # Send to Telegram
     send_telegram(message)
     
-    # Save
+    # Save predictions
     with open("predictions.json", "w") as f:
         json.dump(predictions, f, indent=2)
     
-    print("\n✅ Done!")
+    print("\n" + "="*60)
+    print("✅ SYSTEM EXECUTION COMPLETE")
+    print("="*60)
+    print(f"\n📊 SUMMARY:")
+    print(f"   Matches read: {len(matches)}")
+    print(f"   Matches passed: {len(predictions)}")
+    print(f"   Accumulators built: {len(accumulators)}")
+    if has_validation:
+        print(f"   Validation results loaded: {len(validation_results)} matches")
+    
     return 0
 
 if __name__ == "__main__":
