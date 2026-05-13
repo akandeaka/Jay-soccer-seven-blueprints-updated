@@ -1,491 +1,695 @@
-Red Star vs Rodez
-FRANCE
-2.06 | 3.62 | 3.75
-
-Celta Vigo vs Levante
-SPAIN
-1.87 | 3.98 | 4.37
-
-Betis vs Elche
-SPAIN
-1.64 | 4.4 | 5.59
-
-Osasuna vs Atl. Madrid
-SPAIN
-2.63 | 3.71 | 2.73
-
-USM Alger vs Mostaganem
-ALGERIA
-1.12 | 6.15 | 20.0
-
-Saoura vs CR Belouizdad
-ALGERIA
-2.09 | 2.76 | 3.87
-
-Belgrano vs Union de Santa Fe
-ARGENTINA
-2.4 | 2.95 | 3.21
-
-Defensa y Justicia 2 vs Platense 2
-ARGENTINA
-2.01 | 3.28 | 3.35
-
-Estudiantes Rio Cuarto 2 vs Atl. Rafaela 2
-ARGENTINA
-2.43 | 3.02 | 2.71
-
-Gimnasia L.P. 2 vs Banfield 2
-ARGENTINA
-2.31 | 2.98 | 3.0
-
-Newells Old Boys 2 vs Quilmes 2
-ARGENTINA
-2.03 | 3.08 | 3.52
-
-Racing Club 2 vs Velez Sarsfield 2
-ARGENTINA
-2.89 | 3.1 | 2.31
-
-Canberra White Eagles vs Queanbeyan City
+**Brindabella vs Canberra Juventus**
 AUSTRALIA
-7.75 | 5.4 | 1.27
+3.94 | 4.55 | 1.68
 
-South Melbourne vs Bula
-AUSTRALIA & OCEANIA
-1.37 | 5.21 | 6.86
+**Canberra Olympic vs O'Connor Knights**
+AUSTRALIA
+1.66 | 4.94 | 3.75
 
-Auckland FC 2 vs South Island Utd
-AUSTRALIA & OCEANIA
-1.57 | 4.38 | 4.95
+**Tuggeranong Utd vs Canberra Croatia**
+AUSTRALIA
+5.76 | 5.50 | 1.40
 
-Brothers U. vs Mohammedan
-BANGLADESH
-4.84 | 3.48 | 1.65
+**Tigers FC vs Monaro Panthers**
+AUSTRALIA
+2.74 | 4.18 | 2.14
 
-SA Bulo Bulo vs Universitario de Vinto
-BOLIVIA
-2.0 | 3.6 | 3.12
+**Anyang vs Gimcheon Sangmu**
+SOUTH KOREA
+2.10 | 3.10 | 3.25
 
-GV San Jose vs Tomayapo
-BOLIVIA
-1.54 | 4.05 | 4.91
+**Bucheon FC 1995 vs Jeonbuk**
+SOUTH KOREA
+4.10 | 3.30 | 1.83
 
-Londrina vs Sao Bernardo
-BRAZIL
-2.22 | 2.85 | 3.67
+**Ulsan HD vs Jeju SK**
+SOUTH KOREA
+1.95 | 3.25 | 3.60
 
-Inter de Limeira vs Santa Cruz
-BRAZIL
-2.03 | 3.33 | 3.64
+**Machida vs Verdy**
+JAPAN
+1.86 | 3.00 | 4.75
 
-Maringa FC vs Guarani
-BRAZIL
-1.95 | 3.51 | 3.67
+**Vissel Kobe vs Kyoto**
+JAPAN
+1.86 | 3.40 | 4.10
 
-Nacao vs Tubarao
-BRAZIL
-3.04 | 3.3 | 2.18
+**Tensung vs Transport United**
+BHUTAN
+10.50 | 7.30 | 1.14
 
-Araucaria vs Rio Branco PR
-BRAZIL
-1.78 | 3.66 | 4.07
+**Nam Dinh vs Selangor**
+ASIA
+1.45 | 3.78 | 6.79
 
-Internacional vs Athletic Club
-BRAZIL
-1.24 | 5.45 | 11.9
+**Buriram vs Johor DT**
+ASIA
+2.53 | 3.56 | 2.29
 
-Vitoria U20 vs Gremio U20
-BRAZIL
-1.77 | 3.62 | 3.85
-
-Palmeiras U20 vs Avai U20
-BRAZIL
-1.09 | 8.2 | 14.0
-
-Coritiba U20 vs Operario PR U20
-BRAZIL
-1.6 | 3.8 | 4.93
-
-Paysandu PA U20 vs Sport Recife U20
-BRAZIL
-3.25 | 3.44 | 1.99
-
-G3X vs Capim
-BRAZIL
-1.18 | 10.0 | 7.08
-
-Dendele vs Fluxo
-BRAZIL
-1.85 | 7.5 | 2.33
-
-Palmeiras W vs Atletico-MG W
-BRAZIL
-1.25 | 5.33 | 12.8
-
-Corinthians W vs Sao Paulo W
-BRAZIL
-1.61 | 3.9 | 5.2
-
-Vasco W vs Araguari W
-BRAZIL
-1.02 | 23.0 | 50.0
-
-Cherno More vs Lok. Plovdiv
+**Slavia Sofia vs Dobrudzha**
 BULGARIA
-1.99 | 3.1 | 4.06
+2.65 | 3.30 | 2.40
 
-Botev Plovdiv vs Arda
+**CSKA Sofia vs CSKA 1948 Sofia**
 BULGARIA
-2.24 | 2.91 | 3.52
+2.01 | 3.25 | 3.80
 
-Curico Unido vs San Marcos de Arica
-CHILE
-2.37 | 3.26 | 2.94
+**Ludogorets vs Levski Sofia**
+BULGARIA
+1.76 | 3.40 | 4.50
 
-Palestino vs Limache
-CHILE
-3.66 | 3.6 | 1.93
+**Green Buffaloes vs Mufulira**
+ZAMBIA
+2.40 | 2.94 | 2.91
 
-U. Magdalena vs Cartagena
-COLOMBIA
-1.9 | 3.45 | 3.53
+**Mbarara City vs Villa**
+UGANDA
+5.11 | 3.08 | 1.72
 
-Dep. Cali vs Bucaramanga
-COLOMBIA
-2.32 | 2.86 | 3.46
+**UPDF vs Kampala City**
+UGANDA
+5.42 | 3.70 | 1.57
 
-Millonarios vs Llaneros
-COLOMBIA
-1.4 | 4.47 | 7.63
+**Mbeya City vs Coastal Union**
+TANZANIA
+1.94 | 2.99 | 3.97
 
-Leones vs Orsomarso
-COLOMBIA
-3.24 | 2.6 | 2.46
+**Dodoma Jiji vs Young Africans**
+TANZANIA
+9.40 | 4.95 | 1.26
 
-Real Santander vs Boca Juniors
-COLOMBIA
-2.44 | 2.85 | 2.95
+**Tanzania Prisons vs Fountain Gate**
+TANZANIA
+2.31 | 2.85 | 3.15
 
-Escorpiones vs Inter San Carlos
-COSTA RICA
-2.06 | 3.2 | 3.51
-
-Mlada Boleslav vs Dukla Prague
-CZECH REPUBLIC
-1.93 | 3.66 | 3.55
-
-Slovacko vs Ostrava
-CZECH REPUBLIC
-2.58 | 3.44 | 2.5
-
-Zlin vs Teplice
-CZECH REPUBLIC
-2.55 | 3.04 | 2.79
-
-Sparta Prague vs Plzen
-CZECH REPUBLIC
-2.4 | 3.34 | 2.81
-
-Chrudim vs Pribram
-CZECH REPUBLIC
-2.54 | 3.38 | 2.36
-
-Sternberk vs Vsechovice
-CZECH REPUBLIC
-4.97 | 3.94 | 1.55
-
-Mushuc Runa vs LDU Quito
-ECUADOR
-3.18 | 3.24 | 2.24
-
-El Gouna vs Kahrabaa Ismailia
+**Haras El Hodood vs Arab Contractors**
 EGYPT
-2.21 | 2.82 | 3.42
+3.84 | 2.69 | 2.14
 
-Pharco vs Modern Sport
+**ZED vs Ghazl El Mahallah**
 EGYPT
-3.44 | 2.66 | 2.31
+2.59 | 2.60 | 3.04
 
-Wadi Degla vs El Ismaily
-EGYPT
-1.69 | 3.13 | 5.36
+**Kudrivka vs Rukh Lviv**
+UKRAINE
+2.17 | 3.25 | 3.56
 
-Southampton vs Middlesbrough
-ENGLAND
-2.51 | 3.5 | 2.88
+**Dyn. Kyiv vs Kolos Kovalivka**
+UKRAINE
+1.40 | 4.85 | 7.60
 
-Real Madrid U21 vs Dortmund II
-EUROPE
-1.81 | 3.56 | 3.72
+**LNZ Cherkasy vs SC Poltava**
+UKRAINE
+1.15 | 5.95 | 13.70
 
-Inter Turku vs Hercules
-FINLAND
-1.04 | 13.0 | 41.0
+**Al Kuwait (Kuw) vs Svay Rieng (Cam)**
+ASIA
+1.69 | 3.74 | 4.67
 
-SJK vs PEPO
-FINLAND
-1.01 | 15.0 | 41.0
-
-PK-35 vs KuPS
-FINLAND
-9.3 | 5.15 | 1.25
-
-Bombada vs Dutch Lions
-GAMBIA
-2.04 | 2.91 | 3.73
-
-Hart Academy vs Hawks
-GAMBIA
-2.01 | 2.85 | 3.95
-
-Samger vs Real Banjul
-GAMBIA
-3.42 | 2.8 | 2.21
-
-Team Rhino vs BST Galaxy
-GAMBIA
-2.42 | 2.8 | 3.02
-
-TSV Buchholz 08 vs Teutonia Ottensen
-GERMANY
-1.75 | 4.2 | 3.3
-
-Asteras Tripolis vs Panserraikos
-GREECE
-1.84 | 3.36 | 4.43
-
-Kifisia vs Atromitos
-GREECE
-2.29 | 3.24 | 3.11
-
-Panetolikos vs AEL Larissa
-GREECE
-2.25 | 3.1 | 3.33
-
-Mohun Bagan vs Inter Kashi
-INDIA
-1.12 | 6.7 | 15.0
-
-Namdhari vs Gokulam
-INDIA
-2.71 | 3.2 | 2.32
-
-Sreebhumi W vs Gokulam Kerala W
-INDIA
-3.52 | 3.62 | 1.85
-
-Hapoel Tel Aviv vs Hapoel Petah Tikva
-ISRAEL
-1.41 | 4.7 | 6.58
-
-Beitar Jerusalem vs H. Beer Sheva
-ISRAEL
-2.56 | 3.7 | 2.39
-
-Modena vs Juve Stabia
-ITALY
-2.18 | 3.08 | 3.97
-
-Catanzaro vs Avellino
-ITALY
-2.06 | 3.36 | 3.95
-
-Al-Faisaly Amman vs Al Ramtha
-JORDAN
-1.61 | 3.64 | 4.92
-
-Al Hussein vs Al Wehdat
-JORDAN
-2.31 | 2.77 | 3.28
-
-FK Liepaja vs Ogre United
+**BFC Daugavpils vs RFS**
 LATVIA
-1.26 | 5.2 | 8.65
+7.55 | 5.50 | 1.27
 
-Riga FC vs Auda
-LATVIA
-1.46 | 4.25 | 5.54
+**Bleiburg vs Atus Ferlach**
+AUSTRIA
+1.58 | 3.98 | 4.62
 
-Al Ansar vs Al Ahed
-LEBANON
-1.74 | 3.22 | 4.65
+**Brikama U. vs Falcons**
+GAMBIA
+2.31 | 2.60 | 3.53
 
-Linfield vs Dungannon
-NORTHERN IRELAND
-1.41 | 4.75 | 5.57
+**Greater Tomorrow vs Gambia Ports**
+GAMBIA
+3.01 | 2.65 | 2.55
 
-Sarpsborg 08 W vs Honefoss W
-NORWAY
-9.8 | 6.0 | 1.2
+**Medina United vs Fortune**
+GAMBIA
+2.65 | 2.69 | 2.75
 
-Viking W vs Haugesund W
-NORWAY
-5.85 | 4.85 | 1.38
+**Steve Biko vs TMT**
+GAMBIA
+2.26 | 2.45 | 4.00
 
-Sur Club vs Al Khaboora
-OMAN
-2.0 | 2.92 | 3.85
+**Aktobe vs Altai**
+KAZAKHSTAN
+1.46 | 3.70 | 6.93
 
-Al-Rustaq vs Ibri
-OMAN
-2.99 | 3.05 | 2.28
+**Zhenis vs Kyzylzhar**
+KAZAKHSTAN
+2.33 | 2.91 | 3.06
 
-Cerro Porteno vs Guarani
-PARAGUAY
-1.92 | 3.31 | 4.08
+**Kaisar Kyzylorda vs Tobol**
+KAZAKHSTAN
+2.74 | 2.96 | 2.45
 
-Sport Boys vs U. de Deportes
-PERU
-3.34 | 3.13 | 2.22
+**Ordabasy vs Zhetysu Taldykorgan**
+KAZAKHSTAN
+1.45 | 3.82 | 6.77
 
-Zaglebie II vs Carina Gubin
+**AB Copenhagen vs Roskilde**
+DENMARK
+1.51 | 4.50 | 5.28
+
+**Gornik Zabrze II vs Legnica II**
 POLAND
-1.63 | 3.94 | 4.27
+1.72 | 4.25 | 3.52
 
-FC Voluntari vs Sepsi Sf. Gheorghe
-ROMANIA
-2.75 | 3.18 | 2.49
+**Al Ittihad vs El Gaish**
+EGYPT
+2.58 | 2.51 | 3.20
 
-Domagnano vs Virtus
-SAN MARINO
-6.29 | 4.2 | 1.42
+**National Bank Egypt vs Petrojet**
+EGYPT
+1.71 | 3.42 | 4.53
 
-Tre Penne vs La Fiorita
-SAN MARINO
-2.28 | 3.08 | 2.96
+**Saham vs Oman Club**
+OMAN
+3.58 | 3.13 | 1.99
 
-Al Kholood vs Al Okhdood
-SAUDI ARABIA
-1.59 | 4.02 | 5.23
+**Shakhtar Donetsk vs Obolon**
+UKRAINE
+1.21 | 6.49 | 14.00
 
-Al Nassr vs Al Hilal
-SAUDI ARABIA
-2.32 | 3.38 | 2.93
+**Ulinzi Stars vs Leopards**
+KENYA
+4.05 | 3.02 | 1.91
 
-Dunfermline vs Partick Thistle
-SCOTLAND
-2.76 | 3.13 | 2.56
+**Arka Gdynia vs Gornik Zabrze**
+POLAND
+3.75 | 3.40 | 1.91
 
-Aberdeen vs St. Mirren
-SCOTLAND
-2.18 | 3.38 | 3.21
-
-Dundee Utd vs Livingston
-SCOTLAND
-1.7 | 3.98 | 4.41
-
-Kilmarnock vs Dundee FC
-SCOTLAND
-1.89 | 3.56 | 3.89
-
-Clyde vs Hamilton
-SCOTLAND
-2.47 | 3.36 | 2.45
-
-FAP vs Kabel Novi Sad
-SERBIA
-2.12 | 3.2 | 3.25
-
-TS Galaxy vs Mamelodi Sundowns
-SOUTH AFRICA
-9.4 | 4.35 | 1.31
-
-Gangwon vs Daejeon
-SOUTH KOREA
-2.18 | 3.14 | 3.45
-
-Gwangju FC vs Seoul
-SOUTH KOREA
-7.95 | 4.5 | 1.39
-
-Incheon vs Pohang
-SOUTH KOREA
-2.74 | 2.92 | 2.74
-
-Landskrona vs Norrby
-SWEDEN
-1.95 | 3.5 | 3.65
-
-Varnamo vs Orebro
-SWEDEN
-1.98 | 3.34 | 3.71
-
-Djurgarden W vs Hammarby W
-SWEDEN
-7.02 | 4.7 | 1.34
-
-Grasshoppers vs Winterthur
-SWITZERLAND
-1.93 | 3.68 | 3.61
-
-Luzern vs Zurich
-SWITZERLAND
-1.44 | 4.9 | 5.9
-
-Servette vs Lausanne
-SWITZERLAND
-1.82 | 3.92 | 3.8
-
-Singida Black Stars vs Namungo
-TANZANIA
-1.38 | 3.92 | 8.15
-
-TRA United vs JKT Tanzania
-TANZANIA
-2.12 | 2.92 | 3.48
-
-JS Omrane vs AS Marsa
+**AS Gabes vs Stade Tunisien**
 TUNISIA
-2.2 | 2.51 | 4.02
+9.15 | 3.66 | 1.39
 
-BUL vs Lugazi
-UGANDA
-1.47 | 4.15 | 5.55
+**CA Bizertin vs Zarzis**
+TUNISIA
+2.03 | 2.93 | 3.73
 
-Police vs Vipers
-UGANDA
-4.71 | 3.15 | 1.75
+**Din. Zagreb vs Rijeka**
+CROATIA
+1.69 | 3.74 | 4.72
 
-URA SC vs Calvary
-UGANDA
-1.3 | 5.0 | 7.7
+**Hradec Kralove vs Liberec**
+CZECH REPUBLIC
+2.45 | 3.20 | 2.75
 
-Express vs Kitara
-UGANDA
-4.5 | 3.15 | 1.75
+**Farul Constanta W vs Gloria Bistrita W**
+ROMANIA
+1.29 | 5.40 | 7.06
 
-Oleksandriya vs FK Zorya Luhansk
-UKRAINE
-3.36 | 3.28 | 2.23
+**Csikszereda M. Ciuc W vs Ol. Cluj W**
+ROMANIA
+1.83 | 3.60 | 3.61
 
-Epitsentr vs Polissya Zhytomyr
-UKRAINE
-6.45 | 3.92 | 1.56
+**Sabah Baku vs Zira**
+AZERBAIJAN
+1.58 | 3.45 | 5.64
 
-Metalist 1925 vs Karpaty Lviv
-UKRAINE
-2.14 | 3.3 | 3.56
+**Rakow vs Jagiellonia**
+POLAND
+2.05 | 3.40 | 3.20
 
-Veres-Rivne vs Kryvbas
-UKRAINE
-2.65 | 3.51 | 2.55
+**Ferroviario Maputo vs Maxaquene**
+MOZAMBIQUE
+1.66 | 3.20 | 5.36
 
-Al Wasl U23 vs Al Jazira U23
-UNITED ARAB EMIRATES
-1.8 | 3.58 | 3.75
+**Sofala vs UD Songo**
+MOZAMBIQUE
+3.94 | 3.14 | 1.89
 
-Ittihad Kalba U23 vs Al Nasr U23
-UNITED ARAB EMIRATES
-1.76 | 3.96 | 3.56
+**CAPS Utd vs MWOS**
+ZIMBABWE
+2.14 | 2.73 | 3.74
 
-Al Wahda U23 vs Khorfakkan U23
-UNITED ARAB EMIRATES
-1.68 | 3.8 | 4.12
+**Chicken Inn vs Simba Bhora**
+ZIMBABWE
+2.62 | 2.56 | 2.94
 
-Cerro Largo vs Penarol
-URUGUAY
-4.06 | 3.34 | 1.91
+**Levadiakos vs OFI Crete**
+GREECE
+1.66 | 4.10 | 4.50
 
-Dep. Tachira vs Metropolitanos
-VENEZUELA
-1.71 | 3.28 | 4.75
+**Volos vs Aris**
+GREECE
+3.80 | 3.50 | 1.91
+
+**Milsami vs Zimbru Chisinau**
+MOLDOVA
+4.57 | 3.78 | 1.62
+
+**Sheriff Tiraspol vs Petrocub**
+MOLDOVA
+1.71 | 3.25 | 4.80
+
+**U. Cluj vs Univ. Craiova**
+ROMANIA
+2.96 | 3.24 | 2.38
+
+**SV Spittal vs SAK Klagenfurt**
+AUSTRIA
+2.25 | 3.68 | 2.52
+
+**Donau Klagenfurt vs Volkermarkt**
+AUSTRIA
+2.51 | 3.50 | 2.33
+
+**TSV Grafenstein vs ATSV Wolfsberger**
+AUSTRIA
+3.48 | 3.86 | 1.80
+
+**Koflach vs Furstenfeld**
+AUSTRIA
+2.51 | 3.55 | 2.31
+
+**Deutschlandsberger vs Treibach**
+AUSTRIA
+1.24 | 5.50 | 8.85
+
+**Luneburger Hansa vs Heeslinger**
+GERMANY
+3.94 | 4.25 | 1.64
+
+**Brest vs Strasbourg**
+FRANCE
+2.70 | 3.60 | 2.45
+
+**Espanyol vs Ath Bilbao**
+SPAIN
+2.70 | 3.20 | 2.70
+
+**Villarreal vs Sevilla**
+SPAIN
+2.00 | 3.50 | 3.80
+
+**Bahla vs Al Nasr**
+OMAN
+2.59 | 2.81 | 2.70
+
+**Ironi Tiberias vs Maccabi Bnei Raina**
+ISRAEL
+1.67 | 3.60 | 4.20
+
+**Netanya vs Hapoel Haifa**
+ISRAEL
+2.00 | 3.70 | 3.00
+
+**Sakhnin vs Kiryat Shmona**
+ISRAEL
+2.80 | 3.00 | 2.30
+
+**SC Ashdod vs Hapoel Jerusalem**
+ISRAEL
+2.60 | 3.00 | 2.60
+
+**Naestved vs Hellerup**
+DENMARK
+1.48 | 4.20 | 6.25
+
+**Thisted FC vs Vendsyssel**
+DENMARK
+3.39 | 3.38 | 2.08
+
+**Helsingor vs F. Amager**
+DENMARK
+2.54 | 3.10 | 2.54
+
+**Ishoj vs Brabrand**
+DENMARK
+2.31 | 3.28 | 2.76
+
+**Skive vs VSK Aarhus**
+DENMARK
+2.33 | 3.05 | 2.92
+
+**Al Raed vs Abha**
+SAUDI ARABIA
+2.34 | 3.34 | 2.59
+
+**Al Taee vs Jeddah**
+SAUDI ARABIA
+1.68 | 3.72 | 4.22
+
+**Al Adalah vs Al Jubail**
+SAUDI ARABIA
+1.61 | 3.90 | 4.47
+
+**Al Arabi vs Al Jandal**
+SAUDI ARABIA
+2.03 | 3.42 | 3.16
+
+**Flora U21 vs Nomme Utd U21**
+ESTONIA
+1.76 | 4.45 | 3.25
+
+**APR vs Etincelles**
+RWANDA
+1.42 | 3.82 | 7.43
+
+**Forge vs Supra du Quebec**
+CANADA
+1.74 | 4.10 | 3.54
+
+**Lens vs PSG**
+FRANCE
+3.00 | 4.00 | 2.10
+
+**Alaves vs Barcelona**
+SPAIN
+3.30 | 4.00 | 2.00
+
+**Getafe vs Mallorca**
+SPAIN
+2.30 | 3.10 | 3.50
+
+**Aurora vs Real Oruro**
+BOLIVIA
+1.56 | 4.33 | 4.50
+
+**San Martin T. vs Gimnasia Jujuy**
+ARGENTINA
+2.32 | 2.45 | 4.10
+
+**Maccabi Tel Aviv vs Maccabi Haifa**
+ISRAEL
+1.65 | 3.80 | 4.00
+
+**Cumbaya vs LDU Portoviejo**
+ECUADOR
+2.10 | 2.89 | 3.59
+
+**Stockport County vs Stevenage**
+ENGLAND
+1.91 | 3.25 | 4.00
+
+**Manchester City vs Crystal Palace**
+ENGLAND
+1.22 | 7.50 | 10.00
+
+**Olympiacos Piraeus vs Panathinaikos**
+GREECE
+1.41 | 4.33 | 7.50
+
+**PAOK vs AEK Athens**
+GREECE
+1.71 | 3.60 | 4.50
+
+**Arsenal W vs Everton W**
+ENGLAND
+1.08 | 9.50 | 21.00
+
+**Slavia Prague vs Jablonec**
+CZECH REPUBLIC
+1.38 | 4.50 | 6.50
+
+**EPS vs Haka**
+FINLAND
+24.00 | 10.70 | 1.02
+
+**HIFK vs JaPS**
+FINLAND
+3.39 | 3.58 | 1.90
+
+**KaPa vs MyPa**
+FINLAND
+1.23 | 5.80 | 8.60
+
+**Lahti vs Mikkeli**
+FINLAND
+1.23 | 5.40 | 9.50
+
+**P-Iirot Rauma vs Ilves**
+FINLAND
+15.00 | 8.30 | 1.08
+
+**SJK Akatemia vs KPV Kokkola**
+FINLAND
+1.18 | 6.90 | 9.25
+
+**TPS vs HJS**
+FINLAND
+1.06 | 9.00 | 18.00
+
+**VPS vs Abo**
+FINLAND
+1.01 | 12.00 | 27.00
+
+**Mariehamn vs PuiU**
+FINLAND
+1.06 | 8.60 | 19.00
+
+**Rovaniemi vs HJK**
+FINLAND
+25.00 | 10.70 | 1.02
+
+**VJS vs Jaro**
+FINLAND
+6.08 | 4.20 | 1.43
+
+**EBK vs Tampere Utd**
+FINLAND
+9.80 | 5.35 | 1.23
+
+**KuPS Akatemia vs Honka**
+FINLAND
+3.06 | 3.82 | 1.95
+
+**Klaksvik vs NSI Runavik**
+FAROE ISLANDS
+1.70 | 3.58 | 4.28
+
+**Throttur vs Breidablik**
+ICELAND
+4.11 | 4.15 | 1.62
+
+**Savoia vs Scafatese**
+ITALY
+2.62 | 3.18 | 2.40
+
+**Folgore Caratese vs Treviso**
+ITALY
+2.11 | 3.15 | 3.22
+
+**Kosova vs Freienbach**
+SWITZERLAND
+2.30 | 3.82 | 2.40
+
+**BSV Rehden vs Hildesheim**
+GERMANY
+2.74 | 3.84 | 2.10
+
+**Bad Sauerbrunn vs Leithaprodersdorf**
+AUSTRIA
+2.40 | 3.54 | 2.42
+
+**Strasswalchen vs Schwarzach**
+AUSTRIA
+1.73 | 3.85 | 3.79
+
+**Weinland Gamlitz vs Pachern**
+AUSTRIA
+1.96 | 3.72 | 3.10
+
+**Lecco vs Pianese**
+ITALY
+2.22 | 2.94 | 3.61
+
+**Ravenna vs Cittadella**
+ITALY
+2.23 | 3.15 | 3.33
+
+**Renate vs Casarano**
+ITALY
+2.26 | 3.20 | 3.21
+
+**Salernitana vs Casertana**
+ITALY
+2.03 | 3.32 | 3.65
+
+**Potenza vs Campobasso**
+ITALY
+2.34 | 3.25 | 3.01
+
+**Hearts vs Falkirk**
+SCOTLAND
+1.39 | 4.75 | 7.00
+
+**Motherwell vs Celtic**
+SCOTLAND
+4.75 | 4.20 | 1.57
+
+**Rangers vs Hibernian**
+SCOTLAND
+1.53 | 4.50 | 5.00
+
+**Alloa vs Stenhousemuir**
+SCOTLAND
+2.50 | 3.30 | 2.75
+
+**Tamale City vs Debibi**
+GHANA
+2.21 | 3.18 | 2.99
+
+**Afturelding vs Njardvik**
+ICELAND
+1.93 | 3.75 | 3.16
+
+**Akranes vs Grindavik**
+ICELAND
+1.28 | 5.15 | 7.90
+
+**Kopavogur vs Vikingur Reykjavik**
+ICELAND
+9.05 | 5.40 | 1.24
+
+**Stjarnan vs KR Reykjavik**
+ICELAND
+4.15 | 4.50 | 1.57
+
+**Banos vs Delfin**
+ECUADOR
+5.46 | 3.43 | 1.68
+
+**AJEL vs Guediawaye**
+SENEGAL
+1.92 | 2.80 | 4.68
+
+**ASC HLM vs Linguere**
+SENEGAL
+2.32 | 2.57 | 3.56
+
+**Dakar SC vs Mbour**
+SENEGAL
+2.55 | 2.63 | 2.85
+
+**Pikine vs Jaraaf**
+SENEGAL
+3.05 | 2.55 | 2.48
+
+**Wally Daan vs Teungueth**
+SENEGAL
+2.75 | 2.44 | 2.95
+
+**Grosuplje vs Aluminij**
+SLOVENIA
+3.32 | 3.10 | 2.23
+
+**Crvena zvezda vs Vojvodina**
+SERBIA
+1.41 | 4.30 | 6.24
+
+**Differdange vs Rodange**
+LUXEMBOURG
+1.08 | 8.20 | 16.50
+
+**Niedercorn vs Victoria Rosport**
+LUXEMBOURG
+1.78 | 3.60 | 3.81
+
+**Almere City vs Willem II**
+NETHERLANDS
+2.25 | 3.50 | 2.85
+
+**Genclerbirligi vs Trabzonspor**
+TURKEY
+5.00 | 3.50 | 1.65
+
+**Lazio vs Inter**
+ITALY
+5.00 | 3.60 | 1.66
+
+**FK Smiltene vs Super Nova 2**
+LATVIA
+4.31 | 4.25 | 1.58
+
+**Coquimbo W vs Deportes Iquique W**
+CHILE
+1.39 | 4.50 | 6.23
+
+**Recoleta W vs U. Catolica W**
+CHILE
+24.00 | 13.50 | —
+
+**Brasil de Pelotas vs Guarany de Bage**
+BRAZIL
+2.14 | 2.93 | 3.42
+
+**Gramadense vs Santa Cruz RS**
+BRAZIL
+2.26 | 2.78 | 3.34
+
+**Bogota vs Barranquilla**
+COLOMBIA
+1.71 | 3.56 | 4.27
+
+**Real Cundinamarca vs Ind. Yumbo**
+COLOMBIA
+2.20 | 3.10 | 3.50
+
+**Palestino W vs Colo-Colo W**
+CHILE
+29.00 | 15.00 | 1.03
+
+**S. Wanderers W vs U. Espanola W**
+CHILE
+5.07 | 3.86 | 1.55
+
+**Perolas Negras vs America RJ**
+BRAZIL
+3.30 | 2.65 | 2.38
+
+**Marica vs Sao Goncalo**
+BRAZIL
+1.95 | 2.83 | 4.26
+
+**Independiente vs Blooming**
+BOLIVIA
+2.25 | 3.60 | 2.45
+
+**Aguila vs Luis Angel Firpo**
+EL SALVADOR
+2.34 | 2.94 | 3.01
+
+**Rosario Central vs Racing Club**
+ARGENTINA
+2.20 | 3.00 | 3.60
+
+**Platense vs San Martin S.J.**
+ARGENTINA
+1.79 | 3.05 | 4.70
+
+**U. De Chile W vs Magallanes W**
+CHILE
+1.01 | 14.50 | 25.00
+
+**Ind. del Valle vs U. Catolica**
+ECUADOR
+2.18 | 3.02 | 3.23
+
+**Hercilio Luz vs Blumenau**
+BRAZIL
+2.30 | 3.26 | 2.78
+
+**Ferroviaria vs Juventus-SP**
+BRAZIL
+1.94 | 2.89 | 4.20
+
+**Juventude vs Sao Paulo**
+BRAZIL
+3.00 | 3.10 | 2.35
+
+**Vasco vs Paysandu PA**
+BRAZIL
+1.33 | 4.75 | 8.00
+
+**Coritiba vs Santos**
+BRAZIL
+2.65 | 2.75 | 2.85
+
+**Vila Nova FC vs Anapolis**
+BRAZIL
+1.57 | 3.68 | 5.18
+
+**Rio Branco ES vs Vitoria ES**
+BRAZIL
+2.38 | 3.14 | 2.68
