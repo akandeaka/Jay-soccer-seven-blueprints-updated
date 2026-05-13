@@ -1,4 +1,40 @@
 """
+# Add this after your existing imports
+# ============================================================
+# LEAGUE QUALITY FILTER (Does not affect existing logic)
+# ============================================================
+
+# Approved leagues with good data (from your GitHub clone)
+APPROVED_LEAGUES = [
+    'premier league', 'bundesliga', 'la liga', 'serie a', 'ligue 1',
+    'championship', 'eredivisie', 'primeira liga', 'belgian pro league',
+    'scottish premiership', 'turkish super lig', 'russian premier league',
+    'mls', 'argentina', 'brazil', 'mexico', 'colombia', 'chile',
+    'czech republic', 'poland', 'greece', 'denmark', 'sweden', 'norway',
+    'austria', 'switzerland', 'croatia', 'serbia', 'bulgaria', 'romania',
+    'ukraine', 'israel'
+]
+
+# Keywords that indicate LOW DATA QUALITY (these get lower confidence)
+LOW_QUALITY_KEYWORDS = [
+    'u20', 'u19', 'u21', 'reserve', '2', 'ii', 'b', 'youth', 'academy',
+    'amateur', 'regional', 'cup', 'pokal', 'coppa', 'copa', 'fa cup'
+]
+
+def get_league_quality(league_name):
+    """Return quality multiplier (1.0 = high, 0.5 = low, 0 = exclude)"""
+    league_lower = league_name.lower()
+    
+    for kw in LOW_QUALITY_KEYWORDS:
+        if kw in league_lower:
+            return 0.3  # Low quality, but not excluded
+    
+    for approved in APPROVED_LEAGUES:
+        if approved in league_lower:
+            return 1.0  # High quality
+    
+    return 0.6  # Default medium quality
+
 Blueprint Engine - 8 Blueprints UPDATED
 BP6: Draw or GG / Draw or Under 2.5
 BP8: Over 2.5 Goals ONLY if 0-0 odds > 20
@@ -46,22 +82,30 @@ def check_bp5(home):
     return None
 
 
-def check_bp6(draw, league):
-    """BP6: Draw or GG / Draw or Under 2.5"""
+def check_bp6(draw, league, home_goals_avg=1.2, away_goals_avg=1.2):
+    """IMPROVED BP6: Draw or GG / Draw or Under 2.5"""
     if not (2.75 <= draw <= 3.39):
         return None
     
-    is_high = any(hl in league.lower() for hl in HIGH_SCORING_LEAGUES)
-    is_low = any(ll in league.lower() for ll in LOW_SCORING_LEAGUES)
+    avg_goals = (home_goals_avg + away_goals_avg) / 2
+    league_quality = get_league_quality(league)
     
-    if is_high:
-        return ('BP6', 'Draw or GG (Draw OR Both Teams to Score)', 68)
-    elif is_low:
-        return ('BP6', 'Draw or Under 2.5 Goals', 72)
+    # Determine if high scoring or low scoring
+    is_high_scoring = (avg_goals >= 1.3 or any(hl in league.lower() for hl in HIGH_SCORING_LEAGUES))
+    is_low_scoring = (avg_goals <= 1.0 or 'serie b' in league.lower() or 'ligue 2' in league.lower())
+    
+    # Adjust confidence based on league quality
+    quality_adjustment = league_quality
+    
+    if is_high_scoring:
+        conf = int(68 * quality_adjustment)
+        return ('BP6', 'Draw or GG (Draw OR Both Teams to Score)', max(conf, 55))
+    elif is_low_scoring:
+        conf = int(72 * quality_adjustment)
+        return ('BP6', 'Draw or Under 2.5 Goals', max(conf, 55))
     else:
-        return ('BP6', 'Full Time Draw', 55)
-
-
+        conf = int(55 * quality_adjustment)
+        return ('BP6', 'Full Time Draw', max(conf, 45))
 def check_bp7(home, league):
     if 1.40 <= home <= 1.69:
         is_high = any(hl in league.lower() for hl in HIGH_SCORING_LEAGUES)
