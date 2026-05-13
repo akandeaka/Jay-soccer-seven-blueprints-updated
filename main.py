@@ -2,40 +2,7 @@
 Main System - 8 Blueprints with Accumulator Validation
 Includes: 2_ODDS, 4_ODDS, 7_ODDS, 10_ODDS
 """
-def build_accumulators(predictions):
-    # ============================================================
-    # LEAGUE QUALITY FILTER - Remove low quality picks from accumulators
-    # ============================================================
-    
-    LOW_QUALITY_KEYWORDS = [
-        'u20', 'u19', 'u21', 'reserve', '2', 'ii', 'b', 'youth', 'academy',
-        'uganda', 'oman', 'gambia', 'latvia', 'tanzania', 'india', 'bangladesh'
-    ]
-    
-    def is_high_quality(pick):
-        league = pick.get('league', '').lower()
-        match_name = pick.get('match', '').lower()
-        
-        for kw in LOW_QUALITY_KEYWORDS:
-            if kw in league or kw in match_name:
-                return False
-        
-        # Also check blueprint - BP6 is risky
-        if pick.get('blueprint') == 'BP6':
-            return False  # Remove BP6 from accumulators
-            
-        return True
-    
-    # Filter predictions before building accumulators
-    filtered_picks = [p for p in predictions if is_high_quality(p)]
-    
-    print(f"📊 Accumulator Filter: {len(predictions)} → {len(filtered_picks)} picks")
-    
-    if len(filtered_picks) < 2:
-        return {}
-    
-    # Continue with existing accumulator logic using filtered_picks
-    # ... rest of your existing code ...
+
 import os
 import sys
 import json
@@ -48,6 +15,30 @@ from blueprint_engine import BlueprintEngine
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
 INPUT_FILE = "input_matches.txt"
+
+# ============================================================
+# LEAGUE QUALITY FILTER FOR ACCUMULATORS
+# ============================================================
+
+LOW_QUALITY_KEYWORDS = [
+    'u20', 'u19', 'u21', 'reserve', '2', 'ii', 'b', 'youth', 'academy',
+    'uganda', 'oman', 'gambia', 'latvia', 'tanzania', 'india', 'bangladesh'
+]
+
+def is_high_quality_pick(pick):
+    """Check if pick has sufficient data quality for accumulator"""
+    league = pick.get('league', '').lower()
+    match_name = pick.get('match', '').lower()
+    
+    for kw in LOW_QUALITY_KEYWORDS:
+        if kw in league or kw in match_name:
+            return False
+    
+    # BP6 is risky - exclude from accumulators
+    if pick.get('blueprint') == 'BP6':
+        return False
+        
+    return True
 
 
 def parse_matches():
@@ -96,12 +87,22 @@ def parse_matches():
 
 
 def build_accumulators(predictions):
-    """Build 2_ODDS, 4_ODDS, 7_ODDS, 10_ODDS"""
+    """Build 2_ODDS, 4_ODDS, 7_ODDS, 10_ODDS - with quality filter"""
     
-    if len(predictions) < 2:
+    # Apply quality filter first
+    filtered_picks = [p for p in predictions if is_high_quality_pick(p)]
+    
+    print(f"\n📊 Accumulator Quality Filter:")
+    print(f"   Total predictions: {len(predictions)}")
+    print(f"   High quality picks: {len(filtered_picks)}")
+    print(f"   Excluded (low quality): {len(predictions) - len(filtered_picks)}")
+    
+    if len(filtered_picks) < 2:
+        print("   ⚠️ Not enough high quality picks for accumulators")
         return {}
     
-    for p in predictions:
+    # Set odds for each pick
+    for p in filtered_picks:
         play = p.get('play', '')
         if 'Home Win' in play:
             p['odds'] = p.get('home_odds', 1.50)
@@ -110,7 +111,7 @@ def build_accumulators(predictions):
         else:
             p['odds'] = 1.50
     
-    sorted_picks = sorted(predictions, key=lambda x: x['confidence'], reverse=True)
+    sorted_picks = sorted(filtered_picks, key=lambda x: x['confidence'], reverse=True)
     accumulators = {}
     used = set()
     
