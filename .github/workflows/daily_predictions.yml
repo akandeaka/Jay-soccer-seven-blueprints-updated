@@ -22,7 +22,13 @@ jobs:
     
     - name: Install dependencies
       run: |
-        pip install requests
+        pip install --upgrade pip
+        pip install requests pandas python-dotenv beautifulsoup4 numpy
+    
+    - name: Delete cache
+      run: |
+        rm -f predictions.json
+        echo "✅ Cache deleted"
     
     - name: Run prediction system
       env:
@@ -37,10 +43,12 @@ jobs:
         name: predictions
         path: predictions.json
 
-  # Job 2: Run validation at 1 AM using FILE-BASED method
+  # Job 2: Run validation at 1 AM
   run-validation:
     runs-on: ubuntu-latest
     needs: run-predictions
+    continue-on-error: true
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -52,15 +60,17 @@ jobs:
     
     - name: Install dependencies
       run: |
-        pip install requests
+        pip install --upgrade pip
+        pip install requests pandas python-dotenv beautifulsoup4 numpy
     
     - name: Download predictions
       uses: actions/download-artifact@v4
       with:
         name: predictions
         path: ./
+      continue-on-error: true
     
-    - name: Run validation (FILE-BASED)
+    - name: Run validation
       env:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -68,11 +78,8 @@ jobs:
         python validate_from_file.py
     
     - name: Upload validation report
-    - name: Install dependencies
-  run: |
-    pip install --upgrade pip
-    pip install requests pandas python-dotenv beautifulsoup4 numpy
       uses: actions/upload-artifact@v4
       with:
         name: validation-report
         path: validation_report.md
+        
