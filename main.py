@@ -1,9 +1,6 @@
 """
-JAY SOCCER BLUEPRINTS - COMPLETE WORKING SYSTEM
-- 8 Blueprints with database analysis
-- 2,4,7,10 odds accumulators
-- Telegram integration
-- Performance validation
+JAY SOCCER BLUEPRINTS - COMPLETE SYSTEM
+8 Blueprints | Smart Accumulators | Telegram Integration
 """
 
 import os
@@ -13,7 +10,6 @@ import re
 import requests
 from datetime import datetime
 from itertools import combinations
-import pandas as pd
 
 # ============================================================
 # CONFIGURATION
@@ -23,47 +19,51 @@ TELEGRAM_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
 INPUT_FILE = "input_matches.txt"
 
-# ============================================================
-# LEAGUE DATABASE (for deep analysis)
-# ============================================================
-
+# League quality database
 LEAGUE_DATABASE = {
-    # Elite Leagues (Best data)
-    'premier league': {'quality': 1.0, 'goals_avg': 2.8, 'draw_rate': 0.24},
-    'bundesliga': {'quality': 1.0, 'goals_avg': 3.2, 'draw_rate': 0.22},
-    'la liga': {'quality': 1.0, 'goals_avg': 2.5, 'draw_rate': 0.25},
-    'serie a': {'quality': 1.0, 'goals_avg': 2.6, 'draw_rate': 0.26},
-    'ligue 1': {'quality': 1.0, 'goals_avg': 2.7, 'draw_rate': 0.23},
-    'eredivisie': {'quality': 0.95, 'goals_avg': 3.1, 'draw_rate': 0.21},
-    
-    # Strong Leagues
-    'championship': {'quality': 0.9, 'goals_avg': 2.6, 'draw_rate': 0.25},
-    'primeira liga': {'quality': 0.9, 'goals_avg': 2.7, 'draw_rate': 0.24},
-    'belgian pro league': {'quality': 0.85, 'goals_avg': 2.5, 'draw_rate': 0.26},
-    'scottish premiership': {'quality': 0.85, 'goals_avg': 2.8, 'draw_rate': 0.22},
-    'turkish super lig': {'quality': 0.85, 'goals_avg': 2.7, 'draw_rate': 0.23},
-    
-    # Women's Leagues (Good data)
-    'wsl': {'quality': 0.9, 'goals_avg': 3.4, 'draw_rate': 0.20},
-    'frauen bundesliga': {'quality': 0.9, 'goals_avg': 3.3, 'draw_rate': 0.21},
-    'nwsl': {'quality': 0.9, 'goals_avg': 3.2, 'draw_rate': 0.22},
+    'premier league': {'quality': 1.0, 'goals_avg': 2.8},
+    'bundesliga': {'quality': 1.0, 'goals_avg': 3.2},
+    'la liga': {'quality': 1.0, 'goals_avg': 2.5},
+    'serie a': {'quality': 1.0, 'goals_avg': 2.6},
+    'ligue 1': {'quality': 1.0, 'goals_avg': 2.7},
+    'championship': {'quality': 0.9, 'goals_avg': 2.6},
+    'eredivisie': {'quality': 0.95, 'goals_avg': 3.1},
+    'primeira liga': {'quality': 0.9, 'goals_avg': 2.7},
 }
 
-# Blueprint performance weights
-BLUEPRINT_WEIGHTS = {
-    'BP1': 0.95, 'BP2': 0.90, 'BP3': 0.85, 'BP4': 0.75,
-    'BP5': 0.70, 'BP6': 0.50, 'BP7': 0.65, 'BP8': 0.60
-}
+# Approved leagues for BP6 (Draw predictions)
+APPROVED_BP6_LEAGUES = [
+    'premier league', 'bundesliga', 'la liga', 'serie a', 'ligue 1',
+    'championship', 'eredivisie', 'primeira liga'
+]
 
 # ============================================================
-# DATA PARSING
+# HELPER FUNCTIONS
+# ============================================================
+
+def get_league_quality(league_name):
+    """Get league quality score"""
+    league_lower = league_name.lower()
+    for key, data in LEAGUE_DATABASE.items():
+        if key in league_lower:
+            return data['quality'], data['goals_avg']
+    return 0.6, 2.5
+
+def is_approved_for_bp6(league_name):
+    """Check if league is approved for BP6"""
+    league_lower = league_name.lower()
+    for approved in APPROVED_BP6_LEAGUES:
+        if approved in league_lower:
+            return True
+    return False
+
+# ============================================================
+# PARSE INPUT FILE
 # ============================================================
 
 def parse_matches():
-    """Parse matches from input_matches.txt"""
-    
     if not os.path.exists(INPUT_FILE):
-        print(f"❌ {INPUT_FILE} not found!")
+        print(f"\n❌ {INPUT_FILE} not found!")
         return []
     
     with open(INPUT_FILE, 'r') as f:
@@ -106,106 +106,132 @@ def parse_matches():
     return matches
 
 # ============================================================
-# LEAGUE ANALYSIS
-# ============================================================
-
-def get_league_data(league_name):
-    """Get league data for deep analysis"""
-    league_lower = league_name.lower()
-    
-    for key, data in LEAGUE_DATABASE.items():
-        if key in league_lower:
-            return data
-    
-    return {'quality': 0.6, 'goals_avg': 2.5, 'draw_rate': 0.25}
-
-# ============================================================
-# 8 BLUEPRINTS WITH DEEP ANALYSIS
+# 8 BLUEPRINTS
 # ============================================================
 
 def analyze_match(match):
-    """Apply 8 blueprints with deep analysis"""
-    
     home = match.get('home_odds', 0)
     draw = match.get('draw_odds', 0)
     away = match.get('away_odds', 0)
     league = match.get('league', 'Unknown')
     
-    league_data = get_league_data(league)
-    quality = league_data['quality']
-    goals_avg = league_data['goals_avg']
-    
-    result = None
+    quality, goals_avg = get_league_quality(league)
     
     # BP1: Elite Home Banker
     if 1.20 <= home <= 1.29 and away >= 10.0:
-        result = {'blueprint': 'BP1', 'play': 'Straight Home Win', 'confidence': int(95 * quality), 'risk': 'Ultra-Low'}
+        return {
+            'blueprint': 'BP1', 'play': 'Straight Home Win',
+            'confidence': int(95 * quality), 'risk': 'Ultra-Low',
+            'match': match['match'], 'league': league,
+            'home_odds': home, 'draw_odds': draw, 'away_odds': away
+        }
     
     # BP2: Primary Favorite
-    elif 1.30 <= home <= 1.36 and away >= 9.0:
-        result = {'blueprint': 'BP2', 'play': 'Home Win', 'confidence': int(90 * quality), 'risk': 'Low'}
+    if 1.30 <= home <= 1.36 and away >= 9.0:
+        return {
+            'blueprint': 'BP2', 'play': 'Home Win',
+            'confidence': int(90 * quality), 'risk': 'Low',
+            'match': match['match'], 'league': league,
+            'home_odds': home, 'draw_odds': draw, 'away_odds': away
+        }
     
     # BP3: Moderate Favorite Safety
-    elif 1.30 <= home <= 1.36 and 7.0 <= away <= 8.99:
-        result = {'blueprint': 'BP3', 'play': '1X & Over 1.5 Goals', 'confidence': int(85 * quality), 'risk': 'Low-Moderate'}
+    if 1.30 <= home <= 1.36 and 7.0 <= away <= 8.99:
+        return {
+            'blueprint': 'BP3', 'play': '1X & Over 1.5 Goals',
+            'confidence': int(85 * quality), 'risk': 'Low-Moderate',
+            'match': match['match'], 'league': league,
+            'home_odds': home, 'draw_odds': draw, 'away_odds': away
+        }
     
-    # BP4: Goal Engine (boosted in high-scoring leagues)
-    elif 1.72 <= home <= 1.80:
+    # BP4: Goal Engine
+    if 1.72 <= home <= 1.80:
         boost = 1.1 if goals_avg >= 3.0 else 1.0
-        result = {'blueprint': 'BP4', 'play': 'Over 1.5 Goals', 'confidence': int(75 * quality * boost), 'risk': 'Moderate'}
+        return {
+            'blueprint': 'BP4', 'play': 'Over 1.5 Goals',
+            'confidence': int(75 * quality * boost), 'risk': 'Moderate',
+            'match': match['match'], 'league': league,
+            'home_odds': home, 'draw_odds': draw, 'away_odds': away
+        }
     
     # BP5: Defensive Trap
-    elif 1.90 <= home <= 2.02:
-        result = {'blueprint': 'BP5', 'play': '1X & Under 3.5 FT', 'confidence': int(70 * quality), 'risk': 'Moderate'}
+    if 1.90 <= home <= 2.02:
+        return {
+            'blueprint': 'BP5', 'play': '1X & Under 3.5 FT',
+            'confidence': int(70 * quality), 'risk': 'Moderate',
+            'match': match['match'], 'league': league,
+            'home_odds': home, 'draw_odds': draw, 'away_odds': away
+        }
     
-    # BP6: Draw (combo based on league)
-    elif 2.75 <= draw <= 3.39:
+    # BP6: Draw (Only for approved leagues)
+    if 2.75 <= draw <= 3.39 and is_approved_for_bp6(league):
         if goals_avg >= 3.0:
-            result = {'blueprint': 'BP6', 'play': 'Draw or GG (Draw OR Both Teams to Score)', 'confidence': int(68 * quality), 'risk': 'Medium'}
+            play = 'Draw or GG (Draw OR Both Teams to Score)'
+            conf = int(68 * quality)
         elif goals_avg <= 2.3:
-            result = {'blueprint': 'BP6', 'play': 'Draw or Under 2.5 Goals', 'confidence': int(72 * quality), 'risk': 'Medium'}
+            play = 'Draw or Under 2.5 Goals'
+            conf = int(72 * quality)
         else:
-            result = {'blueprint': 'BP6', 'play': 'Full Time Draw', 'confidence': int(55 * quality), 'risk': 'High'}
+            play = 'Full Time Draw'
+            conf = int(55 * quality)
+        return {
+            'blueprint': 'BP6', 'play': play,
+            'confidence': conf, 'risk': 'Medium',
+            'match': match['match'], 'league': league,
+            'home_odds': home, 'draw_odds': draw, 'away_odds': away
+        }
     
     # BP7: BTTS Value Spot
-    elif 1.40 <= home <= 1.69:
+    if 1.40 <= home <= 1.69:
         if goals_avg >= 3.0:
-            result = {'blueprint': 'BP7', 'play': 'Both Teams to Score - YES', 'confidence': int(75 * quality), 'risk': 'Low-Moderate'}
+            play = 'Both Teams to Score - YES'
+            conf = int(75 * quality)
         else:
-            result = {'blueprint': 'BP7', 'play': 'Both Teams to Score - NO', 'confidence': int(65 * quality), 'risk': 'Low-Moderate'}
+            play = 'Both Teams to Score - NO'
+            conf = int(65 * quality)
+        return {
+            'blueprint': 'BP7', 'play': play,
+            'confidence': conf, 'risk': 'Low-Moderate',
+            'match': match['match'], 'league': league,
+            'home_odds': home, 'draw_odds': draw, 'away_odds': away
+        }
     
     # BP8: High-Scoring Signals
-    elif 3.60 <= draw <= 3.75 and goals_avg >= 2.7:
-        result = {'blueprint': 'BP8', 'play': 'Over 2.5 Goals', 'confidence': int(60 * quality), 'risk': 'Moderate'}
+    if 3.60 <= draw <= 3.75 and goals_avg >= 2.7:
+        return {
+            'blueprint': 'BP8', 'play': 'Over 2.5 Goals',
+            'confidence': int(60 * quality), 'risk': 'Moderate',
+            'match': match['match'], 'league': league,
+            'home_odds': home, 'draw_odds': draw, 'away_odds': away
+        }
     
-    if result:
-        result['match'] = match['match']
-        result['league'] = league
-        result['home_odds'] = home
-        result['draw_odds'] = draw
-        result['away_odds'] = away
-        result['quality_score'] = quality
-    
-    return result
+    return None
 
 # ============================================================
-# SMART ACCUMULATOR BUILDER
+# BUILD ACCUMULATORS
 # ============================================================
 
 def build_accumulators(predictions):
-    """Build 2,4,7,10 odds accumulators from predictions"""
-    
     if len(predictions) < 2:
         return {}
     
-    # Sort by confidence (highest first)
+    # Set odds for each prediction
+    for p in predictions:
+        if 'Home Win' in p['play']:
+            p['odds'] = p['home_odds']
+        elif 'Draw' in p['play']:
+            p['odds'] = p['draw_odds']
+        else:
+            p['odds'] = 1.50
+    
+    # Sort by confidence
     sorted_picks = sorted(predictions, key=lambda x: x['confidence'], reverse=True)
     
-    # Filter high quality picks only
-    high_quality = [p for p in sorted_picks if p.get('quality_score', 0) >= 0.7]
+    # Filter high quality (confidence >= 60)
+    quality_picks = [p for p in sorted_picks if p['confidence'] >= 60]
     
-    if len(high_quality) < 2:
-        high_quality = sorted_picks[:10]
+    if len(quality_picks) < 2:
+        quality_picks = sorted_picks[:10]
     
     accumulators = {}
     used = set()
@@ -213,14 +239,13 @@ def build_accumulators(predictions):
     def get_unused(pool):
         return [p for p in pool if p['match'] not in used]
     
-    # Build 2_ODDS (2-3 matches)
-    pool = get_unused(high_quality)
+    # 2_ODDS
+    pool = get_unused(quality_picks)
     for n in [2, 3]:
         for combo in combinations(pool[:6], n):
             total = 1
             for m in combo:
-                odds = m.get('home_odds', 1.5) if 'Home Win' in m['play'] else m.get('draw_odds', 1.5)
-                total *= odds
+                total *= m['odds']
             if 1.8 <= total <= 2.5:
                 accumulators['2_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
                 for m in combo:
@@ -229,40 +254,37 @@ def build_accumulators(predictions):
         if '2_ODDS' in accumulators:
             break
     
-    # Build 4_ODDS (4 matches)
-    pool = get_unused(high_quality)
+    # 4_ODDS
+    pool = get_unused(quality_picks)
     for combo in combinations(pool[:10], 4):
         total = 1
         for m in combo:
-            odds = m.get('home_odds', 1.5) if 'Home Win' in m['play'] else m.get('draw_odds', 1.5)
-            total *= odds
+            total *= m['odds']
         if 3.5 <= total <= 5.0:
             accumulators['4_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
             for m in combo:
                 used.add(m['match'])
             break
     
-    # Build 7_ODDS (5 matches)
-    pool = get_unused(high_quality)
+    # 7_ODDS
+    pool = get_unused(quality_picks)
     for combo in combinations(pool[:12], 5):
         total = 1
         for m in combo:
-            odds = m.get('home_odds', 1.5) if 'Home Win' in m['play'] else m.get('draw_odds', 1.5)
-            total *= odds
+            total *= m['odds']
         if 6.0 <= total <= 8.5:
             accumulators['7_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
             for m in combo:
                 used.add(m['match'])
             break
     
-    # Build 10_ODDS (5-6 matches)
-    pool = get_unused(high_quality)
+    # 10_ODDS
+    pool = get_unused(quality_picks)
     for n in [5, 6]:
         for combo in combinations(pool[:15], n):
             total = 1
             for m in combo:
-                odds = m.get('home_odds', 1.5) if 'Home Win' in m['play'] else m.get('draw_odds', 1.5)
-                total *= odds
+                total *= m['odds']
             if 9.0 <= total <= 12.0:
                 accumulators['10_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
                 break
@@ -272,11 +294,10 @@ def build_accumulators(predictions):
     return accumulators
 
 # ============================================================
-# TELEGRAM SENDING
+# TELEGRAM
 # ============================================================
 
 def send_telegram(message):
-    """Send message to Telegram"""
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
         print("⚠️ Telegram not configured")
         return False
@@ -297,25 +318,28 @@ def send_telegram(message):
         return False
 
 # ============================================================
-# MAIN SYSTEM
+# MAIN
 # ============================================================
 
 def main():
     print("\n" + "="*60)
-    print("⚽ JAY SOCCER BLUEPRINTS - COMPLETE SYSTEM")
-    print("8 Blueprints | Deep Analysis | Smart Accumulators")
+    print("⚽ JAY SOCCER BLUEPRINTS SYSTEM")
+    print("8 BLUEPRINTS | SMART ACCUMULATORS")
     print("="*60)
     print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
-    # Load matches
+    # DELETE OLD CACHE - FIXES PROBLEM 2
+    if os.path.exists("predictions.json"):
+        os.remove("predictions.json")
+        print("🗑️ Deleted old predictions.json cache")
+    
     matches = parse_matches()
     if not matches:
-        print("❌ No matches found in input_matches.txt")
         return 1
     
     print(f"\n📊 Loaded {len(matches)} matches")
     
-    # Analyze each match with 8 blueprints
+    # Analyze matches
     predictions = []
     for match in matches:
         result = analyze_match(match)
@@ -323,21 +347,20 @@ def main():
             predictions.append(result)
     
     if not predictions:
-        print("❌ No matches passed any blueprint")
+        print("❌ No matches passed blueprints")
         return 1
     
     print(f"\n✅ {len(predictions)} matches passed blueprints")
     
     # Display predictions
-    print("\n📋 PREDICTIONS:")
-    for i, p in enumerate(predictions[:20], 1):
+    for i, p in enumerate(predictions[:15], 1):
         print(f"   {i}. {p['blueprint']}: {p['match'][:50]}")
-        print(f"      🎯 {p['play']} | Confidence: {p['confidence']}%")
+        print(f"      🎯 {p['play']} | Conf: {p['confidence']}%")
     
     # Build accumulators
     accumulators = build_accumulators(predictions)
     
-    # Build Telegram message
+    # Build Telegram message - FIXES PROBLEM 3
     message = f"""⚽ JAY SOCCER BLUEPRINTS - PREDICTIONS
 📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -346,17 +369,14 @@ def main():
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
     
-    # Add picks by blueprint
-    for bp in ['BP1', 'BP2', 'BP3', 'BP4', 'BP5', 'BP6', 'BP7', 'BP8']:
-        bp_picks = [p for p in predictions if p['blueprint'] == bp]
-        if bp_picks:
-            message += f"\n🔵 {bp} - {bp_picks[0]['play']}\n"
-            for p in bp_picks[:3]:
-                emoji = "✅" if p['confidence'] >= 75 else "🟡"
-                message += f"   {emoji} {p['match'][:45]}\n"
+    # Add individual picks (THIS WAS MISSING BEFORE)
+    for p in predictions[:15]:
+        emoji = "✅" if p['confidence'] >= 75 else "🟡"
+        message += f"\n{emoji} {p['blueprint']}: {p['match'][:45]}\n   🎯 {p['play']} | Conf: {p['confidence']}%"
     
+    # Add accumulators
     if accumulators:
-        message += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎰 SMART ACCUMULATORS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        message += "\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎰 SMART ACCUMULATORS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         for name, acc in accumulators.items():
             message += f"\n{name} | Total Odds: {acc['odds']}\n"
             for m in acc['matches']:
@@ -382,7 +402,6 @@ def main():
     print(f"   Telegram: {'Sent' if TELEGRAM_TOKEN else 'Not configured'}")
     
     return 0
-
 
 if __name__ == "__main__":
     sys.exit(main())
