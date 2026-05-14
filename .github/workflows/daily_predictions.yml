@@ -68,6 +68,10 @@ jobs:
         python validate_from_file.py
     
     - name: Upload validation report
+    - name: Install dependencies
+  run: |
+    pip install --upgrade pip
+    pip install requests pandas python-dotenv beautifulsoup4 numpy
       uses: actions/upload-artifact@v4
       with:
         name: validation-report
