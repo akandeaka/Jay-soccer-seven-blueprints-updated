@@ -1,35 +1,25 @@
-name: Update Football-Data.co.uk Dataset
+name: Update Football Data
 
 on:
   schedule:
-    - cron: '0 6 * * *'   # Run at 6 AM daily
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 jobs:
-  update-data:
+  update:
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
-    
-    - name: Install dependencies
-      run: |
-        pip install pandas requests
-    
-    - name: Run data update
-      run: |
-        python update_football_data.py
-    
-    - name: Commit and push updates
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add data/
-        git commit -m "Auto-update football-data.co.uk [skip ci]" || echo "No changes to commit"
-        git push
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Update data
+        run: |
+          pip install pandas requests
+          python update_football_data.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git add data/
+          git commit -m "Auto-update football data [skip ci]" || exit 0
+          git push
