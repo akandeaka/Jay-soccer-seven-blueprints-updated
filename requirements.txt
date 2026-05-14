@@ -6,3 +6,4 @@ pytz
 scikit-learn
 numpy
 sports-betting
+requests>=2.28.0
