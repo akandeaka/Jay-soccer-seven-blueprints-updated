@@ -1,6 +1,5 @@
 """
-VALIDATION SYSTEM - Fixed for Telegram Format
-Handles ** symbols in prediction names
+VALIDATION SYSTEM - Fuzzy Matching Version
 """
 
 import os
@@ -8,20 +7,26 @@ import sys
 import json
 import re
 from datetime import datetime
+from difflib import SequenceMatcher
 
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
 
 
 def clean_name(name):
-    """Remove **, *, and normalize match names"""
+    """Clean match name"""
     name = name.replace('**', '').replace('*', '').strip()
     name = ' '.join(name.split())
-    return name
+    return name.lower()
+
+
+def similar(a, b, threshold=0.7):
+    """Check if two strings are similar"""
+    return SequenceMatcher(None, a, b).ratio() >= threshold
 
 
 def parse_validation_file(filepath="validation_results.txt"):
-    """Parse validation file and create lookup dictionary"""
+    """Parse validation file"""
     
     if not os.path.exists(filepath):
         print(f"❌ {filepath} not found!")
@@ -36,25 +41,23 @@ def parse_validation_file(filepath="validation_results.txt"):
     while i < len(lines):
         line = lines[i].strip()
         
-        # Find match name (contains 'vs' but not 'RESULT:')
         if ' vs ' in line and 'RESULT:' not in line:
             match_name = clean_name(line)
             i += 1
             
-            # Skip to RESULT line
             while i < len(lines) and 'RESULT:' not in lines[i]:
                 i += 1
             
-            # Parse RESULT
             if i < len(lines) and 'RESULT:' in lines[i]:
                 result_line = lines[i]
                 score_match = re.search(r'(\d+)-(\d+)', result_line)
                 if score_match:
                     home_score = int(score_match.group(1))
                     away_score = int(score_match.group(2))
-                    results[match_name.lower()] = {
+                    results[match_name] = {
                         'home_score': home_score,
-                        'away_score': away_score
+                        'away_score': away_score,
+                        'original': line
                     }
         i += 1
     
@@ -63,30 +66,30 @@ def parse_validation_file(filepath="validation_results.txt"):
 
 
 def validate_predictions(predictions, validation_results):
-    """Compare predictions with validation results"""
+    """Validate predictions using exact and fuzzy matching"""
     
     validated = []
-    matched = 0
+    validation_keys = list(validation_results.keys())
     
     for pred in predictions:
         pred_match_raw = pred.get('match', '')
-        pred_match = clean_name(pred_match_raw).lower()
+        pred_match = clean_name(pred_match_raw)
         pred_play = pred.get('play', '')
         pred_confidence = pred.get('confidence', 0)
         pred_blueprint = pred.get('blueprint', '')
         
-        # Look for exact match
+        # Try exact match
         actual = validation_results.get(pred_match)
         
-        # Try partial match if not found
+        # Try fuzzy match
         if not actual:
-            for key in validation_results:
-                if pred_match in key or key in pred_match:
+            for key in validation_keys:
+                if similar(pred_match, key):
                     actual = validation_results[key]
+                    print(f"   🔍 Fuzzy matched: {pred_match_raw[:40]} → {key[:40]}")
                     break
         
         if actual:
-            matched += 1
             home_score = actual['home_score']
             away_score = actual['away_score']
             total_goals = home_score + away_score
@@ -130,17 +133,14 @@ def validate_predictions(predictions, validation_results):
             status = "✅" if is_correct else "❌"
             print(f"   {status} {pred_match_raw[:50]} → {home_score}-{away_score}")
         else:
-            # Only print first few not found
-            if len([v for v in validated if v.get('match')]) < 5:
+            # Only print a few not found
+            if len(validated) < 5:
                 print(f"   ⚠️ NOT FOUND: {pred_match_raw[:50]}")
     
-    print(f"\n📊 Matched: {matched}/{len(predictions)}")
     return validated
 
 
 def generate_report(validated):
-    """Generate performance report"""
-    
     total = len(validated)
     correct = sum(1 for v in validated if v['is_correct'])
     accuracy = (correct / total * 100) if total > 0 else 0
@@ -148,8 +148,7 @@ def generate_report(validated):
     bp_stats = {}
     for v in validated:
         bp = v['blueprint']
-        if bp not in bp_stats:
-            bp_stats[bp] = {'total': 0, 'correct': 0}
+        bp_stats.setdefault(bp, {'total': 0, 'correct': 0})
         bp_stats[bp]['total'] += 1
         if v['is_correct']:
             bp_stats[bp]['correct'] += 1
@@ -177,7 +176,6 @@ def generate_report(validated):
 
 def send_telegram(message):
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
-        print("⚠️ Telegram not configured")
         return False
     
     import requests
@@ -199,7 +197,7 @@ def send_telegram(message):
 
 def main():
     print("\n" + "="*60)
-    print("⚽ VALIDATION SYSTEM - FIXED")
+    print("⚽ VALIDATION SYSTEM - Fuzzy Matching")
     print("="*60)
     
     if not os.path.exists("predictions.json"):
@@ -217,7 +215,7 @@ def main():
         print("❌ No validation results found")
         return 1
     
-    print("\n🔍 Validating predictions...")
+    print("\n🔍 Validating...")
     validated = validate_predictions(predictions, validation_results)
     
     if validated:
