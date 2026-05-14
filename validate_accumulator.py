@@ -1,10 +1,8 @@
 """
 ACCUMULATOR VALIDATION - Track performance of 2,4,7,10 odds accumulators
-Run after matches are complete
 """
 
 import os
-import sys
 import json
 import re
 from datetime import datetime
@@ -13,27 +11,20 @@ TELEGRAM_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
 
 
-def clean_match_name(name):
-    name = name.replace('**', '').replace('*', '').strip()
-    return name.lower()
-
-
-def parse_validation_file(filepath="validation_results.txt"):
-    """Parse validation results"""
-    
-    if not os.path.exists(filepath):
+def load_validation_results():
+    """Load actual results from validation_results.txt"""
+    if not os.path.exists("validation_results.txt"):
         return {}
     
-    with open(filepath, 'r') as f:
+    results = {}
+    with open("validation_results.txt", 'r') as f:
         lines = f.readlines()
     
-    results = {}
     i = 0
-    
     while i < len(lines):
         line = lines[i].strip()
         if ' vs ' in line and 'RESULT:' not in line:
-            match_name = clean_match_name(line)
+            match_name = line
             i += 1
             while i < len(lines) and 'RESULT:' not in lines[i]:
                 i += 1
@@ -49,9 +40,8 @@ def parse_validation_file(filepath="validation_results.txt"):
     return results
 
 
-def check_prediction(prediction, actual):
-    """Check if a single prediction was correct"""
-    play = prediction.get('play', '')
+def validate_prediction(play, actual):
+    """Check if a prediction was correct"""
     home = actual['home_score']
     away = actual['away_score']
     total = home + away
@@ -61,17 +51,17 @@ def check_prediction(prediction, actual):
     elif 'Draw' in play:
         return home == away
     elif 'Both Teams to Score' in play:
-        return (home > 0 and away > 0) if 'YES' in play else (home == 0 or away == 0)
+        return home > 0 and away > 0
     elif 'Over 1.5' in play:
         return total > 1
     elif 'Under 3.5' in play:
         return total < 4
     elif 'Over 2.5' in play:
         return total > 2
-    elif 'Draw or GG' in play:
-        return (home == away) or (home > 0 and away > 0)
     elif 'Draw or Under 2.5' in play:
         return (home == away) or total < 3
+    elif 'Draw or GG' in play:
+        return (home == away) or (home > 0 and away > 0)
     return False
 
 
@@ -81,14 +71,20 @@ def validate_accumulator(acc_matches, validation_results):
     all_correct = True
     
     for match in acc_matches:
-        match_name = clean_match_name(match.get('match', ''))
-        actual = validation_results.get(match_name)
+        match_name = match.get('match', '')
+        play = match.get('play', '')
+        
+        actual = None
+        for key in validation_results:
+            if match_name.lower() in key.lower() or key.lower() in match_name.lower():
+                actual = validation_results[key]
+                break
         
         if actual:
-            is_correct = check_prediction(match, actual)
+            is_correct = validate_prediction(play, actual)
             results.append({
-                'match': match.get('match', 'Unknown'),
-                'play': match.get('play', 'Unknown'),
+                'match': match_name,
+                'play': play,
                 'actual_score': f"{actual['home_score']}-{actual['away_score']}",
                 'correct': is_correct
             })
@@ -96,8 +92,8 @@ def validate_accumulator(acc_matches, validation_results):
                 all_correct = False
         else:
             results.append({
-                'match': match.get('match', 'Unknown'),
-                'play': match.get('play', 'Unknown'),
+                'match': match_name,
+                'play': play,
                 'actual_score': 'NOT FOUND',
                 'correct': False
             })
@@ -108,15 +104,8 @@ def validate_accumulator(acc_matches, validation_results):
 
 def main():
     print("\n" + "="*60)
-    print("⚽ ACCUMULATOR PERFORMANCE VALIDATION")
+    print("⚽ ACCUMULATOR VALIDATION")
     print("="*60)
-    
-    # This would need accumulator data from main.py
-    # For now, create a template
-    print("\n📋 To track accumulator performance:")
-    print("   1. After main.py runs, note the accumulator picks")
-    print("   2. After matches, run validation")
-    print("   3. Compare which accumulators won\n")
     
     # Load predictions
     if not os.path.exists("predictions.json"):
@@ -126,28 +115,29 @@ def main():
     with open("predictions.json", 'r') as f:
         predictions = json.load(f)
     
-    print(f"✅ Loaded {len(predictions)} predictions")
-    
     # Load validation results
-    validation_results = parse_validation_file("validation_results.txt")
+    validation_results = load_validation_results()
     
-    if validation_results:
-        print(f"✅ Loaded {len(validation_results)} validation results")
-        print("\n🔍 Validating predictions...")
-        
-        # Validate each prediction
-        correct = 0
-        for pred in predictions:
-            match_name = clean_match_name(pred.get('match', ''))
-            actual = validation_results.get(match_name)
-            if actual:
-                if check_prediction(pred, actual):
-                    correct += 1
-        
-        print(f"\n📊 Prediction Accuracy: {correct}/{len(predictions)} ({correct/len(predictions)*100:.1f}%)")
+    if not validation_results:
+        print("❌ No validation_results.txt found")
+        print("\n📝 Create validation_results.txt with:")
+        print("   Match Name")
+        print("   League")
+        print("   Odds line")
+        print("   RESULT: 2-1 | Home Win")
+        return 1
+    
+    print(f"✅ Loaded {len(predictions)} predictions")
+    print(f"✅ Loaded {len(validation_results)} validation results")
+    
+    # This would need accumulator data from main.py
+    # For now, print instructions
+    print("\n📊 To validate accumulators:")
+    print("   1. The accumulator picks are in your Telegram message")
+    print("   2. Compare each leg with actual results in validation_results.txt")
+    print("   3. Track which accumulators won")
     
     print("\n✅ Accumulator validation ready")
-    print("   Future version will track 2_ODDS, 4_ODDS, 7_ODDS, 10_ODDS separately")
     
     return 0
 
