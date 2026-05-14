@@ -1,5 +1,5 @@
 """
-VALIDATION SYSTEM - Clean Report Format
+VALIDATION SYSTEM - Top 30 Matches + Accumulators Only
 """
 
 import os
@@ -14,7 +14,6 @@ TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
 
 def clean_match_name(name):
     name = name.replace('**', '').replace('*', '').strip()
-    name = ' '.join(name.split())
     return name.lower()
 
 
@@ -54,7 +53,7 @@ def check_prediction(play, actual):
     
     if 'Home Win' in play or 'Straight Home Win' in play:
         return home > away
-    elif 'Full Time Draw' in play or (play == 'Draw' and 'GG' not in play):
+    elif 'Full Time Draw' in play or play == 'Draw':
         return home == away
     elif 'Both Teams to Score - YES' in play:
         return home > 0 and away > 0
@@ -73,39 +72,38 @@ def check_prediction(play, actual):
     return False
 
 
-def get_prediction_short_name(play):
-    """Convert full play name to short readable format"""
+def get_short_play(play):
     if 'Over 1.5 Goals' in play:
-        return 'Over 1.5 Goals'
+        return 'Over 1.5'
     elif 'Under 3.5 FT' in play or '1X & Under 3.5 FT' in play:
-        return 'Under 3.5 Goals'
+        return 'Under 3.5'
     elif 'Over 2.5 Goals' in play:
-        return 'Over 2.5 Goals'
-    elif 'Straight Home Win' in play or 'Home Win' in play:
+        return 'Over 2.5'
+    elif 'Straight Home Win' in play:
         return 'Home Win'
-    elif 'Full Time Draw' in play:
-        return 'Draw'
-    elif 'Draw or Under 2.5 Goals' in play:
-        return 'Draw or Under 2.5'
     elif 'Both Teams to Score - YES' in play:
-        return 'BTTS - YES'
+        return 'BTTS YES'
     elif 'Both Teams to Score - NO' in play:
-        return 'BTTS - NO'
-    return play[:20]
+        return 'BTTS NO'
+    elif 'Draw or Under 2.5 Goals' in play:
+        return 'Draw/Under 2.5'
+    elif 'Draw or GG' in play:
+        return 'Draw/GG'
+    return play[:15]
 
 
-def get_odd_from_prediction(pred):
-    """Extract odds from prediction"""
-    if 'Home Win' in pred.get('play', ''):
+def get_odds(pred):
+    play = pred.get('play', '')
+    if 'Home Win' in play:
         return pred.get('home_odds', 0)
-    elif 'Draw' in pred.get('play', ''):
+    elif 'Draw' in play:
         return pred.get('draw_odds', 0)
     return 0
 
 
 def main():
     print("\n" + "="*60)
-    print("⚽ VALIDATION SYSTEM - CLEAN REPORT")
+    print("⚽ VALIDATION - Top 30 Matches + Accumulators")
     print("="*60)
     
     # Load predictions
@@ -123,9 +121,15 @@ def main():
         print("❌ No validation_results.txt found")
         return 1
     
-    # Validate each prediction
-    results = []
-    for pred in predictions:
+    # Take ONLY top 30 predictions (sorted by confidence)
+    sorted_predictions = sorted(predictions, key=lambda x: x.get('confidence', 0), reverse=True)
+    top_30 = sorted_predictions[:30]
+    
+    print(f"📊 Top 30 predictions (from {len(predictions)} total)")
+    
+    # Validate top 30
+    validated = []
+    for pred in top_30:
         match_name = clean_match_name(pred.get('match', ''))
         play = pred.get('play', '')
         
@@ -137,36 +141,36 @@ def main():
         
         if actual:
             is_correct = check_prediction(play, actual)
-            results.append({
+            validated.append({
                 'match': pred.get('match', ''),
                 'play': play,
-                'odds': get_odd_from_prediction(pred),
-                'actual_score': f"{actual['home_score']}-{actual['away_score']}",
+                'odds': get_odds(pred),
+                'actual': f"{actual['home_score']}-{actual['away_score']}",
                 'correct': is_correct
             })
     
-    if not results:
+    if not validated:
         print("❌ No matches validated")
         return 1
     
-    # Calculate statistics
-    correct = sum(1 for r in results if r['correct'])
-    total = len(results)
+    # Calculate stats
+    correct = sum(1 for v in validated if v['correct'])
+    total = len(validated)
     accuracy = (correct / total * 100) if total > 0 else 0
     
-    # Build clean report
-    report = f"""🏁 *YESTERDAY'S SETTLEMENT REPORT*
-📅 Date: {(datetime.now() - __import__('datetime').timedelta(days=1)).strftime('%Y-%m-%d')}
+    # Build report - TOP 30 MATCHES
+    report = f"""🏁 *SETTLEMENT REPORT - TOP 30 MATCHES*
+📅 {datetime.now().strftime('%Y-%m-%d')}
 ───────────────────
 
 """
     
-    for r in results:
-        status = "✅" if r['correct'] else "❌"
-        odd_text = f" @ {r['odds']}" if r['odds'] > 0 else ""
-        report += f"""{status} *{r['match'][:50]}*
-🔹 Bet: {get_prediction_short_name(r['play'])}{odd_text}
-🏁 Score: {r['actual_score']}
+    for v in validated:
+        status = "✅" if v['correct'] else "❌"
+        odd_text = f" @ {v['odds']}" if v['odds'] > 0 else ""
+        report += f"""{status} *{v['match'][:45]}*
+🔹 Bet: {get_short_play(v['play'])}{odd_text}
+🏁 Score: {v['actual']}
 
 """
     
@@ -174,10 +178,10 @@ def main():
 📊 *SUMMARY*
 ✅ Wins: {correct}
 ❌ Losses: {total - correct}
-📈 Accuracy: {accuracy:.1f}%"""
-    
-    # Print to console
-    print("\n" + report)
+📈 Accuracy: {accuracy:.1f}%
+
+*Note: Top 30 predictions by confidence score*
+"""
     
     # Send to Telegram
     if TELEGRAM_TOKEN and TELEGRAM_CHAT_ID:
@@ -189,7 +193,7 @@ def main():
                 'text': report,
                 'parse_mode': 'Markdown'
             }, timeout=30)
-            print("\n✅ Report sent to Telegram")
+            print("\n✅ Top 30 report sent to Telegram")
         except Exception as e:
             print(f"❌ Telegram error: {e}")
     
