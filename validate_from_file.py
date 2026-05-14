@@ -1,6 +1,6 @@
 """
-VALIDATION SYSTEM - Updated with Match Name Normalization
-Reads results from validation_results.txt and matches with predictions
+VALIDATION SYSTEM - Fixed for Telegram Format
+Handles ** symbols in prediction names
 """
 
 import os
@@ -13,54 +13,48 @@ TELEGRAM_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
 
 
-def normalize_match_name(name):
-    """Remove special characters and normalize match names for comparison"""
-    # Remove **, *, and other markdown symbols
+def clean_name(name):
+    """Remove **, *, and normalize match names"""
     name = name.replace('**', '').replace('*', '').strip()
-    # Convert to lowercase for case-insensitive matching
-    name = name.lower()
-    # Remove extra spaces
     name = ' '.join(name.split())
     return name
 
 
 def parse_validation_file(filepath="validation_results.txt"):
-    """Parse multi-line validation file with normalized match names"""
+    """Parse validation file and create lookup dictionary"""
     
     if not os.path.exists(filepath):
         print(f"❌ {filepath} not found!")
         return {}
     
     with open(filepath, 'r') as f:
-        lines = [l.strip() for l in f.readlines()]
+        lines = f.readlines()
     
     results = {}
     i = 0
     
     while i < len(lines):
-        line = lines[i]
+        line = lines[i].strip()
         
-        # Find match name (must contain 'vs' and not be a RESULT line)
+        # Find match name (contains 'vs' but not 'RESULT:')
         if ' vs ' in line and 'RESULT:' not in line:
-            match_name = normalize_match_name(line)
+            match_name = clean_name(line)
             i += 1
             
-            # Skip league line and odds lines until RESULT
+            # Skip to RESULT line
             while i < len(lines) and 'RESULT:' not in lines[i]:
                 i += 1
             
-            # Parse RESULT line
+            # Parse RESULT
             if i < len(lines) and 'RESULT:' in lines[i]:
                 result_line = lines[i]
-                # Extract score (e.g., "3-0" from "RESULT: 3-0 | Home Win")
                 score_match = re.search(r'(\d+)-(\d+)', result_line)
                 if score_match:
                     home_score = int(score_match.group(1))
                     away_score = int(score_match.group(2))
-                    results[match_name] = {
+                    results[match_name.lower()] = {
                         'home_score': home_score,
-                        'away_score': away_score,
-                        'raw_result': result_line
+                        'away_score': away_score
                     }
         i += 1
     
@@ -69,20 +63,19 @@ def parse_validation_file(filepath="validation_results.txt"):
 
 
 def validate_predictions(predictions, validation_results):
-    """Compare predictions with actual results using normalized names"""
+    """Compare predictions with validation results"""
     
     validated = []
     matched = 0
-    not_found = []
     
     for pred in predictions:
         pred_match_raw = pred.get('match', '')
-        pred_match = normalize_match_name(pred_match_raw)
+        pred_match = clean_name(pred_match_raw).lower()
         pred_play = pred.get('play', '')
         pred_confidence = pred.get('confidence', 0)
         pred_blueprint = pred.get('blueprint', '')
         
-        # Try exact match first
+        # Look for exact match
         actual = validation_results.get(pred_match)
         
         # Try partial match if not found
@@ -98,7 +91,7 @@ def validate_predictions(predictions, validation_results):
             away_score = actual['away_score']
             total_goals = home_score + away_score
             
-            # Determine if prediction was correct
+            # Determine correctness
             is_correct = False
             
             if 'Home Win' in pred_play:
@@ -137,18 +130,11 @@ def validate_predictions(predictions, validation_results):
             status = "✅" if is_correct else "❌"
             print(f"   {status} {pred_match_raw[:50]} → {home_score}-{away_score}")
         else:
-            not_found.append(pred_match_raw)
-            # Only print first 10 not found to avoid clutter
-            if len(not_found) <= 10:
+            # Only print first few not found
+            if len([v for v in validated if v.get('match')]) < 5:
                 print(f"   ⚠️ NOT FOUND: {pred_match_raw[:50]}")
     
-    if len(not_found) > 10:
-        print(f"   ... and {len(not_found) - 10} more not found")
-    
-    print(f"\n📊 MATCH SUMMARY:")
-    print(f"   Matched: {matched}/{len(predictions)}")
-    print(f"   Not found: {len(not_found)}")
-    
+    print(f"\n📊 Matched: {matched}/{len(predictions)}")
     return validated
 
 
@@ -159,7 +145,6 @@ def generate_report(validated):
     correct = sum(1 for v in validated if v['is_correct'])
     accuracy = (correct / total * 100) if total > 0 else 0
     
-    # Group by blueprint
     bp_stats = {}
     for v in validated:
         bp = v['blueprint']
@@ -169,7 +154,6 @@ def generate_report(validated):
         if v['is_correct']:
             bp_stats[bp]['correct'] += 1
     
-    # Build report
     report = f"""⚽ JAY SOCCER BLUEPRINTS - VALIDATION REPORT
 📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -192,9 +176,8 @@ def generate_report(validated):
 
 
 def send_telegram(message):
-    """Send message to Telegram"""
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
-        print("⚠️ Telegram not configured - skipping")
+        print("⚠️ Telegram not configured")
         return False
     
     import requests
@@ -216,14 +199,11 @@ def send_telegram(message):
 
 def main():
     print("\n" + "="*60)
-    print("⚽ VALIDATION SYSTEM - Updated")
-    print("Normalized match name matching")
+    print("⚽ VALIDATION SYSTEM - FIXED")
     print("="*60)
-    print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
-    # Load predictions
     if not os.path.exists("predictions.json"):
-        print("❌ No predictions.json found. Run main.py first.")
+        print("❌ No predictions.json found")
         return 1
     
     with open("predictions.json", 'r') as f:
@@ -231,52 +211,27 @@ def main():
     
     print(f"✅ Loaded {len(predictions)} predictions")
     
-    # Load validation results
     validation_results = parse_validation_file("validation_results.txt")
     
     if not validation_results:
-        print("\n❌ No validation_results.txt found!")
-        print("\n📝 Expected format:")
-        print("   Manchester City vs Crystal Palace")
-        print("   Premier League")
-        print("   1.32 | 6.13 | 9.14")
-        print("   RESULT: 3-0 | Home Win")
+        print("❌ No validation results found")
         return 1
     
-    print(f"✅ Loaded {len(validation_results)} validation results")
-    
-    # Validate
-    print("\n🔍 Comparing predictions with results...")
+    print("\n🔍 Validating predictions...")
     validated = validate_predictions(predictions, validation_results)
     
     if validated:
-        # Generate report
         report = generate_report(validated)
-        
-        # Calculate stats
-        total = len(validated)
-        correct = sum(1 for v in validated if v['is_correct'])
-        accuracy = (correct / total * 100) if total > 0 else 0
-        
-        print(f"\n📊 RESULTS:")
-        print(f"   Validated: {total} matches")
-        print(f"   Correct: {correct}")
-        print(f"   Wrong: {total - correct}")
-        print(f"   Accuracy: {accuracy:.1f}%")
-        
-        # Send to Telegram
         send_telegram(report)
         
-        # Save report
         with open("validation_report.md", "w") as f:
             f.write(report)
         
-        print(f"\n✅ Report saved to validation_report.md")
-        print(f"✅ Report sent to Telegram")
+        total = len(validated)
+        correct = sum(1 for v in validated if v['is_correct'])
+        print(f"\n📊 ACCURACY: {correct}/{total} ({correct/total*100:.1f}%)")
     else:
-        print("\n❌ No matches could be validated")
-        print("\n💡 Tip: Make sure match names in validation_results.txt")
-        print("   match the names in predictions.json")
+        print("\n❌ No matches validated")
     
     return 0
 
