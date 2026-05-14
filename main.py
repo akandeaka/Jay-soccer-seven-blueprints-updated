@@ -444,3 +444,6 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+    # Save accumulators for validation
+with open("accumulators.json", "w") as f:
+    json.dump(accumulators, f, indent=2)
