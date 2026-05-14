@@ -1,6 +1,6 @@
 """
 VALIDATION SYSTEM - Manual File Mode
-Improved matching to handle different formats
+Reads results from validation_results.txt
 """
 
 import os
@@ -9,86 +9,107 @@ import json
 import re
 from datetime import datetime
 
+# ============================================================
+# CONFIGURATION
+# ============================================================
+
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
 
-
-def normalize_match_name(match_name):
-    """Remove special characters and normalize match names for comparison"""
-    # Remove ** and other markdown
-    name = match_name.replace('**', '').replace('*', '').strip()
-    # Convert to lowercase
-    name = name.lower()
-    return name
-
+# ============================================================
+# FUNCTION: Parse validation file
+# ============================================================
 
 def parse_validation_file(filepath="validation_results.txt"):
     """Parse validation file with results"""
     
     if not os.path.exists(filepath):
         print(f"❌ {filepath} not found!")
-        return {}
+        return []
     
-    results = {}
     with open(filepath, 'r') as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-                
-            # Look for RESULT: pattern
-            if 'RESULT:' in line:
-                parts = line.split('RESULT:')
-                match_part = parts[0].strip()
-                result_part = parts[1].strip() if len(parts) > 1 else ''
-                
-                # Normalize match name
-                match_name = normalize_match_name(match_part)
-                
-                # Parse score from result part
-                score_match = re.search(r'(\d+)-(\d+)', result_part)
-                if score_match:
-                    home_score = int(score_match.group(1))
-                    away_score = int(score_match.group(2))
-                    
-                    results[match_name] = {
-                        'home_score': home_score,
-                        'away_score': away_score,
-                        'original_match': match_part
-                    }
+        content = f.read().strip()
     
-    print(f"✅ Loaded {len(results)} validation results")
+    if not content:
+        return []
+    
+    lines = [l.strip() for l in content.split('\n') if l.strip()]
+    results = []
+    i = 0
+    
+    while i < len(lines):
+        if ' vs ' not in lines[i]:
+            i += 1
+            continue
+        
+        match = {'match': lines[i]}
+        i += 1
+        
+        # League
+        if i < len(lines) and '|' not in lines[i] and 'RESULT' not in lines[i]:
+            match['league'] = lines[i]
+            i += 1
+        else:
+            match['league'] = 'Unknown'
+        
+        # Skip odds lines if present
+        while i < len(lines) and 'RESULT' not in lines[i]:
+            i += 1
+        
+        # RESULT line
+        if i < len(lines) and 'RESULT:' in lines[i]:
+            result_text = lines[i].replace('RESULT:', '').strip()
+            parts = result_text.split('|')
+            if len(parts) >= 1:
+                score_part = parts[0].strip()
+                score_match = re.search(r'(\d+)-(\d+)', score_part)
+                if score_match:
+                    match['home_score'] = int(score_match.group(1))
+                    match['away_score'] = int(score_match.group(2))
+                
+                if len(parts) > 1:
+                    match['result'] = parts[1].strip()
+                else:
+                    if match['home_score'] > match['away_score']:
+                        match['result'] = 'Home Win'
+                    elif match['home_score'] < match['away_score']:
+                        match['result'] = 'Away Win'
+                    else:
+                        match['result'] = 'Draw'
+            i += 1
+        else:
+            i += 1
+            continue
+        
+        results.append(match)
+    
     return results
 
+# ============================================================
+# FUNCTION: Validate predictions
+# ============================================================
 
 def validate_predictions(predictions, validation_results):
-    """Compare predictions with actual results - improved matching"""
+    """Compare predictions with actual results"""
     
     validated = []
-    matched = 0
-    not_found = []
     
     for pred in predictions:
         pred_match = pred.get('match', '')
-        pred_match_norm = normalize_match_name(pred_match)
         pred_play = pred.get('play', '')
         pred_confidence = pred.get('confidence', 0)
         pred_blueprint = pred.get('blueprint', '')
         
-        # Try exact match first
-        actual = validation_results.get(pred_match_norm)
-        
-        # If not found, try partial match
-        if not actual:
-            for key, value in validation_results.items():
-                if pred_match_norm in key or key in pred_match_norm:
-                    actual = value
-                    break
+        # Find matching result
+        actual = None
+        for res in validation_results:
+            if pred_match.lower() == res['match'].lower():
+                actual = res
+                break
         
         if actual:
-            matched += 1
-            home_score = actual['home_score']
-            away_score = actual['away_score']
+            home_score = actual.get('home_score', 0)
+            away_score = actual.get('away_score', 0)
             
             # Determine if prediction was correct
             is_correct = False
@@ -108,6 +129,12 @@ def validate_predictions(predictions, validation_results):
                 is_correct = (home_score + away_score < 4)
             elif 'Over 2.5' in pred_play:
                 is_correct = (home_score + away_score > 2)
+            elif '1X & Over 1.5' in pred_play:
+                home_not_lost = (home_score >= away_score)
+                is_correct = home_not_lost and (home_score + away_score > 1)
+            elif '1X & Under 3.5' in pred_play:
+                home_not_lost = (home_score >= away_score)
+                is_correct = home_not_lost and (home_score + away_score < 4)
             elif 'Draw or GG' in pred_play:
                 is_correct = (home_score == away_score) or (home_score > 0 and away_score > 0)
             elif 'Draw or Under 2.5' in pred_play:
@@ -119,38 +146,45 @@ def validate_predictions(predictions, validation_results):
                 'predicted_play': pred_play,
                 'confidence': pred_confidence,
                 'actual_score': f"{home_score}-{away_score}",
-                'actual_result': actual.get('original_match', ''),
+                'actual_result': actual.get('result', 'Unknown'),
                 'is_correct': is_correct
             })
-            status = "✅" if is_correct else "❌"
-            print(f"   {status} {pred_match[:50]} → {home_score}-{away_score}")
+            print(f"   {'✅' if is_correct else '❌'} {pred_match}: {pred_play} → {home_score}-{away_score}")
         else:
-            not_found.append(pred_match)
-            print(f"   ⚠️ NOT FOUND: {pred_match[:50]}")
-    
-    print(f"\n📊 MATCH SUMMARY:")
-    print(f"   Matched: {matched}/{len(predictions)}")
-    print(f"   Not found: {len(not_found)}")
+            validated.append({
+                'match': pred_match,
+                'blueprint': pred_blueprint,
+                'predicted_play': pred_play,
+                'confidence': pred_confidence,
+                'actual_score': 'NOT_FOUND',
+                'actual_result': 'NOT_FOUND',
+                'is_correct': False
+            })
+            print(f"   ⚠️ NOT FOUND: {pred_match}")
     
     return validated
 
+# ============================================================
+# FUNCTION: Generate report
+# ============================================================
 
 def generate_report(validated):
     """Generate performance report"""
     
-    total = len(validated)
+    total = len([v for v in validated if v['actual_score'] != 'NOT_FOUND'])
     correct = sum(1 for v in validated if v['is_correct'])
     accuracy = (correct / total * 100) if total > 0 else 0
     
     # Group by blueprint
     bp_stats = {}
     for v in validated:
-        bp = v['blueprint']
-        if bp not in bp_stats:
-            bp_stats[bp] = {'total': 0, 'correct': 0}
-        bp_stats[bp]['total'] += 1
-        if v['is_correct']:
-            bp_stats[bp]['correct'] += 1
+        if v['actual_score'] != 'NOT_FOUND':
+            bp = v['blueprint']
+            if bp not in bp_stats:
+                bp_stats[bp] = {'total': 0, 'correct': 0}
+            bp_stats[bp]['total'] += 1
+            if v['is_correct']:
+                bp_stats[bp]['correct'] += 1
     
     # Build report
     report = f"""⚽ JAY SOCCER BLUEPRINTS - VALIDATION REPORT
@@ -173,6 +207,9 @@ def generate_report(validated):
     
     return report, accuracy, correct, total
 
+# ============================================================
+# FUNCTION: Send to Telegram
+# ============================================================
 
 def send_telegram(message):
     """Send message to Telegram"""
@@ -180,10 +217,10 @@ def send_telegram(message):
         print("⚠️ Telegram not configured - skipping")
         return False
     
+    import requests
     if len(message) > 4096:
         message = message[:4000] + "\n\n... (truncated)"
     
-    import requests
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     try:
         r = requests.post(url, json={
@@ -196,6 +233,9 @@ def send_telegram(message):
         print(f"❌ Telegram error: {e}")
         return False
 
+# ============================================================
+# MAIN
+# ============================================================
 
 def main():
     print("\n" + "="*60)
@@ -221,10 +261,16 @@ def main():
         print("\n❌ No validation_results.txt found!")
         print("\n📝 Please create validation_results.txt with this format:")
         print("")
-        print("   Canberra Olympic vs O'Connor Knights RESULT: 2-1 | Home Win")
-        print("   Anyang vs Gimcheon Sangmu RESULT: 1-1 | Draw")
+        print("   Brighton vs Wolves")
+        print("   Premier League")
+        print("   2.10 | 3.40 | 3.30")
+        print("   Over 2.5: 1.75 | Under 2.5: 2.05")
+        print("   BTTS Yes: 1.65 | BTTS No: 2.15")
+        print("   RESULT: 3-0 | Home Win")
         print("")
         return 1
+    
+    print(f"✅ Loaded {len(validation_results)} validation results")
     
     # Validate
     print("\n🔍 Comparing predictions with results...")
@@ -249,7 +295,6 @@ def main():
     print(f"\n✅ Report saved to validation_report.md")
     
     return 0
-
 
 if __name__ == "__main__":
     sys.exit(main())
