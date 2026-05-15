@@ -2,7 +2,7 @@
 JAY SOCCER BLUEPRINTS - COMPLETE SYSTEM
 8 Blueprints | Smart AI | 2,4,7,10 Odds Accumulators | Validation
 """
-from league_filter import is_approved_league
+
 import os
 import sys
 import json
@@ -10,6 +10,8 @@ import re
 import requests
 from datetime import datetime
 from itertools import combinations
+
+from league_filter import is_approved_league
 
 # ============================================================
 # CONFIGURATION
@@ -34,10 +36,6 @@ ATTACKING_TEAMS = [
     'psg', 'barcelona', 'real madrid', 'ajax', 'napoli'
 ]
 
-DEFENSIVE_TEAMS = [
-    'burnley', 'getafe', 'cadiz', 'elche', 'spezia'
-]
-
 
 def get_league_avg_goals(league):
     league_lower = league.lower()
@@ -51,14 +49,6 @@ def is_attacking_team(team):
     team_lower = team.lower()
     for at in ATTACKING_TEAMS:
         if at in team_lower:
-            return True
-    return False
-
-
-def is_defensive_team(team):
-    team_lower = team.lower()
-    for dt in DEFENSIVE_TEAMS:
-        if dt in team_lower:
             return True
     return False
 
@@ -98,6 +88,14 @@ def parse_matches():
         else:
             match['league'] = 'Unknown'
         
+        # SKIP NON-APPROVED LEAGUES (FIXED INDENTATION)
+        if not is_approved_league(match['league']):
+            # Skip odds parsing and move to next match
+            while i < len(lines) and '|' not in lines[i]:
+                i += 1
+            i += 1
+            continue
+        
         if i < len(lines) and '|' in lines[i]:
             odds = re.findall(r'(\d+\.\d+)', lines[i])
             if len(odds) >= 3:
@@ -108,9 +106,7 @@ def parse_matches():
         else:
             i += 1
             continue
-
-        if not is_approved_league(match['league']):
-    continue  # Skip this match
+        
         matches.append(match)
     
     return matches
@@ -212,7 +208,7 @@ def analyze_match(match):
     return None
 
 # ============================================================
-# BUILD ACCUMULATORS (2,4,7,10 ODDS)
+# BUILD ACCUMULATORS
 # ============================================================
 
 def build_accumulators(predictions):
@@ -304,6 +300,7 @@ def main():
     print("\n" + "="*60)
     print("⚽ JAY SOCCER BLUEPRINTS - COMPLETE SYSTEM")
     print("8 Blueprints | Smart AI | 2,4,7,10 Odds Accumulators")
+    print("League Filter: Top European + Quality World Leagues")
     print("="*60)
     print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
@@ -316,10 +313,14 @@ def main():
     # Parse matches
     matches = parse_matches()
     if not matches:
-        print("❌ No matches found")
+        print("❌ No approved league matches found")
+        print("\n📋 Approved leagues include:")
+        print("   Premier League, Bundesliga, La Liga, Serie A, Ligue 1")
+        print("   Eredivisie, Primeira Liga, Championship, Belgian Pro League")
+        print("   MLS, Argentina, Brazil, Mexico, Japan, Korea, Australia")
         return 1
     
-    print(f"\n📊 Loaded {len(matches)} matches")
+    print(f"\n📊 Loaded {len(matches)} approved league matches")
     
     # Analyze all matches with 8 blueprints
     predictions = []
@@ -337,7 +338,7 @@ def main():
     # Build accumulators
     accumulators = build_accumulators(predictions)
     
-    # SAVE ACCUMULATORS FOR VALIDATION (FIXED - INSIDE MAIN)
+    # Save accumulators for validation
     with open("accumulators.json", "w") as f:
         json.dump(accumulators, f, indent=2)
     print(f"✅ Saved {len(accumulators)} accumulators to accumulators.json")
@@ -347,7 +348,7 @@ def main():
 📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📊 PREDICTIONS ({len(predictions)})
+📊 PREDICTIONS ({len(predictions)} from top leagues)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
     
