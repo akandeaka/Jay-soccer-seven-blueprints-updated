@@ -2,7 +2,7 @@
 JAY SOCCER BLUEPRINTS - COMPLETE SYSTEM
 8 Blueprints | Smart AI | 2,4,7,10 Odds Accumulators | Validation
 """
-
+from league_filter import is_approved_league
 import os
 import sys
 import json
@@ -108,7 +108,9 @@ def parse_matches():
         else:
             i += 1
             continue
-        
+
+        if not is_approved_league(match['league']):
+    continue  # Skip this match
         matches.append(match)
     
     return matches
