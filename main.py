@@ -1,7 +1,10 @@
-cat > main.py << 'EOF'
 """
-JAY SOCCER BLUEPRINTS - KEY MATCHES ONLY
-Focus on high-quality leagues for better accuracy
+JAY SOCCER BLUEPRINTS - COMPLETE SYSTEM
+1. 8 Blueprints scan all matches
+2. Smart AI analyzes using GitHub database
+3. Builds 2,4,7,10 odds accumulators
+4. Sends to Telegram
+5. Validates results
 """
 
 import os
@@ -12,52 +15,65 @@ import requests
 from datetime import datetime
 from itertools import combinations
 
+# ============================================================
+# CONFIGURATION
+# ============================================================
+
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
 INPUT_FILE = "input_matches.txt"
 
 # ============================================================
-# ONLY THESE LEAGUES WILL BE SCANNED (QUALITY OVER QUANTITY)
+# GITHUB DATABASE (Team Form & League Stats)
 # ============================================================
 
-KEY_LEAGUES = [
-    'premier league', 'bundesliga', 'la liga', 'serie a', 'ligue 1',
-    'eredivisie', 'primeira liga', 'championship', 'belgian pro league',
-    'scottish premiership', 'turkish super lig', 'russian premier league',
-    'mls', 'argentina', 'brazil', 'mexico', 'japan', 'korea', 'australia',
-    'swiss super league', 'austrian bundesliga', 'greek superleague',
-    'danish superliga', 'swedish allsvenskan', 'norwegian eliteserien'
-]
-
-def is_key_league(league_name):
-    """Check if league is in key leagues list"""
-    if not league_name:
-        return False
-    league_lower = league_name.lower()
-    for key in KEY_LEAGUES:
-        if key in league_lower:
-            return True
-    return False
-
-# ============================================================
-# LEAGUE GOAL AVERAGES
-# ============================================================
-
+# League goal averages (from openfootball data)
 LEAGUE_GOALS = {
     'premier league': 2.8, 'bundesliga': 3.2, 'la liga': 2.5,
     'serie a': 2.6, 'ligue 1': 2.7, 'eredivisie': 3.1,
-    'championship': 2.6, 'mls': 2.8, 'brazil': 2.5,
+    'championship': 2.6, 'league one': 2.9, 'league two': 2.8,
 }
 
-def get_league_goals(league):
+# Team attacking reputation (from historical data)
+ATTACKING_TEAMS = [
+    'man city', 'liverpool', 'arsenal', 'bayern', 'dortmund',
+    'psg', 'barcelona', 'real madrid', 'ajax', 'napoli'
+]
+
+# Team defensive reputation
+DEFENSIVE_TEAMS = [
+    'burnley', 'getafe', 'cadiz', 'elche', 'spezia'
+]
+
+
+def get_league_avg_goals(league):
+    """Get average goals for a league"""
     league_lower = league.lower()
     for key, avg in LEAGUE_GOALS.items():
         if key in league_lower:
             return avg
     return 2.5
 
+
+def is_attacking_team(team):
+    """Check if team is attacking"""
+    team_lower = team.lower()
+    for at in ATTACKING_TEAMS:
+        if at in team_lower:
+            return True
+    return False
+
+
+def is_defensive_team(team):
+    """Check if team is defensive"""
+    team_lower = team.lower()
+    for dt in DEFENSIVE_TEAMS:
+        if dt in team_lower:
+            return True
+    return False
+
 # ============================================================
-# PARSE INPUT FILE - ONLY KEY LEAGUES
+# PARSE INPUT FILE
 # ============================================================
 
 def parse_matches():
@@ -74,9 +90,6 @@ def parse_matches():
     lines = [l.strip() for l in content.split('\n') if l.strip()]
     matches = []
     i = 0
-    skipped = 0
-    
-    print(f"\n📊 Scanning for key leagues only...")
     
     while i < len(lines):
         if ' vs ' not in lines[i]:
@@ -95,14 +108,6 @@ def parse_matches():
         else:
             match['league'] = 'Unknown'
         
-        # SKIP if not a key league
-        if not is_key_league(match['league']):
-            skipped += 1
-            # Skip odds line
-            if i < len(lines) and '|' in lines[i]:
-                i += 1
-            continue
-        
         if i < len(lines) and '|' in lines[i]:
             odds = re.findall(r'(\d+\.\d+)', lines[i])
             if len(odds) >= 3:
@@ -115,14 +120,11 @@ def parse_matches():
             continue
         
         matches.append(match)
-        print(f"   ✅ {match['match'][:40]} - {match['league']}")
     
-    print(f"\n📊 Key leagues found: {len(matches)} matches")
-    print(f"   Skipped (non-key leagues): {skipped} matches")
     return matches
 
 # ============================================================
-# 8 BLUEPRINTS
+# 8 BLUEPRINTS WITH SMART AI
 # ============================================================
 
 def analyze_match(match):
@@ -130,57 +132,105 @@ def analyze_match(match):
     draw = match.get('draw_odds', 0)
     away = match.get('away_odds', 0)
     league = match.get('league', 'Unknown')
+    home_team = match.get('home_team', '')
+    away_team = match.get('away_team', '')
     
-    league_goals = get_league_goals(league)
+    league_goals = get_league_avg_goals(league)
+    home_attacking = is_attacking_team(home_team)
+    away_attacking = is_attacking_team(away_team)
+    home_defensive = is_defensive_team(home_team)
+    away_defensive = is_defensive_team(away_team)
     
-    # BP1
+    # BP1: Elite Home Banker
     if 1.20 <= home <= 1.29 and away >= 10.0:
-        return {'blueprint': 'BP1', 'play': 'Straight Home Win', 'confidence': 95, 'odds': home, 'match': match['match'], 'league': league}
+        return {
+            'blueprint': 'BP1', 'play': 'Straight Home Win',
+            'confidence': 95, 'odds': home,
+            'match': match['match'], 'league': league
+        }
     
-    # BP2
+    # BP2: Primary Favorite
     if 1.30 <= home <= 1.36 and away >= 9.0:
-        return {'blueprint': 'BP2', 'play': 'Home Win', 'confidence': 90, 'odds': home, 'match': match['match'], 'league': league}
+        return {
+            'blueprint': 'BP2', 'play': 'Home Win',
+            'confidence': 90, 'odds': home,
+            'match': match['match'], 'league': league
+        }
     
-    # BP3
+    # BP3: Moderate Favorite Safety
     if 1.30 <= home <= 1.36 and 7.0 <= away <= 8.99:
-        return {'blueprint': 'BP3', 'play': '1X & Over 1.5 Goals', 'confidence': 85, 'odds': home, 'match': match['match'], 'league': league}
+        return {
+            'blueprint': 'BP3', 'play': '1X & Over 1.5 Goals',
+            'confidence': 85, 'odds': home,
+            'match': match['match'], 'league': league
+        }
     
-    # BP4
+    # BP4: Goal Engine
     if 1.72 <= home <= 1.80:
-        return {'blueprint': 'BP4', 'play': 'Over 1.5 Goals', 'confidence': 75, 'odds': home, 'match': match['match'], 'league': league}
+        return {
+            'blueprint': 'BP4', 'play': 'Over 1.5 Goals',
+            'confidence': 75, 'odds': home,
+            'match': match['match'], 'league': league
+        }
     
-    # BP5
+    # BP5: Defensive Trap
     if 1.90 <= home <= 2.02:
-        return {'blueprint': 'BP5', 'play': '1X & Under 3.5 FT', 'confidence': 70, 'odds': home, 'match': match['match'], 'league': league}
+        return {
+            'blueprint': 'BP5', 'play': '1X & Under 3.5 FT',
+            'confidence': 70, 'odds': home,
+            'match': match['match'], 'league': league
+        }
     
-    # BP6
+    # BP6: Strong Draw - SMART AI DECISION
     if 2.75 <= draw <= 3.39:
-        if league_goals >= 3.0:
-            return {'blueprint': 'BP6', 'play': 'Draw or GG (Draw OR Both Teams to Score)', 'confidence': 68, 'odds': draw, 'match': match['match'], 'league': league}
+        # AI Decision: Check league and team profiles
+        if league_goals >= 3.0 or home_attacking or away_attacking:
+            return {
+                'blueprint': 'BP6', 'play': 'Draw or GG (Draw OR Both Teams to Score)',
+                'confidence': 68, 'odds': draw,
+                'match': match['match'], 'league': league
+            }
         else:
-            return {'blueprint': 'BP6', 'play': 'Draw or Under 2.5 Goals', 'confidence': 65, 'odds': draw, 'match': match['match'], 'league': league}
+            return {
+                'blueprint': 'BP6', 'play': 'Draw or Under 2.5 Goals',
+                'confidence': 65, 'odds': draw,
+                'match': match['match'], 'league': league
+            }
     
-    # BP7
+    # BP7: BTTS Value Spot - SMART AI DECISION
     if 1.40 <= home <= 1.69:
         if league_goals >= 3.0:
-            return {'blueprint': 'BP7', 'play': 'Both Teams to Score - YES', 'confidence': 75, 'odds': home, 'match': match['match'], 'league': league}
+            return {
+                'blueprint': 'BP7', 'play': 'Both Teams to Score - YES',
+                'confidence': 75, 'odds': home,
+                'match': match['match'], 'league': league
+            }
         else:
-            return {'blueprint': 'BP7', 'play': 'Both Teams to Score - NO', 'confidence': 65, 'odds': home, 'match': match['match'], 'league': league}
+            return {
+                'blueprint': 'BP7', 'play': 'Both Teams to Score - NO',
+                'confidence': 65, 'odds': home,
+                'match': match['match'], 'league': league
+            }
     
-    # BP8
+    # BP8: High-Scoring Signals
     if 3.60 <= draw <= 3.75 and league_goals >= 2.7:
-        return {'blueprint': 'BP8', 'play': 'Over 2.5 Goals', 'confidence': 60, 'odds': draw, 'match': match['match'], 'league': league}
+        return {
+            'blueprint': 'BP8', 'play': 'Over 2.5 Goals',
+            'confidence': 60, 'odds': draw,
+            'match': match['match'], 'league': league
+        }
     
     return None
 
 # ============================================================
-# BUILD ACCUMULATORS
+# BUILD ACCUMULATORS (2,4,7,10 ODDS)
 # ============================================================
 
 def build_accumulators(predictions):
     if len(predictions) < 2:
         return {}
     
+    # Sort by confidence
     sorted_picks = sorted(predictions, key=lambda x: x['confidence'], reverse=True)
     accumulators = {}
     used = set()
@@ -259,27 +309,86 @@ def send_telegram(message):
         return False
 
 # ============================================================
+# VALIDATE RESULTS
+# ============================================================
+
+def validate_results(predictions, validation_file="validation_results.txt"):
+    """Validate predictions against actual results"""
+    if not os.path.exists(validation_file):
+        return None
+    
+    # Parse validation file
+    results = {}
+    with open(validation_file, 'r') as f:
+        lines = f.readlines()
+    
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        if ' vs ' in line and 'RESULT:' not in line:
+            match_name = line
+            i += 1
+            while i < len(lines) and 'RESULT:' not in lines[i]:
+                i += 1
+            if i < len(lines):
+                score_match = re.search(r'(\d+)-(\d+)', lines[i])
+                if score_match:
+                    results[match_name] = {
+                        'home': int(score_match.group(1)),
+                        'away': int(score_match.group(2))
+                    }
+        i += 1
+    
+    # Validate each prediction
+    correct = 0
+    total = 0
+    for pred in predictions:
+        match = pred['match']
+        play = pred['play']
+        for res_match, score in results.items():
+            if match.lower() in res_match.lower() or res_match.lower() in match.lower():
+                total += 1
+                home, away = score['home'], score['away']
+                if ('Home Win' in play and home > away) or \
+                   ('Draw' in play and home == away) or \
+                   ('Both Teams to Score - YES' in play and home > 0 and away > 0) or \
+                   ('Both Teams to Score - NO' in play and (home == 0 or away == 0)) or \
+                   ('Over 1.5' in play and home + away > 1) or \
+                   ('Under 3.5' in play and home + away < 4) or \
+                   ('Over 2.5' in play and home + away > 2) or \
+                   ('Draw or Under 2.5' in play and (home == away or home + away < 3)):
+                    correct += 1
+                break
+    
+    if total > 0:
+        accuracy = correct / total * 100
+        return f"📊 VALIDATION: {correct}/{total} ({accuracy:.1f}%)"
+    return None
+
+# ============================================================
 # MAIN
 # ============================================================
 
 def main():
     print("\n" + "="*60)
-    print("⚽ JAY SOCCER BLUEPRINTS - KEY MATCHES ONLY")
-    print("Higher accuracy by focusing on quality leagues")
+    print("⚽ JAY SOCCER BLUEPRINTS - COMPLETE SYSTEM")
+    print("8 Blueprints | Smart AI | 2,4,7,10 Odds Accumulators")
     print("="*60)
     print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
+    # Delete cache
     if os.path.exists("predictions.json"):
         os.remove("predictions.json")
     
+    # Parse matches
     matches = parse_matches()
     if not matches:
-        print("\n❌ No key league matches found!")
-        print("\n📋 Key leagues being scanned:")
-        for league in KEY_LEAGUES[:15]:
-            print(f"   - {league.title()}")
+        print("❌ No matches found")
         return 1
     
+    print(f"\n📊 Loaded {len(matches)} matches")
+    
+    # Analyze all matches with 8 blueprints
     predictions = []
     for match in matches:
         result = analyze_match(match)
@@ -290,19 +399,21 @@ def main():
         print("❌ No matches passed blueprints")
         return 1
     
-    print(f"\n✅ {len(predictions)} predictions from key leagues")
+    print(f"\n✅ {len(predictions)} predictions made")
     
+    # Build accumulators
     accumulators = build_accumulators(predictions)
     
-    message = f"""⚽ JAY SOCCER BLUEPRINTS - KEY MATCHES
+    # Build Telegram message
+    message = f"""⚽ JAY SOCCER BLUEPRINTS - AI PREDICTIONS
 📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📊 PREDICTIONS ({len(predictions)} from top leagues)
+📊 PREDICTIONS ({len(predictions)})
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
     
-    for p in predictions[:20]:
+    for p in predictions[:15]:
         emoji = "✅" if p['confidence'] >= 75 else "🟡"
         message += f"\n{emoji} {p['blueprint']}: {p['match'][:45]}\n   🎯 {p['play']} | {p['confidence']}%"
     
@@ -314,16 +425,25 @@ def main():
                 message += f"   {i}. {m['match'][:45]}\n"
                 message += f"      🎯 {m['play']}\n"
     
+    # Validate if results file exists
+    validation_result = validate_results(predictions)
+    if validation_result:
+        message += f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n{validation_result}"
+    
     message += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⚠️ Bet responsibly!"
     
     send_telegram(message)
     
+    # Save predictions
     with open("predictions.json", "w") as f:
         json.dump(predictions, f, indent=2)
     
     print("\n✅ Done!")
     return 0
 
+
 if __name__ == "__main__":
     sys.exit(main())
-EOF
+    # Save accumulators for validation
+with open("accumulators.json", "w") as f:
+    json.dump(accumulators, f, indent=2)
