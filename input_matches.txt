@@ -1,971 +1,577 @@
-Here is the converted data for matches with odds, arranged by kick-off time (earliest to latest). Times shown are in 24-hour format.
-
-**Vysshaya Liga**
-BELARUS | 11:30
-FC Gomel 2 vs Ostrovets
-odds not available
-
-**Vysshaya Liga**
-BELARUS | 15:30
-Neman vs Isloch
-2.29 | 2.97 | 3.41
-
-**Premier League**
-AZERBAIJAN | 14:00
-Karvan vs Gabala
-4.84 | 3.48 | 1.65
-
-**I Liqa**
-AZERBAIJAN | 14:00
-Baku Sporting vs Zaqatala
-1.55 | 3.70 | 5.10
-
-**I Liqa**
-AZERBAIJAN | 14:00
-Mingachevir vs MOIK Baku
-1.62 | 3.75 | 4.40
-
-**I Liqa**
-AZERBAIJAN | 14:00
-Sabail vs Sahdag Qusar
-1.62 | 3.65 | 4.50
-
-**Premier League**
-AZERBAIJAN | 16:30
-Araz vs Kapaz
-2.01 | 3.22 | 3.41
-
-**Vysshaya Liga**
-BELARUS | 17:45
-FC Minsk vs Belshina
-1.71 | 3.35 | 5.43
-
-**Premier League**
-BAHRAIN | 17:00
-Al Riffa vs Bahrain SC
-1.05 | 8.60 | 23.00
-
-**Premier League**
-BAHRAIN | 17:00
-Al-Budaiya vs Al-Ahli Manama
-2.98 | 3.06 | 2.28
-
-**Premier League**
-BAHRAIN | 17:00
-Al-Hidd vs Al-Shabbab
-1.61 | 3.65 | 4.84
-
-**Vtora liga**
-BULGARIA | 16:00
-Dunav Ruse vs Yantra Gabrovo
-1.72 | 3.40 | 4.42
-
-**Vtora liga**
-BULGARIA | 16:00
-Etar vs Ludogorets II
-1.97 | 3.44 | 3.29
-
-**Vtora liga**
-BULGARIA | 16:00
-Hebar vs Marek
-2.23 | 3.10 | 3.03
-
-**Vtora liga**
-BULGARIA | 16:00
-Pirin Blagoevgrad vs Sevlievo
-2.05 | 3.20 | 3.41
-
-**Vtora liga**
-BULGARIA | 16:00
-Spartak Pleven vs Lok. Gorna
-2.10 | 3.13 | 3.27
-
-**Super League**
-CHINA | 12:35
-Henan Songshan Longmen vs Shenzhen Xinpengcheng
-1.66 | 3.90 | 5.31
-
-**Super League**
-CHINA | 12:35
-Shanghai Port vs Zhejiang Professional
-1.94 | 3.87 | 3.67
-
-**Super League**
-CHINA | 12:35
-Tianjin Jinmen Tiger vs Chengdu Rongcheng
-5.20 | 3.97 | 1.66
-
-**Super League**
-CHINA | 13:00
-Beijing Guoan vs Qingdao Hainiu
-1.37 | 5.37 | 7.50
-
-**Super League**
-CHINA | 13:00
-Dalian Yingbo vs Qingdao West Coast
-1.72 | 3.85 | 4.89
-
-**FA Cup**
-CHINA | 09:00
-Shenzhen vs Shaanxi Union
-5.63 | 4.70 | 1.41
-
-**FA Cup**
-CHINA | 09:30
-Dalian Kewei vs Nantong Zhiyun
-5.57 | 3.54 | 1.57
-
-**FA Cup**
-CHINA | 12:30
-Hangzhou Linping vs Foshan Nanshi
-2.43 | 2.85 | 2.97
-
-**FA Cup**
-CHINA | 12:30
-Qingdao Red Lions vs Nanjing City
-2.79 | 2.89 | 2.46
-
-**HNL**
-CROATIA | 17:00
-Vukovar 1991 vs Varazdin
-3.66 | 3.64 | 1.90
-
-**Prva NL**
-CROATIA | 14:45
-Rudes vs Cibalia
-1.56 | 3.44 | 5.90
-
-**Prva NL**
-CROATIA | 16:30
-Opatija vs Croatia Zmijavci
-1.92 | 3.18 | 3.76
-
-**Druga NL**
-CROATIA | 16:30
-Dragovoljac vs Radnik Krizevci
-2.24 | 3.18 | 2.94
-
-**Druga NL**
-CROATIA | 16:30
-Mladost Zdralovi vs Bjelovar
-1.47 | 3.75 | 6.47
-
-**Cyprus League - Relegation Group**
-CYPRUS | 17:00
-Achnas vs Omonia Aradippou
-2.64 | 3.50 | 2.41
-
-**Cyprus League - Relegation Group**
-CYPRUS | 17:00
-Chloraka vs AEL Limassol
-1.89 | 3.60 | 3.75
-
-**Cyprus League - Relegation Group**
-CYPRUS | 17:00
-Ol. Nicosia vs Anorthosis
-1.64 | 3.90 | 4.81
-
-**3. CFL - Group A**
-CZECH REPUBLIC | 16:30
-Hostoun vs Plzen B
-4.28 | 3.45 | 1.73
-
-**3. CFL - Group A**
-CZECH REPUBLIC | 17:00
-Pisek vs Slavia Prague U20
-1.87 | 3.58 | 3.49
-
-**3. MSFL**
-CZECH REPUBLIC | 18:00
-SK Hranice vs Zlin B
-2.73 | 3.60 | 2.25
-
-**4. liga - Group B**
-CZECH REPUBLIC | 16:30
-Marianske Lazne vs Chomutov
-3.33 | 4.10 | 1.83
-
-**1st Division - Promotion Group**
-DENMARK | 17:00
-Kolding IF vs Lyngby
-3.74 | 3.64 | 1.88
-
-**1st Division - Relegation Group**
-DENMARK | 18:00
-B.93 vs Aalborg
-2.56 | 3.58 | 2.44
-
-**Liga Pro**
-ECUADOR | 22:30
-LDU Quito vs Tecnico U.
-1.67 | 3.82 | 4.78
-
-**Primera Division - Clausura - Play Offs**
-EL SALVADOR | 02:30
-Municipal Limeno vs FAS
-3.58 | 3.08 | 2.01
-
-**League Two - Play Offs**
-ENGLAND | 19:15
-Salford vs Grimsby
-2.25 | 3.34 | 3.09
-
-**League Two - Play Offs**
-ENGLAND | 20:00
-Notts Co vs Chesterfield
-2.30 | 3.24 | 3.09
-
-**Meistriliiga**
-ESTONIA | 17:00
-Tammeka vs Nomme Utd
-2.08 | 3.74 | 2.85
-
-**Premier League**
-ETHIOPIA | 11:00
-Mekelle 70 Enderta vs Ethiopian Insurance
-3.98 | 2.92 | 1.97
-
-**Premier League**
-ETHIOPIA | 14:00
-Dire Dawa vs Bahir Dar Kenema
-3.69 | 2.86 | 2.08
-
-**Premier League**
-ETHIOPIA | 14:00
-Ethiopia Nigd Bank vs Sheger Ketema
-2.98 | 2.82 | 2.43
-
-**Euro U19 - Qualification - Round 1 - League B**
-EUROPE | 10:00
-Slovakia U19 vs San Marino U19
-1.02 | 15.00 | 38.00
-
-**National**
-FRANCE | 18:30
-Aubagne vs Caen
-3.19 | 3.36 | 2.05
-
-**National**
-FRANCE | 18:30
-Concarneau vs Villefranche
-1.78 | 3.52 | 3.95
-
-**National**
-FRANCE | 18:30
-Dijon vs Orleans
-1.64 | 3.74 | 4.56
-
-**National**
-FRANCE | 18:30
-Fleury-Merogis vs Rouen
-2.39 | 3.30 | 2.57
-
-**National**
-FRANCE | 18:30
-Quevilly Rouen vs Paris 13 Atl.
-2.01 | 2.81 | 4.06
-
-**National**
-FRANCE | 18:30
-Sochaux vs Le Puy-en-Velay
-1.65 | 3.58 | 4.68
-
-**National**
-FRANCE | 18:30
-Valenciennes vs Chateauroux
-3.98 | 3.84 | 1.70
-
-**National**
-FRANCE | 18:30
-Versailles vs Stade Briochin
-1.37 | 4.45 | 6.80
-
-**Ligue 1 - Relegation - Play Offs**
-FRANCE | 19:30
-St Etienne vs Rodez
-1.75 | 4.20 | 4.58
-
-**Crystalbet Erovnuli Liga**
-GEORGIA | 17:00
-Torpedo Kutaisi vs Dila Gori
-2.16 | 3.18 | 3.09
-
-**Liga 3**
-GEORGIA | 13:00
-WIT Georgia vs Guria
-2.45 | 3.80 | 2.34
-
-**Liga Nacional - Clausura - Triangulares**
-HONDURAS | 22:45
-Genesis vs Olancho
-2.64 | 3.40 | 2.27
-
-**NB I.**
-HUNGARY | 16:45
-Nyiregyhaza vs Kazincbarcika
-1.34 | 4.75 | 7.00
-
-**NB I.**
-HUNGARY | 19:00
-Puskas Academy vs MTK Budapest
-1.88 | 3.56 | 3.48
-
-**NB I Women**
-HUNGARY | 14:00
-Gyor W vs Pecsi MFC W
-1.05 | 9.00 | 19.50
-
-**ISL**
-INDIA | 15:00
-Mohammedan vs Mumbai City
-6.17 | 4.20 | 1.43
-
-**I-League - Promotion Group**
-INDIA | 14:00
-Lajong vs Rajasthan United
-2.11 | 3.38 | 3.02
-
-**I-League 2**
-INDIA | 11:00
-MYJ-GMSC vs Bengaluru Utd
-4.27 | 3.60 | 1.70
-
-**I-League 2**
-INDIA | 11:00
-United SC vs Delhi FC
-2.49 | 3.20 | 2.51
-
-**I-League 2**
-INDIA | 12:00
-SC Goa vs SC Bengaluru
-2.05 | 3.38 | 3.15
-
-**Super League**
-INDONESIA | 09:30
-Semen Padang vs Persebaya
-8.80 | 4.70 | 1.29
-
-**Stars League**
-IRAQ | 15:30
-Al Gharraf vs Al Karkh
-2.43 | 3.00 | 2.72
-
-**Stars League**
-IRAQ | 15:30
-Al Mosul vs Duhok
-2.69 | 3.05 | 2.42
-
-**Stars League**
-IRAQ | 15:30
-Baghdad vs Al Kahraba
-2.65 | 3.15 | 2.39
-
-**Stars League**
-IRAQ | 18:00
-Al Quwa Al Jawiya vs Al Talaba
-1.86 | 3.15 | 4.05
-
-**Stars League**
-IRAQ | 18:00
-Diyala vs Al Shorta
-5.63 | 3.70 | 1.53
-
-**Premier Division**
-IRELAND | 19:45
-Bohemians vs Drogheda
-1.55 | 4.05 | 5.68
-
-**Premier Division**
-IRELAND | 19:45
-St. Patricks vs Shelbourne
-1.89 | 3.54 | 3.91
-
-**Premier Division**
-IRELAND | 19:45
-Waterford vs Derry City
-4.84 | 3.78 | 1.68
-
-**Premier Division**
-IRELAND | 20:00
-Dundalk vs Shamrock Rovers
-3.06 | 3.52 | 2.19
-
-**Division 1**
-IRELAND | 19:45
-Cobh Ramblers vs Athlone
-1.88 | 3.32 | 3.75
-
-**Division 1**
-IRELAND | 19:45
-Kerry vs Wexford
-3.02 | 3.06 | 2.26
-
-**Division 1**
-IRELAND | 19:45
-Treaty United vs Finn Harps
+Here is the converted data for **unfinished matches** with **full odds data** (three odds present, no `-`), excluding low-profile leagues (youth, academy, women, reserve, U-XX, amateur, regional, cup qualifiers, etc.). Matches are arranged by kick-off time (earliest first).
+
+**Chelsea vs Manchester City**
+ENGLAND (15:00)
+4.50 | 3.90 | 1.68
+
+**B. Monchengladbach vs Hoffenheim**
+GERMANY (14:30)
+4.50 | 4.50 | 1.65
+
+**Bayer Leverkusen vs Hamburger SV**
+GERMANY (14:30)
+1.30 | 6.25 | 7.50
+
+**Bayern Munich vs FC Koln**
+GERMANY (14:30)
+1.14 | 8.50 | 10.00
+
+**Eintracht Frankfurt vs Stuttgart**
+GERMANY (14:30)
+3.20 | 4.00 | 1.80
+
+**Freiburg vs RB Leipzig**
+GERMANY (14:30)
+2.45 | 3.80 | 2.55
+
+**Heidenheim vs Mainz**
+GERMANY (14:30)
+1.80 | 4.33 | 3.60
+
+**St. Pauli vs Wolfsburg**
+GERMANY (14:30)
+2.50 | 3.40 | 2.40
+
+**Union Berlin vs Augsburg**
+GERMANY (14:30)
+2.63 | 4.10 | 2.30
+
+**Werder Bremen vs Dortmund**
+GERMANY (14:30)
+3.10 | 4.00 | 2.05
+
+**GAIS vs Degerfors**
+SWEDEN (14:00)
+1.62 | 3.50 | 5.50
+
+**Halmstad vs Elfsborg**
+SWEDEN (14:00)
+4.00 | 3.30 | 1.91
+
+**FC Porto vs Santa Clara**
+PORTUGAL (15:30)
+1.30 | 5.25 | 7.50
+
+**Moreirense vs AFS**
+PORTUGAL (15:30)
+2.05 | 3.50 | 3.20
+
+**Zamalek vs USM Alger**
+AFRICA (19:00)
+1.50 | 3.75 | 5.50
+
+**River Plate vs Rosario Central**
+ARGENTINA (23:30)
+1.96 | 3.00 | 4.33
+
+**Always Ready vs The Strongest**
+BOLIVIA (20:00)
+1.61 | 4.20 | 4.20
+
+**Atletico-MG vs Mirassol**
+BRAZIL (22:30)
+2.05 | 3.40 | 3.60
+
+**Internacional vs Vasco**
+BRAZIL (22:30)
+1.91 | 3.40 | 4.10
+
+**Fluminense vs Sao Paulo**
+BRAZIL (23:00)
+1.76 | 3.50 | 4.75
+
+**Operario-PR vs Nautico**
+BRAZIL (20:00)
+2.10 | 3.10 | 3.60
+
+**Sao Bernardo vs America MG**
+BRAZIL (20:00)
+2.05 | 3.20 | 3.70
+
+**Goias vs Botafogo SP**
+BRAZIL (22:30)
+1.91 | 3.20 | 4.20
+
+**Santa Cruz vs Volta Redonda**
+BRAZIL (21:00)
+1.90 | 2.69 | 4.94
+
+**Ypiranga FC vs Maringa FC**
+BRAZIL (21:00)
+2.69 | 2.85 | 2.56
+
+**Figueirense vs Itabaiana**
+BRAZIL (23:30)
+1.92 | 3.15 | 3.80
+
+**Floresta EC vs Amazonas**
+BRAZIL (23:30)
+2.72 | 2.47 | 2.94
+
+**America RJ vs Madureira**
+BRAZIL (19:00)
+2.61 | 2.88 | 2.62
+
+**Blumenau vs Marcilio Dias**
+BRAZIL (19:00)
+2.58 | 2.49 | 3.21
+
+**Santa Catarina vs Joinville**
+BRAZIL (19:00)
+2.05 | 2.86 | 3.79
+
+**Maracana vs Iguatu**
+BRAZIL (19:30)
+2.10 | 2.85 | 3.77
+
+**ABC vs Sousa**
+BRAZIL (20:00)
+1.45 | 3.74 | 6.84
+
+**AE Altos vs Piaui**
+BRAZIL (20:00)
+1.82 | 3.20 | 4.36
+
+**Porto-BA vs Vitoria ES**
+BRAZIL (20:00)
+3.66 | 2.90 | 2.12
+
+**Portuguesa vs Agua Santa**
+BRAZIL (20:00)
+1.51 | 3.58 | 6.26
+
+**Pouso Alegre vs Portuguesa RJ**
+BRAZIL (20:00)
+3.02 | 2.70 | 2.50
+
+**Sao Luiz vs Guarany de Bage**
+BRAZIL (20:00)
+1.74 | 3.10 | 5.16
+
+**Tirol vs Fluminense-PI**
+BRAZIL (20:00)
+2.50 | 2.98 | 2.65
+
+**Tocantinopolis vs Imperatriz**
+BRAZIL (20:00)
+2.14 | 2.90 | 3.56
+
+**Serra Branca vs Treze PB**
+BRAZIL (20:30)
+2.50 | 2.77 | 2.84
+
+**ASA vs Juazeirense**
+BRAZIL (21:00)
+1.86 | 2.84 | 4.72
+
+**Marica vs Piracicaba**
+BRAZIL (21:00)
+3.92 | 2.91 | 1.99
+
+**Moto Club vs IAPE**
+BRAZIL (21:00)
+1.72 | 3.10 | 5.06
+
+**Nacional-AM vs Manauara**
+BRAZIL (21:00)
+1.92 | 3.08 | 3.91
+
+**Noroeste vs Velo Clube**
+BRAZIL (21:00)
+1.84 | 3.02 | 4.41
+
+**Nova Iguacu vs Sampaio Correa FE**
+BRAZIL (21:00)
+2.17 | 2.94 | 3.33
+
+**Operario MS vs Ivinhema**
+BRAZIL (21:00)
+2.09 | 2.86 | 3.67
+
+**Operario VG vs Uniao Rondonopolis**
+BRAZIL (21:00)
+2.18 | 2.90 | 3.36
+
+**Real Noroeste vs Rio Branco ES**
+BRAZIL (21:00)
+3.72 | 2.72 | 2.15
+
+**GAS vs Monte Roraima**
+BRAZIL (22:00)
+2.97 | 3.02 | 2.31
+
+**Mixto vs Goiatuba**
+BRAZIL (22:00)
+2.06 | 2.93 | 3.64
+
+**Tombense vs Democrata GV**
+BRAZIL (22:00)
+1.61 | 3.35 | 5.50
+
+**Capital vs Ceilandia**
+BRAZIL (23:00)
+1.59 | 3.22 | 6.17
+
+**Gama vs Brasiliense**
+BRAZIL (23:30)
+1.66 | 3.10 | 5.67
+
+**CSKA 1948 Sofia vs Ludogorets**
+BULGARIA (14:00)
+3.10 | 3.60 | 2.10
+
+**Levski Sofia vs CSKA Sofia**
+BULGARIA (14:00)
+2.32 | 3.20 | 3.00
+
+**Arda vs Lok. Plovdiv**
+BULGARIA (17:00)
+1.15 | 6.50 | 13.00
+
+**Botev Plovdiv vs Cherno More**
+BULGARIA (17:00)
+2.65 | 3.10 | 2.75
+
+**Alianza vs Real Santander**
+COLOMBIA (21:30)
+1.33 | 4.75 | 7.00
+
+**Chico vs Atletico F.C.**
+COLOMBIA (21:30)
+1.45 | 3.80 | 6.00
+
+**Cucuta vs Leones**
+COLOMBIA (21:30)
+1.53 | 4.20 | 4.50
+
+**O'Higgins vs U. De Concepcion**
+CHILE (22:30)
+1.68 | 3.50 | 4.20
+
+**Magallanes vs Recoleta**
+CHILE (17:30)
+1.82 | 3.22 | 4.18
+
+**Cobreloa vs Copiapo**
+CHILE (20:00)
+1.80 | 3.35 | 4.08
+
+**San Felipe vs Rangers**
+CHILE (20:00)
+2.90 | 3.25 | 2.24
+
+**Curico Unido vs S. Wanderers**
+CHILE (22:30)
+2.16 | 3.13 | 3.16
+
+**Arouca vs Tondela**
+PORTUGAL (18:00)
+3.30 | 3.50 | 2.05
+
+**Braga vs Estrela**
+PORTUGAL (18:00)
+1.62 | 3.90 | 4.75
+
+**Casa Pia vs Rio Ave**
+PORTUGAL (18:00)
+1.68 | 3.60 | 4.75
+
+**Nacional vs Vitoria Guimaraes**
+PORTUGAL (18:00)
+2.05 | 3.30 | 3.40
+
+**Estoril vs Benfica**
+PORTUGAL (20:30)
+10.00 | 5.25 | 1.25
+
+**Famalicao vs Alverca**
+PORTUGAL (20:30)
+1.53 | 4.10 | 5.50
+
+**Sporting CP vs Gil Vicente**
+PORTUGAL (20:30)
+1.19 | 6.50 | 10.00
+
+**Academica vs Trofense**
+PORTUGAL (16:30)
+1.34 | 4.20 | 8.50
+
+**Os Belenenses vs Mafra**
+PORTUGAL (16:30)
+1.69 | 3.44 | 4.59
+
+**Santarem vs Varzim**
+PORTUGAL (16:30)
+2.48 | 3.06 | 2.61
+
+**Vitoria Guimaraes B vs Amarante**
+PORTUGAL (16:30)
+2.82 | 2.68 | 2.60
+
+**Csikszereda M. Ciuc vs FC Botosani**
+ROMANIA (16:30)
+2.35 | 3.20 | 2.63
+
+**Dinamo Bucuresti vs CFR Cluj**
+ROMANIA (19:00)
+2.20 | 3.10 | 3.00
+
+**Al Hilal vs Neom SC**
+SAUDI ARABIA (17:05)
+1.25 | 5.75 | 7.50
+
+**Al Okhdood vs Al Khaleej**
+SAUDI ARABIA (17:05)
+4.00 | 3.80 | 1.67
+
+**Al Ahli SC vs Al Kholood**
+SAUDI ARABIA (19:00)
+1.25 | 5.00 | 8.50
+
+**Al Nassr vs Gamba Osaka**
+ASIA (18:45)
+1.44 | 4.57 | 6.27
+
+**Celtic vs Hearts**
+SCOTLAND (34')
+1.57 | 4.10 | 5.00
+
+**Falkirk vs Rangers**
+SCOTLAND (33')
+4.50 | 4.20 | 1.57
+
+**Hibernian vs Motherwell**
+SCOTLAND (34')
+2.05 | 3.50 | 3.25
+
+**Stenhousemuir vs Alloa**
+SCOTLAND (17:30)
+2.30 | 3.20 | 2.90
+
+**Edinburgh City vs Brora Rangers**
+SCOTLAND (15:00)
+2.38 | 3.40 | 2.55
+
+**Javor vs Mladost**
+SERBIA (19:00)
+1.90 | 3.30 | 4.20
+
+**Napredak vs Radnicki 1923**
+SERBIA (19:00)
+10.00 | 4.75 | 1.27
+
+**Sp. Subotica vs IMT Novi Beograd**
+SERBIA (19:00)
+4.75 | 3.25 | 1.70
+
+**TSC vs Radnicki Nis**
+SERBIA (19:00)
+2.10 | 2.70 | 3.50
+
+**Real Sociedad B vs Mirandes**
+SPAIN (3')
+3.00 | 3.40 | 2.25
+
+**Ceuta vs Malaga**
+SPAIN (15:15)
+4.10 | 4.00 | 1.71
+
+**Cultural Leonesa vs Eibar**
+SPAIN (15:15)
+2.85 | 3.40 | 2.30
+
+**Almeria vs Las Palmas**
+SPAIN (17:30)
+1.76 | 3.50 | 4.33
+
+**Granada CF vs Burgos CF**
+SPAIN (17:30)
+3.40 | 3.00 | 2.20
+
+**Racing Santander vs Valladolid**
+SPAIN (17:30)
+1.41 | 4.75 | 6.50
+
+**Alcorcon vs Marbella**
+SPAIN (20:00)
+1.38 | 4.20 | 7.50
+
+**Algeciras vs Hercules**
+SPAIN (20:00)
+1.55 | 4.00 | 5.00
+
+**Betis B vs Tarazona**
+SPAIN (20:00)
+2.15 | 3.20 | 3.10
+
+**Eldense vs Atl. Madrid B**
+SPAIN (20:00)
+1.83 | 3.40 | 3.90
+
+**Gimnastic vs CE Europa**
+SPAIN (20:00)
+2.05 | 3.25 | 3.40
+
+**Sabadell vs Antequera**
+SPAIN (20:00)
+1.40 | 4.00 | 7.50
+
+**Teruel vs Sanluqueno**
+SPAIN (20:00)
+1.62 | 3.50 | 5.25
+
+**Torremolinos vs Murcia**
+SPAIN (20:00)
+3.25 | 2.10 | 3.00
+
+**UD Ibiza vs FC Cartagena SAD**
+SPAIN (20:00)
+1.90 | 3.10 | 4.00
+
+**Villarreal B vs Sevilla FC B**
+SPAIN (20:00)
+1.22 | 5.25 | 13.00
+
+**Oviedo B vs Tudelano**
+SPAIN (17:00)
+2.46 | 2.95 | 2.74
+
+**UD Logrones vs Getafe B**
+SPAIN (19:15)
+1.63 | 3.48 | 5.03
+
+**Estradense vs Atletico Arteixo**
+SPAIN (17:30)
 2.19 | 3.08 | 3.15
 
-**Division 1**
-IRELAND | 19:45
-UC Dublin vs Bray
-2.22 | 3.06 | 3.11
-
-**Ligat ha'Al - Championship Group**
-ISRAEL | 14:00
-Hapoel Tel Aviv vs H. Beer Sheva
-3.73 | 3.52 | 1.92
-
-**Leumit League - Promotion Group**
-ISRAEL | 14:00
-Bnei Yehuda vs Kiryat Yam
-1.81 | 3.50 | 3.80
-
-**Leumit League - Promotion Group**
-ISRAEL | 14:00
-H. Ironi Rishon vs M. Herzliya
-3.10 | 3.38 | 2.07
-
-**Leumit League - Promotion Group**
-ISRAEL | 14:00
-Hap. Ramat Gan vs Hapoel Kfar Shalem
-1.62 | 3.94 | 4.37
-
-**Leumit League - Promotion Group**
-ISRAEL | 14:00
-Hapoel Kfar Saba vs Maccabi Petah Tikva
-4.52 | 3.94 | 1.60
-
-**Leumit League - Relegation Group**
-ISRAEL | 14:00
-Hapoel Afula vs Nof Hagalil
-2.82 | 2.88 | 2.43
-
-**Leumit League - Relegation Group**
-ISRAEL | 14:00
-MS Kafr Qasim vs Maccabi Jaffa
-2.07 | 3.20 | 3.27
-
-**Serie B - Play Out**
-ITALY | 19:00
-Bari vs Sudtirol
-2.52 | 3.00 | 2.97
-
-**Premier League**
-KUWAIT | 15:40
-Al Shabab vs Kazma SC
-4.79 | 3.58 | 1.63
-
-**Premier League**
-KUWAIT | 18:15
-Al Qadisiya vs Al Salmiya
-1.78 | 3.32 | 4.19
-
-**Virsliga**
-LATVIA | 16:00
-Grobina vs Tukums 2000
-2.91 | 3.13 | 2.28
-
-**TOPLYGA**
-LITHUANIA | 18:00
-Riteriai vs FK Panevezys
-7.33 | 3.98 | 1.40
-
-**I Lyga**
-LITHUANIA | 16:00
-Babrungas vs Zalgiris 2
-1.38 | 4.50 | 6.45
-
-**I Lyga**
-LITHUANIA | 17:00
-Dainava Alytus vs Hegelmann Litauen 2
-1.36 | 4.60 | 6.71
-
-**I Lyga**
-LITHUANIA | 17:00
-Transinvest 2 vs BE1 NFA
-5.22 | 4.20 | 1.49
-
-**I Lyga**
-LITHUANIA | 17:30
-Garliava vs Kauno Zalgiris 2
-1.32 | 5.05 | 6.85
-
-**Super League**
-MALAYSIA | 10:00
-Penang vs DPMM
-1.58 | 3.90 | 4.76
-
-**Super League**
-MALAYSIA | 12:30
-Sabah vs Terengganu
-2.58 | 3.36 | 2.35
-
-**Premier League - Play Offs**
-MALTA | 18:00
-Valletta vs Hamrun
-3.74 | 3.22 | 1.91
-
-**Liga MX - Clausura - Play Offs**
-MEXICO | 02:00
-Pachuca vs UNAM Pumas
-1.96 | 3.62 | 3.92
-
-**Liga MX Women - Clausura - Play Offs**
-MEXICO | 04:10
-Monterrey W vs Club America W
-3.26 | 3.68 | 1.91
-
-**Coupe du Trone**
-MOROCCO | 16:00
-Chabab Mohammedia vs Chabab Benguerir
-2.37 | 2.63 | 3.34
-
-**Coupe du Trone**
-MOROCCO | 16:00
-Moghreb Tetouan vs FATH Casablanca
-1.35 | 3.94 | 9.35
-
-**Coupe du Trone**
-MOROCCO | 19:00
-Kawkab Marrakech vs Jeunesse Sportive Soualem
-1.47 | 3.44 | 7.65
-
-**OBOS-ligaen**
-NORWAY | 17:00
-Sandnes vs Egersund
-3.19 | 3.52 | 2.10
-
-**Division 2 - Group 2**
-NORWAY | 18:00
-Ull/Kisa vs Eidsvold TF
-4.70 | 4.90 | 1.46
-
-**Division 3 - Group 1**
-NORWAY | 18:00
-KFUM Oslo 2 vs Valerenga 2
-1.70 | 4.20 | 3.64
-
-**Division 3 - Group 2**
-NORWAY | 18:00
-Ranheim 2 vs Rosenborg 2
-2.65 | 4.15 | 2.07
-
-**Division 3 - Group 3**
-NORWAY | 17:30
-Djerv 1919 vs V. Haugesund
-2.61 | 4.10 | 2.11
-
-**Toppserien Women**
-NORWAY | 17:00
-Aalesund W vs Honefoss W
-1.37 | 4.80 | 6.06
-
-**Toppserien Women**
-NORWAY | 17:00
-Bodo/Glimt W vs LSK Kvinner W
-4.91 | 4.70 | 1.46
-
-**Toppserien Women**
-NORWAY | 17:00
-Haugesund W vs Brann W
-10.00 | 7.60 | 1.14
-
-**Toppserien Women**
-NORWAY | 17:00
-Lyn W vs Roa W
-1.55 | 4.10 | 4.72
-
-**Toppserien Women**
-NORWAY | 17:00
-Stabaek W vs Rosenborg W
-4.22 | 3.72 | 1.68
-
-**Toppserien Women**
-NORWAY | 17:00
-Valerenga W vs Molde W
-1.19 | 7.20 | 8.35
-
-**Division 1 Women**
-NORWAY | 15:00
-Viking W vs Frigg W
-1.11 | 7.30 | 13.00
-
-**Division 1 Women**
-NORWAY | 17:00
-Start W vs Kolbotn W
-1.75 | 3.74 | 3.82
-
-**Division 1 Women**
-NORWAY | 17:30
-Odd W vs Fyllingsdalen W
-1.69 | 3.82 | 4.03
-
-**Copa de Primera - Apertura**
-PARAGUAY | 13:30
-Olimpia Asuncion vs Recoleta
-1.40 | 4.73 | 7.06
-
-**Copa de Primera - Apertura**
-PARAGUAY | 21:00
-Rubio Nu vs Nacional Asuncion
-3.93 | 3.12 | 2.03
-
-**Copa de Primera - Apertura**
-PARAGUAY | 21:00
-Sportivo Trinidense vs Cerro Porteno
-2.98 | 3.19 | 2.38
-
-**Division Intermedia**
-PARAGUAY | 21:00
-Deportivo Santani vs Tacuary
-2.16 | 2.98 | 3.30
-
-**Division Intermedia**
-PARAGUAY | 23:30
-12 de Junio vs Benjamin Aceval
-1.84 | 2.98 | 4.51
-
-**Liga 1 - Apertura**
-PERU | 21:00
-FC Cajamarca vs Sporting Cristal
-2.67 | 3.28 | 2.50
-
-**Liga 2**
-PERU | 19:00
-Sport Huancayo 2 vs Minas
-2.41 | 3.22 | 2.58
-
-**Ekstraklasa**
-POLAND | 17:00
-Zaglebie vs Pogon Szczecin
-2.55 | 3.28 | 2.62
-
-**Ekstraklasa**
-POLAND | 19:30
-Korona Kielce vs Widzew Lodz
-2.45 | 3.13 | 2.90
-
-**Division 1**
-POLAND | 17:00
-Pogon Siedlce vs Stal Mielec
-3.00 | 3.24 | 2.19
-
-**Division 1**
-POLAND | 19:30
-Polonia Warszawa vs Wisla
-1.91 | 3.66 | 3.30
-
-**Division 2**
-POLAND | 16:00
-LKS Lodz II vs Skierniewice
-4.38 | 3.70 | 1.66
-
-**Division 2**
-POLAND | 19:00
-R. Rzeszow vs S. Wola
-2.27 | 3.42 | 2.71
-
-**Liga Portugal 2**
-PORTUGAL | 18:00
-FC Porto B vs Benfica B
-3.39 | 3.44 | 2.05
-
-**Liga Portugal 2**
-PORTUGAL | 19:00
-Maritimo vs Chaves
-2.11 | 3.34 | 3.33
-
-**Superliga - Championship Group**
-ROMANIA | 18:30
-FC Arges vs FC Rapid Bucuresti
-2.57 | 3.20 | 2.65
-
-**FNL 2 - Division A Silver - Spring Season**
-RUSSIA | 17:00
-Zenit 2 vs Dynamo Vladivostok
-2.42 | 3.25 | 2.55
-
-**FNL 2 - Division B - Group 3**
-RUSSIA | 05:00
-SKA Khabarovsk 2 vs Penza
-1.66 | 3.75 | 4.32
-
-**Youth League**
-RUSSIA | 09:00
-Ural U19 vs Spartak Moscow U19
-4.46 | 3.94 | 1.61
-
-**Youth League**
-RUSSIA | 11:00
-Chertanovo M. U19 vs Fakel Voronezh U19
-1.47 | 4.15 | 5.59
-
-**Youth League**
-RUSSIA | 11:00
-Zenit U19 vs Lokomotiv Moscow U19
-1.70 | 3.84 | 3.98
-
-**Youth League**
-RUSSIA | 12:00
-Rodina Moscow U19 vs Dynamo Moscow U19
-2.41 | 3.22 | 2.60
-
-**Youth League**
-RUSSIA | 13:00
-Konoplev Academy U19 vs CSKA Moscow U19
-7.37 | 4.60 | 1.34
-
-**Youth League**
-RUSSIA | 13:00
-Krasnodar U19 vs Almaz Antey U19
-1.33 | 4.85 | 7.05
-
-**Youth League**
-RUSSIA | 13:00
-Rubin Kazan U19 vs Dynamo Makhachkala U19
-2.73 | 3.04 | 2.41
-
-**Youth League**
-RUSSIA | 14:00
-FK Rostov U19 vs Nizhny Novgorod U19
-1.90 | 3.42 | 3.57
-
-**Saudi Professional League**
-SAUDI ARABIA | 17:15
-Damac vs Al Fayha
-1.79 | 3.52 | 4.41
-
-**Saudi Professional League**
-SAUDI ARABIA | 19:00
-Al Taawon vs Al Riyadh
-1.69 | 3.94 | 4.46
-
-**Premiership - Relegation**
-SCOTLAND | 19:45
-Partick Thistle vs Dunfermline
-1.86 | 3.45 | 4.18
-
-**League One - Relegation - Play Offs**
-SCOTLAND | 19:45
-Hamilton vs Clyde
-2.11 | 3.18 | 3.22
-
-**Premier League**
-SINGAPORE | 12:30
-Geylang vs Balestier Khalsa
-2.32 | 3.68 | 2.45
-
-**2. liga**
-SLOVAKIA | 16:00
-I. Bratislava vs Banska Bystrica
-3.54 | 3.60 | 1.89
-
-**2. liga**
-SLOVAKIA | 16:00
-Lubovna vs Malzenice
-2.89 | 3.35 | 2.23
-
-**2. liga**
-SLOVAKIA | 16:00
-Petrzalka vs L. Mikulas
-1.80 | 3.70 | 3.79
-
-**2. liga**
-SLOVAKIA | 16:00
-Puchov vs Povazska Bystrica
-1.96 | 3.54 | 3.24
-
-**2. liga**
-SLOVAKIA | 16:00
-Samorin vs Zvolen
-2.07 | 3.50 | 3.09
-
-**2. liga**
-SLOVAKIA | 16:00
-Zilina B vs Slavia TU Kosice
-1.45 | 4.45 | 5.33
-
-**2. SNL**
-SLOVENIA | 17:00
-ND Gorica vs Ilirija
-2.13 | 3.35 | 3.09
-
-**2. SNL**
-SLOVENIA | 17:00
-NK Krka vs NK Jesenice
-1.78 | 3.55 | 4.04
-
-**2. SNL**
-SLOVENIA | 17:00
-Rudar vs Jadran Dekani
-1.90 | 3.40 | 3.66
-
-**WK League Women**
-SOUTH KOREA | 11:00
-Incheon Hyundai Steel W vs Gyeongju W
-1.56 | 3.74 | 5.18
-
-**LaLiga2**
-SPAIN | 19:30
-Castellon vs Cadiz CF
-1.29 | 6.12 | 9.90
-
-**LaLiga2**
-SPAIN | 20:00
-Cordoba vs Albacete
-1.64 | 4.11 | 5.34
-
-**Premier League**
-ENGLAND | 20:00
-Aston Villa vs Liverpool
-2.91 | 3.71 | 2.49
-
-**Division 2 - Norra Götaland**
-SWEDEN | 18:00
-Husqvarna vs Tord
-1.27 | 5.05 | 8.65
-
-**Division 2 - Norra Götaland**
-SWEDEN | 18:30
-IFK Skovde vs Vanersborgs IF
-1.25 | 5.05 | 9.60
-
-**Division 2 - Södra Svealand**
-SWEDEN | 17:30
-Forward vs Orebro Syr.
-2.28 | 3.54 | 2.55
-
-**Division 2 - Södra Svealand**
-SWEDEN | 19:00
-Ragsved vs Farsta
-1.67 | 3.92 | 4.05
-
-**Allsvenskan Women**
-SWEDEN | 17:30
-Rosengard W vs Kristianstad W
-2.47 | 3.48 | 2.38
-
-**Elitettan Women**
-SWEDEN | 17:30
-Alingsas W vs Elfsborg W
-6.07 | 4.50 | 1.40
-
-**Elitettan Women**
-SWEDEN | 18:00
-Hacken B W vs Husqvarna W
-3.02 | 3.58 | 2.04
-
-**Challenge League**
-SWITZERLAND | 19:15
-Aarau vs Yverdon
-1.47 | 4.30 | 5.37
-
-**Challenge League**
-SWITZERLAND | 19:15
-Etoile-Carouge vs Bellinzona
-1.62 | 3.96 | 4.36
-
-**Challenge League**
-SWITZERLAND | 19:15
-Lausanne Ouchy vs Xamax
-1.89 | 3.82 | 3.24
-
-**Challenge League**
-SWITZERLAND | 19:15
-Rapperswil-Jona vs Stade Nyonnais
-1.86 | 3.82 | 3.34
-
-**Challenge League**
-SWITZERLAND | 19:15
-Wil vs Vaduz
-4.21 | 3.92 | 1.65
-
-**Promotion League**
-SWITZERLAND | 18:00
-Lausanne II vs Biel
-4.61 | 4.33 | 1.53
-
-**Premier League**
-SYRIA | 14:00
-Al-Ittihad Aleppo vs Al Shorta
-1.23 | 4.85 | 12.10
-
-**Super Lig**
-TURKEY | 18:00
-Rizespor vs Besiktas
-3.33 | 4.04 | 2.07
-
-**1. Lig - Play Offs**
-TURKEY | 18:00
-Corum vs Bodrumspor
-1.61 | 4.05 | 5.02
-
-**Uganda Cup**
-UGANDA | 17:00
-Vipers vs Kitara
-2.02 | 2.64 | 4.42
-
-**Persha Liga**
-UKRAINE | 09:30
-SK Metalurh vs FC Chernihiv
-5.40 | 3.90 | 1.50
-
-**UAE League**
-UNITED ARAB EMIRATES | 15:10
-Ajman vs Al Nasr
-2.75 | 3.36 | 2.28
-
-**UAE League**
-UNITED ARAB EMIRATES | 15:10
-Al Sharjah vs Khorfakkan
-1.74 | 3.82 | 3.80
-
-**UAE League**
-UNITED ARAB EMIRATES | 17:45
-Al Wasl vs Ittihad Kalba
-1.33 | 5.00 | 6.78
-
-**Division 1**
-UNITED ARAB EMIRATES | 15:05
-Al Arabi vs Gulf United
-1.65 | 3.80 | 4.32
-
-**Division 1**
-UNITED ARAB EMIRATES | 15:05
-Al Hamriyah vs Dibba Al Hisn
-3.65 | 3.42 | 1.87
-
-**Division 1**
-UNITED ARAB EMIRATES | 15:05
-Al Thaid vs Hatta
-3.31 | 3.26 | 2.03
-
-**Division 1**
-UNITED ARAB EMIRATES | 15:05
-Al Urooba vs United FC
-2.62 | 3.13 | 2.44
-
-**Division 1**
-UNITED ARAB EMIRATES | 15:05
-Al-Ittifaq vs Emirates Club
-2.76 | 3.68 | 2.14
-
-**Division 1**
-UNITED ARAB EMIRATES | 15:05
-Dubai City vs Al Fujairah
-4.47 | 3.90 | 1.61
-
-**Division 1**
-UNITED ARAB EMIRATES | 15:05
-Majd FC vs Al Jazira Hamra
-3.65 | 3.60 | 1.82
-
-**V.League 1**
-VIETNAM | 12:00
-Ho Chi Minh vs Da Nang
-2.02 | 3.32 | 3.29
-
-**V.League 2**
-VIETNAM | 12:00
-PVF-CAND B vs Ho Chi Minh City
-2.04 | 3.06 | 3.52
+**Racing Club Villalbes vs Compostela**
+SPAIN (17:30)
+3.56 | 3.02 | 2.04
+
+**Touring KE vs Leioa**
+SPAIN (16:30)
+2.17 | 3.08 | 3.19
+
+**Santa Marta Tormes vs Guijuelo**
+SPAIN (16:00)
+2.25 | 2.90 | 3.22
+
+**Mazarron CF vs Real Murcia B**
+SPAIN (18:30)
+1.75 | 3.40 | 4.32
+
+**AD San Juan vs Pamplona**
+SPAIN (17:00)
+2.41 | 2.76 | 3.11
+
+**Epila vs Atletico Monzon**
+SPAIN (17:00)
+2.57 | 3.00 | 2.56
+
+**Barcelona W vs Atl. Madrid W**
+SPAIN (20:00)
+1.06 | 10.00 | 29.00
+
+**Brage vs Norrkoping**
+SWEDEN (16:00)
+3.00 | 3.40 | 2.15
+
+**Lausanne vs Grasshoppers**
+SWITZERLAND (17:00)
+1.42 | 4.75 | 6.00
+
+**Winterthur vs Luzern**
+SWITZERLAND (17:00)
+3.80 | 4.20 | 1.76
+
+**Zurich vs Servette**
+SWITZERLAND (17:00)
+3.10 | 3.60 | 2.15
+
+**Schaffhausen vs Lugano II**
+SWITZERLAND (14:30)
+1.45 | 4.20 | 5.76
+
+**Breitenrain vs Basel II**
+SWITZERLAND (15:00)
+2.25 | 3.45 | 2.72
+
+**Bruhl vs Zurich II**
+SWITZERLAND (15:00)
+1.31 | 5.20 | 6.85
+
+**Cham vs Young Boys II**
+SWITZERLAND (15:00)
+1.65 | 3.96 | 4.12
+
+**Grand-Saconnex vs Luzern II**
+SWITZERLAND (16:00)
+1.72 | 4.15 | 3.60
+
+**Kriens vs Paradiso**
+SWITZERLAND (16:30)
+1.38 | 4.45 | 6.55
+
+**Vevey vs Bulle**
+SWITZERLAND (16:30)
+7.06 | 5.25 | 1.30
+
+**Karagumruk vs Alanyaspor**
+TURKEY (15:00)
+3.00 | 3.10 | 2.35
+
+**Gaziantep vs Basaksehir**
+TURKEY (18:00)
+3.40 | 4.33 | 1.81
+
+**Samsunspor vs Goztepe**
+TURKEY (18:00)
+2.50 | 3.40 | 2.57
+
+**Corluspor vs Malatya**
+TURKEY (15:00)
+1.76 | 3.38 | 4.23
+
+**Al Ain vs Dibba Al Fujairah**
+UNITED ARAB EMIRATES (16:30)
+1.12 | 6.90 | 13.70
+
+**Al Dhafra vs Al Wahda**
+UNITED ARAB EMIRATES (16:30)
+5.53 | 4.05 | 1.49
+
+**Al Jazira vs Bani Yas**
+UNITED ARAB EMIRATES (16:30)
+1.40 | 4.45 | 6.22
+
+**Shabab Al-Ahli Dubai vs Al Bataeh**
+UNITED ARAB EMIRATES (16:30)
+1.35 | 4.85 | 6.57
+
+**CF Montreal vs Chicago Fire**
+USA (21:30)
+2.82 | 3.75 | 2.20
+
+**Boston River vs CA Cerro**
+URUGUAY (16:00)
+2.00 | 3.10 | 3.50
+
+**Juventud vs Progreso**
+URUGUAY (19:00)
+2.00 | 3.20 | 3.50
+
+**Penarol vs Liverpool M.**
+URUGUAY (22:30)
+1.95 | 3.20 | 3.80
+
+**Uruguay Montevideo vs Cerrito**
+URUGUAY (14:00)
+2.30 | 2.94 | 3.06
+
+**River Plate vs Paysandu FC**
+URUGUAY (17:00)
+2.15 | 3.10 | 3.19
+
+**Colon vs Plaza Colonia**
+URUGUAY (20:00)
+3.03 | 2.75 | 2.45
