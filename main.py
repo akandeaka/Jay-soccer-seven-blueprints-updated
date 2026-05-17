@@ -447,3 +447,6 @@ if __name__ == "__main__":
     # Save accumulators for validation
 with open("accumulators.json", "w") as f:
     json.dump(accumulators, f, indent=2)
+    # After building accumulators, add this:
+with open("accumulators.json", "w") as f:
+    json.dump(accumulators, f, indent=2)
