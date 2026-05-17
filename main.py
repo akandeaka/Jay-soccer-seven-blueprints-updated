@@ -1,10 +1,6 @@
 """
 JAY SOCCER BLUEPRINTS - COMPLETE SYSTEM
-1. 8 Blueprints scan all matches
-2. Smart AI analyzes using GitHub database
-3. Builds 2,4,7,10 odds accumulators
-4. Sends to Telegram
-5. Validates results
+8 Blueprints | Smart AI | 2,4,7,10 Odds Accumulators | Validation
 """
 
 import os
@@ -27,27 +23,23 @@ INPUT_FILE = "input_matches.txt"
 # GITHUB DATABASE (Team Form & League Stats)
 # ============================================================
 
-# League goal averages (from openfootball data)
 LEAGUE_GOALS = {
     'premier league': 2.8, 'bundesliga': 3.2, 'la liga': 2.5,
     'serie a': 2.6, 'ligue 1': 2.7, 'eredivisie': 3.1,
     'championship': 2.6, 'league one': 2.9, 'league two': 2.8,
 }
 
-# Team attacking reputation (from historical data)
 ATTACKING_TEAMS = [
     'man city', 'liverpool', 'arsenal', 'bayern', 'dortmund',
     'psg', 'barcelona', 'real madrid', 'ajax', 'napoli'
 ]
 
-# Team defensive reputation
 DEFENSIVE_TEAMS = [
     'burnley', 'getafe', 'cadiz', 'elche', 'spezia'
 ]
 
 
 def get_league_avg_goals(league):
-    """Get average goals for a league"""
     league_lower = league.lower()
     for key, avg in LEAGUE_GOALS.items():
         if key in league_lower:
@@ -56,7 +48,6 @@ def get_league_avg_goals(league):
 
 
 def is_attacking_team(team):
-    """Check if team is attacking"""
     team_lower = team.lower()
     for at in ATTACKING_TEAMS:
         if at in team_lower:
@@ -65,7 +56,6 @@ def is_attacking_team(team):
 
 
 def is_defensive_team(team):
-    """Check if team is defensive"""
     team_lower = team.lower()
     for dt in DEFENSIVE_TEAMS:
         if dt in team_lower:
@@ -138,8 +128,6 @@ def analyze_match(match):
     league_goals = get_league_avg_goals(league)
     home_attacking = is_attacking_team(home_team)
     away_attacking = is_attacking_team(away_team)
-    home_defensive = is_defensive_team(home_team)
-    away_defensive = is_defensive_team(away_team)
     
     # BP1: Elite Home Banker
     if 1.20 <= home <= 1.29 and away >= 10.0:
@@ -183,7 +171,6 @@ def analyze_match(match):
     
     # BP6: Strong Draw - SMART AI DECISION
     if 2.75 <= draw <= 3.39:
-        # AI Decision: Check league and team profiles
         if league_goals >= 3.0 or home_attacking or away_attacking:
             return {
                 'blueprint': 'BP6', 'play': 'Draw or GG (Draw OR Both Teams to Score)',
@@ -197,7 +184,7 @@ def analyze_match(match):
                 'match': match['match'], 'league': league
             }
     
-    # BP7: BTTS Value Spot - SMART AI DECISION
+    # BP7: BTTS Value Spot
     if 1.40 <= home <= 1.69:
         if league_goals >= 3.0:
             return {
@@ -230,7 +217,6 @@ def build_accumulators(predictions):
     if len(predictions) < 2:
         return {}
     
-    # Sort by confidence
     sorted_picks = sorted(predictions, key=lambda x: x['confidence'], reverse=True)
     accumulators = {}
     used = set()
@@ -313,11 +299,9 @@ def send_telegram(message):
 # ============================================================
 
 def validate_results(predictions, validation_file="validation_results.txt"):
-    """Validate predictions against actual results"""
     if not os.path.exists(validation_file):
         return None
     
-    # Parse validation file
     results = {}
     with open(validation_file, 'r') as f:
         lines = f.readlines()
@@ -339,7 +323,6 @@ def validate_results(predictions, validation_file="validation_results.txt"):
                     }
         i += 1
     
-    # Validate each prediction
     correct = 0
     total = 0
     for pred in predictions:
@@ -361,8 +344,7 @@ def validate_results(predictions, validation_file="validation_results.txt"):
                 break
     
     if total > 0:
-        accuracy = correct / total * 100
-        return f"📊 VALIDATION: {correct}/{total} ({accuracy:.1f}%)"
+        return f"📊 VALIDATION: {correct}/{total} ({correct/total*100:.1f}%)"
     return None
 
 # ============================================================
@@ -379,6 +361,8 @@ def main():
     # Delete cache
     if os.path.exists("predictions.json"):
         os.remove("predictions.json")
+    if os.path.exists("accumulators.json"):
+        os.remove("accumulators.json")
     
     # Parse matches
     matches = parse_matches()
@@ -388,7 +372,7 @@ def main():
     
     print(f"\n📊 Loaded {len(matches)} matches")
     
-    # Analyze all matches with 8 blueprints
+    # Analyze all matches
     predictions = []
     for match in matches:
         result = analyze_match(match)
@@ -403,6 +387,11 @@ def main():
     
     # Build accumulators
     accumulators = build_accumulators(predictions)
+    
+    # SAVE ACCUMULATORS FOR VALIDATION (FIXED - INSIDE MAIN)
+    with open("accumulators.json", "w") as f:
+        json.dump(accumulators, f, indent=2)
+    print(f"✅ Saved {len(accumulators)} accumulators to accumulators.json")
     
     # Build Telegram message
     message = f"""⚽ JAY SOCCER BLUEPRINTS - AI PREDICTIONS
@@ -444,9 +433,3 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
-    # Save accumulators for validation
-with open("accumulators.json", "w") as f:
-    json.dump(accumulators, f, indent=2)
-    # After building accumulators, add this:
-with open("accumulators.json", "w") as f:
-    json.dump(accumulators, f, indent=2)
