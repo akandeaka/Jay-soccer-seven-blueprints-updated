@@ -1,5 +1,6 @@
 """
-VALIDATION SYSTEM - Top 30 Matches + Accumulators Only
+VALIDATION SYSTEM - Validates Both Predictions AND Accumulators
+Shows actual results for each accumulator leg
 """
 
 import os
@@ -18,6 +19,7 @@ def clean_match_name(name):
 
 
 def parse_validation_file(filepath="validation_results.txt"):
+    """Parse validation results file"""
     if not os.path.exists(filepath):
         return {}
     
@@ -47,25 +49,30 @@ def parse_validation_file(filepath="validation_results.txt"):
 
 
 def check_prediction(play, actual):
+    """Check if a prediction was correct"""
     home = actual['home_score']
     away = actual['away_score']
     total = home + away
     
     if 'Home Win' in play or 'Straight Home Win' in play:
         return home > away
-    elif 'Full Time Draw' in play or play == 'Draw':
+    elif 'Full Time Draw' in play:
         return home == away
     elif 'Both Teams to Score - YES' in play:
         return home > 0 and away > 0
     elif 'Both Teams to Score - NO' in play:
         return home == 0 or away == 0
-    elif 'Over 1.5 Goals' in play:
+    elif 'Over 1.5' in play:
         return total > 1
-    elif 'Under 3.5 FT' in play or '1X & Under 3.5 FT' in play:
+    elif 'Under 3.5' in play:
         return total < 4
-    elif 'Over 2.5 Goals' in play:
+    elif 'Over 2.5' in play:
         return total > 2
-    elif 'Draw or Under 2.5 Goals' in play:
+    elif '1X & Over 1.5' in play:
+        return (home >= away) and total > 1
+    elif '1X & Under 3.5' in play:
+        return (home >= away) and total < 4
+    elif 'Draw or Under 2.5' in play:
         return (home == away) or total < 3
     elif 'Draw or GG' in play:
         return (home == away) or (home > 0 and away > 0)
@@ -73,37 +80,90 @@ def check_prediction(play, actual):
 
 
 def get_short_play(play):
-    if 'Over 1.5 Goals' in play:
-        return 'Over 1.5'
-    elif 'Under 3.5 FT' in play or '1X & Under 3.5 FT' in play:
-        return 'Under 3.5'
-    elif 'Over 2.5 Goals' in play:
-        return 'Over 2.5'
-    elif 'Straight Home Win' in play:
-        return 'Home Win'
+    """Convert play to short format"""
+    if '1X & Over 1.5' in play:
+        return '1X & O1.5'
+    elif '1X & Under 3.5' in play:
+        return '1X & U3.5'
+    elif 'Over 1.5' in play:
+        return 'O1.5'
+    elif 'Under 3.5' in play:
+        return 'U3.5'
     elif 'Both Teams to Score - YES' in play:
         return 'BTTS YES'
     elif 'Both Teams to Score - NO' in play:
         return 'BTTS NO'
-    elif 'Draw or Under 2.5 Goals' in play:
-        return 'Draw/Under 2.5'
+    elif 'Draw or Under 2.5' in play:
+        return 'Draw/U2.5'
     elif 'Draw or GG' in play:
         return 'Draw/GG'
+    elif 'Home Win' in play:
+        return 'Home Win'
     return play[:15]
 
 
-def get_odds(pred):
-    play = pred.get('play', '')
-    if 'Home Win' in play:
-        return pred.get('home_odds', 0)
-    elif 'Draw' in play:
-        return pred.get('draw_odds', 0)
-    return 0
+def validate_accumulator_legs(accumulators, validation_results):
+    """Validate each accumulator leg and return results"""
+    acc_results = {}
+    
+    for acc_name, acc_data in accumulators.items():
+        legs = []
+        all_correct = True
+        
+        for match in acc_data.get('matches', []):
+            match_name = clean_match_name(match.get('match', ''))
+            play = match.get('play', '')
+            
+            actual = None
+            for key in validation_results:
+                if match_name in key or key in match_name:
+                    actual = validation_results[key]
+                    break
+            
+            if actual:
+                is_correct = check_prediction(play, actual)
+                legs.append({
+                    'match': match.get('match', ''),
+                    'play': play,
+                    'short_play': get_short_play(play),
+                    'actual_score': f"{actual['home_score']}-{actual['away_score']}",
+                    'correct': is_correct
+                })
+                if not is_correct:
+                    all_correct = False
+            else:
+                legs.append({
+                    'match': match.get('match', ''),
+                    'play': play,
+                    'short_play': get_short_play(play),
+                    'actual_score': 'NOT FOUND',
+                    'correct': False
+                })
+                all_correct = False
+        
+        acc_results[acc_name] = {
+            'odds': acc_data.get('odds', 0),
+            'legs': legs,
+            'all_correct': all_correct,
+            'correct_count': sum(1 for l in legs if l['correct']),
+            'total_count': len(legs)
+        }
+    
+    return acc_results
+
+
+def load_accumulators():
+    """Load accumulators from accumulators.json"""
+    if not os.path.exists("accumulators.json"):
+        return {}
+    
+    with open("accumulators.json", 'r') as f:
+        return json.load(f)
 
 
 def main():
     print("\n" + "="*60)
-    print("⚽ VALIDATION - Top 30 Matches + Accumulators")
+    print("⚽ VALIDATION - PREDICTIONS & ACCUMULATORS")
     print("="*60)
     
     # Load predictions
@@ -121,14 +181,14 @@ def main():
         print("❌ No validation_results.txt found")
         return 1
     
-    # Take ONLY top 30 predictions (sorted by confidence)
-    sorted_predictions = sorted(predictions, key=lambda x: x.get('confidence', 0), reverse=True)
-    top_30 = sorted_predictions[:30]
+    # Load accumulators
+    accumulators = load_accumulators()
     
-    print(f"📊 Top 30 predictions (from {len(predictions)} total)")
+    # Validate top 30 predictions
+    sorted_preds = sorted(predictions, key=lambda x: x.get('confidence', 0), reverse=True)
+    top_30 = sorted_preds[:30]
     
-    # Validate top 30
-    validated = []
+    validated_preds = []
     for pred in top_30:
         match_name = clean_match_name(pred.get('match', ''))
         play = pred.get('play', '')
@@ -141,47 +201,63 @@ def main():
         
         if actual:
             is_correct = check_prediction(play, actual)
-            validated.append({
+            validated_preds.append({
                 'match': pred.get('match', ''),
                 'play': play,
-                'odds': get_odds(pred),
-                'actual': f"{actual['home_score']}-{actual['away_score']}",
+                'short_play': get_short_play(play),
+                'actual_score': f"{actual['home_score']}-{actual['away_score']}",
                 'correct': is_correct
             })
     
-    if not validated:
-        print("❌ No matches validated")
-        return 1
+    # Validate accumulators
+    acc_validation = validate_accumulator_legs(accumulators, validation_results)
     
-    # Calculate stats
-    correct = sum(1 for v in validated if v['correct'])
-    total = len(validated)
-    accuracy = (correct / total * 100) if total > 0 else 0
-    
-    # Build report - TOP 30 MATCHES
-    report = f"""🏁 *SETTLEMENT REPORT - TOP 30 MATCHES*
+    # Build report
+    report = f"""🏁 *SETTLEMENT REPORT*
 📅 {datetime.now().strftime('%Y-%m-%d')}
-───────────────────
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+📊 *TOP 30 PREDICTIONS*
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
     
-    for v in validated:
+    for v in validated_preds:
         status = "✅" if v['correct'] else "❌"
-        odd_text = f" @ {v['odds']}" if v['odds'] > 0 else ""
-        report += f"""{status} *{v['match'][:45]}*
-🔹 Bet: {get_short_play(v['play'])}{odd_text}
-🏁 Score: {v['actual']}
-
-"""
+        report += f"\n{status} *{v['match'][:45]}*\n"
+        report += f"   🎯 {v['short_play']}\n"
+        report += f"   🏁 Score: {v['actual_score']}\n"
     
-    report += f"""───────────────────
-📊 *SUMMARY*
-✅ Wins: {correct}
-❌ Losses: {total - correct}
-📈 Accuracy: {accuracy:.1f}%
-
-*Note: Top 30 predictions by confidence score*
-"""
+    if acc_validation:
+        report += f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎰 *ACCUMULATOR RESULTS*\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        
+        for acc_name, acc_data in acc_validation.items():
+            total_correct = acc_data['correct_count']
+            total_legs = acc_data['total_count']
+            status = "✅ WON" if acc_data['all_correct'] else "❌ LOST"
+            report += f"\n*{acc_name}* | Odds: {acc_data['odds']} | {status} ({total_correct}/{total_legs})\n"
+            
+            for leg in acc_data['legs']:
+                leg_status = "✅" if leg['correct'] else "❌"
+                report += f"\n   {leg_status} *{leg['match'][:40]}*\n"
+                report += f"      🎯 {leg['short_play']}\n"
+                report += f"      🏁 Score: {leg['actual_score']}\n"
+    
+    # Summary
+    correct_preds = sum(1 for v in validated_preds if v['correct'])
+    total_preds = len(validated_preds)
+    pred_accuracy = (correct_preds / total_preds * 100) if total_preds > 0 else 0
+    
+    report += f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📊 *SUMMARY*\n"
+    report += f"✅ Predictions: {correct_preds}/{total_preds} ({pred_accuracy:.1f}%)\n"
+    
+    for acc_name, acc_data in acc_validation.items():
+        if acc_data['all_correct']:
+            report += f"✅ {acc_name}: WON @ {acc_data['odds']}\n"
+        else:
+            report += f"❌ {acc_name}: LOST ({acc_data['correct_count']}/{acc_data['total_count']})\n"
+    
+    # Print to console
+    print("\n" + report)
     
     # Send to Telegram
     if TELEGRAM_TOKEN and TELEGRAM_CHAT_ID:
@@ -193,15 +269,9 @@ def main():
                 'text': report,
                 'parse_mode': 'Markdown'
             }, timeout=30)
-            print("\n✅ Top 30 report sent to Telegram")
+            print("\n✅ Report sent to Telegram")
         except Exception as e:
             print(f"❌ Telegram error: {e}")
-    
-    # Save report
-    with open("settlement_report.md", "w") as f:
-        f.write(report)
-    
-    print(f"\n✅ Report saved to settlement_report.md")
     
     return 0
 
