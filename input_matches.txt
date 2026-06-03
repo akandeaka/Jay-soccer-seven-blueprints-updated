@@ -1,325 +1,173 @@
-Sure! Here is the converted list in the requested format:
+Here is the converted list in the requested format, with all `FRO` matches, matches without odds, and finished/postponed/cancelled matches removed. The matches are arranged by kick-off time (earliest first).
 
-**Bournemouth vs Manchester City**
-ENGLAND (19:30)
-4.50 | 4.33 | 1.65
+**Renaissance Zemamra vs Yacoub El Mansour**
+MOROCCO (17:00)
+2.10 | 2.90 | 3.40
 
-**Chelsea vs Tottenham**
-ENGLAND (20:15)
-1.91 | 3.60 | 3.90
-
-**Ben Aknoun vs Mostaganem**
-ALGERIA (16:00)
-1.38 | 3.72 | 9.45
-
-**Rouisset vs Paradou**
-ALGERIA (16:00)
-1.83 | 3.14 | 4.28
-
-**Constantine vs Khenchela**
-ALGERIA (17:45)
-1.48 | 3.66 | 6.62
-
-**USM Alger vs Olympique Akbou**
-ALGERIA (20:00)
-2.66 | 2.95 | 2.53
-
-**Banfield 2 vs Aldosivi 2**
-ARGENTINA (19:00)
-1.94 | 3.15 | 3.72
-
-**Colon Santa Fe 2 vs Ferro 2**
-ARGENTINA (19:00)
-2.20 | 2.93 | 3.28
-
-**Independiente 2 vs Estudiantes Rio Cuarto 2**
-ARGENTINA (19:00)
-1.40 | 4.05 | 7.11
-
-**Quilmes 2 vs Lanus 2**
-ARGENTINA (19:00)
-2.29 | 3.06 | 2.96
-
-**San Lorenzo 2 vs Racing Club 2**
-ARGENTINA (19:00)
-2.11 | 3.15 | 3.22
-
-**San Martin S.J. 2 vs Ind. Rivadavia 2**
-ARGENTINA (19:00)
-3.84 | 3.58 | 1.78
-
-**Noah vs Ararat Yerevan**
-ARMENIA (16:00)
-1.07 | 8.40 | 17.00
-
-**Ried vs Wolfsberger AC**
-AUSTRIA (17:30)
-2.20 | 3.40 | 3.20
-
-**Bashundara Kings vs Mohammedan**
-BANGLADESH (12:30)
-1.79 | 3.05 | 4.66
-
-**Charleroi vs Leuven**
-BELGIUM (19:30)
-1.65 | 4.20 | 4.50
-
-**Genk vs Antwerp**
-BELGIUM (19:30)
-1.53 | 4.33 | 5.50
-
-**Westerlo vs St. Liege**
-BELGIUM (19:30)
-2.15 | 3.60 | 3.10
-
-**RTC vs Paro**
-BHUTAN (64')
-3.98 | 4.85 | 1.61
-
-**Nevesinje vs Vlasenica**
-BOSNIA AND HERZEGOVINA (16:00)
-1.42 | 4.10 | 6.50
-
-**Sao Joseense vs Azuriz**
-BRAZIL (23:00)
-1.70 | 3.13 | 5.16
-
-**Corinthians U20 vs Palmeiras U20**
-BRAZIL (22:00)
-4.62 | 3.92 | 1.59
-
-**Novorizontino U20 vs Goias U20**
-BRAZIL (19:00)
-2.15 | 3.25 | 3.04
-
-**Vila Nova FC U20 vs Coritiba U20**
-BRAZIL (19:00)
-2.62 | 3.04 | 2.49
-
-**Barra FC U20 vs Concordia U20**
-BRAZIL (19:00)
-1.30 | 5.00 | 7.55
-
-**Perolas Negras W vs Minas Brasilia W**
-BRAZIL (19:00)
-4.77 | 3.82 | 1.59
-
-**Shenzhen Xinpengcheng vs Dalian Yingbo**
-CHINA (12:35)
-2.45 | 3.40 | 2.65
-
-**Tianjin Jinmen Tiger vs Henan Songshan Longmen**
-CHINA (12:35)
-3.50 | 2.85 | 2.25
-
-**Chengdu Rongcheng vs Shanghai Port**
-CHINA (13:00)
-1.68 | 4.00 | 4.20
-
-**Qingdao West Coast vs Beijing Guoan**
-CHINA (13:00)
-4.33 | 3.80 | 1.68
-
-**Guayaquil City vs Orense**
-ECUADOR (Finished)
-3.00 | 3.10 | 2.35
-
-**Ethiopian Insurance vs Welayta Dicha**
-ETHIOPIA (60')
-2.61 | 2.74 | 3.13
-
-**Bahir Dar Kenema vs Mechal**
-ETHIOPIA (14:00)
-3.41 | 2.62 | 2.35
-
-**Hadiya Hossana vs Ethiopia Nigd Bank**
-ETHIOPIA (14:00)
-3.07 | 2.71 | 2.46
-
-**Rouen vs Laval**
-FRANCE (19:30)
-2.20 | 3.10 | 3.20
-
-**North East Utd vs Mohammedan**
-INDIA (12:30)
-1.22 | 5.50 | 8.00
-
-**Rajasthan United vs Chanmari**
-INDIA (14:00)
-1.80 | 3.48 | 3.88
-
-**Al Kahraba vs Al Gharraf**
-IRAQ (15:30)
-2.27 | 2.99 | 3.06
-
-**Al-Qassim vs Naft Missan**
-IRAQ (15:30)
-8.90 | 4.80 | 1.28
-
-**Diyala vs Baghdad**
-IRAQ (15:30)
-1.91 | 3.18 | 3.80
-
-**Al Naft vs Duhok**
-IRAQ (18:00)
-2.66 | 2.78 | 2.65
-
-**Al Talaba vs Al-Karma**
-IRAQ (18:00)
-2.97 | 3.02 | 2.31
-
-**H. Beer Sheva vs Maccabi Tel Aviv**
-ISRAEL (18:30)
-1.60 | 3.90 | 4.33
-
-**Hapoel Petah Tikva vs Beitar Jerusalem**
-ISRAEL (18:30)
-4.75 | 4.33 | 1.53
-
-**Maccabi Haifa vs Hapoel Tel Aviv**
-ISRAEL (18:30)
-2.70 | 3.50 | 2.35
-
-**H. Akko vs Hapoel Hadera**
-ISRAEL (17:00)
-1.49 | 4.05 | 5.44
-
-**H. Raanana vs MS Kafr Qasim**
-ISRAEL (17:00)
-3.29 | 3.24 | 2.05
-
-**Maccabi Jaffa vs Hapoel Afula**
-ISRAEL (17:00)
-2.08 | 3.28 | 3.17
-
-**Nof Hagalil vs Ironi Modiin**
-ISRAEL (17:00)
-3.21 | 3.14 | 2.12
-
-**Monza vs Juve Stabia**
-ITALY (19:00)
-1.71 | 3.20 | 5.25
-
-**Klaipedos FM vs Dainava Alytus**
-LITHUANIA (16:00)
-5.50 | 3.95 | 1.50
-
-**BFA Vilnius vs Garliava**
-LITHUANIA (17:00)
-3.06 | 3.38 | 2.09
-
-**Pempininkai vs FK Minija**
-LITHUANIA (18:00)
-25.00 | 12.50 | 1.01
-
-**Riteriai vs Kauno Zalgiris**
-LITHUANIA (18:00)
-12.70 | 6.95 | 1.13
-
-**Derby Academie vs Onze Createurs**
-MALI (17:30)
-2.33 | 2.71 | 3.30
-
-**Korofina vs Binga**
-MALI (17:30)
-2.94 | 2.91 | 2.40
-
-**Bougouba vs Mali Coura**
-MALI (19:30)
-2.15 | 2.82 | 3.55
-
-**Foot Elite vs Bakaridjan**
-MALI (19:30)
-2.52 | 2.75 | 2.84
-
-**Douane vs Gendrim**
-MAURITANIA (17:45)
-1.79 | 3.25 | 4.10
-
-**Brann 2 vs Sogndal 2**
-NORWAY (17:00)
-2.39 | 3.85 | 2.30
-
-**Sarpsborg 08 2 vs Lyn 2**
-NORWAY (18:00)
-1.76 | 3.90 | 3.61
-
-**LSK Kvinner W vs Honefoss W**
-NORWAY (17:00)
-1.37 | 4.70 | 6.28
-
-**Dep. Capiata vs Fernando de la Mora**
-PARAGUAY (14:00)
-2.75 | 2.75 | 2.59
-
-**Tacuary vs Encarnacion FC**
-PARAGUAY (14:00)
-2.15 | 3.08 | 3.21
-
-**Independiente FBC vs Deportivo Santani**
-PARAGUAY (21:00)
-2.18 | 2.85 | 3.42
-
-**Chertanovo M. U19 vs Dynamo Makhachkala U19**
-RUSSIA (57')
-1.46 | 4.24 | 6.66
-
-**Wilberforce Strikers vs Bo Rangers**
+**Kallon vs Old Edwardians**
 SIERRA LEONE (17:30)
-3.69 | 2.86 | 2.08
+2.74 | 2.86 | 2.51
 
-**Zvolen vs Komarno**
-SLOVAKIA (15:30)
-3.20 | 3.24 | 2.21
+**Grbalj vs Bokelj**
+MONTENEGRO (16:30)
+3.32 | 3.28 | 2.02
 
-**Coquimbo (Chi) vs Deportes Tolima (Col)**
-SOUTH AMERICA (23:00)
-2.25 | 3.10 | 3.40
+**Teplice B vs FK Ceska Lipa**
+CZECH REPUBLIC (16:00)
+No odds available — omitted
 
-**Fluminense (Bra) vs Bolivar (Bol)**
-SOUTH AMERICA (23:00)
-1.20 | 6.00 | 17.00
+**Polanka nad Odrou vs Hodonin**
+CZECH REPUBLIC (16:30)
+6.43 | 4.40 | 1.45
 
-**Rosario Central (Arg) vs Universidad Central (Ven)**
-SOUTH AMERICA (23:00)
-1.17 | 7.00 | 17.00
+**Unicov vs Start Brno**
+CZECH REPUBLIC (16:30)
+No odds available — omitted
 
-**A. Italiano (Chi) vs Barracas Central (Arg)**
-SOUTH AMERICA (23:00)
-2.45 | 3.20 | 3.00
+**FK Kozlovice vs Sternberk**
+CZECH REPUBLIC (16:30)
+No odds available — omitted
 
-**Montevideo City (Uru) vs Dep. Riestra (Arg)**
-SOUTH AMERICA (23:00)
-2.30 | 3.10 | 3.40
+**Atletico FC vs Nueve de Octubre**
+ECUADOR (20:00)
+2.02 | 3.00 | 3.67
 
-**Orgryte vs Goteborg**
-SWEDEN (To finish)
-4.10 | 3.80 | 1.71
+**Gualaceo vs Mushuc Runa**
+ECUADOR (21:30)
+3.70 | 3.04 | 2.00
 
-**Helsingborg vs Varberg**
+**IR Tanger vs Wydad AC**
+MOROCCO (19:00)
+3.90 | 3.10 | 1.85
+
+**Raja Casablanca vs Berkane**
+MOROCCO (21:00)
+1.95 | 2.90 | 3.90
+
+**ADO 20 Heemskerk vs IJsselmeervogels**
+NETHERLANDS (19:00)
+2.69 | 3.22 | 2.32
+
+**Rijnvogels vs Excelsior Maassluis**
+NETHERLANDS (19:00)
+3.26 | 3.58 | 1.94
+
+**Ntnui vs FK Kvik**
+NORWAY (18:00)
+2.86 | 4.10 | 1.97
+
+**LKS Lomza vs Polkowice**
+POLAND (18:26)
+1.72 | 3.78 | 3.91
+
+**Ostrowiec Swietokrzyski vs Luzino**
+POLAND (18:29)
+2.22 | 3.48 | 2.75
+
+**Santa Clara U23 vs Gil Vicente U23**
+PORTUGAL (20:00)
+3.08 | 3.40 | 2.07
+
+**Zvezda St. Peterburg vs Irkutsk**
+RUSSIA (12:00)
+2.31 | 3.04 | 2.94
+
+**Milford FC vs Magesi**
+SOUTH AFRICA (14:00)
+3.21 | 2.83 | 2.30
+
+**Vasalund vs Jarfalla**
+SWEDEN (18:30)
+1.55 | 4.15 | 4.70
+
+**Olympic vs Lunds**
 SWEDEN (18:00)
-2.70 | 3.25 | 2.60
+2.41 | 3.34 | 2.53
 
-**Horriya vs Al Jaish**
-SYRIA (14:00)
-2.62 | 2.84 | 2.64
+**IFK Umea vs Taftea IK**
+SWEDEN (18:00)
+7.70 | 4.95 | 1.30
 
-**Fenerbahce W vs Unye Kadin W**
-TURKEY (19')
-1.02 | 14.80 | 30.00
+**Storfors vs Skelleftea**
+SWEDEN (18:30)
+4.34 | 4.40 | 1.59
 
-**BUL vs Kitara**
-UGANDA (14:00)
-2.36 | 2.85 | 3.06
+**Viggbyholms vs Sollentuna**
+SWEDEN (18:00)
+8.00 | 4.50 | 1.30
 
-**Maroons vs Vipers**
-UGANDA (14:00)
-5.82 | 3.28 | 1.60
+**Gazalkent vs Jayxun**
+UZBEKISTAN (15:30)
+1.25 | 4.75 | 11.00
 
-**UPDF vs Calvary**
-UGANDA (14:00)
-1.39 | 4.25 | 6.82
+**Philippines vs Guam**
+WORLD (12:30)
+1.06 | 11.00 | 34.00
 
-**Tajikistan U20 vs Kyrgyzstan U20**
+**Croatia U21 vs Qatar U23**
+WORLD (16:30)
+1.51 | 3.80 | 5.49
+
+**Gibraltar vs British Virgin Islands**
+WORLD (18:00)
+1.27 | 5.25 | 9.00
+
+**Turkey U21 vs Kosovo U21**
+WORLD (18:00)
+1.49 | 3.96 | 5.61
+
+**Albania vs Israel**
+WORLD (19:00)
+2.25 | 3.25 | 2.90
+
+**D.R. Congo vs Denmark**
+WORLD (19:00)
+5.75 | 3.70 | 1.53
+
+**Portugal U21 vs Northern Ireland U21**
+WORLD (19:30)
+1.14 | 6.50 | 13.00
+
+**Luxembourg vs Italy**
+WORLD (19:45)
+5.75 | 3.90 | 1.50
+
+**Netherlands vs Algeria**
+WORLD (19:45)
+1.38 | 4.33 | 9.00
+
+**Poland vs Nigeria**
+WORLD (19:45)
+2.10 | 3.40 | 3.25
+
+**Japan U20 vs Portugal U20**
+WORLD (14:00)
+2.87 | 3.40 | 2.32
+
+**Ivory Coast U20 vs Venezuela U20**
+WORLD (17:30)
+1.65 | 3.54 | 4.73
+
+**Myanmar W vs Uzbekistan W**
+WORLD (11:30)
+2.41 | 3.38 | 2.49
+
+**China W vs Russia W**
+WORLD (12:35)
+1.58 | 3.72 | 5.07
+
+**Indonesia W vs Singapore W**
 WORLD (13:00)
-2.15 | 3.05 | 3.25
+1.19 | 5.80 | 10.90
+
+**Tanzania W vs Malawi W**
+WORLD (14:00)
+1.96 | 3.32 | 3.45
+
+**Jordan W vs Malaysia W**
+WORLD (16:00)
+1.09 | 7.60 | 16.50
+
+**England U20 W vs Canada U20 W**
+WORLD (17:00)
+1.43 | 4.75 | 5.22
