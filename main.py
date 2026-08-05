@@ -205,47 +205,53 @@ def analyze_match(match):
 
 def parse_matches():
     target_file = None
-    for filename in ["input_matches.txt", "input.txt", "raw_capture.txt", "input.csv"]:
+    possible_files = [
+        "input.csv", "input_matches.csv", "matches.csv", 
+        "input_matches.txt", "input.txt", "raw_capture.txt"
+    ]
+    
+    for filename in possible_files:
         if os.path.exists(filename):
             target_file = filename
             break
             
     if not target_file:
-        print("\n❌ No input file found!")
+        print("\n❌ No input file found! Ensure 'input.csv' or 'input.txt' exists in the root folder.")
         return []
     
+    print(f"📂 Found input file: {target_file}")
     matches = []
     
     with open(target_file, 'r', encoding='utf-8-sig') as f:
         content = f.read().strip()
         
     if not content:
+        print("❌ Input file is empty!")
         return []
 
     # METHOD 1: PARSE AS CSV
-    if 'Team A' in content or 'Home Odds' in content:
+    if any(keyword in content.lower() for keyword in ['team a', 'home odds', 'team_a', 'home_odds']):
         lines = content.splitlines()
         reader = csv.DictReader(lines)
         for row in reader:
             try:
-                # Clean keys and values from leading/trailing whitespace
-                cleaned_row = { (k.strip() if k else ''): (v.strip() if v else '') for k, v in row.items() if k }
+                # Normalize all dictionary keys to lowercase and stripped
+                cleaned_row = { (k.strip().lower() if k else ''): (v.strip() if v else '') for k, v in row.items() if k }
                 
-                team_a = cleaned_row.get('Team A', '')
-                team_b = cleaned_row.get('Team B', '')
-                league = cleaned_row.get('League', 'Unknown')
+                team_a = cleaned_row.get('team a') or cleaned_row.get('team_a') or cleaned_row.get('home team') or ''
+                team_b = cleaned_row.get('team b') or cleaned_row.get('team_b') or cleaned_row.get('away team') or ''
+                league = cleaned_row.get('league', 'Unknown')
                 
                 if not team_a or not team_b:
                     continue
                 
-                # Regex helper to safely pull numeric values even with stray chars
                 def parse_odd(val):
                     match = re.search(r'(\d+\.\d+|\d+)', str(val))
                     return float(match.group(1)) if match else 0.0
 
-                home_odds = parse_odd(cleaned_row.get('Home Odds'))
-                draw_odds = parse_odd(cleaned_row.get('Draw Odds'))
-                away_odds = parse_odd(cleaned_row.get('Away Odds'))
+                home_odds = parse_odd(cleaned_row.get('home odds') or cleaned_row.get('home_odds'))
+                draw_odds = parse_odd(cleaned_row.get('draw odds') or cleaned_row.get('draw_odds'))
+                away_odds = parse_odd(cleaned_row.get('away odds') or cleaned_row.get('away_odds'))
                     
                 match = {
                     'match': f"{team_a} vs {team_b}",
@@ -295,7 +301,6 @@ def parse_matches():
         matches.append(match)
     
     return matches
-
 # ============================================================
 # BUILD ACCUMULATORS
 # ============================================================
