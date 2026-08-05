@@ -216,7 +216,7 @@ def parse_matches():
             break
             
     if not target_file:
-        print("\n❌ No input file found! Ensure 'input.csv' or 'input.txt' exists in the root folder.")
+        print("\n❌ No input file found!")
         return []
     
     print(f"📂 Found input file: {target_file}")
@@ -230,16 +230,15 @@ def parse_matches():
         return []
 
     # METHOD 1: PARSE AS CSV
-    if any(keyword in content.lower() for keyword in ['team a', 'home odds', 'team_a', 'home_odds']):
+    if any(keyword in content.lower() for keyword in ['team a', 'home odds', 'team_a', 'home_odds', 'home_team']):
         lines = content.splitlines()
         reader = csv.DictReader(lines)
         for row in reader:
             try:
-                # Normalize all dictionary keys to lowercase and stripped
-                cleaned_row = { (k.strip().lower() if k else ''): (v.strip() if v else '') for k, v in row.items() if k }
+                cleaned_row = {(k.strip().lower() if k else ''): (v.strip() if v else '') for k, v in row.items() if k}
                 
-                team_a = cleaned_row.get('team a') or cleaned_row.get('team_a') or cleaned_row.get('home team') or ''
-                team_b = cleaned_row.get('team b') or cleaned_row.get('team_b') or cleaned_row.get('away team') or ''
+                team_a = cleaned_row.get('team a') or cleaned_row.get('team_a') or cleaned_row.get('home team') or cleaned_row.get('home_team') or ''
+                team_b = cleaned_row.get('team b') or cleaned_row.get('team_b') or cleaned_row.get('away team') or cleaned_row.get('away_team') or ''
                 league = cleaned_row.get('league', 'Unknown')
                 
                 if not team_a or not team_b:
@@ -249,9 +248,9 @@ def parse_matches():
                     match = re.search(r'(\d+\.\d+|\d+)', str(val))
                     return float(match.group(1)) if match else 0.0
 
-                home_odds = parse_odd(cleaned_row.get('home odds') or cleaned_row.get('home_odds'))
-                draw_odds = parse_odd(cleaned_row.get('draw odds') or cleaned_row.get('draw_odds'))
-                away_odds = parse_odd(cleaned_row.get('away odds') or cleaned_row.get('away_odds'))
+                home_odds = parse_odd(cleaned_row.get('home odds') or cleaned_row.get('home_odds') or cleaned_row.get('1'))
+                draw_odds = parse_odd(cleaned_row.get('draw odds') or cleaned_row.get('draw_odds') or cleaned_row.get('x'))
+                away_odds = parse_odd(cleaned_row.get('away odds') or cleaned_row.get('away_odds') or cleaned_row.get('2'))
                     
                 match = {
                     'match': f"{team_a} vs {team_b}",
@@ -265,40 +264,50 @@ def parse_matches():
                 matches.append(match)
             except Exception:
                 continue
-        return matches
+        if matches:
+            return matches
 
-    # METHOD 2: PARSE AS LINE-BY-LINE TEXT
-    lines = [l.strip() for l in content.split('\n') if l.strip()]
-    i = 0
-    while i < len(lines):
-        if ' vs ' not in lines[i]:
+    # METHOD 2: UNIVERSAL TEXT PARSER
+    # Handles: "Team A vs Team B | League | 1.50 3.80 6.00" OR multi-line format
+    raw_blocks = re.split(r'\n\s*\n', content) # split by double newlines if present
+    
+    if len(raw_blocks) == 1:
+        # Fallback to scanning line by line
+        lines = [l.strip() for l in content.split('\n') if l.strip()]
+        i = 0
+        while i < len(lines):
+            line = lines[i]
+            # Match fixtures containing " vs ", " v ", or " - "
+            match_search = re.search(r'(.+?)\s+(?:vs|v|-)\s+(.+)', line, re.IGNORECASE)
+            if match_search:
+                home_team = match_search.group(1).strip()
+                away_team = match_search.group(2).strip()
+                league = "Unknown"
+                home_o, draw_o, away_o = 0.0, 0.0, 0.0
+                
+                # Check next 2 lines for league and odds
+                lookahead = " ".join(lines[i+1:i+4])
+                odds_found = re.findall(r'(\d+\.\d+)', lookahead)
+                
+                if len(odds_found) >= 3:
+                    home_o = float(odds_found[0])
+                    draw_o = float(odds_found[1])
+                    away_o = float(odds_found[2])
+                    
+                    # See if there's text before odds to grab league
+                    if i + 1 < len(lines) and not re.search(r'\d+\.\d+', lines[i+1]):
+                        league = lines[i+1]
+                    
+                    matches.append({
+                        'match': f"{home_team} vs {away_team}",
+                        'home_team': home_team,
+                        'away_team': away_team,
+                        'league': league,
+                        'home_odds': home_o,
+                        'draw_odds': draw_o,
+                        'away_odds': away_o
+                    })
             i += 1
-            continue
-        
-        match = {'match': lines[i]}
-        teams = lines[i].split(' vs ')
-        match['home_team'] = teams[0].strip()
-        match['away_team'] = teams[1].strip() if len(teams) > 1 else ''
-        i += 1
-        
-        if i < len(lines) and '|' not in lines[i]:
-            match['league'] = lines[i]
-            i += 1
-        else:
-            match['league'] = 'Unknown'
-        
-        if i < len(lines) and '|' in lines[i]:
-            odds = re.findall(r'(\d+\.\d+)', lines[i])
-            if len(odds) >= 3:
-                match['home_odds'] = float(odds[0])
-                match['draw_odds'] = float(odds[1])
-                match['away_odds'] = float(odds[2])
-            i += 1
-        else:
-            i += 1
-            continue
-        
-        matches.append(match)
     
     return matches
 # ============================================================
