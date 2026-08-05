@@ -1,6 +1,6 @@
 """
 JAY SOCCER BLUEPRINTS - 11 BLUEPRINT SYSTEM
-Includes Club Friendlies & Robust CSV/Text Auto-Detection
+Includes Club Friendlies & Targeted input_matches.txt Parsing
 """
 
 import os
@@ -161,11 +161,10 @@ def analyze_match(match):
     return None
 
 # ============================================================
-# UNIVERSAL PARSER
+# TARGETED PARSER (Reads input_matches.txt strictly)
 # ============================================================
 
 def parse_matches():
-    # Hardcode targeted file path
     target_file = "input_matches.txt"
     
     if not os.path.exists(target_file):
@@ -181,11 +180,11 @@ def parse_matches():
         print(f"❌ '{target_file}' is empty!")
         return []
 
-    # Clean appended text/errors from content if present
+    # Clean trailing system text if appended to file
     content = content.split("The system did not generate")[0].strip()
     matches = []
 
-    # 1. PARSE AS CSV (If commas exist and headers match)
+    # 1. PARSE AS CSV
     if ',' in content and any(h in content.lower() for h in ['team a', 'home odds', 'team_a', 'home_odds']):
         lines = [line.strip() for line in content.splitlines() if line.strip()]
         reader = csv.DictReader(lines)
@@ -221,7 +220,7 @@ def parse_matches():
                 continue
         return matches
 
-    # 2. PARSE AS PIPE/LINE TEXT FORMAT
+    # 2. PARSE AS LINE/PIPE TEXT
     lines = [l.strip() for l in content.split('\n') if l.strip()]
     i = 0
     while i < len(lines):
@@ -255,8 +254,9 @@ def parse_matches():
         matches.append(match)
     
     return matches
+
 # ============================================================
-# ACCUMULATOR BUILDER & MAIN EXECUTION
+# ACCUMULATORS & EXPORT
 # ============================================================
 
 def build_accumulators(predictions):
@@ -270,13 +270,51 @@ def build_accumulators(predictions):
     accumulators = {}
     used = set()
     
-    available = [p for p in sorted_picks if p['match'] not in used]
+    def get_unused():
+        return [p for p in sorted_picks if p['match'] not in used]
+    
+    # 2_ODDS
+    available = get_unused()
     for combo in combinations(available[:8], 2):
         total = combo[0]['odds'] * combo[1]['odds']
         if 1.8 <= total <= 2.5:
             accumulators['2_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
             for m in combo:
                 used.add(m['match'])
+            break
+    
+    # 4_ODDS
+    available = get_unused()
+    for combo in combinations(available[:12], 4):
+        total = 1
+        for m in combo:
+            total *= m['odds']
+        if 3.5 <= total <= 5.0:
+            accumulators['4_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
+            for m in combo:
+                used.add(m['match'])
+            break
+    
+    # 7_ODDS
+    available = get_unused()
+    for combo in combinations(available[:15], 5):
+        total = 1
+        for m in combo:
+            total *= m['odds']
+        if 6.0 <= total <= 8.5:
+            accumulators['7_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
+            for m in combo:
+                used.add(m['match'])
+            break
+    
+    # 10_ODDS
+    available = get_unused()
+    for combo in combinations(available[:20], 5):
+        total = 1
+        for m in combo:
+            total *= m['odds']
+        if 9.0 <= total <= 12.0:
+            accumulators['10_ODDS'] = {'matches': list(combo), 'odds': round(total, 2)}
             break
             
     return accumulators
@@ -329,8 +367,25 @@ def main():
     
     accumulators = build_accumulators(predictions)
     
+    # Build Telegram payload
+    message = f"⚽ JAY SOCCER BLUEPRINTS\n📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}\n\n📊 PREDICTIONS ({len(predictions)})\n"
+    for p in predictions[:20]:
+        message += f"\n✅ #{p['blueprint']}: {p['match']}\n   🎯 {p['play']} ({p['confidence']}%)"
+    
+    if accumulators:
+        message += "\n\n🎰 ACCUMULATORS\n"
+        for name, acc in accumulators.items():
+            message += f"\n{name} (Total Odds: {acc['odds']})\n"
+            for m in acc['matches']:
+                message += f" - {m['match']} ({m['play']})\n"
+                
+    send_telegram(message)
+    
     with open("predictions.json", "w") as f:
         json.dump(predictions, f, indent=2)
+        
+    with open("accumulators.json", "w") as f:
+        json.dump(accumulators, f, indent=2)
     
     print("\n✅ Execution finished successfully!")
     return 0
