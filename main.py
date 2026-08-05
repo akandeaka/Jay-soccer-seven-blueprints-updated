@@ -1,6 +1,6 @@
 """
 JAY SOCCER BLUEPRINTS - 11 BLUEPRINT SYSTEM (MERGED & HYBRID PARSER)
-Preserves existing structure | Uses GitHub database | Hybrid CSV/Text Input
+Preserves existing structure | Uses GitHub database | Robust CSV & Text Parser
 """
 
 import os
@@ -197,11 +197,10 @@ def analyze_match(match):
     return None
 
 # ============================================================
-# HYBRID PARSER (CSV & TEXT SUPPORT)
+# SAFE HYBRID PARSER (CSV & TEXT SUPPORT)
 # ============================================================
 
 def parse_matches():
-    # Detect available input file dynamically
     target_file = None
     for filename in ["input_matches.txt", "input.txt", "raw_capture.txt"]:
         if os.path.exists(filename):
@@ -226,19 +225,25 @@ def parse_matches():
         reader = csv.DictReader(lines)
         for row in reader:
             try:
-                team_a = row.get('Team A', '').strip()
-                team_b = row.get('Team B', '').strip()
+                team_a = (row.get('Team A') or '').strip()
+                team_b = (row.get('Team B') or '').strip()
+                league = (row.get('League') or 'Unknown').strip()
+                
                 if not team_a or not team_b:
                     continue
+                
+                home_odds = float(row.get('Home Odds') or 0)
+                draw_odds = float(row.get('Draw Odds') or 0)
+                away_odds = float(row.get('Away Odds') or 0)
                     
                 match = {
                     'match': f"{team_a} vs {team_b}",
                     'home_team': team_a,
                     'away_team': team_b,
-                    'league': row.get('League', 'Unknown').strip(),
-                    'home_odds': float(row.get('Home Odds', 0)),
-                    'draw_odds': float(row.get('Draw Odds', 0)),
-                    'away_odds': float(row.get('Away Odds', 0))
+                    'league': league,
+                    'home_odds': home_odds,
+                    'draw_odds': draw_odds,
+                    'away_odds': away_odds
                 }
                 matches.append(match)
             except (ValueError, TypeError, KeyError):
