@@ -1,6 +1,7 @@
 """
 JAY SOCCER BLUEPRINTS - 11 BLUEPRINT SYSTEM (MERGED & HYBRID PARSER)
 Preserves existing structure | Uses GitHub database | Robust CSV & Text Parser
+Includes Club Friendlies in league evaluations
 """
 
 import os
@@ -27,15 +28,16 @@ LEAGUE_GOALS = {
     'premier league': 2.8, 'bundesliga': 3.2, 'la liga': 2.5,
     'serie a': 2.6, 'ligue 1': 2.7, 'eredivisie': 3.1,
     'championship': 2.6, 'league one': 2.9, 'league two': 2.8,
-    'brazil': 2.8, 'turkey': 2.6, 'russia': 2.5,
+    'brazil': 2.8, 'turkey': 2.6, 'russia': 2.5, 'friendly': 2.9
 }
 
-# League classifications for BP6 and BP7
-HIGH_SCORING_LEAGUES = ['bundesliga', 'eredivisie', 'brazil', 'brasileirao']
+# League classifications for BP6, BP7, BP8, BP11
+HIGH_SCORING_LEAGUES = ['bundesliga', 'eredivisie', 'brazil', 'brasileirao', 'friendly', 'club friendly']
 MEDIUM_SCORING_LEAGUES = ['premier league', 'epl', 'ligue 1', 'championship']
 LOW_SCORING_LEAGUES = ['la liga', 'serie a', 'turkey', 'russia', 'greece']
 
-BTTS_HIGH_LEAGUES = ['bundesliga', 'eredivisie', 'brazil', 'premier league', 'epl']
+# BTTS classifications for BP9 and BP10
+BTTS_HIGH_LEAGUES = ['bundesliga', 'eredivisie', 'brazil', 'premier league', 'epl', 'friendly', 'club friendly']
 BTTS_LOW_LEAGUES = ['la liga', 'serie a', 'turkey', 'russia']
 
 ATTACKING_TEAMS = [
@@ -162,6 +164,7 @@ def check_blueprint_11(draw, league):
         league_type = get_league_type(league)
         if league_type == 'high':
             return {'blueprint': '11', 'play': 'Over 2.5 Goals', 'confidence': 60}
+        return {'blueprint': '11', 'play': 'Over 2.5 Goals', 'confidence': 60}
     return None
 
 
@@ -197,12 +200,12 @@ def analyze_match(match):
     return None
 
 # ============================================================
-# SAFE HYBRID PARSER (CSV & TEXT SUPPORT)
+# ROBUST HYBRID PARSER (REGEX & CSV SUPPORT)
 # ============================================================
 
 def parse_matches():
     target_file = None
-    for filename in ["input_matches.txt", "input.txt", "raw_capture.txt"]:
+    for filename in ["input_matches.txt", "input.txt", "raw_capture.txt", "input.csv"]:
         if os.path.exists(filename):
             target_file = filename
             break
@@ -213,7 +216,7 @@ def parse_matches():
     
     matches = []
     
-    with open(target_file, 'r', encoding='utf-8') as f:
+    with open(target_file, 'r', encoding='utf-8-sig') as f:
         content = f.read().strip()
         
     if not content:
@@ -225,16 +228,24 @@ def parse_matches():
         reader = csv.DictReader(lines)
         for row in reader:
             try:
-                team_a = (row.get('Team A') or '').strip()
-                team_b = (row.get('Team B') or '').strip()
-                league = (row.get('League') or 'Unknown').strip()
+                # Clean keys and values from leading/trailing whitespace
+                cleaned_row = { (k.strip() if k else ''): (v.strip() if v else '') for k, v in row.items() if k }
+                
+                team_a = cleaned_row.get('Team A', '')
+                team_b = cleaned_row.get('Team B', '')
+                league = cleaned_row.get('League', 'Unknown')
                 
                 if not team_a or not team_b:
                     continue
                 
-                home_odds = float(row.get('Home Odds') or 0)
-                draw_odds = float(row.get('Draw Odds') or 0)
-                away_odds = float(row.get('Away Odds') or 0)
+                # Regex helper to safely pull numeric values even with stray chars
+                def parse_odd(val):
+                    match = re.search(r'(\d+\.\d+|\d+)', str(val))
+                    return float(match.group(1)) if match else 0.0
+
+                home_odds = parse_odd(cleaned_row.get('Home Odds'))
+                draw_odds = parse_odd(cleaned_row.get('Draw Odds'))
+                away_odds = parse_odd(cleaned_row.get('Away Odds'))
                     
                 match = {
                     'match': f"{team_a} vs {team_b}",
@@ -246,7 +257,7 @@ def parse_matches():
                     'away_odds': away_odds
                 }
                 matches.append(match)
-            except (ValueError, TypeError, KeyError):
+            except Exception:
                 continue
         return matches
 
