@@ -1,6 +1,3 @@
-Here is the data in CSV format with the header: `Team A,Team B,League,Home Odds,Draw Odds,Away Odds,Status`
-
-```csv
 Team A,Team B,League,Home Odds,Draw Odds,Away Odds,Status
 Aarhus (Den),Sabah Baku (Aze),Europa League - Qualification,1.65,3.90,4.33,
 Fenerbahce (Tur),Sturm Graz (Aut),Europa League - Qualification,1.36,4.75,7.00,
@@ -12,7 +9,7 @@ Malawi W,Zambia W,Africa Cup of Nations Women,3.25,3.60,1.91,
 Boca Juniors,Estudiantes L.P.,Liga Profesional - Clausura,2.05,2.85,4.20,
 Almagro,Gimnasia y Tiro,Primera Nacional,2.75,2.75,2.85,
 Provincial,Deportivo Metalurgico,Torneo Promocional Amateur,6.00,3.67,1.44,
-Queanbeyan City,Tuggeranong Utd,NPL ACT,1.71,3.75,3.75,"Live, 1-0"
+Queanbeyan City,Tuggeranong Utd,NPL ACT,1.71,3.75,3.75,"Live, 1-0",
 GV San Jose,SA Bulo Bulo,Division Profesional,1.66,4.10,3.80,
 Nacional Potosi,The Strongest,Division Profesional,2.35,3.60,2.55,
 Cruzeiro,Chapecoense-SC,Copa Betano do Brasil,1.30,4.50,10.00,
@@ -26,8 +23,8 @@ Sao Goncalo,Sampaio Correa FE,Copa Rio,3.30,3.00,2.00,
 Portuguesa RJ,Madureira,Copa Rio,1.82,3.20,3.90,
 S. Wanderers,Union La Calera,Copa Chile,3.90,3.10,1.95,
 San Felipe,U. De Chile,Copa Chile,5.25,4.10,1.45,
-Shanghai Port B,Shanxi Chongde Ronghai,League Two,1.93,3.10,3.70,"Live, 0-1"
-Changchun Xidu,Dalian Yingbo B,League Two,2.70,2.75,2.60,"Half Time, 0-1"
+Shanghai Port B,Shanxi Chongde Ronghai,League Two,1.93,3.10,3.70,"Live, 0-1",
+Changchun Xidu,Dalian Yingbo B,League Two,2.70,2.75,2.60,"Half Time, 0-1",
 Hubei Istar,Jiangxi Lushan,League Two,2.80,3.00,2.25,
 Lanzhou Longyuan,Beijing Technology,League Two,1.43,3.80,6.50,
 Hobro,Vendsyssel,Betano Pokalen,3.00,3.60,2.10,
@@ -56,7 +53,7 @@ Tampere Utd,KPV Kokkola,Ykkonen,1.17,7.00,11.00,
 VJS,Keski-Uusimaa,Ykkonen,1.60,4.20,4.00,
 Keflavik,KA Akureyri,Besta deild karla,2.05,3.65,2.80,
 Hafnarfjordur,KR Reykjavik,Besta deild karla,3.55,4.10,1.68,
-Mohammedan,Police AC,Calcutta Premier Division,1.95,2.88,3.50,"Live, 0-0"
+Mohammedan,Police AC,Calcutta Premier Division,1.95,2.88,3.50,"Live, 0-0",
 Neroca FC,Indian Navy,Durand Cup,1.67,3.75,3.80,
 Shelbourne W,Cork City W,National League Women,1.06,10.00,23.00,
 Hapoel Petah Tikva,Netanya,Toto Cup,2.40,3.20,2.40,
@@ -101,8 +98,8 @@ Aral,Metallurg Bekabad,Pro Liga,1.80,3.50,3.60,
 BuxDu,Shortan Guzor,Pro Liga,4.20,3.67,1.64,
 Olimpik-Mobiuz,Jayxun,Pro Liga,1.38,4.33,6.00,
 La Guaira,Metropolitanos,Liga FUTVE - Clausura,1.79,3.10,4.10,
-Cadiz CF (Esp),Granada CF (Esp),Club Friendly,2.88,2.88,2.35,"Live, 2-0"
-UD Ibiza (Esp),Ilicitano (Esp),Club Friendly,1.42,4.40,5.50,"Live, 1-1"
+Cadiz CF (Esp),Granada CF (Esp),Club Friendly,2.88,2.88,2.35,"Live, 2-0",
+UD Ibiza (Esp),Ilicitano (Esp),Club Friendly,1.42,4.40,5.50,"Live, 1-1",
 AC Milan (Ita),Inter (Ita),Club Friendly,2.50,3.75,2.40,
 K-League Stars (Kor),Manchester City (Eng),Club Friendly,5.00,5.50,1.36,
 Ratchaburi (Tha),Eastern AA (Hkg),Club Friendly,1.21,6.25,8.00,
