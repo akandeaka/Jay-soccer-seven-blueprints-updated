@@ -1,200 +1,142 @@
-MatchID,League,HomeOdds,DrawOdds,AwayOdds
-Corinthians vs Athletico-PR,BRAZIL,2.20,3.00,3.50
-Coritiba vs Cruzeiro,BRAZIL,3.25,3.10,2.25
-Gremio (Bra) vs Bolivar (Bol),SOUTH AMERICA,1.50,4.50,5.75
-Caracas (Ven) vs Santa Fe (Col),SOUTH AMERICA,3.20,3.30,2.30
-O'Higgins (Chi) vs Boca Juniors (Arg),SOUTH AMERICA,4.33,3.20,1.91
-Singida Black Stars vs Simba,AFRICA,4.00,3.00,1.80
-South Africa W vs Ivory Coast W,AFRICA,2.25,3.20,2.80
-Burkina Faso W vs Tanzania W,AFRICA,3.40,3.30,1.95
-Ind. Rivadavia vs Huracan,ARGENTINA,2.15,2.85,3.90
-Talleres Cordoba vs Velez Sarsfield,ARGENTINA,2.20,2.75,3.90
-Central Cordoba vs Atl. Tucuman,ARGENTINA,3.30,3.00,2.30
-Independiente vs Newells Old Boys,ARGENTINA,1.49,3.90,7.00
-Van vs Sardarapat,ARMENIA,1.96,3.30,3.20
-Timor-Leste vs Indonesia,ASIA,81.00,34.00,1.01
-Vietnam vs Singapore,ASIA,1.13,7.50,10.50
-Cooks Hill United vs Broadmeadow,AUSTRALIA,3.90,4.20,1.60
-Rochedale vs Eastern Suburbs,AUSTRALIA,3.55,3.90,1.71
-Wynnum Wolves vs Brisbane City,AUSTRALIA,2.17,3.85,2.48
-Campbelltown City vs Adelaide City,AUSTRALIA,3.35,3.60,1.83
-Bentleigh Greens vs Oakleigh Cannons,AUSTRALIA,8.00,4.80,1.27
-Preston Lions vs Green Gully,AUSTRALIA,1.37,4.20,6.50
-Prospect United vs Blacktown Spartans,AUSTRALIA,4.50,4.00,1.55
-Broadbeach Utd. vs Logan Lightning,AUSTRALIA,1.40,4.50,5.60
-North Star vs Capalaba,AUSTRALIA,1.38,4.75,5.60
-Melbourne Knights vs Western Utd. U21,AUSTRALIA,1.30,4.90,6.40
-Northcote City vs Eltham Redbacks,AUSTRALIA,1.68,3.75,3.70
-Box Hill vs Keilor Park,AUSTRALIA,1.96,3.40,3.20
-Kingston City vs Springvale,AUSTRALIA,3.05,3.40,2.00
-Essendon Royals SC vs Altona City,AUSTRALIA,1.56,3.95,4.50
-Whittlesea United vs Eastern Lions,AUSTRALIA,2.20,3.50,2.63
-LASK vs Grazer AK,AUSTRIA,1.57,4.00,5.00
-Admira vs SK Rapid II,AUSTRIA,2.20,3.30,2.60
-ASK Voitsberg vs Amstetten,AUSTRIA,2.05,3.40,2.80
-Austria Vienna (Am) vs BW Linz,AUSTRIA,3.10,3.50,1.90
-Kapfenberg vs Liefering,AUSTRIA,3.60,3.60,1.70
-Wacker Innsbruck vs Bregenz,AUSTRIA,2.05,3.40,2.80
-Floridsdorfer AC vs St. Polten,AUSTRIA,2.75,3.10,2.20
-Donaufeld Wien vs Horn,AUSTRIA,2.25,3.40,2.50
-Leobendorf vs Parndorf,AUSTRIA,2.38,3.50,2.30
-SV Donau vs Kremser,AUSTRIA,3.25,3.75,1.80
-Warth vs Traiskirchen,AUSTRIA,3.20,3.60,1.83
-Wiener Sport-Club vs Favoritner,AUSTRIA,1.57,4.00,4.00
-Dnepr Mogilev vs Naftan,BELARUS,1.67,3.50,4.20
-Club Brugge KV vs Royale Union SG,BELGIUM,2.15,3.25,3.40
-Universitario de Vinto vs Guabira,BOLIVIA,2.05,3.50,3.20
-The Strongest vs Aurora,BOLIVIA,1.42,4.50,5.25
-Vasco U20 vs Santos U20,BRAZIL,1.83,3.45,3.45
-Slavia Sofia vs Lok. Sofia,BULGARIA,2.57,3.30,2.55
-CSKA 1948 Sofia vs Arda,BULGARIA,2.01,3.25,3.75
-Henan Songshan Longmen vs Dalian Yingbo,CHINA,1.76,4.00,4.00
-Bucaramanga vs Llaneros,COLOMBIA,1.67,3.60,5.50
-Real Santander vs Patriotas,COLOMBIA,3.20,3.00,2.00
-Fortaleza W vs Ind. Medellin W,COLOMBIA,4.60,3.30,1.68
-Din. Zagreb vs Slaven Belupo,CROATIA,1.20,6.25,10.00
-Sparta Prague vs Zlin,CZECH REPUBLIC,1.22,5.50,11.00
-Zizkov vs Prostejov,CZECH REPUBLIC,2.00,3.50,3.00
-Karvina vs Vlasim,CZECH REPUBLIC,1.67,3.80,3.80
-Pribram vs Opava,CZECH REPUBLIC,2.30,3.20,2.75
-SK Kladno vs Ostrava B,CZECH REPUBLIC,2.63,3.20,2.40
-Taborsko vs Dukla Prague,CZECH REPUBLIC,2.80,3.50,2.15
-Rokycany vs Horovice,CZECH REPUBLIC,2.10,3.20,3.10
-Vysehrad vs Hostoun,CZECH REPUBLIC,2.70,4.50,1.91
-Aarhus Fremad vs Aalborg,DENMARK,2.25,3.50,2.75
-AB Copenhagen vs Fredericia,DENMARK,3.00,3.50,2.15
-Koge vs Vejle,DENMARK,4.10,3.90,1.71
-Metapan vs FAS,EL SALVADOR,2.65,3.00,2.48
-Inter Santa Tecla vs Aguila,EL SALVADOR,2.55,3.05,2.55
-Nomme Utd vs Narva,ESTONIA,1.90,3.75,3.25
-Ekenas vs Klubi 04,FINLAND,1.76,3.60,3.60
-KTP vs SJK Akatemia,FINLAND,1.33,4.60,6.40
-PK-35 vs Haka,FINLAND,2.60,3.05,2.43
-Inter Turku 2 vs VJS,FINLAND,3.90,4.20,1.62
-Keski-Uusimaa vs Tampere Utd,FINLAND,3.25,3.90,1.80
-Abo vs HJS,FINLAND,1.68,3.65,3.95
-GrIFK vs EBK,FINLAND,1.79,3.90,3.25
-Werder Bremen II vs VfB Oldenburg,GERMANY,2.88,3.60,1.95
-Drochtersen/Assel vs Phonix Lubeck,GERMANY,2.00,3.30,3.00
-Bonner vs Oberhausen,GERMANY,3.50,3.40,1.80
-Puskas Academy vs Kisvarda,HUNGARY,1.73,3.60,4.50
-BSS Sporting vs Railway,INDIA,2.00,3.00,3.20
-Peerless vs Kalighat SL,INDIA,1.44,3.75,5.50
-United SC vs Rainbow,INDIA,2.00,3.25,3.00
-Arema FC vs DPMM,INDONESIA,1.43,4.33,6.00
-Persib Bandung vs Tampines,INDONESIA,1.70,3.80,4.00
-Dundalk vs Sligo Rovers,IRELAND,1.40,4.33,6.25
-Drogheda vs Shamrock Rovers,IRELAND,4.33,3.40,1.75
-Alebrijes Oaxaca vs Dorados de Sinaloa,MEXICO,1.84,3.55,3.75
-PSV W vs Twente W,NETHERLANDS,1.98,3.60,2.95
-Jalapa vs Esteli,NICARAGUA,3.40,3.05,1.93
-Herediano (Cos) vs Marathon (Hon),NORTH & CENTRAL AMERICA,1.72,3.60,4.75
-Municipal (Gtm) vs Cartagines (Cos),NORTH & CENTRAL AMERICA,2.07,3.25,3.55
-Costa Rica U20 vs Antigua and Barbuda U20,NORTH & CENTRAL AMERICA,1.08,9.00,12.50
-Mexico U20 vs Guatemala U20,NORTH & CENTRAL AMERICA,1.19,6.25,8.50
-El Salvador U20 vs Haiti U20,NORTH & CENTRAL AMERICA,3.75,4.00,1.60
-Mount Pleasant (Jam) vs Robinhood (Sur),NORTH & CENTRAL AMERICA,1.75,3.75,3.80
-Metropolitan FA (Pur) vs Delfines Del Este (Dom),NORTH & CENTRAL AMERICA,2.00,3.40,3.25
-Cuba U21 vs Costa Rica U21,NORTH & CENTRAL AMERICA,4.20,3.75,1.62
-Guatemala U21 vs Dominican Republic U21,NORTH & CENTRAL AMERICA,2.55,3.25,2.38
-Puerto Rico W vs Jamaica W,NORTH & CENTRAL AMERICA,1.95,3.50,2.88
-Venezuela W vs El Salvador W,NORTH & CENTRAL AMERICA,1.33,4.33,6.00
-Valerenga vs HamKam,NORWAY,1.60,4.20,5.00
-Bodo/Glimt vs Lillestrom,NORWAY,1.25,6.50,9.00
-Libertad Asuncion vs Recoleta,PARAGUAY,1.73,3.40,4.20
-Los Chankas vs Comerciantes Unidos,PERU,1.83,3.40,4.20
-Wisla Plock vs Widzew Lodz,POLAND,2.88,3.10,2.35
-Motor Lublin vs Jagiellonia,POLAND,2.88,3.40,2.25
-LKS Lodz vs Polonia Bytom,POLAND,1.62,3.60,4.50
-Lechia Gdansk vs Warta Poznan,POLAND,2.63,3.20,2.38
-Czarni Sosnowiec W vs UKS SMS Lodz W,POLAND,1.38,4.50,5.75
-FC Arges vs Csikszereda M. Ciuc,ROMANIA,1.65,3.30,4.75
-Otelul vs Dinamo Bucuresti,ROMANIA,3.30,3.10,2.05
-Dundee Utd vs Rangers,SCOTLAND,6.00,4.33,1.46
-Pohronie vs Povazska Bystrica,SLOVAKIA,2.25,3.25,2.60
-L. Mikulas vs Galanta,SLOVAKIA,1.30,4.60,6.50
-Incheon Hyundai Steel W vs Hwacheon W,SOUTH KOREA,3.25,3.35,1.95
-Suwon FC W vs Sejong Sportstoto W,SOUTH KOREA,1.16,6.25,11.50
-Oddevold vs Norrby,SWEDEN,1.65,3.60,4.33
-Malmo FF W vs Pitea W,SWEDEN,1.38,4.30,6.25
-Hammarby W vs Vaxjo DFF W,SWEDEN,1.12,7.00,13.00
-Stade Nyonnais vs Rapperswil-Jona,SWITZERLAND,2.40,3.60,2.38
-Wil vs Xamax,SWITZERLAND,2.15,3.60,2.75
-Yverdon vs Etoile-Carouge,SWITZERLAND,1.73,3.75,3.75
-Kriens vs Winterthur,SWITZERLAND,3.20,3.60,1.91
-Bruhl vs Young Boys II,SWITZERLAND,1.50,4.20,4.33
-FK Zorya Luhansk vs Kolos Kovalivka,UKRAINE,2.38,2.95,2.75
-UCSA vs Oleksandriya,UKRAINE,3.50,3.20,1.83
-Ahrobiznes Volochysk vs Fenix Mariupol,UKRAINE,2.60,2.88,2.50
-Montevideo City vs Wanderers,URUGUAY,1.85,3.40,4.20
-Jayxun vs BuxDu,UZBEKISTAN,1.93,3.25,3.40
-Yaypan vs FarDU,UZBEKISTAN,2.00,3.33,3.14
-Gazalkent vs Aral,UZBEKISTAN,3.50,3.33,1.88
-Portuguesa vs Carabobo,VENEZUELA,3.00,2.95,2.23
-Anzoategui FC vs Dep. Tachira,VENEZUELA,4.50,3.30,1.70
-Barry vs Cambrian United,WALES,1.40,4.20,6.50
-Briton Ferry vs Ammanford,WALES,1.62,3.75,4.33
-Colwyn Bay vs Trefelin,WALES,1.30,4.60,7.50
-Llandudno vs Flint,WALES,1.73,3.75,3.75
-Llanelli vs Newport City,WALES,2.63,3.50,2.10
-Trethomas Bluebirds vs Baglan Dragons,WALES,1.67,3.60,3.75
-Bangor 1876 vs Bala,WALES,2.80,3.50,2.10
-Ruthin vs Holyhead,WALES,2.40,3.30,2.38
-Alaves (Esp) vs Castellon (Esp),WORLD,1.71,3.50,4.00
-Cordoba B (Esp) vs Sevilla FC B (Esp),WORLD,3.55,3.35,1.85
-Elche (Esp) vs Cordoba (Esp),WORLD,1.58,3.65,4.80
-Albacete (Esp) vs Real Madrid B (Esp),WORLD,1.77,3.50,3.75
-Amiens (Fra) vs Chambly (Fra),WORLD,2.20,3.25,2.75
-Kortrijk (Bel) vs Gent U23 (Bel),WORLD,2.55,3.20,2.40
-Las Palmas (Esp) vs Neom SC (Sau),WORLD,2.14,3.50,2.70
-FC Koln (Ger) vs Hertha Berlin (Ger),WORLD,1.60,4.20,3.95
-Portimonense (Por) vs Nottingham (Eng),WORLD,9.00,6.00,1.20
-Troyes (Fra) vs GOAL FC (Fra),WORLD,1.01,23.00,67.00
-Dusseldorf II (Ger) vs Steinbach Haiger (Ger),WORLD,3.45,3.75,1.78
-Mainz (Ger) vs Shabab Al-Ahli Dubai (Uae),WORLD,2.20,3.30,2.63
-Den Bosch (Ned) vs Al Fayha (Sau),WORLD,2.20,3.50,2.60
-Monaco (Fra) vs Cercle Brugge KSV (Bel),WORLD,1.33,5.25,5.50
-Wolfsburg (Ger) vs Telstar (Ned),WORLD,1.48,4.35,4.80
-Vis Pesaro (Ita) vs Benevento (Ita),WORLD,7.50,5.20,1.28
-Juve Stabia (Ita) vs Ischia (Ita),WORLD,1.01,21.00,67.00
-Amiens (Fra) vs Red Star (Fra),WORLD,5.50,4.20,1.40
-Juventus (Ita) vs Nice (Fra),WORLD,1.57,4.20,4.33
-Nantes (Fra) vs Al Wakra (Qat),WORLD,1.38,4.80,5.30
-Rizespor (Tur) vs Abha (Sau),WORLD,1.38,4.75,5.60
-Siena (Ita) vs Scandicci (Ita),WORLD,1.67,3.80,3.95
-Valenciennes (Fra) vs Boulogne (Fra),WORLD,4.10,3.70,1.65
-Mosta (Mlt) vs Balzan (Mlt),WORLD,2.50,3.20,2.30
-Den Haag (Ned) vs Asteras Tripolis (Gre),WORLD,1.62,3.75,4.00
-Kalsdorf (Aut) vs SV Union Gnas (Aut),WORLD,1.70,3.60,3.60
-Nijmegen (Ned) vs Sevilla (Esp),WORLD,2.50,3.30,2.30
-Sassuolo (Ita) vs Folgore Caratese (Ita),WORLD,1.14,6.50,12.00
-Sittard (Ned) vs APOEL (Cyp),WORLD,1.73,3.50,3.50
-Tillmitsch (Aut) vs Furstenfeld (Aut),WORLD,1.67,4.00,3.50
-Toulouse (Fra) vs Real Sociedad (Esp),WORLD,2.55,3.40,2.38
-AFS (Por) vs Trofense (Por),WORLD,1.44,3.75,5.50
-Johor DT (Mys) vs FC Cartagena SAD (Esp),WORLD,2.30,3.25,2.63
-Ebbsfleet (Eng) vs Gillingham (Eng),WORLD,4.20,3.75,1.57
-Mansfield (Eng) vs Derby (Eng),WORLD,2.40,3.50,2.25
-Os Belenenses (Por) vs Estoril (Por),WORLD,3.60,3.60,1.70
-Sabadell (Esp) vs Inter Escaldes (And),WORLD,1.44,3.75,5.50
-Santarem (Por) vs Academica (Por),WORLD,4.00,4.00,1.57
-Toulon (Fra) vs Aubagne (Fra),WORLD,3.00,3.75,2.08
-Bromley (Eng) vs QPR (Eng),WORLD,3.20,3.50,1.83
-Crawley (Eng) vs Reading (Eng),WORLD,4.20,3.50,1.62
-Lancy (Sui) vs Terre Sainte (Sui),WORLD,1.57,4.00,4.00
-Scunthorpe (Eng) vs Chesterfield (Eng),WORLD,3.60,3.60,1.70
-Torquay (Eng) vs Exeter (Eng),WORLD,1.73,3.60,3.40
-Ballinamallard (Nir) vs Bangor FC (Nir),WORLD,6.00,4.33,1.33
-Birmingham (Eng) vs Barcelona (Esp),WORLD,5.00,4.00,1.57
-Chertsey (Eng) vs Westfield (Eng),WORLD,1.53,4.00,4.20
-Evesham (Eng) vs Bishops Cleeve (Eng),WORLD,1.73,3.60,3.40
-Leek (Eng) vs Runcorn Linnets (Eng),WORLD,1.62,3.60,4.00
-Salisbury (Eng) vs Havant & W (Eng),WORLD,1.62,3.75,4.00
-Southport (Eng) vs Wigan (Eng),WORLD,4.60,4.00,1.50
-Sporting CP (Por) vs Nottingham (Eng),WORLD,2.05,3.75,2.70
-Weston-super-Mare (Eng) vs Gloucester (Eng),WORLD,1.57,3.75,4.20
-AD Fafe (Por) vs Maria de Fonte (Por),WORLD,1.57,3.75,4.33
-Sunderland vs Leeds,WORLD,2.75,3.40,2.30
-Feyenoord W (Ned) vs Leuven W (Bel),WORLD,2.00,3.40,2.90
-Eintracht Frankfurt W (Ger) vs Strasbourg W (Fra),WORLD,1.46,4.40,4.60
-Logrono W (Esp) vs Real Sociedad W (Esp),WORLD,7.00,4.20,1.33
+Here is the data in CSV format with the header: `Team A,Team B,League,Home Odds,Draw Odds,Away Odds,Status`
+
+```csv
+Team A,Team B,League,Home Odds,Draw Odds,Away Odds,Status
+Aarhus (Den),Sabah Baku (Aze),Europa League - Qualification,1.65,3.90,4.33,
+Fenerbahce (Tur),Sturm Graz (Aut),Europa League - Qualification,1.36,4.75,7.00,
+Ferencvaros (Hun),Gornik Zabrze (Pol),Conference League - Qualification,1.65,3.40,5.00,
+Brann (Nor),Apollon (Cyp),Conference League - Qualification,1.60,3.90,5.00,
+Panathinaikos (Gre),CSKA 1948 Sofia (Bul),Conference League - Qualification,1.22,5.25,12.00,
+Egypt W,Nigeria W,Africa Cup of Nations Women,23.00,10.00,1.04,
+Malawi W,Zambia W,Africa Cup of Nations Women,3.25,3.60,1.91,
+Boca Juniors,Estudiantes L.P.,Liga Profesional - Clausura,2.05,2.85,4.20,
+Almagro,Gimnasia y Tiro,Primera Nacional,2.75,2.75,2.85,
+Provincial,Deportivo Metalurgico,Torneo Promocional Amateur,6.00,3.67,1.44,
+Queanbeyan City,Tuggeranong Utd,NPL ACT,1.71,3.75,3.75,"Live, 1-0"
+GV San Jose,SA Bulo Bulo,Division Profesional,1.66,4.10,3.80,
+Nacional Potosi,The Strongest,Division Profesional,2.35,3.60,2.55,
+Cruzeiro,Chapecoense-SC,Copa Betano do Brasil,1.30,4.50,10.00,
+Gremio,Mirassol,Copa Betano do Brasil,1.96,3.30,3.90,
+America SE,Atletico Gloriense,Copa Governo (Sergipe),3.10,3.20,2.14,
+Falcon,Desportiva Aracaju,Copa Governo (Sergipe),1.54,3.80,5.33,
+Lagarto,Guarany SE,Copa Governo (Sergipe),1.43,4.00,6.67,
+Marica,Boavista,Copa Rio,3.00,3.05,2.18,
+Olaria,Nova Iguacu,Copa Rio,3.05,3.10,2.14,
+Sao Goncalo,Sampaio Correa FE,Copa Rio,3.30,3.00,2.00,
+Portuguesa RJ,Madureira,Copa Rio,1.82,3.20,3.90,
+S. Wanderers,Union La Calera,Copa Chile,3.90,3.10,1.95,
+San Felipe,U. De Chile,Copa Chile,5.25,4.10,1.45,
+Shanghai Port B,Shanxi Chongde Ronghai,League Two,1.93,3.10,3.70,"Live, 0-1"
+Changchun Xidu,Dalian Yingbo B,League Two,2.70,2.75,2.60,"Half Time, 0-1"
+Hubei Istar,Jiangxi Lushan,League Two,2.80,3.00,2.25,
+Lanzhou Longyuan,Beijing Technology,League Two,1.43,3.80,6.50,
+Hobro,Vendsyssel,Betano Pokalen,3.00,3.60,2.10,
+Odder,Skive,Betano Pokalen,4.75,4.10,1.57,
+Tarup-Paarup,Vejle,Betano Pokalen,15.00,7.00,1.13,
+Vinotinto,U. Catolica,Copa Ecuador,1.62,3.25,4.60,
+Valerenga W,Malmo FF W,Champions League Women - Qualification - Second stage,2.50,3.35,2.35,
+Sporting W,SeaSters Odesa W,Champions League Women - Qualification - Second stage,1.21,5.60,9.50,
+Ajax W,Brondby W,Champions League Women - Qualification - Second stage,1.81,3.70,3.40,
+Gintra W,Hearts W,Champions League Women - Qualification - Second stage,4.90,3.95,1.52,
+Hammarby W,Apolonia Fier W,Champions League Women - Qualification - Second stage,1.06,11.00,21.00,
+Apollon W,Czarni Sosnowiec W,Champions League Women - Qualification - Second stage,3.65,3.70,1.75,
+Ferencvaros W,PAOK W,Champions League Women - Qualification - Second stage,1.80,3.50,3.30,
+Mura W,Farul Constanta W,Champions League Women - Qualification - Second stage,1.84,3.45,3.50,
+St. Polten W,Young Boys W,Champions League Women - Qualification - Second stage,2.12,3.20,3.00,
+Koge W,Riga FC W,Champions League Women - Qualification - Second stage,1.06,10.50,16.00,
+Racing Luxembourg W,HJK W,Champions League Women - Qualification - Second stage,7.50,5.00,1.29,
+Leuven W,TSC W,Champions League Women - Qualification - Second stage,1.12,8.00,11.50,
+Slavia Prague W,Rangers W,Champions League Women - Qualification - Second stage,2.17,3.45,2.70,
+Vllaznia W,Myjava W,Champions League Women - Qualification - Second stage,1.53,4.20,4.00,
+Juventus W,Torreense W,Champions League Women - Qualification - Second stage,1.23,5.80,7.50,
+OLS Oulu,TPV,Ykkonen,1.48,4.75,4.33,
+Rovaniemi,Jazz Pori,Ykkonen,1.53,4.20,4.50,
+SalPa,JJK Jyvaskyla,Ykkonen,1.91,3.90,2.90,
+Tampere Utd,KPV Kokkola,Ykkonen,1.17,7.00,11.00,
+VJS,Keski-Uusimaa,Ykkonen,1.60,4.20,4.00,
+Keflavik,KA Akureyri,Besta deild karla,2.05,3.65,2.80,
+Hafnarfjordur,KR Reykjavik,Besta deild karla,3.55,4.10,1.68,
+Mohammedan,Police AC,Calcutta Premier Division,1.95,2.88,3.50,"Live, 0-0"
+Neroca FC,Indian Navy,Durand Cup,1.67,3.75,3.80,
+Shelbourne W,Cork City W,National League Women,1.06,10.00,23.00,
+Hapoel Petah Tikva,Netanya,Toto Cup,2.40,3.20,2.40,
+Hap. Ramat Gan,Hapoel Jerusalem,Toto Cup,2.10,3.10,2.88,
+Costa do Sol,Ferroviario Nacala,Mocambola,1.71,3.05,4.60,
+Black Bulls,AD Pemba,Mocambola,1.61,3.15,5.30,
+Canada U20,Jamaica U20,CONCACAF Championship U20 - Play Offs,1.68,3.85,3.65,
+Mexico U21,Panama U21,Central American & Caribbean Games - Play Offs,1.47,4.00,5.00,
+Mexico W,El Salvador W,Central American & Caribbean Games Women - Play Offs,1.22,6.50,9.50,
+Podbeskidzie,Hutnik Krakow,Polish Cup,1.55,4.20,5.00,
+Pruszkow,LKS Lodz II,Polish Cup,1.45,4.40,6.00,
+Slask Wroclaw II,S. Wola,Polish Cup,2.60,3.50,2.25,
+Podhale Nowy Targ,Chojniczanka,Polish Cup,1.83,3.40,3.60,
+Ol. Grudziadz,Swit Szczecin,Polish Cup,2.14,3.45,3.05,
+Warta Poznan,R. Rzeszow,Polish Cup,1.52,4.20,5.40,
+Leczna,KKS Kalisz,Polish Cup,1.58,3.95,5.00,
+Sandecja Nowy S.,Bielsko-Biala,Polish Cup,2.28,3.25,2.95,
+Tychy,Zaglebie Sosnowiec,Polish Cup,1.68,3.90,4.30,
+Skierniewice,Kleczew,Polish Cup,1.49,4.35,5.30,
+CSC Dumbravita,CSM Satu Mare,Liga 2,1.74,3.40,4.10,
+Axiopolis Cernavoda,Agricola Borcea,Romanian Cup - Qualification,4.90,4.40,1.46,
+Baile Felix,Santandrei,Romanian Cup - Qualification,2.80,3.25,2.20,
+Blaj,ACS Medias,Romanian Cup - Qualification,4.40,4.25,1.53,
+Calarasi,Inainte Modelu,Romanian Cup - Qualification,2.30,3.40,2.63,
+CSO Filiasi,Curtisoara,Romanian Cup - Qualification,3.25,3.65,1.87,
+Dunarea Giurgiu,Cetatea,Romanian Cup - Qualification,5.20,4.80,1.40,
+Metalurgistul Cugir,Jiul Petrosani,Romanian Cup - Qualification,2.04,3.30,2.95,
+Mogosoaia,Vointa Crevedia,Romanian Cup - Qualification,3.80,3.55,1.74,
+Paulesti,Tunari,Romanian Cup - Qualification,7.50,4.20,1.36,
+Sanatatea Cluj,Unirea Alba-Iulia,Romanian Cup - Qualification,3.70,4.10,1.67,
+Unirea Branistea,Sporting Liesti,Romanian Cup - Qualification,2.00,3.55,2.90,
+Viitorul Cluj,SCM Zalau,Romanian Cup - Qualification,8.00,4.90,1.27,
+Boroughmuir W,Queen's Park W,SWPL Cup Women,2.17,3.60,2.55,
+Dundee Utd W,Aberdeen W,SWPL Cup Women,4.50,4.33,1.48,
+Falkirk FCF W,Kilmarnock W,SWPL Cup Women,26.00,9.00,1.02,
+Hamilton W,Livingston W,SWPL Cup Women,1.13,6.67,11.00,
+Motherwell W,Gartcairn W,SWPL Cup Women,1.09,7.00,14.00,
+Spartans W,Renfrew W,SWPL Cup Women,1.07,7.50,17.00,
+St Johnstone W,Montrose W,SWPL Cup Women,16.00,7.50,1.07,
+Lochin,Yaypan,Pro Liga,1.50,3.80,5.33,
+Aral,Metallurg Bekabad,Pro Liga,1.80,3.50,3.60,
+BuxDu,Shortan Guzor,Pro Liga,4.20,3.67,1.64,
+Olimpik-Mobiuz,Jayxun,Pro Liga,1.38,4.33,6.00,
+La Guaira,Metropolitanos,Liga FUTVE - Clausura,1.79,3.10,4.10,
+Cadiz CF (Esp),Granada CF (Esp),Club Friendly,2.88,2.88,2.35,"Live, 2-0"
+UD Ibiza (Esp),Ilicitano (Esp),Club Friendly,1.42,4.40,5.50,"Live, 1-1"
+AC Milan (Ita),Inter (Ita),Club Friendly,2.50,3.75,2.40,
+K-League Stars (Kor),Manchester City (Eng),Club Friendly,5.00,5.50,1.36,
+Ratchaburi (Tha),Eastern AA (Hkg),Club Friendly,1.21,6.25,8.00,
+Chelsea (Eng),Juventus (Ita),Club Friendly,1.91,3.75,3.10,
+Pineto (Ita),Notaresco Calcio (Ita),Club Friendly,1.58,3.60,4.75,
+Marseille (Fra),Al-Shahaniya (Qat),Club Friendly,1.14,6.50,13.00,
+Ossese (Ita),Torres (Ita),Club Friendly,9.50,5.50,1.20,
+Pianese (Ita),Montevarchi (Ita),Club Friendly,1.30,4.50,7.00,
+Torino (Ita),Vado (Ita),Club Friendly,1.09,9.00,14.00,
+Grosseto (Ita),Tau (Ita),Club Friendly,1.73,3.40,3.75,
+Lazio (Ita),Ostiamare (Ita),Club Friendly,1.02,21.00,51.00,
+Lecco (Ita),Inter U23 (Ita),Club Friendly,2.55,3.10,2.75,
+Pro Palazzolo (Ita),Brusaporto (Ita),Club Friendly,1.83,3.25,3.50,
+San Donato (Ita),Scandicci (Ita),Club Friendly,2.20,3.10,2.75,
+Stade Briochin (Fra),Brest (Fra),Club Friendly,8.00,4.60,1.25,
+Napoli (Ita),Osasuna (Esp),Club Friendly,1.65,4.00,3.80,
+Al Ain (Uae),Toulouse (Fra),Club Friendly,3.75,3.60,1.67,
+Gimnastica Segoviana (Esp),Valladolid (Esp),Club Friendly,4.60,3.50,1.57,
+Manresa (Esp),Espanyol B (Esp),Club Friendly,2.75,2.88,2.30,
+Oviedo B (Esp),Covadonga (Esp),Club Friendly,1.70,3.50,3.75,
+Ponferradina (Esp),Unionistas (Esp),Club Friendly,1.95,3.00,3.40,
+Portugalete (Esp),Rayo Cantabria (Esp),Club Friendly,2.20,3.50,2.50,
+Club Siero (Esp),Caudal Deportivo (Esp),Club Friendly,3.75,3.50,1.70,
+Cultural Leonesa (Esp),Real Aviles (Esp),Club Friendly,2.00,3.40,2.88,
+L'Entregu (Esp),Langreo (Esp),Club Friendly,2.88,3.20,2.10,
+La Nucia (Esp),CF Intercity (Esp),Club Friendly,2.50,3.00,2.50,
+Cacereno (Esp),Guadalajara (Esp),Club Friendly,1.83,3.20,3.50,
+Cesena (Ita),Vis Pesaro (Ita),Club Friendly,1.30,4.50,7.00,
+Sassuolo (Ita),Celta Vigo (Esp),Club Friendly,2.63,3.40,2.30,
+Arsenal (Eng),Betis (Esp),Club Friendly,1.57,4.00,5.00,
+CD Badajoz (Esp),CD Coria (Esp),Club Friendly,2.63,3.20,2.25,
+Consett (Eng),Gateshead (Eng),Club Friendly,4.33,4.00,1.53,
+Mallorca (Esp),PSG (Fra),Club Friendly,2.70,4.33,1.91,
+Cesena W (Ita),Fiorentina W (Ita),Club Friendly Women,9.50,6.75,1.15,
+Athletic Bilbao W (Esp),Costa Adeje Tenerife W (Esp),Club Friendly Women,2.45,3.10,2.50,
+Real Madrid W (Esp),Crystal Palace W (Eng),Club Friendly Women,1.17,5.50,11.00,
+```
