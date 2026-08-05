@@ -165,34 +165,29 @@ def analyze_match(match):
 # ============================================================
 
 def parse_matches():
-    target_file = None
-    possible_files = [
-        "input.csv", "input_matches.csv", "matches.csv", 
-        "input_matches.txt", "input.txt", "raw_capture.txt"
-    ]
+    # Hardcode targeted file path
+    target_file = "input_matches.txt"
     
-    for filename in possible_files:
-        if os.path.exists(filename):
-            target_file = filename
-            break
-            
-    if not target_file:
-        print("\n❌ No input file found!")
+    if not os.path.exists(target_file):
+        print(f"\n❌ Input file '{target_file}' not found in root directory!")
         return []
     
     print(f"📂 Found input file: {target_file}")
-    matches = []
     
     with open(target_file, 'r', encoding='utf-8-sig') as f:
         content = f.read().strip()
         
     if not content:
-        print("❌ Input file is empty!")
+        print(f"❌ '{target_file}' is empty!")
         return []
 
-    # Detect CSV content regardless of file extension (.txt or .csv)
+    # Clean appended text/errors from content if present
+    content = content.split("The system did not generate")[0].strip()
+    matches = []
+
+    # 1. PARSE AS CSV (If commas exist and headers match)
     if ',' in content and any(h in content.lower() for h in ['team a', 'home odds', 'team_a', 'home_odds']):
-        lines = [line.split("The system did not generate")[0].strip() for line in content.splitlines() if line.strip()]
+        lines = [line.strip() for line in content.splitlines() if line.strip()]
         reader = csv.DictReader(lines)
         for row in reader:
             try:
@@ -213,7 +208,7 @@ def parse_matches():
                 draw_odds = parse_odd(cleaned_row.get('draw odds') or cleaned_row.get('draw_odds'))
                 away_odds = parse_odd(cleaned_row.get('away odds') or cleaned_row.get('away_odds'))
                     
-                match = {
+                matches.append({
                     'match': f"{team_a} vs {team_b}",
                     'home_team': team_a,
                     'away_team': team_b,
@@ -221,13 +216,12 @@ def parse_matches():
                     'home_odds': home_odds,
                     'draw_odds': draw_odds,
                     'away_odds': away_odds
-                }
-                matches.append(match)
+                })
             except Exception:
                 continue
         return matches
 
-    # Fallback to text parsing
+    # 2. PARSE AS PIPE/LINE TEXT FORMAT
     lines = [l.strip() for l in content.split('\n') if l.strip()]
     i = 0
     while i < len(lines):
@@ -261,7 +255,6 @@ def parse_matches():
         matches.append(match)
     
     return matches
-
 # ============================================================
 # ACCUMULATOR BUILDER & MAIN EXECUTION
 # ============================================================
