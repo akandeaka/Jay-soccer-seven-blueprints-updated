@@ -1,6 +1,3 @@
-Here is the same data in proper CSV format. You can copy this directly into a `.csv` file.
-
-```csv
 Team A,Team B,League,Home Odds,Draw Odds,Away Odds,Status
 Aarhus (Den),Sabah Baku (Aze),Europa League - Qualification,1.65,3.90,4.33,
 Fenerbahce (Tur),Sturm Graz (Aut),Europa League - Qualification,1.36,4.75,7.00,
@@ -139,4 +136,3 @@ Mallorca (Esp),PSG (Fra),Club Friendly,2.70,4.33,1.91,
 Cesena W (Ita),Fiorentina W (Ita),Club Friendly Women,9.50,6.75,1.15,
 Athletic Bilbao W (Esp),Costa Adeje Tenerife W (Esp),Club Friendly Women,2.45,3.10,2.50,
 Real Madrid W (Esp),Crystal Palace W (Eng),Club Friendly Women,1.17,5.50,11.00,
-```
