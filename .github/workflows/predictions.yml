@@ -1,0 +1,46 @@
+name: Daily Soccer Predictions
+
+on:
+  schedule:
+    - cron: '0 10 * * *'  # Runs at 10:00 AM UTC
+  workflow_dispatch:      # Allows manual trigger
+
+jobs:
+  run-predictions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10   # Prevents job from hanging indefinitely
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install requests pandas python-dotenv beautifulsoup4 numpy
+
+    - name: Run prediction system
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      run: python main.py
+
+    - name: Commit predictions to repository
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add predictions.json || true
+        git commit -m "Automated update: predictions.json" || true
+        git push
+
+    - name: Save predictions artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: predictions
+        path: predictions.json
+        if-no-files-found: ignore
