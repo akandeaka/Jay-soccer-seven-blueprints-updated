@@ -10,4 +10,4 @@ class Config:
     SMTP_PORT = int(os.getenv('SMTP_PORT', 465))
     SMTP_USER = os.getenv('SMTP_USER', 'aisec2025.notifications@gmail.com')
     SMTP_PASSWORD = os.getenv('SMTP_PASSWORD', 'Qwerasd@()34$')
-    NOTIFICATION_EMAIL = os.getenv('NOTIFICATION_EMAIL', 'your_email@gmail.com')
+    NOTIFICATION_EMAIL = os.getenv('NOTIFICATION_EMAIL', 'aisec2025.notifications@gmail.com')
