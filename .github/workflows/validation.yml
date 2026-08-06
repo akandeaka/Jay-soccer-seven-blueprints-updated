@@ -1,0 +1,40 @@
+name: Daily Soccer Validation
+
+on:
+  schedule:
+    - cron: '0 1 * * *'   # Runs at 1:00 AM UTC
+  workflow_dispatch:      # Allows manual trigger
+
+jobs:
+  run-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10   # Prevents job from hanging indefinitely
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        ref: main         # Pulls the latest code and predictions.json
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install requests pandas python-dotenv beautifulsoup4 numpy
+
+    - name: Run validation
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      run: python validate_from_file.py
+
+    - name: Upload validation report
+      uses: actions/upload-artifact@v4
+      with:
+        name: validation-report
+        path: validation_report.md
+        if-no-files-found: ignore
