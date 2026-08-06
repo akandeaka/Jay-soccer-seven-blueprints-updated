@@ -1,1108 +1,680 @@
-Here is the converted match data in the requested format:
+Here is the converted match data:
 
 ---
 
-**Aarhus vs Sabah Baku**
-DENMARK - Europa League Qualification
-Odds: 1.83 | 3.70 | 4.30
-RESULT: 2-1 | Home Win
-
-**Fenerbahce vs Sturm Graz**
-TURKEY - Europa League Qualification
-Odds: 1.30 | 5.90 | 8.90
-RESULT: 2-0 | Home Win
-
-**Ferencvaros vs Gornik Zabrze**
-HUNGARY - Conference League Qualification
-Odds: 1.67 | 3.70 | 5.30
-RESULT: 1-0 | Home Win
-
-**Brann vs Apollon**
-NORWAY - Conference League Qualification
-Odds: 1.67 | 3.85 | 4.75
-RESULT: 0-1 | Away Win
-
-**Panathinaikos vs CSKA 1948 Sofia**
-GREECE - Conference League Qualification
-Odds: 1.28 | 4.95 | 11.25
+**KuPS vs Univ. Craiova**
+EUROPE - Europa League Qualification
+Odds: 3.50 | 2.90 | 2.10
 RESULT: 1-1 | Draw
 
-**Egypt W vs Nigeria W**
-EGYPT - Africa Cup of Nations Women
-Odds: 34.00 | 12.00 | 1.04
-RESULT: 2-6 | Away Win
+**Jagiellonia vs Rangers**
+EUROPE - Europa League Qualification
+Odds: 2.70 | 3.10 | 2.45
+RESULT: 2-1 | Home Win
 
-**Malawi W vs Zambia W**
-MALAWI - Africa Cup of Nations Women
-Odds: 3.45 | 3.75 | 1.94
-RESULT: 1-2 | Away Win
-
-**Boca Juniors vs Estudiantes L.P.**
-ARGENTINA - Liga Profesional - Clausura
-Odds: 1.90 | 3.05 | 4.55
-RESULT: 1-0 | Home Win
-
-**Almagro vs Gimnasia y Tiro**
-ARGENTINA - Primera Nacional
-Odds: 2.75 | 2.70 | 2.90
-RESULT: 0-2 | Away Win
-
-**Quilmes vs Gimnasia Jujuy**
-ARGENTINA - Primera Nacional
-Odds: 2.08 | 3.00 | 3.70
-RESULT: 2-0 | Home Win
-
-**Provincial vs Deportivo Metalurgico**
-ARGENTINA - Torneo Promocional Amateur
-Odds: 6.44 | 3.71 | 1.53
-RESULT: 0-5 | Away Win
-
-**Queanbeyan City vs Tuggeranong Utd**
-AUSTRALIA - NPL ACT
-Odds: 1.78 | 3.80 | 3.70
-RESULT: 4-2 | Home Win
-
-**Ugyen Academy vs BFF Academy U19**
-BHUTAN - Premier League
-Odds: - | - | -
-RESULT: 0-1 | Away Win
-
-**Guabira vs Tomayapo**
-BOLIVIA - Division Profesional
-Odds: 1.44 | 4.80 | 5.60
-RESULT: 2-3 | Away Win
-
-**GV San Jose vs SA Bulo Bulo**
-BOLIVIA - Division Profesional
-Odds: 1.52 | 4.70 | 4.80
-RESULT: 0-0 | Draw
-
-**Nacional Potosi vs The Strongest**
-BOLIVIA - Division Profesional
-Odds: 2.30 | 3.50 | 2.78
-RESULT: 2-3 | Away Win
-
-**Remo vs Santos**
-BRAZIL - Copa Betano do Brasil
-Odds: 2.84 | 3.10 | 2.58
-RESULT: 0-1 | Away Win
-
-**Cruzeiro vs Chapecoense-SC**
-BRAZIL - Copa Betano do Brasil
-Odds: 1.36 | 4.55 | 9.30
-RESULT: 2-0 | Home Win
-
-**Gremio vs Mirassol**
-BRAZIL - Copa Betano do Brasil
-Odds: 2.05 | 3.20 | 3.85
-RESULT: 1-0 | Home Win
-
-**America SE vs Atletico Gloriense**
-BRAZIL - Copa Governo (Sergipe)
-Odds: 3.15 | 3.20 | 2.16
-RESULT: 1-5 | Away Win
-
-**Falcon vs Desportiva Aracaju**
-BRAZIL - Copa Governo (Sergipe)
-Odds: 1.83 | 3.50 | 3.80
-RESULT: 2-0 | Home Win
-
-**Lagarto vs Guarany SE**
-BRAZIL - Copa Governo (Sergipe)
-Odds: 1.14 | 6.20 | 17.00
-RESULT: 2-0 | Home Win
-
-**Marica vs Boavista**
-BRAZIL - Copa Rio
-Odds: 2.55 | 3.00 | 2.70
-RESULT: 1-0 | Home Win
-
-**Olaria vs Nova Iguacu**
-BRAZIL - Copa Rio
-Odds: 3.70 | 3.05 | 2.00
-RESULT: 0-1 | Away Win
-
-**Sao Goncalo vs Sampaio Correa FE**
-BRAZIL - Copa Rio
-Odds: 3.45 | 3.10 | 2.07
-RESULT: 0-0 | Draw
-
-**Portuguesa RJ vs Madureira**
-BRAZIL - Copa Rio
-Odds: 1.62 | 3.30 | 5.60
-RESULT: 0-1 | Away Win
-
-**Nublense vs Rangers**
-CHILE - Copa Chile
-Odds: 1.56 | 3.90 | 5.10
-RESULT: 1-0 | Home Win
-
-**U. De Concepcion vs Curico Unido**
-CHILE - Copa Chile
-Odds: 2.10 | 3.35 | 3.10
-RESULT: 1-3 | Away Win
-
-**S. Wanderers vs Union La Calera**
-CHILE - Copa Chile
-Odds: 5.90 | 4.45 | 1.42
-RESULT: 0-4 | Away Win
-
-**San Felipe vs U. De Chile**
-CHILE - Copa Chile
-Odds: 6.90 | 4.70 | 1.36
-RESULT: 0-1 | Away Win
-
-**Shanghai Port B vs Shanxi Chongde Ronghai**
-CHINA - League Two
-Odds: 2.10 | 3.15 | 3.25
-RESULT: 0-1 | Away Win
-
-**Changchun Xidu vs Dalian Yingbo B**
-CHINA - League Two
-Odds: 2.67 | 2.77 | 2.77
-RESULT: 0-1 | Away Win
-
-**Hubei Istar vs Jiangxi Lushan**
-CHINA - League Two
-Odds: 2.96 | 2.90 | 2.40
-RESULT: 0-1 | Away Win
-
-**Lanzhou Longyuan vs Beijing Technology**
-CHINA - League Two
-Odds: 1.48 | 3.90 | 6.00
-RESULT: 1-0 | Home Win
-
-**Wenzhou Professional vs Guizhou Guiyang**
-CHINA - League Two
-Odds: 4.50 | 3.05 | 1.83
-RESULT: 0-2 | Away Win
-
-**Deportes Tolima vs Ind. Medellin**
-COLOMBIA - Primera A - Clausura
-Odds: 2.06 | 3.15 | 3.70
-RESULT: 2-3 | Away Win
-
-**Millonarios vs Dep. Pasto**
-COLOMBIA - Primera A - Clausura
-Odds: 1.37 | 4.65 | 8.10
-RESULT: 2-0 | Home Win
-
-**Hedensted vs Marienlyst**
-DENMARK - Betano Pokalen
-Odds: - | - | -
-RESULT: 0-5 | Away Win
-
-**Hobro vs Vendsyssel**
-DENMARK - Betano Pokalen
-Odds: 2.84 | 3.35 | 2.33
-RESULT: 0-4 | Away Win
-
-**Odder vs Skive**
-DENMARK - Betano Pokalen (After ET)
-Odds: 4.50 | 3.85 | 1.68
-RESULT: 2-3 | Away Win
-
-**Varde vs OKS Odense**
-DENMARK - Betano Pokalen
-Odds: - | - | -
-RESULT: 1-2 | Away Win
-
-**Vatanspor vs Norresundby**
-DENMARK - Betano Pokalen
-Odds: - | - | -
-RESULT: 4-1 | Home Win
-
-**Tarup-Paarup vs Vejle**
-DENMARK - Betano Pokalen
-Odds: 20.00 | 9.30 | 1.08
+**Maccabi Tel Aviv vs CSKA Sofia**
+EUROPE - Europa League Qualification
+Odds: 1.95 | 3.10 | 3.80
 RESULT: 0-3 | Away Win
 
-**Slagelse vs Sundby**
-DENMARK - Betano Pokalen
-Odds: - | - | -
-RESULT: 0-4 | Away Win
-
-**Vinotinto vs U. Catolica**
-ECUADOR - Copa Ecuador
-Odds: 4.50 | 3.30 | 1.76
-RESULT: 2-3 | Away Win
-
-**Saue Laagri vs Harju JK Laagri U21**
-ESTONIA - Estonian Cup
-Odds: - | - | -
-RESULT: 1-2 | Away Win
-
-**Rumori Calcio vs Tammeka**
-ESTONIA - Estonian Cup
-Odds: - | - | -
+**Hradec Kralove vs Besiktas**
+EUROPE - Europa League Qualification
+Odds: 4.50 | 3.50 | 1.70
 RESULT: 0-1 | Away Win
 
-**Brann W vs Mitrovica W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: - | - | -
-RESULT: 5-0 | Home Win
+**Lech Poznan vs Klaksvik**
+EUROPE - Europa League Qualification
+Odds: 1.14 | 6.50 | 17.00
+RESULT: 1-0 | Home Win
 
-**Austria Vienna W vs Hajduk Split W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: 1.08 | 9.40 | 19.00
-RESULT: 3-2 | Home Win
-
-**FC Kharkiv W vs Fenerbahce W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: - | - | -
-RESULT: 1-2 | Away Win
-
-**Sarajevo W vs PSV W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: 21.00 | 10.00 | 1.07
-RESULT: 2-3 | Away Win
-
-**Valerenga W vs Malmo FF W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: 2.70 | 3.40 | 2.40
-RESULT: 0-1 | Away Win
-
-**Sporting W vs SeaSters Odesa W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: 1.19 | 6.00 | 11.00
-RESULT: 5-0 | Home Win
-
-**Ajax W vs Brondby W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: 1.83 | 3.70 | 3.75
-RESULT: 2-0 | Home Win
-
-**Gintra W vs Hearts W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: 6.80 | 5.00 | 1.36
-RESULT: 1-2 | Away Win
-
-**Hammarby W vs Apolonia Fier W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: 1.05 | 11.75 | 25.00
-RESULT: 4-0 | Home Win
-
-**Apollon W vs Czarni Sosnowiec W**
-EUROPE - Champions League Women Qualification - Second stage (After Pen.)
-Odds: 5.00 | 4.10 | 1.58
-RESULT: 3(2)-3(4) | Away Win (Penalties)
-
-**Ferencvaros W vs PAOK W**
-EUROPE - Champions League Women Qualification - Second stage (After ET)
-Odds: 1.90 | 3.70 | 3.45
-RESULT: 2-3 | Away Win
-
-**Mura W vs Farul Constanta W**
-EUROPE - Champions League Women Qualification - Second stage (After ET)
-Odds: 2.23 | 3.65 | 2.78
-RESULT: 1-3 | Away Win
-
-**St. Polten W vs Young Boys W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: 1.94 | 3.60 | 3.45
-RESULT: 4-3 | Home Win
-
-**Eintracht Frankfurt W vs Omonia W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: - | - | -
-RESULT: 8-0 | Home Win
-
-**Koge W vs Riga FC W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: 1.05 | 11.75 | 22.00
-RESULT: 4-1 | Home Win
-
-**Racing Luxembourg W vs HJK W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: 6.10 | 5.10 | 1.38
-RESULT: 0-2 | Away Win
-
-**Leuven W vs TSC W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: 1.06 | 9.90 | 20.00
-RESULT: 4-0 | Home Win
-
-**Slavia Prague W vs Rangers W**
-EUROPE - Champions League Women Qualification - Second stage (After ET)
-Odds: 2.60 | 3.45 | 2.36
-RESULT: 1-2 | Away Win
-
-**Vllaznia W vs Myjava W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: 1.78 | 3.85 | 3.65
-RESULT: 1-2 | Away Win
-
-**Juventus W vs Torreense W**
-EUROPE - Champions League Women Qualification - Second stage
-Odds: 1.17 | 6.80 | 10.50
-RESULT: 2-1 | Home Win
-
-**OLS Oulu vs TPV**
-FINLAND - Ykkonen
-Odds: 1.28 | 5.90 | 6.80
-RESULT: 4-2 | Home Win
-
-**Rovaniemi vs Jazz Pori**
-FINLAND - Ykkonen
-Odds: 1.58 | 4.30 | 4.30
-RESULT: 2-2 | Draw
-
-**SalPa vs JJK Jyvaskyla**
-FINLAND - Ykkonen
-Odds: 2.05 | 3.85 | 2.88
-RESULT: 2-1 | Home Win
-
-**Tampere Utd vs KPV Kokkola**
-FINLAND - Ykkonen
-Odds: 1.17 | 6.70 | 10.50
-RESULT: 6-0 | Home Win
-
-**VJS vs Keski-Uusimaa**
-FINLAND - Ykkonen
-Odds: 1.53 | 4.55 | 4.55
-RESULT: 0-0 | Draw
-
-**Keflavik vs KA Akureyri**
-ICELAND - Besta deild karla
-Odds: 1.82 | 4.10 | 3.65
-RESULT: 3-0 | Home Win
-
-**Hafnarfjordur vs KR Reykjavik**
-ICELAND - Besta deild karla
-Odds: 3.20 | 4.30 | 1.88
+**Lincoln Red Imps vs Omonia**
+EUROPE - Europa League Qualification
+Odds: 6.00 | 4.10 | 1.42
 RESULT: 1-1 | Draw
 
-**Mohammedan vs Police AC**
-INDIA - Calcutta Premier Division (Abandoned)
-Odds: 1.96 | 3.10 | 3.85
-RESULT: 1-1 | Draw
-
-**Neroca FC vs Indian Navy**
-INDIA - Durand Cup
-Odds: 1.70 | 3.80 | 4.10
-RESULT: 0-2 | Away Win
-
-**Army Red vs Baghpat**
-INDIA - Durand Cup
-Odds: - | - | -
-RESULT: 4-0 | Home Win
-
-**Shelbourne W vs Cork City W**
-IRELAND - National League Women
-Odds: 1.08 | 9.10 | 17.00
-RESULT: 3-0 | Home Win
-
-**Hapoel Petah Tikva vs Netanya**
-ISRAEL - Toto Cup
-Odds: 2.96 | 3.35 | 2.25
-RESULT: 0-2 | Away Win
-
-**Hap. Ramat Gan vs Hapoel Jerusalem**
-ISRAEL - Toto Cup
-Odds: 2.56 | 3.20 | 2.54
-RESULT: 2-2 | Draw
-
-**Costa do Sol vs Ferroviario Nacala**
-MOZAMBIQUE - Mocambola
-Odds: 1.57 | 3.15 | 6.20
-RESULT: 3-0 | Home Win
-
-**Black Bulls vs AD Pemba**
-MOZAMBIQUE - Mocambola
-Odds: 1.45 | 3.55 | 6.90
-RESULT: 2-0 | Home Win
-
-**Plaza Amador vs Luis Angel Firpo**
-PANAMA - CONCACAF Central American Cup
-Odds: 1.74 | 3.20 | 5.20
-RESULT: 2-1 | Home Win
-
-**Antigua vs Esteli**
-GUATEMALA - CONCACAF Central American Cup
-Odds: 1.98 | 3.35 | 3.60
-RESULT: 0-2 | Away Win
-
-**Diriangen vs Alajuelense**
-NICARAGUA - CONCACAF Central American Cup
-Odds: 4.30 | 4.05 | 1.66
-RESULT: 1-3 | Away Win
-
-**USA U20 vs Guatemala U20**
-USA - CONCACAF Championship U20 - Play Offs
-Odds: 1.07 | 9.10 | 27.00
-RESULT: 3-1 | Home Win
-
-**Canada U20 vs Jamaica U20**
-CANADA - CONCACAF Championship U20 - Play Offs (After ET)
-Odds: 1.92 | 3.80 | 3.40
-RESULT: 3-1 | Home Win
-
-**Violette vs Defence Force**
-HAITI - CONCACAF Caribbean Cup
-Odds: 3.25 | 3.45 | 2.07
-RESULT: 3-0 | Home Win
-
-**Mexico U21 vs Panama U21**
-MEXICO - Central American & Caribbean Games - Play Offs
-Odds: 1.62 | 3.95 | 4.80
-RESULT: 4-0 | Home Win
-
-**Columbus Crew vs Atlas**
-USA - Leagues Cup
-Odds: 2.03 | 3.40 | 3.55
-RESULT: 3-1 | Home Win
-
-**FC Cincinnati vs Pachuca**
-USA - Leagues Cup
-Odds: 2.26 | 3.60 | 2.86
-RESULT: 3-1 | Home Win
-
-**Charlotte vs UNAM Pumas**
-USA - Leagues Cup
-Odds: 2.75 | 3.55 | 2.37
-RESULT: 3-0 | Home Win
-
-**Minnesota United vs Juarez**
-USA - Leagues Cup
-Odds: 1.75 | 3.80 | 4.25
-RESULT: 1-2 | Away Win
-
-**Tigres UANL vs Real Salt Lake**
-MEXICO - Leagues Cup (After Pen.)
-Odds: 2.38 | 3.55 | 2.72
-RESULT: 1(6)-1(5) | Home Win (Penalties)
-
-**Vancouver Whitecaps vs Atlante**
-CANADA - Leagues Cup
-Odds: 1.34 | 5.40 | 7.30
-RESULT: 0-1 | Away Win
-
-**Mexico W vs El Salvador W**
-MEXICO - Central American & Caribbean Games Women - Play Offs (After ET)
-Odds: 1.19 | 5.70 | 12.50
-RESULT: 4-1 | Home Win
-
-**Tromso U19 vs Stromsgodset U19**
-NORWAY - Nasjonal U19 CL - Play Offs (After ET)
-Odds: - | - | -
-RESULT: 2-1 | Home Win
-
-**Ham-Kam U19 vs Odds U19**
-NORWAY - Nasjonal U19 CL - Play Offs
-Odds: 1.74 | 4.30 | 3.25
-RESULT: 5-1 | Home Win
-
-**Podbeskidzie vs Hutnik Krakow**
-POLAND - Polish Cup
-Odds: 1.58 | 3.95 | 5.10
-RESULT: 2-0 | Home Win
-
-**Pruszkow vs LKS Lodz II**
-POLAND - Polish Cup
-Odds: 1.44 | 4.50 | 6.10
-RESULT: 3-1 | Home Win
-
-**Slask Wroclaw II vs S. Wola**
-POLAND - Polish Cup
-Odds: 2.70 | 3.45 | 2.36
-RESULT: 3-2 | Home Win
-
-**Podhale Nowy Targ vs Chojniczanka**
-POLAND - Polish Cup
-Odds: 2.54 | 3.25 | 2.64
-RESULT: 2-0 | Home Win
-
-**Ol. Grudziadz vs Swit Szczecin**
-POLAND - Polish Cup (After ET)
-Odds: 2.00 | 3.45 | 3.40
-RESULT: 5-3 | Home Win
-
-**Warta Poznan vs R. Rzeszow**
-POLAND - Polish Cup
-Odds: 1.26 | 5.70 | 9.00
-RESULT: 0-1 | Away Win
-
-**Leczna vs KKS Kalisz**
-POLAND - Polish Cup
-Odds: 1.58 | 3.95 | 5.05
-RESULT: 2-0 | Home Win
-
-**Pogon Siedlce vs GKS Jastrzebie**
-POLAND - Polish Cup (Awarded)
-Odds: - | - | -
-RESULT: 3-0 | Home Win
-
-**Sandecja Nowy S. vs Bielsko-Biala**
-POLAND - Polish Cup
-Odds: 2.25 | 3.25 | 3.05
-RESULT: 3-0 | Home Win
-
-**Tychy vs Zaglebie Sosnowiec**
-POLAND - Polish Cup
-Odds: 1.60 | 3.95 | 4.85
+**Salzburg vs Pafos**
+EUROPE - Europa League Qualification
+Odds: 1.42 | 4.75 | 5.50
 RESULT: 1-0 | Home Win
 
-**Skierniewice vs Kleczew**
-POLAND - Polish Cup (After Pen.)
-Odds: 1.46 | 4.50 | 5.70
-RESULT: 2(1)-2(4) | Away Win (Penalties)
-
-**CSC Dumbravita vs CSM Satu Mare**
-ROMANIA - Liga 2
-Odds: 1.74 | 3.65 | 4.35
-RESULT: 1-1 | Draw
-
-**Adjud vs Targu Secuiesc**
-ROMANIA - Romanian Cup - Qualification
-Odds: - | - | -
-RESULT: 2-1 | Home Win
-
-**Aerostar vs V. Onesti**
-ROMANIA - Romanian Cup - Qualification
-Odds: - | - | -
+**PAOK vs Anderlecht**
+EUROPE - Europa League Qualification
+Odds: 1.57 | 3.80 | 5.50
 RESULT: 0-1 | Away Win
 
-**Axiopolis Cernavoda vs Agricola Borcea**
-ROMANIA - Romanian Cup - Qualification
-Odds: 4.20 | 4.35 | 1.60
-RESULT: 1-3 | Away Win
-
-**Baile Felix vs Santandrei**
-ROMANIA - Romanian Cup - Qualification (After Pen.)
-Odds: 2.60 | 3.25 | 2.46
-RESULT: 0(3)-0(5) | Away Win (Penalties)
-
-**Berca vs Baicoi**
-ROMANIA - Romanian Cup - Qualification
-Odds: - | - | -
-RESULT: 2-3 | Away Win
-
-**Blaj vs ACS Medias**
-ROMANIA - Romanian Cup - Qualification
-Odds: 2.70 | 3.70 | 2.20
-RESULT: 2-1 | Home Win
-
-**Bolintin Vale vs Progresul Spartac**
-ROMANIA - Romanian Cup - Qualification
-Odds: - | - | -
-RESULT: 1-3 | Away Win
-
-**Bradul Putna vs USV Iasi**
-ROMANIA - Romanian Cup - Qualification
-Odds: - | - | -
-RESULT: 1-2 | Away Win
-
-**Calarasi vs Inainte Modelu**
-ROMANIA - Romanian Cup - Qualification
-Odds: 2.37 | 3.30 | 2.72
-RESULT: 2-0 | Home Win
-
-**Caransebes vs Minerul Lupeni**
-ROMANIA - Romanian Cup - Qualification (After Pen.)
-Odds: - | - | -
-RESULT: 0(4)-0(5) | Away Win (Penalties)
-
-**Corona Brasov vs CSM Sacele**
-ROMANIA - Romanian Cup - Qualification
-Odds: - | - | -
+**Thun vs Vikingur Reykjavik**
+EUROPE - Europa League Qualification
+Odds: 1.62 | 4.00 | 4.50
 RESULT: 3-0 | Home Win
 
-**CSO Filiasi vs Curtisoara**
-ROMANIA - Romanian Cup - Qualification (After Pen.)
-Odds: 4.50 | 3.90 | 1.62
-RESULT: 2(4)-2(5) | Away Win (Penalties)
-
-**Domnesti IF vs Olimpic Zarnesti**
-ROMANIA - Romanian Cup - Qualification
-Odds: - | - | -
-RESULT: 2-7 | Away Win
-
-**Dunarea Giurgiu vs Cetatea**
-ROMANIA - Romanian Cup - Qualification
-Odds: 2.66 | 3.60 | 2.26
-RESULT: 2-1 | Home Win
-
-**FC Pucioasa vs Moreni**
-ROMANIA - Romanian Cup - Qualification
-Odds: - | - | -
-RESULT: 0-7 | Away Win
-
-**Metalurgistul Cugir vs Jiul Petrosani**
-ROMANIA - Romanian Cup - Qualification
-Odds: 2.26 | 3.30 | 2.86
-RESULT: 0-1 | Away Win
-
-**Mogosoaia vs Vointa Crevedia**
-ROMANIA - Romanian Cup - Qualification
-Odds: 3.90 | 3.60 | 1.78
-RESULT: 3-0 | Home Win
-
-**Paulesti vs Tunari**
-ROMANIA - Romanian Cup - Qualification
-Odds: 8.30 | 4.90 | 1.30
-RESULT: 0-3 | Away Win
-
-**Pausesti-Otasau vs CSM Targu Jiu**
-ROMANIA - Romanian Cup - Qualification
-Odds: - | - | -
-RESULT: 0-2 | Away Win
-
-**Sanatatea Cluj vs Unirea Alba-Iulia**
-ROMANIA - Romanian Cup - Qualification (After Pen.)
-Odds: 3.20 | 3.40 | 2.05
-RESULT: 2(5)-2(4) | Home Win (Penalties)
-
-**Sighetu Marmatiei vs Baia Mare**
-ROMANIA - Romanian Cup - Qualification
-Odds: - | - | -
-RESULT: 1-3 | Away Win
-
-**Timisul Sag vs Santana**
-ROMANIA - Romanian Cup - Qualification
-Odds: - | - | -
-RESULT: 3-2 | Home Win
-
-**Unirea Branistea vs Sporting Liesti**
-ROMANIA - Romanian Cup - Qualification
-Odds: 2.10 | 3.65 | 2.90
-RESULT: 2-4 | Away Win
-
-**Viitorul Cluj vs SCM Zalau**
-ROMANIA - Romanian Cup - Qualification
-Odds: 6.50 | 4.20 | 1.43
-RESULT: 1-6 | Away Win
-
-**VSK Gyergyo vs Ceahlaul**
-ROMANIA - Romanian Cup - Qualification
-Odds: - | - | -
-RESULT: 5-0 | Home Win
-
-**Fakel Voronezh vs Dynamo Moscow**
-RUSSIA - Russian Cup - Group Stage
-Odds: 3.40 | 3.20 | 1.96
-RESULT: 0-1 | Away Win
-
-**Spartak Moscow vs Orenburg**
-RUSSIA - Russian Cup - Group Stage
-Odds: 1.14 | 6.40 | 11.75
-RESULT: 5-1 | Home Win
-
-**Krasnodar vs Akhmat Grozny**
-RUSSIA - Russian Cup - Group Stage (After Pen.)
-Odds: 1.74 | 3.55 | 3.85
-RESULT: 1(5)-1(4) | Home Win (Penalties)
-
-**Zenit vs Baltika**
-RUSSIA - Russian Cup - Group Stage
-Odds: 1.25 | 4.75 | 9.60
-RESULT: 1-0 | Home Win
-
-**Boroughmuir W vs Queen's Park W**
-SCOTLAND - SWPL Cup Women
-Odds: 2.32 | 3.70 | 2.65
-RESULT: 3-0 | Home Win
-
-**Dundee Utd W vs Aberdeen W**
-SCOTLAND - SWPL Cup Women
-Odds: 5.40 | 4.60 | 1.47
-RESULT: 0-1 | Away Win
-
-**Falkirk FCF W vs Kilmarnock W**
-SCOTLAND - SWPL Cup Women
-Odds: 23.00 | 11.75 | 1.05
-RESULT: 0-3 | Away Win
-
-**Hamilton W vs Livingston W**
-SCOTLAND - SWPL Cup Women
-Odds: 1.17 | 7.20 | 11.50
-RESULT: 3-0 | Home Win
-
-**Motherwell W vs Gartcairn W**
-SCOTLAND - SWPL Cup Women
-Odds: 1.15 | 7.60 | 13.00
-RESULT: 2-1 | Home Win
-
-**Spartans W vs Renfrew W**
-SCOTLAND - SWPL Cup Women
-Odds: 1.04 | 12.00 | 24.00
-RESULT: 4-0 | Home Win
-
-**St Johnstone W vs Montrose W**
-SCOTLAND - SWPL Cup Women
-Odds: 15.00 | 9.20 | 1.10
-RESULT: 2-8 | Away Win
-
-**Blue Eagles vs Defenders FC**
-SRI LANKA - Super League
-Odds: - | - | -
-RESULT: 2-0 | Home Win
-
-**Huge W vs Heffnersklubbans W**
-SWEDEN - Svenska Cupen Women - Qualification
-Odds: - | - | -
-RESULT: 1-0 | Home Win
-
-**Karlstad W vs KIF Orebro W**
-SWEDEN - Svenska Cupen Women - Qualification
-Odds: - | - | -
-RESULT: 2-3 | Away Win
-
-**Ulricehamns IFK W vs Elfsborg W**
-SWEDEN - Svenska Cupen Women - Qualification (After ET)
-Odds: - | - | -
-RESULT: 1-2 | Away Win
-
-**Varberg W vs Eskilsminne W**
-SWEDEN - Svenska Cupen Women - Qualification
-Odds: - | - | -
-RESULT: 0-4 | Away Win
-
-**Alvsjo W vs Lidingo IFK W**
-SWEDEN - Svenska Cupen Women - Qualification
-Odds: - | - | -
-RESULT: 4-3 | Home Win
-
-**Lochin vs Yaypan**
-UZBEKISTAN - Pro Liga
-Odds: 1.67 | 3.70 | 4.10
-RESULT: 0-0 | Draw
-
-**Aral vs Metallurg Bekabad**
-UZBEKISTAN - Pro Liga
-Odds: 1.84 | 3.35 | 3.65
-RESULT: 1-0 | Home Win
-
-**BuxDu vs Shortan Guzor**
-UZBEKISTAN - Pro Liga
-Odds: 5.60 | 4.25 | 1.42
-RESULT: 2-4 | Away Win
-
-**Olimpik-Mobiuz vs Jayxun**
-UZBEKISTAN - Pro Liga
-Odds: 1.36 | 4.40 | 6.60
-RESULT: 2-1 | Home Win
-
-**La Guaira vs Metropolitanos**
-VENEZUELA - Liga FUTVE - Clausura
-Odds: 2.06 | 3.00 | 3.60
-RESULT: 1-2 | Away Win
-
-**Cadiz CF vs Granada CF**
-SPAIN - Club Friendly
-Odds: 2.66 | 3.15 | 2.58
-RESULT: 2-0 | Home Win
-
-**Gimnastic vs Petro Atletico**
-SPAIN - Club Friendly
-Odds: - | - | -
-RESULT: 0-2 | Away Win
-
-**Grosuplje vs Prijedor**
-SLOVENIA - Club Friendly
-Odds: 1.54 | 4.48 | 4.91
-RESULT: 7-0 | Home Win
-
-**Toledo vs Navalcarnero**
-SPAIN - Club Friendly
-Odds: 2.60 | 3.15 | 2.65
-RESULT: 1-3 | Away Win
-
-**Villarreal vs Levante**
-SPAIN - Club Friendly
-Odds: 1.82 | 3.95 | 3.60
-RESULT: 1-0 | Home Win
-
-**UD Ibiza vs Ilicitano**
-SPAIN - Club Friendly
-Odds: 1.37 | 4.60 | 7.40
-RESULT: 3-1 | Home Win
-
-**AC Milan vs Inter**
-ITALY - Club Friendly
-Odds: 2.90 | 3.70 | 2.15
-RESULT: 1-1 | Draw
-
-**K-League Stars vs Manchester City**
-SOUTH KOREA - Club Friendly
-Odds: 6.40 | 6.40 | 1.30
-RESULT: 1-3 | Away Win
-
-**Ratchaburi vs Eastern AA**
-THAILAND - Club Friendly
-Odds: 1.18 | 7.10 | 10.50
-RESULT: 6-2 | Home Win
-
-**Chelsea vs Juventus**
-ENGLAND - Club Friendly
-Odds: 2.30 | 3.80 | 2.60
-RESULT: 0-1 | Away Win
-
-**Catanzaro vs Giugliano**
-ITALY - Club Friendly
-Odds: - | - | -
-RESULT: 3-0 | Home Win
-
-**Entella vs Novara**
-ITALY - Club Friendly
-Odds: 2.10 | 3.30 | 3.30
-RESULT: 2-1 | Home Win
-
-**Ospitaletto vs Scanzorosciate**
-ITALY - Club Friendly
-Odds: - | - | -
-RESULT: 1-0 | Home Win
-
-**Pineto vs Notaresco Calcio**
-ITALY - Club Friendly
-Odds: 1.86 | 3.45 | 3.95
-RESULT: 4-1 | Home Win
-
-**Beselidhja Lezha vs Vora**
-ALBANIA - Club Friendly
-Odds: - | - | -
-RESULT: 1-1 | Draw
-
-**Cremonese vs FC Obermais**
-ITALY - Club Friendly (Cancelled)
-Odds: - | - | -
-RESULT: - | -
-
-**Levico Terme vs FC Obermais**
-ITALY - Club Friendly
-Odds: - | - | -
-RESULT: 0-0 | Draw
-
-**Marseille vs Al-Shahaniya**
-FRANCE - Club Friendly
-Odds: 1.16 | 7.40 | 11.75
-RESULT: 3-0 | Home Win
-
-**Ossese vs Torres**
-ITALY - Club Friendly
-Odds: 9.38 | 5.21 | 1.30
-RESULT: 1-3 | Away Win
-
-**Pianese vs Montevarchi**
-ITALY - Club Friendly
-Odds: 1.35 | 4.85 | 7.50
-RESULT: 2-0 | Home Win
-
-**Sport Clube Canidelo vs Uniao Lamas**
-PORTUGAL - Club Friendly (Cancelled)
-Odds: - | - | -
-RESULT: - | -
-
-**Torino vs Vado**
-ITALY - Club Friendly
-Odds: 1.08 | 9.50 | 25.00
-RESULT: 3-1 | Home Win
-
-**Grosseto vs Tau**
-ITALY - Club Friendly
-Odds: 1.80 | 3.33 | 4.69
-RESULT: 2-2 | Draw
-
-**Lazio vs Ostiamare**
-ITALY - Club Friendly
-Odds: 1.04 | 11.50 | 31.00
-RESULT: 4-0 | Home Win
-
-**Lecco vs Inter U23**
-ITALY - Club Friendly
-Odds: 2.25 | 3.15 | 3.15
-RESULT: 0-3 | Away Win
-
-**Pro Palazzolo vs Brusaporto**
-ITALY - Club Friendly
-Odds: 1.97 | 3.52 | 3.62
-RESULT: 1-0 | Home Win
-
-**San Donato vs Scandicci**
-ITALY - Club Friendly
-Odds: 2.34 | 3.34 | 2.92
-RESULT: 1-2 | Away Win
-
-**Skenderbeu vs Kukesi**
-ALBANIA - Club Friendly
-Odds: - | - | -
-RESULT: 2-1 | Home Win
-
-**Stade Briochin vs Brest**
-FRANCE - Club Friendly
-Odds: 5.30 | 4.15 | 1.54
-RESULT: 1-2 | Away Win
-
-**Napoli vs Osasuna**
-ITALY - Club Friendly
-Odds: 1.82 | 3.65 | 3.90
-RESULT: 2-1 | Home Win
-
-**Nea Salamis vs Omonia 29th May**
-CYPRUS - Club Friendly
-Odds: 1.78 | 3.78 | 4.09
-RESULT: 1-1 | Draw
-
-**Al Ain vs Toulouse**
-UAE - Club Friendly
-Odds: 3.03 | 3.66 | 2.14
-RESULT: 0-1 | Away Win
-
-**Antwerp B vs Genk U23**
-BELGIUM - Club Friendly
-Odds: - | - | -
-RESULT: 0-0 | Draw
-
-**Dep. Fabril vs Real Madrid B**
-SPAIN - Club Friendly
-Odds: - | - | -
-RESULT: 0-1 | Away Win
-
-**Gimnastica Segoviana vs Valladolid**
-SPAIN - Club Friendly
-Odds: 5.40 | 3.90 | 1.57
-RESULT: 0-3 | Away Win
-
-**Manresa vs Espanyol B**
-SPAIN - Club Friendly
-Odds: 2.78 | 3.20 | 2.45
-RESULT: 0-1 | Away Win
-
-**Oviedo B vs Covadonga**
-SPAIN - Club Friendly
-Odds: 1.93 | 3.74 | 3.54
-RESULT: 6-0 | Home Win
-
-**Ponferradina vs Unionistas**
-SPAIN - Club Friendly
-Odds: 2.08 | 3.10 | 3.60
-RESULT: 1-2 | Away Win
-
-**Portugalete vs Rayo Cantabria**
-SPAIN - Club Friendly
-Odds: 2.45 | 3.50 | 2.60
-RESULT: 2-0 | Home Win
-
-**Schwaz vs Augsburg**
-AUSTRIA - Club Friendly
-Odds: 36.00 | 13.50 | 1.02
-RESULT: 0-15 | Away Win
-
-**Virton vs Strasbourg II**
-BELGIUM - Club Friendly
-Odds: - | - | -
-RESULT: 1-1 | Draw
-
-**Club Siero vs Caudal Deportivo**
-SPAIN - Club Friendly
-Odds: 4.90 | 3.90 | 1.60
-RESULT: 2-1 | Home Win
-
-**Cultural Leonesa vs Real Aviles**
-SPAIN - Club Friendly
-Odds: 2.50 | 3.35 | 2.64
-RESULT: 1-1 | Draw
-
-**L'Entregu vs Langreo**
-SPAIN - Club Friendly
-Odds: 3.50 | 3.40 | 2.02
-RESULT: 0-1 | Away Win
-
-**La Nucia vs CF Intercity**
-SPAIN - Club Friendly
-Odds: 2.56 | 3.05 | 2.78
-RESULT: 1-0 | Home Win
-
-**Sonsbeck vs Frintrop**
-GERMANY - Club Friendly
-Odds: 2.20 | 3.55 | 2.90
-RESULT: 2-2 | Draw
-
-**Cacereno vs Guadalajara**
-SPAIN - Club Friendly
-Odds: 2.00 | 3.30 | 3.60
-RESULT: 1-0 | Home Win
-
-**Cesena vs Vis Pesaro**
-ITALY - Club Friendly
-Odds: 1.47 | 4.25 | 6.48
-RESULT: 3-0 | Home Win
-
-**Sassuolo vs Celta Vigo**
-ITALY - Club Friendly
-Odds: 2.80 | 3.35 | 2.35
-RESULT: 1-4 | Away Win
-
-**CD Badajoz vs CD Coria**
-SPAIN - Club Friendly
-Odds: 2.75 | 3.25 | 2.45
-RESULT: 0-3 | Away Win
-
-**Cieza vs Murcia**
-SPAIN - Club Friendly
-Odds: 4.10 | 3.50 | 1.80
-RESULT: 1-4 | Away Win
-
-**Consett vs Gateshead**
-ENGLAND - Club Friendly
-Odds: 1.77 | 3.93 | 3.91
+**Benfica vs Hearts**
+EUROPE - Europa League Qualification
+Odds: 1.09 | 11.00 | 17.00
 RESULT: 6-1 | Home Win
 
-**Prato vs Empoli**
-ITALY - Club Friendly (Cancelled)
-Odds: - | - | -
-RESULT: - | -
+---
 
-**Arsenal vs Betis**
-ENGLAND - Club Friendly
-Odds: 1.46 | 4.60 | 5.60
-RESULT: 1-3 | Away Win
+**Inter Turku vs Vaduz**
+EUROPE - Conference League Qualification
+Odds: 2.10 | 3.70 | 2.90
+RESULT: 2-1 | Home Win
 
-**Bromley vs Liverpool U21**
-ENGLAND - Club Friendly (Cancelled)
-Odds: - | - | -
-RESULT: - | -
+**HJK vs Motherwell**
+EUROPE - Conference League Qualification
+Odds: 2.05 | 3.50 | 3.10
+RESULT: 1-1 | Draw
 
-**Hastings vs Sutton**
-ENGLAND - Club Friendly (Cancelled)
-Odds: - | - | -
-RESULT: - | -
+**Jablonec vs RFS**
+EUROPE - Conference League Qualification
+Odds: 1.75 | 3.30 | 4.50
+RESULT: 2-0 | Home Win
 
-**Mallorca vs PSG**
-SPAIN - Club Friendly
-Odds: 2.67 | 4.20 | 2.14
-RESULT: 3-0 | Home Win
-
-**Sparta Prague U19 vs Right to Dream U19**
-WORLD - NextGen Cup
-Odds: - | - | -
+**Noah vs Sion**
+EUROPE - Conference League Qualification
+Odds: 2.90 | 3.00 | 2.35
 RESULT: 2-2 | Draw
 
-**Slavia Prague U19 vs West Ham U19**
-WORLD - NextGen Cup
-Odds: - | - | -
-RESULT: 2-5 | Away Win
+**Paide vs SK Rapid**
+EUROPE - Conference League Qualification
+Odds: 15.00 | 6.25 | 1.17
+RESULT: 1-4 | Away Win
 
-**Eibar W vs Atl. Madrid B W**
-SPAIN - Club Friendly Women
-Odds: - | - | -
-RESULT: 2-0 | Home Win
+**CFR Cluj vs Tromso**
+EUROPE - Conference League Qualification
+Odds: 2.35 | 3.20 | 2.70
+RESULT: 0-5 | Away Win
 
-**Cesena W vs Fiorentina W**
-ITALY - Club Friendly Women
-Odds: 11.00 | 7.30 | 1.13
-RESULT: 0-6 | Away Win
+**Debrecen vs FC Copenhagen**
+EUROPE - Conference League Qualification
+Odds: 5.25 | 3.80 | 1.53
+RESULT: 0-3 | Away Win
 
-**Parma W vs Wacker Innsbruck W**
-ITALY - Club Friendly Women
-Odds: - | - | -
-RESULT: 8-1 | Home Win
+**Dyn. Kyiv vs Qarabag**
+EUROPE - Conference League Qualification
+Odds: 2.05 | 3.10 | 3.25
+RESULT: 1-0 | Home Win
 
-**Athletic Bilbao W vs Costa Adeje Tenerife W**
-SPAIN - Club Friendly Women
-Odds: 2.63 | 3.25 | 2.35
+**Goteborg vs Gent**
+EUROPE - Conference League Qualification
+Odds: 2.90 | 3.40 | 2.15
 RESULT: 0-1 | Away Win
 
-**Real Madrid W vs Crystal Palace W**
-SPAIN - Club Friendly Women
-Odds: 1.19 | 6.05 | 10.70
+**Inter Escaldes vs Flora**
+EUROPE - Conference League Qualification
+Odds: 2.10 | 3.20 | 3.40
 RESULT: 2-0 | Home Win
+
+**Rakow vs Hammarby**
+EUROPE - Conference League Qualification
+Odds: 2.25 | 3.25 | 2.90
+RESULT: 0-0 | Draw
+
+**Riga FC vs Gyor**
+EUROPE - Conference League Qualification
+Odds: 1.73 | 4.00 | 3.75
+RESULT: 1-0 | Home Win
+
+**Sheriff Tiraspol vs St. Gallen**
+EUROPE - Conference League Qualification
+Odds: 4.00 | 3.40 | 1.83
+RESULT: 1-3 | Away Win
+
+**Zalgiris vs Hajduk Split**
+EUROPE - Conference League Qualification
+Odds: 3.40 | 3.30 | 1.95
+RESULT: 2-5 | Away Win
+
+**Beitar Jerusalem vs Austria Vienna**
+EUROPE - Conference League Qualification
+Odds: 1.80 | 3.40 | 4.50
+RESULT: 1-2 | Away Win
+
+**Ajax vs Shelbourne**
+EUROPE - Conference League Qualification
+Odds: 1.06 | 12.00 | 29.00
+RESULT: 3-1 | Home Win
+
+**Hapoel Tel Aviv vs GKS Katowice**
+EUROPE - Conference League Qualification
+Odds: 2.10 | 3.20 | 3.10
+RESULT: 2-0 | Home Win
+
+**Twente vs Dun. Streda**
+EUROPE - Conference League Qualification
+Odds: 1.18 | 6.50 | 10.00
+RESULT: 6-0 | Home Win
+
+**Borac Banja Luka vs ML Vitebsk**
+EUROPE - Conference League Qualification
+Odds: 1.60 | 3.40 | 5.00
+RESULT: 1-0 | Home Win
+
+**Braga vs Din. Minsk**
+EUROPE - Conference League Qualification
+Odds: 1.17 | 5.75 | 17.00
+RESULT: 1-0 | Home Win
+
+**Lugano vs NSI Runavik**
+EUROPE - Conference League Qualification
+Odds: 1.11 | 9.00 | 15.00
+RESULT: 2-0 | Home Win
+
+**Valur vs Nordsjaelland**
+EUROPE - Conference League Qualification
+Odds: 8.00 | 6.25 | 1.25
+RESULT: 0-2 | Away Win
+
+**Bohemians vs Midtjylland**
+EUROPE - Conference League Qualification
+Odds: 5.25 | 4.50 | 1.45
+RESULT: 0-2 | Away Win
+
+**Rijeka vs Ilves**
+EUROPE - Conference League Qualification
+Odds: 1.27 | 4.50 | 10.00
+RESULT: 1-0 | Home Win
+
+**Hibernian vs Shkendija**
+EUROPE - Conference League Qualification
+Odds: 1.44 | 4.10 | 6.25
+RESULT: 2-1 | Home Win
+
+**Partizan vs Tobol**
+EUROPE - Conference League Qualification
+Odds: 1.45 | 4.20 | 6.25
+RESULT: 3-0 | Home Win
+
+**Tre Fiori vs Drita**
+EUROPE - Conference League Qualification
+Odds: 8.00 | 5.00 | 1.33
+RESULT: 1-4 | Away Win
+
+---
+
+**Cape Verde W vs Cameroon W**
+AFRICA - Africa Cup of Nations Women
+Odds: 5.00 | 3.75 | 1.53
+RESULT: 1-1 | Draw
+
+**Mali W vs Ghana W**
+AFRICA - Africa Cup of Nations Women
+Odds: 5.00 | 3.60 | 1.57
+RESULT: 1-1 | Draw
+
+---
+
+**Tigre vs Belgrano**
+ARGENTINA - Liga Profesional - Clausura
+Odds: 2.40 | 2.65 | 3.80
+RESULT: 0-0 | Draw
+
+**Union de Santa Fe vs Lanus**
+ARGENTINA - Liga Profesional - Clausura
+Odds: 2.70 | 2.65 | 3.00
+RESULT: 1-0 | Home Win
+
+---
+
+**Salisbury Utd. vs South Adelaide**
+AUSTRALIA - SA State League
+Odds: 1.53 | 4.20 | 4.00
+RESULT: 2-3 | Away Win
+
+---
+
+**Bolivar vs Oriente Petrolero**
+BOLIVIA - Division Profesional
+Odds: 1.08 | 10.00 | 15.00
+RESULT: 2-1 | Home Win
+
+**Universitario de Vinto vs Real Potosi**
+BOLIVIA - Division Profesional
+Odds: 1.81 | 3.90 | 3.60
+RESULT: 0-2 | Away Win
+
+---
+
+**Fluminense vs Vasco**
+BRAZIL - Copa Betano do Brasil
+Odds: 2.01 | 3.20 | 3.70
+RESULT: 1-3 | Away Win
+
+**Fortaleza vs Palmeiras**
+BRAZIL - Copa Betano do Brasil
+Odds: 4.75 | 3.40 | 1.76
+RESULT: 3-2 | Home Win
+
+**Corinthians vs Internacional**
+BRAZIL - Copa Betano do Brasil
+Odds: 1.62 | 3.40 | 5.75
+RESULT: 0-0 | Draw
+
+**Vitoria vs Athletico-PR**
+BRAZIL - Copa Betano do Brasil
+Odds: 2.15 | 3.20 | 3.30
+RESULT: 1-0 | Home Win
+
+---
+
+**Coquimbo vs San Marcos de Arica**
+CHILE - Copa Chile
+Odds: 1.38 | 3.90 | 7.50
+RESULT: 1-0 | Home Win
+
+**Deportes Iquique vs Limache**
+CHILE - Copa Chile
+Odds: 2.60 | 3.90 | 2.20
+RESULT: 3-1 | Home Win
+
+---
+
+**Inter Bogotá vs Jaguares de Cordoba**
+COLOMBIA - Primera A - Clausura
+Odds: 1.55 | 3.75 | 6.50
+RESULT: 1-0 | Home Win
+
+**Once Caldas vs America De Cali**
+COLOMBIA - Primera A - Clausura
+Odds: 2.25 | 3.10 | 3.30
+RESULT: 0-1 | Away Win
+
+**Real Cundinamarca vs Boca Juniors**
+COLOMBIA - Primera B - Clausura
+Odds: 1.70 | 3.10 | 4.33
+RESULT: 3-1 | Home Win
+
+**Atletico F.C. vs Real Santander**
+COLOMBIA - Primera B - Clausura
+Odds: 2.10 | 3.20 | 2.88
+RESULT: 2-2 | Draw
+
+**Bogota vs Leones**
+COLOMBIA - Primera B - Clausura
+Odds: 1.62 | 3.20 | 5.00
+RESULT: 0-1 | Away Win
+
+**Santa Fe vs U. Magdalena**
+COLOMBIA - Copa Colombia
+Odds: 1.95 | 3.30 | 3.90
+RESULT: 2-0 | Home Win
+
+---
+
+**Naestved vs Hvidovre IF**
+DENMARK - Betano Pokalen
+Odds: 2.75 | 3.80 | 2.15
+RESULT: 1-0 | Home Win
+
+---
+
+**LDU Portoviejo vs Barcelona SC**
+ECUADOR - Copa Ecuador
+Odds: 3.75 | 3.10 | 1.83
+RESULT: 0-1 | Away Win
+
+---
+
+**Bristol City vs Walsall**
+ENGLAND - EFL Cup
+Odds: 1.30 | 4.75 | 9.00
+RESULT: 0-1 | Away Win
+
+---
+
+**IR Reykjavik vs Aegir**
+ICELAND - Division 1
+Odds: 1.40 | 4.60 | 5.50
+RESULT: 3-2 | Home Win
+
+---
+
+**Bidhannagar vs BSS Sporting**
+INDIA - Calcutta Premier Division
+Odds: 4.60 | 4.00 | 1.50
+RESULT: 1-4 | Away Win
+
+**Kalighat vs Patha Chakra**
+INDIA - Calcutta Premier Division
+Odds: 3.20 | 3.40 | 1.90
+RESULT: 6-1 | Home Win
+
+**Nongkseh vs Langsning**
+INDIA - Durand Cup
+Odds: 1.40 | 4.50 | 6.00
+RESULT: 2-2 | Draw
+
+---
+
+**Persija Jakarta vs Arema FC**
+INDONESIA - President Cup
+Odds: 1.95 | 3.40 | 3.40
+RESULT: 3-1 | Home Win
+
+**Persib Bandung vs Persebaya**
+INDONESIA - President Cup
+Odds: 2.00 | 3.25 | 3.40
+RESULT: 1-1 | Draw (Persebaya won on penalties)
+
+---
+
+**Al Shamiya vs Al-Jazira**
+KUWAIT - Division 1
+Odds: 9.00 | 5.75 | 1.22
+RESULT: 0-5 | Away Win
+
+**Sporty vs Al Sahel**
+KUWAIT - Division 1
+Odds: 11.00 | 5.25 | 1.22
+RESULT: 0-2 | Away Win
+
+---
+
+**Bishkek City vs Asiagoal Bishkek**
+KYRGYZSTAN - Premier Liga
+Odds: N/A
+RESULT: 0-0 | Draw
+
+**Muras United vs Asia Talas**
+KYRGYZSTAN - Premier Liga
+Odds: 2.15 | 3.60 | 2.80
+RESULT: 1-1 | Draw
+
+---
+
+**Tlaxcala vs Alebrijes Oaxaca**
+MEXICO - Liga de Expansion MX - Apertura
+Odds: 1.50 | 4.00 | 5.00
+RESULT: 0-1 | Away Win
+
+---
+
+**Ferroviario Maputo vs Baia de Pemba**
+MOZAMBIQUE - Mocambola
+Odds: 1.53 | 3.40 | 6.50
+RESULT: 0-0 | Draw
+
+---
+
+**UMECIT vs Olimpia**
+NORTH & CENTRAL AMERICA - CONCACAF Central American Cup
+Odds: 3.60 | 3.20 | 1.83
+RESULT: 1-2 | Away Win
+
+**Alianza FC vs Herediano**
+NORTH & CENTRAL AMERICA - CONCACAF Central American Cup
+Odds: 2.88 | 3.20 | 2.10
+RESULT: 1-0 | Home Win
+
+**Saprissa vs Alianza**
+NORTH & CENTRAL AMERICA - CONCACAF Central American Cup
+Odds: 1.25 | 4.50 | 9.00
+RESULT: 2-1 | Home Win
+
+**Mexico U20 vs Panama U20**
+NORTH & CENTRAL AMERICA - CONCACAF Championship U20
+Odds: 1.33 | 4.20 | 6.50
+RESULT: 4-0 | Home Win
+
+**Cibao vs Cavalier**
+NORTH & CENTRAL AMERICA - CONCACAF Caribbean Cup
+Odds: 1.83 | 3.10 | 3.75
+RESULT: 0-0 | Draw
+
+**Sando vs Broki**
+NORTH & CENTRAL AMERICA - CONCACAF Caribbean Cup
+Odds: 2.00 | 3.20 | 3.10
+RESULT: 1-1 | Draw
+
+**Colombia U21 vs Venezuela U21**
+NORTH & CENTRAL AMERICA - Central American & Caribbean Games
+Odds: 1.73 | 3.40 | 4.20
+RESULT: 0-1 | Away Win
+
+**Inter Miami vs Atl. San Luis**
+NORTH & CENTRAL AMERICA - Leagues Cup
+Odds: 1.33 | 6.25 | 7.00
+RESULT: 4-2 | Home Win
+
+**Monterrey vs Orlando City**
+NORTH & CENTRAL AMERICA - Leagues Cup
+Odds: 2.70 | 3.90 | 2.30
+RESULT: 1-2 | Away Win
+
+**FC Dallas vs Queretaro**
+NORTH & CENTRAL AMERICA - Leagues Cup
+Odds: 2.38 | 3.60 | 2.80
+RESULT: 2-0 | Home Win
+
+**Nashville SC vs Club Leon**
+NORTH & CENTRAL AMERICA - Leagues Cup
+Odds: 2.30 | 3.40 | 3.00
+RESULT: 0-1 | Away Win
+
+**Toluca vs Seattle Sounders**
+NORTH & CENTRAL AMERICA - Leagues Cup
+Odds: 1.25 | 6.00 | 10.00
+RESULT: 3-0 | Home Win
+
+**Los Angeles FC vs Guadalajara Chivas**
+NORTH & CENTRAL AMERICA - Leagues Cup
+Odds: 2.70 | 3.50 | 2.45
+RESULT: 1-1 | Draw (LAFC won on penalties)
+
+**Venezuela W vs El Salvador W**
+NORTH & CENTRAL AMERICA - Central American & Caribbean Games Women
+Odds: 1.67 | 3.50 | 4.00
+RESULT: 1-2 | Away Win
+
+---
+
+**Floya vs Ulfstind**
+NORWAY - Division 3 - Group 5
+Odds: 1.22 | 6.00 | 8.00
+RESULT: 7-0 | Home Win
+
+**Sandefjord U19 vs Asane U19**
+NORWAY - Nasjonal U19 CL
+Odds: 1.67 | 5.25 | 3.25
+RESULT: 2-4 | Away Win
+
+**Lillestrom U19 vs Aalesund U19**
+NORWAY - Nasjonal U19 CL
+Odds: 1.30 | 6.25 | 6.50
+RESULT: 6-0 | Home Win
+
+**Stabaek U19 vs Fredrikstad U19**
+NORWAY - Nasjonal U19 CL
+Odds: 1.50 | 6.50 | 3.60
+RESULT: 2-4 | Away Win
+
+**Rosenborg U19 vs Molde U19**
+NORWAY - Nasjonal U19 CL
+Odds: 2.80 | 3.80 | 2.00
+RESULT: 5-2 | Home Win
+
+---
+
+**Alianza Atl. vs Cienciano**
+PERU - Liga 1 - Clausura
+Odds: 2.20 | 3.25 | 3.10
+RESULT: 1-0 | Home Win
+
+---
+
+**Penarol vs Wanderers**
+URUGUAY - Liga AUF Uruguaya
+Odds: 1.67 | 3.70 | 4.50
+RESULT: 5-1 | Home Win
+
+---
+
+**FC Tulsa vs Sacramento Republic**
+USA - USL Championship
+Odds: 2.75 | 2.80 | 2.40
+RESULT: 1-0 | Home Win
+
+**El Paso vs Monterey Bay**
+USA - USL Championship
+Odds: 1.60 | 3.75 | 4.00
+RESULT: 1-0 | Home Win
+
+**Las Vegas Lights vs Oakland Roots**
+USA - USL Championship
+Odds: 2.30 | 3.30 | 2.50
+RESULT: 0-0 | Draw
+
+**Richmond Kickers vs New York Cosmos**
+USA - USL League One
+Odds: 2.10 | 3.40 | 2.75
+RESULT: 2-0 | Home Win
+
+**FC Naples vs AV Alta**
+USA - USL League One
+Odds: 2.20 | 3.25 | 2.63
+RESULT: 2-1 | Home Win
+
+**Denver Summit W vs North Carolina Courage W**
+USA - NWSL Women
+Odds: 2.15 | 3.40 | 2.60
+RESULT: 0-2 | Away Win
+
+---
+
+**Sogdiana vs Andijan**
+UZBEKISTAN - Super League
+Odds: 2.40 | 3.25 | 2.40
+RESULT: 1-0 | Home Win
+
+**Pakhtakor vs Buxoro**
+UZBEKISTAN - Super League
+Odds: 1.36 | 4.00 | 6.50
+RESULT: 2-2 | Draw
+
+---
+
+**Rayo Zuliano vs Anzoategui FC**
+VENEZUELA - Liga FUTVE - Clausura
+Odds: 2.75 | 3.10 | 2.38
+RESULT: 0-1 | Away Win
+
+**Estudiantes Merida vs Zamora**
+VENEZUELA - Liga FUTVE - Clausura
+Odds: 2.20 | 3.20 | 2.88
+RESULT: 1-0 | Home Win
+
+**Puerto Cabello vs Caracas**
+VENEZUELA - Liga FUTVE - Clausura
+Odds: 1.53 | 3.60 | 5.50
+RESULT: 1-0 | Home Win
+
+---
+
+**Petro Atletico vs Reus FCR**
+WORLD - Club Friendly
+Odds: 1.70 | 3.50 | 3.75
+RESULT: 4-0 | Home Win
+
+**ZED vs Al-Muharraq**
+WORLD - Club Friendly
+Odds: 1.44 | 4.00 | 5.00
+RESULT: 1-0 | Home Win
+
+**Aris vs Al-Sadd**
+WORLD - Club Friendly
+Odds: 2.30 | 3.40 | 2.40
+RESULT: 1-1 | Draw
+
+**Levadiakos vs Panetolikos**
+WORLD - Club Friendly
+Odds: 1.80 | 3.50 | 3.30
+RESULT: 1-0 | Home Win
+
+**AEL Limassol vs Atromitos**
+WORLD - Club Friendly
+Odds: 3.00 | 3.40 | 1.95
+RESULT: 2-1 | Home Win
+
+**Pergolettese vs Club Milano**
+WORLD - Club Friendly
+Odds: 1.44 | 3.60 | 6.00
+RESULT: 1-0 | Home Win
+
+**Harrach vs Saoura**
+WORLD - Club Friendly
+Odds: 4.60 | 2.88 | 1.73
+RESULT: 1-1 | Draw
+
+**Legnago Salus vs Mantova**
+WORLD - Club Friendly
+Odds: 8.50 | 5.00 | 1.25
+RESULT: 1-3 | Away Win
+
+**Zaragoza vs Andorra**
+WORLD - Club Friendly
+Odds: 2.80 | 3.10 | 2.15
+RESULT: 0-1 | Away Win
+
+**AF Elbasani vs Partizani**
+WORLD - Club Friendly
+Odds: 2.05 | 3.80 | 2.80
+RESULT: 1-3 | Away Win
+
+**SD Navarro CF vs EI San Martin**
+WORLD - Club Friendly
+Odds: 4.00 | 3.50 | 1.83
+RESULT: 0-3 | Away Win
+
+**Fiorentina vs Dep. A Coruna**
+WORLD - Club Friendly
+Odds: 1.73 | 3.50 | 4.00
+RESULT: 1-1 | Draw
+
+**Jaen vs Cordoba**
+WORLD - Club Friendly
+Odds: 2.25 | 3.20 | 2.60
+RESULT: 1-2 | Away Win
+
+**Lanzarote vs Arenas Getxo**
+WORLD - Club Friendly
+Odds: 5.00 | 3.60 | 1.50
+RESULT: 1-2 | Away Win
+
+**Malaga vs Al Arabi**
+WORLD - Club Friendly
+Odds: 1.50 | 4.20 | 4.33
+RESULT: 4-2 | Home Win
+
+**Monaco vs Getafe**
+WORLD - Club Friendly
+Odds: 1.85 | 3.70 | 3.25
+RESULT: 1-0 | Home Win
+
+**Cavese vs Juve Stabia**
+WORLD - Club Friendly
+Odds: 4.33 | 3.50 | 1.60
+RESULT: 0-1 | Away Win
+
+**Dos Hermanas vs Antoniano**
+WORLD - Club Friendly
+Odds: 2.75 | 2.88 | 2.38
+RESULT: 2-4 | Away Win
+
+**Lorca Deportiva vs Aguilas FC**
+WORLD - Club Friendly
+Odds: 3.40 | 3.00 | 1.95
+RESULT: 0-0 | Draw (Lorca Deportiva won on penalties)
+
+**Villacanas vs CF Talavera**
+WORLD - Club Friendly
+Odds: 4.20 | 3.25 | 1.67
+RESULT: 0-3 | Away Win
+
+**Freiburg W vs 1.FC Nurnberg W**
+WORLD - Club Friendly Women
+Odds: 1.85 | 3.70 | 3.25
+RESULT: 2-1 | Home Win
+
+**Badalona W vs Bristol City W**
+WORLD - Club Friendly Women
+Odds: 1.73 | 3.80 | 3.60
+RESULT: 4-2 | Home Win
