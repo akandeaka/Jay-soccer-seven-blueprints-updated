@@ -1,120 +1,106 @@
-"""
-Validation Runner - Runs at 1 AM to automatically validate results
-"""
-
+# validation_runner.py
 import os
 import sys
 import json
 import pandas as pd
 from datetime import datetime
 
-from result_fetcher import ResultFetcher
 from results_validator import ResultsValidator
 from telegram_sender import TelegramSender
+from email_sender import EmailSender
 from config import Config
 
-
 class ValidationRunner:
-    """Automatically validate predictions and send reports at 1 AM"""
-    
     def __init__(self):
-        self.fetcher = ResultFetcher()
         self.validator = ResultsValidator()
-        self.telegram = TelegramSender(
-            Config.TELEGRAM_BOT_TOKEN,
-            Config.TELEGRAM_CHAT_ID
+        self.telegram = TelegramSender(Config.TELEGRAM_BOT_TOKEN, Config.TELEGRAM_CHAT_ID)
+        self.email = EmailSender(
+            Config.SMTP_HOST,
+            Config.SMTP_PORT,
+            Config.SMTP_USER,
+            Config.SMTP_PASSWORD
         )
-    
+
+    def load_validation_results(self):
+        """Loads actual match outputs from validation_results.txt if available."""
+        if not os.path.exists("validation_results.txt"):
+            return {}
+        
+        results = {}
+        with open("validation_results.txt", 'r') as f:
+            lines = f.readlines()
+        
+        i = 0
+        while i < len(lines):
+            line = lines[i].strip()
+            if ' vs ' in line and 'RESULT:' not in line:
+                match_name = line
+                i += 1
+                while i < len(lines) and 'RESULT:' not in lines[i]:
+                    i += 1
+                if i < len(lines) and 'RESULT:' in lines[i]:
+                    import re
+                    score_match = re.search(r'(\d+)-(\d+)', lines[i])
+                    if score_match:
+                        results[match_name] = {
+                            'home_score': int(score_match.group(1)),
+                            'away_score': int(score_match.group(2))
+                        }
+            i += 1
+        return results
+
     def run_validation(self):
-        """Run complete validation pipeline"""
-        
         print("\n" + "="*60)
-        print("🔄 SOCCER BLUEPRINT SYSTEM - AUTOMATIC VALIDATION")
+        print("🔄 SOCCER BLUEPRINT SYSTEM - FULL VALIDATION PIPELINE")
         print("="*60)
-        print(f"📅 Validation run: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        
-        # Step 1: Load predictions
-        print("\n📥 Loading previous predictions...")
-        predictions = self.validator.load_predictions("predictions.json")
-        
-        if not predictions:
-            print("❌ No predictions found to validate")
+
+        # 1. Load predictions
+        if not os.path.exists("predictions.json"):
+            print("❌ predictions.json not found.")
             return False
-        
-        # Step 2: Fetch actual results
-        print("\n🌐 Fetching actual match results...")
-        actual_results = self.fetcher.validate_predictions("predictions.json")
-        
-        if actual_results.empty:
-            print("❌ Could not fetch actual results")
-            return False
-        
-        # Step 3: Validate predictions
-        print("\n✅ Validating predictions...")
-        validated = self.validator.validate_predictions(predictions, actual_results)
-        
-        # Step 4: Generate report
-        print("\n📊 Generating performance report...")
-        report = self.validator.generate_performance_report(validated)
-        
-        # Step 5: Update history
-        print("\n📚 Updating historical data...")
-        self.validator.update_history(validated)
-        
-        # Step 6: Send report to Telegram
-        print("\n📱 Sending report to Telegram...")
-        
-        # Send summary
-        total = len(validated)
-        correct = sum(1 for r in validated if r['is_correct'])
-        accuracy = (correct / total * 100) if total > 0 else 0
-        
-        summary_message = f"""
-⚽ <b>DAILY PERFORMANCE REPORT</b>
-📅 {datetime.now().strftime('%Y-%m-%d')}
 
-📊 <b>Summary</b>
-   Total Picks: {total}
-   Correct: {correct}
-   Accuracy: {accuracy:.1f}%
+        with open("predictions.json", 'r') as f:
+            predictions = json.load(f)
 
-🎯 <b>Top Performer</b>
-   Check full report for details
+        # 2. Load actual match results map
+        actual_results_map = self.load_validation_results()
+        
+        print(f"📥 Loaded {len(predictions)} total predictions.")
+        print(f"🌐 Loaded {len(actual_results_map)} actual results for matching.")
 
-📈 <b>30-Day Trend</b>
-   View historical data for trends
-"""
+        # 3. Perform match evaluation across all 85 predictions
+        validated = self.validator.validate_predictions(predictions, actual_results_map)
+
+        # 4. Generate Blueprint performance & email body
+        email_body, accuracy, wins, total_completed = self.validator.generate_blueprint_and_full_report(validated)
+
+        # 5. Route Full Report via Email
+        print("\n📧 Sending full 85-prediction report to Email...")
+        self.email.send_report(
+            recipient_email=Config.NOTIFICATION_EMAIL,
+            subject=f"System & Blueprint Performance Report - {datetime.now().strftime('%Y-%m-%d')}",
+            content=email_body
+        )
+
+        # 6. Route Top 30 Digest to Telegram
+        print("\n📱 Sending Top 30 summary to Telegram...")
+        top_30 = validated[:30]
+        top_30_wins = sum(1 for r in top_30 if r['is_correct'])
         
-        self.telegram.send_message(summary_message)
+        telegram_msg = f"⚽ <b>DAILY PERFORMANCE SUMMARY</b>\n"
+        telegram_msg += f"📅 {datetime.now().strftime('%Y-%m-%d')}\n\n"
+        telegram_msg += f"📊 <b>Full System Accuracy:</b> {accuracy:.1f}% ({wins}/{total_completed})\n"
+        telegram_msg += f"🎯 <b>Top 30 Digest Accuracy:</b> {(top_30_wins/30)*100:.1f}%\n\n"
+        telegram_msg += "<b>Top Matches Sample:</b>\n"
         
-        # Send full report (split if too long)
-        if len(report) > 4000:
-            # Split into parts
-            parts = [report[i:i+4000] for i in range(0, len(report), 4000)]
-            for i, part in enumerate(parts, 1):
-                self.telegram.send_message(f"📊 <b>Performance Report (Part {i}/{len(parts)})</b>\n\n{part}")
-        else:
-            self.telegram.send_message(f"📊 <b>Full Performance Report</b>\n\n{report}")
-        
-        # Step 7: Save validated results as CSV
-        df = pd.DataFrame(validated)
-        df.to_csv("validated_results.csv", index=False)
-        print("✅ Validated results saved to validated_results.csv")
-        
-        print("\n" + "="*60)
-        print("✅ VALIDATION COMPLETE")
-        print("="*60)
-        print(f"📊 Final Accuracy: {accuracy:.1f}% ({correct}/{total})")
-        
+        for r in top_30[:10]:
+            icon = "✅" if r['is_correct'] else ("❌" if r['status'] == 'LOSS' else "⏳")
+            telegram_msg += f"{icon} {r['match']} -> {r['play']}\n"
+            
+        telegram_msg += "\n📩 <i>Full 85-prediction report with Blueprint analytics has been sent to your email.</i>"
+        self.telegram.send_message(telegram_msg)
+
+        # 7. Save output CSV
+        pd.DataFrame(validated).to_csv("validated_results.csv", index=False)
+        print("\n✅ Validated outputs saved to validated_results.csv")
         return True
-
-
-def main():
-    """Main entry point for validation runner"""
-    runner = ValidationRunner()
-    success = runner.run_validation()
-    sys.exit(0 if success else 1)
-
-
-if __name__ == "__main__":
-    main()
