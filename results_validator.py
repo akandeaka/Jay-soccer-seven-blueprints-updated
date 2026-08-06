@@ -1,214 +1,126 @@
-"""
-Results Validator - Check prediction accuracy and generate reports
-BP6: Full Time Draw (X)
-"""
-
-import pandas as pd
-from typing import List, Dict
-from datetime import datetime
-import json
+# results_validator.py
+import re
 import os
-
+import json
+import pandas as pd
 
 class ResultsValidator:
-    """Validate predictions against actual results"""
-    
-    def __init__(self):
-        self.history_file = "prediction_history.json"
-    
-    def load_predictions(self, predictions_file: str = "predictions.json") -> List[Dict]:
-        """Load previously saved predictions"""
-        try:
-            with open(predictions_file, 'r') as f:
-                predictions = json.load(f)
-            print(f"✅ Loaded {len(predictions)} predictions")
-            return predictions
-        except Exception as e:
-            print(f"❌ Could not load predictions: {e}")
-            return []
-    
-    def load_actual_results(self, results_file: str = "actual_results.csv") -> pd.DataFrame:
-        """Load actual match results"""
-        try:
-            if os.path.exists(results_file):
-                df = pd.read_csv(results_file)
-                print(f"✅ Loaded {len(df)} actual results")
-                return df
-            else:
-                print(f"⚠️ No actual results found at {results_file}")
-                return pd.DataFrame()
-        except Exception as e:
-            print(f"❌ Error loading results: {e}")
-            return pd.DataFrame()
-    
-    def validate_predictions(self, predictions: List[Dict], actual_results: pd.DataFrame) -> List[Dict]:
-        """Validate all predictions against actual results"""
-        validated = []
-        
+    """Core validator to evaluate predictions, blueprints, and accumulators."""
+
+    @staticmethod
+    def normalize_name(name: str) -> str:
+        """Normalizes team/match strings for accurate cross-matching."""
+        if not name:
+            return ""
+        name = name.lower()
+        name = re.sub(r'\b(fc|ac|utd|united|sv|vfb|sc|afc|cd|ud)\b', '', name)
+        return re.sub(r'[^a-z0-9]', '', name).strip()
+
+    def evaluate_play(self, play: str, home_score: int, away_score: int) -> bool:
+        """Evaluates prediction conditions against final scores."""
+        total = home_score + away_score
+        play_lower = play.lower()
+
+        if 'home win' in play_lower or '1' == play_lower:
+            return home_score > away_score
+        elif 'away win' in play_lower or '2' == play_lower:
+            return away_score > home_score
+        elif 'draw' in play_lower and 'or' not in play_lower:
+            return home_score == away_score
+        elif 'both teams to score' in play_lower or 'gg' in play_lower:
+            return home_score > 0 and away_score > 0
+        elif 'over 1.5' in play_lower:
+            return total > 1
+        elif 'over 2.5' in play_lower:
+            return total > 2
+        elif 'under 3.5' in play_lower:
+            return total < 4
+        elif 'under 2.5' in play_lower:
+            return total < 3
+        elif 'draw or under 2.5' in play_lower:
+            return (home_score == away_score) or total < 3
+        elif 'draw or gg' in play_lower:
+            return (home_score == away_score) or (home_score > 0 and away_score > 0)
+        return False
+
+    def validate_predictions(self, predictions: list, actual_results_map: dict) -> list:
+        """
+        Validates all 85 predictions against actual match results.
+        """
+        validated_list = []
+
         for pred in predictions:
-            match_name = pred.get('match', '')
-            actual = actual_results[actual_results['match'].str.contains(match_name[:40], case=False, na=False)]
+            match_name = pred.get('match', f"{pred.get('home_team', '')} vs {pred.get('away_team', '')}")
+            blueprint_id = pred.get('blueprint_id', pred.get('blueprint', 'Unknown'))
+            predicted_play = pred.get('play', pred.get('predicted_outcome', ''))
             
-            if not actual.empty:
-                validation = self._validate_single_prediction(pred, actual.iloc[0].to_dict())
-                validated.append(validation)
+            norm_match = self.normalize_name(match_name)
+            
+            # Find matching result using key comparison
+            actual = None
+            for result_key, score_data in actual_results_map.items():
+                norm_key = self.normalize_name(result_key)
+                if norm_key in norm_match or norm_match in norm_key:
+                    actual = score_data
+                    break
+
+            if actual and 'home_score' in actual and 'away_score' in actual:
+                is_correct = self.evaluate_play(predicted_play, actual['home_score'], actual['away_score'])
+                status = 'WIN' if is_correct else 'LOSS'
+                score_str = f"{actual['home_score']}-{actual['away_score']}"
             else:
-                validated.append({
-                    'match': match_name,
-                    'blueprint': pred.get('blueprint', ''),
-                    'predicted_play': pred.get('play', ''),
-                    'confidence': pred.get('confidence', 0),
-                    'actual_result': 'NO_RESULT_FOUND',
-                    'is_correct': False
-                })
-        
-        return validated
-    
-    def _validate_single_prediction(self, prediction: Dict, actual: Dict) -> Dict:
-        """Validate a single prediction against actual result"""
-        
-        predicted_play = prediction.get('play', '')
-        home_score = actual.get('home_score', 0)
-        away_score = actual.get('away_score', 0)
-        
-        is_correct = False
-        actual_result = ""
-        
-        # BP1, BP2: Home Win
-        if 'Home Win' in predicted_play and 'Draw' not in predicted_play:
-            is_correct = home_score > away_score
-            actual_result = f"{home_score}-{away_score}"
-        
-        # BP3, BP4, BP5, BP8: Goal based
-        elif 'Over 1.5' in predicted_play:
-            total = home_score + away_score
-            is_correct = total > 1
-            actual_result = f"{home_score}-{away_score} (Total: {total})"
-        
-        elif 'Under 3.5' in predicted_play:
-            total = home_score + away_score
-            is_correct = total < 4
-            actual_result = f"{home_score}-{away_score} (Total: {total})"
-        
-        elif 'Over 2.5' in predicted_play:
-            total = home_score + away_score
-            is_correct = total > 2
-            actual_result = f"{home_score}-{away_score} (Total: {total})"
-        
-        # BP6: Full Time Draw
-        elif 'Full Time Draw' in predicted_play or 'Draw' in predicted_play:
-            is_correct = home_score == away_score
-            actual_result = f"{home_score}-{away_score}"
-        
-        # BP7: BTTS
-        elif 'Both Teams to Score' in predicted_play or 'BTTS' in predicted_play:
-            if 'YES' in predicted_play.upper():
-                is_correct = home_score > 0 and away_score > 0
-                actual_result = f"{home_score}-{away_score} (BTTS: {'Yes' if is_correct else 'No'})"
-            elif 'NO' in predicted_play.upper():
-                is_correct = home_score == 0 or away_score == 0
-                actual_result = f"{home_score}-{away_score} (BTTS: {'No' if is_correct else 'Yes'})"
-        
-        return {
-            'match': prediction.get('match'),
-            'blueprint': prediction.get('blueprint'),
-            'predicted_play': predicted_play,
-            'confidence': prediction.get('confidence', 0),
-            'actual_result': actual_result,
-            'is_correct': is_correct,
-            'home_score': home_score,
-            'away_score': away_score
-        }
-    
-    def generate_performance_report(self, validated_results: List[Dict]) -> str:
-        """Generate detailed performance report"""
-        
-        if not validated_results:
-            return "No results to validate"
-        
-        valid_results = [r for r in validated_results if r['actual_result'] != 'NO_RESULT_FOUND']
-        total_valid = len(valid_results)
-        correct = sum(1 for r in valid_results if r['is_correct'])
-        accuracy = (correct / total_valid * 100) if total_valid > 0 else 0
-        
-        # Generate report
-        report = f"""# 📊 SOCCER BLUEPRINT SYSTEM - PERFORMANCE REPORT
+                is_correct = False
+                status = 'PENDING'
+                score_str = 'N/A'
 
-**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
-**Total Predictions:** {len(validated_results)}
-**Matches Validated:** {total_valid}
-**Correct Predictions:** {correct}
-**Overall Accuracy:** {accuracy:.1f}%
+            validated_list.append({
+                'match': match_name,
+                'blueprint': blueprint_id,
+                'play': predicted_play,
+                'actual_score': score_str,
+                'status': status,
+                'is_correct': is_correct
+            })
 
----
+        return validated_list
 
-## 📈 Accuracy by Blueprint
+    def generate_blueprint_and_full_report(self, validated_records: list):
+        """Generates comprehensive report with Blueprint performance breakdown."""
+        total = len(validated_records)
+        completed = [r for r in validated_records if r['status'] in ['WIN', 'LOSS']]
+        total_completed = len(completed)
+        wins = sum(1 for r in completed if r['is_correct'])
+        overall_acc = (wins / total_completed * 100) if total_completed > 0 else 0.0
 
-| Blueprint | Predictions | Correct | Accuracy |
-|-----------|-------------|---------|----------|
-"""
-
-        # Group by blueprint
-        bp_groups = {}
-        for r in valid_results:
+        # Blueprint performance accumulator
+        bp_stats = {}
+        for r in completed:
             bp = r['blueprint']
-            if bp not in bp_groups:
-                bp_groups[bp] = {'total': 0, 'correct': 0}
-            bp_groups[bp]['total'] += 1
+            if bp not in bp_stats:
+                bp_stats[bp] = {'total': 0, 'wins': 0}
+            bp_stats[bp]['total'] += 1
             if r['is_correct']:
-                bp_groups[bp]['correct'] += 1
-        
-        for bp, stats in sorted(bp_groups.items()):
-            bp_acc = (stats['correct'] / stats['total'] * 100) if stats['total'] > 0 else 0
-            report += f"| {bp} | {stats['total']} | {stats['correct']} | {bp_acc:.1f}% |\n"
-        
-        report += f"""
+                bp_stats[bp]['wins'] += 1
 
----
+        # Build Full Report (For Email)
+        report = f"====================================================\n"
+        report += f" ⚽ FULL SYSTEM PERFORMANCE & BLUEPRINT VALIDATION\n"
+        report += f"====================================================\n"
+        report += f"Total Predictions Evaluated: {total}\n"
+        report += f"Matches Finished: {total_completed}\n"
+        report += f"Overall Win Rate: {overall_acc:.2f}% ({wins}/{total_completed})\n\n"
 
-## 📝 Detailed Results
+        report += "----------------------------------------------------\n"
+        report += "📊 PERFORMANCE BY BLUEPRINT\n"
+        report += "----------------------------------------------------\n"
+        for bp, stats in sorted(bp_stats.items()):
+            acc = (stats['wins'] / stats['total'] * 100) if stats['total'] > 0 else 0.0
+            report += f"• Blueprint {bp}: {acc:.1f}% Win Rate ({stats['wins']}/{stats['total']})\n"
 
-| Match | Blueprint | Prediction | Confidence | Result | Status |
-|-------|-----------|------------|------------|--------|--------|
-"""
+        report += "\n----------------------------------------------------\n"
+        report += "📋 DETAILED PREDICTION BREAKDOWN (ALL 85 MATCHES)\n"
+        report += "----------------------------------------------------\n"
+        for i, r in enumerate(validated_records, 1):
+            report += f"{i:02d}. [{r['status']}] {r['match']} | BP: {r['blueprint']} | Play: {r['play']} | Score: {r['actual_score']}\n"
 
-        for r in valid_results[:20]:
-            status = "✅" if r['is_correct'] else "❌"
-            report += f"| {r['match'][:30]} | {r['blueprint']} | {r['predicted_play'][:20]} | {r['confidence']:.0f}% | {r['actual_result']} | {status} |\n"
-        
-        report += "\n---\n*Report generated automatically by Soccer Blueprint System*"
-        
-        with open("performance_report.md", "w") as f:
-            f.write(report)
-        
-        return report
-    
-    def update_history(self, validated_results: List[Dict]):
-        """Update historical performance data"""
-        history = []
-        
-        if os.path.exists(self.history_file):
-            try:
-                with open(self.history_file, 'r') as f:
-                    history = json.load(f)
-            except:
-                pass
-        
-        today = datetime.now().strftime('%Y-%m-%d')
-        total = len(validated_results)
-        correct = sum(1 for r in validated_results if r['is_correct'])
-        accuracy = (correct / total * 100) if total > 0 else 0
-        
-        history.append({
-            'date': today,
-            'total_predictions': total,
-            'correct_predictions': correct,
-            'accuracy': accuracy
-        })
-        
-        history = history[-30:]
-        
-        with open(self.history_file, 'w') as f:
-            json.dump(history, f, indent=2)
-        
-        print(f"✅ History updated")
+        return report, overall_acc, wins, total_completed
