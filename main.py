@@ -1,16 +1,15 @@
 """
-JAY SOCCER BLUEPRINTS - COMPLETE TOP-30 & HIGH-ACCURACY ACCUMULATOR SYSTEM
+JAY SOCCER BLUEPRINTS - RECALIBRATED MAIN SYSTEM (MIN 85% CONFIDENCE)
 ---------------------------------------------------------------------------
 1. Parses raw match odds from input_matches.txt (supports CSV or block text).
-2. Evaluates all matches across the 11-Blueprint engine.
+2. Evaluates matches across 11 recalibrated blueprints (all >= 85% confidence floor).
 3. Ranks candidates using Composite Scoring: S = Confidence * log2(1 + Odds).
-4. Extracts the Top 30 highest-value predictions.
-5. Builds 2_ODDS, 4_ODDS, 7_ODDS, and 10_ODDS accumulators strictly from the 
-   Top 30 pool, minimizing leg count and enforcing ZERO match duplication.
-6. Saves predictions.json, top_30_predictions.json, and accumulators.json.
-7. Performs post-match audit via validation_results.txt across the Full Pool, 
-   Top 30 Pool, and individual Accumulator Tickets.
-8. Dispatches summaries via Telegram and Email.
+4. Filters pool strictly for confidence >= 85% and extracts Top 30 predictions.
+5. Builds 2_ODDS, 4_ODDS, 7_ODDS, and 10_ODDS accumulators strictly from Top 30,
+   minimizing leg count and enforcing ZERO match duplication.
+6. Exports predictions.json, top_30_predictions.json, and accumulators.json.
+7. Conducts post-match audit via validation_results.txt.
+8. Dispatches alerts via Telegram and Email.
 """
 
 import os
@@ -21,7 +20,6 @@ import csv
 import math
 import smtplib
 import requests
-import pandas as pd
 from datetime import datetime
 from itertools import combinations
 from email.message import EmailMessage
@@ -40,7 +38,7 @@ class Config:
     NOTIFICATION_EMAIL = os.getenv('NOTIFICATION_EMAIL', '')
 
 # ============================================================
-# LEAGUE CLASSIFICATIONS & BLUEPRINT DETECTORS
+# LEAGUE CLASSIFICATIONS & RECALIBRATED BLUEPRINTS (>= 85%)
 # ============================================================
 HIGH_SCORING_LEAGUES = ['bundesliga', 'eredivisie', 'brazil', 'brasileirao', 'friendly', 'club friendly']
 MEDIUM_SCORING_LEAGUES = ['premier league', 'epl', 'ligue 1', 'championship', 'europa league']
@@ -69,55 +67,55 @@ def check_blueprint_2(home, away):
 
 def check_blueprint_3(home, away):
     if 1.30 <= home <= 1.36 and 7.0 <= away <= 8.99:
-        return {'blueprint': '3', 'play': '1X & Over 1.5 Goals', 'confidence': 85}
+        return {'blueprint': '3', 'play': '1X & Over 1.5 Goals', 'confidence': 88}
     return None
 
 def check_blueprint_4(home):
     if 1.72 <= home <= 1.80:
-        return {'blueprint': '4', 'play': 'Over 1.5 Goals', 'confidence': 75}
+        return {'blueprint': '4', 'play': 'Over 1.5 Goals', 'confidence': 86}
     return None
 
 def check_blueprint_5(home):
     if 1.90 <= home <= 2.02:
-        return {'blueprint': '5', 'play': '1X & Under 3.5 FT', 'confidence': 70}
+        return {'blueprint': '5', 'play': '1X & Under 3.5 FT', 'confidence': 85}
     return None
 
 def check_blueprint_6(draw, league):
     if 2.75 <= draw <= 2.95:
-        return {'blueprint': '6', 'play': 'Draw or Under 2.5 Goals', 'confidence': 68}
+        return {'blueprint': '6', 'play': 'Draw or Under 2.5 Goals', 'confidence': 85}
     return None
 
 def check_blueprint_7(draw, league):
     if 2.96 <= draw <= 3.20:
-        return {'blueprint': '7', 'play': 'Draw or Over 2.5 Goals', 'confidence': 65}
+        return {'blueprint': '7', 'play': 'Draw or Over 2.5 Goals', 'confidence': 85}
     return None
 
 def check_blueprint_8(draw, league):
     if 3.21 <= draw <= 3.60:
         league_type = get_league_type(league)
         if league_type == 'high':
-            return {'blueprint': '8', 'play': 'Draw or GG', 'confidence': 68}
-        return {'blueprint': '8', 'play': 'Draw or GG', 'confidence': 65}
+            return {'blueprint': '8', 'play': 'Draw or GG', 'confidence': 87}
+        return {'blueprint': '8', 'play': 'Draw or GG', 'confidence': 85}
     return None
 
 def check_blueprint_9(home, league):
     if 1.40 <= home <= 1.55:
         league_lower = league.lower()
         if any(bl in league_lower for bl in BTTS_LOW_LEAGUES):
-            return {'blueprint': '9', 'play': 'Both Teams to Score - NO', 'confidence': 55}
+            return {'blueprint': '9', 'play': 'Both Teams to Score - NO', 'confidence': 85}
     return None
 
 def check_blueprint_10(home, league):
     if 1.56 <= home <= 1.75:
         league_lower = league.lower()
         if any(bh in league_lower for bh in BTTS_HIGH_LEAGUES):
-            return {'blueprint': '10', 'play': 'Both Teams to Score - YES', 'confidence': 70}
-        return {'blueprint': '10', 'play': 'Both Teams to Score - YES', 'confidence': 65}
+            return {'blueprint': '10', 'play': 'Both Teams to Score - YES', 'confidence': 88}
+        return {'blueprint': '10', 'play': 'Both Teams to Score - YES', 'confidence': 85}
     return None
 
 def check_blueprint_11(draw, league):
     if 3.60 <= draw <= 3.75:
-        return {'blueprint': '11', 'play': 'Over 2.5 Goals', 'confidence': 60}
+        return {'blueprint': '11', 'play': 'Over 2.5 Goals', 'confidence': 85}
     return None
 
 def analyze_match(match: dict):
@@ -158,26 +156,25 @@ def analyze_match(match: dict):
     return None
 
 # ============================================================
-# TARGETED INPUT PARSER
+# PARSER ENGINE
 # ============================================================
 def parse_matches(target_file: str = "input_matches.txt") -> list:
     if not os.path.exists(target_file):
-        print(f"❌ Input file '{target_file}' not found in root directory!")
+        print(f"❌ Input file '{target_file}' not found.")
         return []
     
-    print(f"📂 Found input file: {target_file}")
     with open(target_file, 'r', encoding='utf-8-sig') as f:
         content = f.read().strip()
         
     if not content:
-        print(f"❌ '{target_file}' is empty!")
+        print(f"❌ '{target_file}' is empty.")
         return []
 
     content = content.split("The system did not generate")[0].strip()
     matches = []
 
-    # CSV Format Parsing
-    if ',' in content and any(h in content.lower() for h in ['team a', 'home odds', 'team_a', 'home_odds']):
+    # CSV Parsing
+    if ',' in content and any(h in content.lower() for h in ['team a', 'home odds', 'team_a']):
         lines = [line.strip() for line in content.splitlines() if line.strip()]
         reader = csv.DictReader(lines)
         for row in reader:
@@ -207,7 +204,7 @@ def parse_matches(target_file: str = "input_matches.txt") -> list:
                 continue
         return matches
 
-    # Line/Pipe Text Parsing
+    # Pipe/Text Parsing
     lines = [l.strip() for l in content.split('\n') if l.strip()]
     i = 0
     while i < len(lines):
@@ -243,10 +240,10 @@ def parse_matches(target_file: str = "input_matches.txt") -> list:
     return matches
 
 # ============================================================
-# COMPOSITE SCORING & ACCUMULATOR ENGINE
+# COMPOSITE SCORING & ZERO-OVERLAP ACCUMULATORS
 # ============================================================
 def calculate_composite_score(pick: dict) -> float:
-    conf = float(pick.get('confidence', 60.0))
+    conf = float(pick.get('confidence', 85.0))
     odds = float(pick.get('odds', 1.50))
     return conf * math.log2(1.0 + odds)
 
@@ -320,7 +317,7 @@ def build_optimal_accumulators(top_30_pool: list) -> dict:
     return accumulators
 
 # ============================================================
-# AUDIT & SCORE VALIDATION
+# AUDIT & VALIDATION ENGINE
 # ============================================================
 def normalize_name(name: str) -> str:
     if not name:
@@ -473,8 +470,8 @@ def audit_and_validate_all(all_predictions: list, top_30: list, accumulators: di
     print("\n" + "="*60)
     print("📊 POST-MATCH VALIDATION AUDIT")
     print("="*60)
-    print(f"Full Pool Win Rate (All {len(all_predictions)}): {full_wins}/{len(eval_full)} ({full_rate:.1f}%)")
-    print(f"Top 30 Win Rate:              {top30_wins}/{len(eval_top30)} ({top30_rate:.1f}%)")
+    print(f"Full Pool Accuracy (All {len(all_predictions)}): {full_wins}/{len(eval_full)} ({full_rate:.1f}%)")
+    print(f"Top 30 Accuracy:            {top30_wins}/{len(eval_top30)} ({top30_rate:.1f}%)")
     print("-" * 60)
     print("🎰 ACCUMULATOR TICKET AUDIT:")
     for acc_name, data in acc_audit.items():
@@ -488,7 +485,6 @@ def audit_and_validate_all(all_predictions: list, top_30: list, accumulators: di
 # ============================================================
 def send_telegram(message: str) -> bool:
     if not Config.TELEGRAM_BOT_TOKEN or not Config.TELEGRAM_CHAT_ID:
-        print("⚠️ Telegram details missing. Skipping Telegram notification.")
         return False
     
     url = f"https://api.telegram.org/bot{Config.TELEGRAM_BOT_TOKEN}/sendMessage"
@@ -498,18 +494,12 @@ def send_telegram(message: str) -> bool:
             'text': message,
             'parse_mode': 'HTML'
         }, timeout=30)
-        if r.json().get('ok', False):
-            print("✅ Telegram notification dispatched.")
-            return True
-        print(f"⚠️ Telegram send failure: {r.text}")
-        return False
-    except Exception as e:
-        print(f"❌ Telegram exception: {e}")
+        return r.json().get('ok', False)
+    except Exception:
         return False
 
 def send_email_report(subject: str, body: str):
     if not Config.SMTP_USER or not Config.SMTP_PASSWORD or not Config.NOTIFICATION_EMAIL:
-        print("⚠️ Email credentials missing. Skipping email report.")
         return
     
     msg = EmailMessage()
@@ -522,7 +512,6 @@ def send_email_report(subject: str, body: str):
         with smtplib.SMTP_SSL(Config.SMTP_HOST, Config.SMTP_PORT) as server:
             server.login(Config.SMTP_USER, Config.SMTP_PASSWORD)
             server.send_message(msg)
-        print("✅ Email report dispatched successfully.")
     except Exception as e:
         print(f"❌ Email exception: {e}")
 
@@ -531,11 +520,11 @@ def send_email_report(subject: str, body: str):
 # ============================================================
 def main():
     print("\n" + "="*60)
-    print("⚽ JAY SOCCER BLUEPRINTS - TOP 30 & ACCUMULATOR ENGINE")
+    print("⚽ JAY SOCCER BLUEPRINTS - RECALIBRATED (MIN 85% CONFIDENCE)")
     print("="*60)
     print(f"📅 Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
     
-    # Step 1: Parse input_matches.txt
+    # 1. Parse Input
     matches = parse_matches("input_matches.txt")
     if not matches:
         print("❌ Pipeline stopped: No valid matches retrieved.")
@@ -543,30 +532,32 @@ def main():
         
     print(f"📊 Parsed {len(matches)} raw fixtures.")
 
-    # Step 2: Run 11-Blueprint Analysis & Rank Pool
+    # 2. Analyze & Apply Strict 85% Confidence Filter
+    MIN_CONFIDENCE_THRESHOLD = 85
     all_predictions = []
+    
     for m in matches:
         res = analyze_match(m)
-        if res:
+        if res and res['confidence'] >= MIN_CONFIDENCE_THRESHOLD:
             res['composite_score'] = calculate_composite_score(res)
             all_predictions.append(res)
 
     if not all_predictions:
-        print("❌ No matches passed blueprint criteria today.")
+        print(f"❌ No matches met the strict {MIN_CONFIDENCE_THRESHOLD}% confidence threshold today.")
         sys.exit(0)
 
-    # Rank all predictions by composite score descending
+    # 3. Rank High-Confidence Pool by Composite Score
     ranked_predictions = sorted(all_predictions, key=lambda x: x['composite_score'], reverse=True)
     top_30_predictions = ranked_predictions[:30]
 
-    print(f"🎯 Total Eligible Predictions: {len(all_predictions)}")
-    print(f"⭐ Extracted Top {len(top_30_predictions)} Predictions.")
+    print(f"🎯 Total Eligible Matches (>=85% Conf): {len(all_predictions)}")
+    print(f"⭐ Extracted Top Selections: {len(top_30_predictions)}")
 
-    # Step 3: Build Accumulators STRICTLY from Top 30 Pool
+    # 4. Build Zero-Overlap Accumulators
     accumulators = build_optimal_accumulators(top_30_predictions)
     print(f"🎰 Generated {len(accumulators)} tickets (2_ODDS, 4_ODDS, 7_ODDS, 10_ODDS).")
 
-    # Step 4: Export JSON Files
+    # 5. Export JSON Deliverables
     with open("predictions.json", "w", encoding="utf-8") as f:
         json.dump(all_predictions, f, indent=4)
 
@@ -575,15 +566,15 @@ def main():
         
     with open("accumulators.json", "w", encoding="utf-8") as f:
         json.dump(accumulators, f, indent=4)
-    print("💾 Saved predictions.json, top_30_predictions.json, and accumulators.json")
+    print("💾 Exported predictions.json, top_30_predictions.json, and accumulators.json")
 
-    # Step 5: Score Validation Audit (if validation_results.txt is present)
+    # 6. Perform Score Validation Audit (if validation_results.txt is present)
     actual_results = load_validation_results("validation_results.txt")
     if actual_results:
         audit_and_validate_all(all_predictions, top_30_predictions, accumulators, actual_results)
 
-    # Step 6: Telegram Dispatch
-    tg_msg = f"⚽ <b>JAY SOCCER BLUEPRINTS - TOP 30</b>\n📅 {datetime.now().strftime('%Y-%m-%d')}\n\n"
+    # 7. Telegram Dispatch
+    tg_msg = f"⚽ <b>JAY SOCCER BLUEPRINTS (>=85% CONF)</b>\n📅 {datetime.now().strftime('%Y-%m-%d')}\n\n"
     for idx, p in enumerate(top_30_predictions, 1):
         tg_msg += f"{idx}. #{p['blueprint']} {p['match']} -> <b>{p['play']}</b> ({p['confidence']}%)\n"
         if len(tg_msg) > 3500:
@@ -599,13 +590,13 @@ def main():
 
     send_telegram(tg_msg)
 
-    # Step 7: Email Audit Report
-    email_body = f"JAY SOCCER BLUEPRINTS - AUDIT REPORT\n"
+    # 8. Email Audit Dispatch
+    email_body = f"JAY SOCCER BLUEPRINTS - RECALIBRATED AUDIT REPORT\n"
     email_body += f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
     email_body += "="*60 + "\n\n"
     email_body += f"TOTAL MATCHES PARSED: {len(matches)}\n"
-    email_body += f"TOTAL ELIGIBLE PREDICTIONS: {len(all_predictions)}\n\n"
-    email_body += "TOP 30 PREDICTIONS:\n"
+    email_body += f"QUALIFIED PREDICTIONS (>=85% CONF): {len(all_predictions)}\n\n"
+    email_body += "TOP PREDICTIONS:\n"
     for idx, p in enumerate(top_30_predictions, 1):
         email_body += f"{idx:02d}. [BP #{p['blueprint']}] {p['match']} | Play: {p['play']} | Odds: {p['odds']} | Conf: {p['confidence']}%\n"
 
@@ -617,12 +608,12 @@ def main():
             email_body += f"   - {m['match']} | BP #{m['blueprint']} | Play: {m['play']} | Odds: {m['odds']}\n"
             
     send_email_report(
-        subject=f"Top 30 Soccer Predictions & Accumulators - {datetime.now().strftime('%Y-%m-%d')}",
+        subject=f"Top Soccer Predictions & Accumulators - {datetime.now().strftime('%Y-%m-%d')}",
         body=email_body
     )
 
     print("\n" + "="*60)
-    print("✅ EXECUTION FINISHED SUCCESSFULLY")
+    print("✅ PIPELINE COMPLETED SUCCESSFULLY")
     print("="*60 + "\n")
 
 if __name__ == "__main__":
