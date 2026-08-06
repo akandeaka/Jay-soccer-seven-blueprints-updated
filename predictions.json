@@ -1,0 +1,22 @@
+[
+  {
+    "match": "Arsenal vs Chelsea",
+    "home_team": "Arsenal",
+    "away_team": "Chelsea",
+    "blueprint": "BP1",
+    "play": "Home Win",
+    "confidence": 85.0,
+    "home_odds": 1.75,
+    "draw_odds": 3.60,
+    "away_odds": 4.50
+  },
+  {
+    "match": "Real Madrid vs Barcelona",
+    "home_team": "Real Madrid",
+    "away_team": "Barcelona",
+    "blueprint": "BP2",
+    "play": "Over 2.5",
+    "confidence": 80.0,
+    "play_odds": 1.65
+  }
+]
