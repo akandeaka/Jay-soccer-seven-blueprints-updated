@@ -1,5 +1,5 @@
 """
-JAY SOCCER BLUEPRINTS - COMPLETE TOP-30 & OPTIMIZED ACCUMULATOR SYSTEM
+JAY SOCCER BLUEPRINTS - COMPLETE TOP-30 & HIGH-ACCURACY ACCUMULATOR SYSTEM
 ---------------------------------------------------------------------------
 1. Parses raw match odds from input_matches.txt (supports CSV or block text).
 2. Evaluates all matches across the 11-Blueprint engine.
