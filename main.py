@@ -1,14 +1,16 @@
 """
-JAY SOCCER BLUEPRINTS - FULL 11-BLUEPRINT SYSTEM & ACCUMULATOR PIPELINE
------------------------------------------------------------------------
-1. Reads and parses raw fixtures from input_matches.txt.
-2. Runs the 11-Blueprint analyzer to evaluate match odds.
-3. Ranks resulting picks purely by highest probability/confidence.
-4. Generates 2_ODDS, 4_ODDS, 7_ODDS, and 10_ODDS accumulators with 
-   STRICT zero-match repetition across all tickets.
-5. Saves predictions.json and accumulators.json.
-6. Evaluates actual scores from validation_results.txt (if present).
-7. Sends summary via Telegram and complete audit via Email.
+JAY SOCCER BLUEPRINTS - COMPLETE TOP-30 & HIGH-ACCURACY ACCUMULATOR SYSTEM
+---------------------------------------------------------------------------
+1. Parses raw match odds from input_matches.txt (supports CSV or block text).
+2. Evaluates all matches across the 11-Blueprint engine.
+3. Ranks candidates using Composite Scoring: S = Confidence * log2(1 + Odds).
+4. Extracts the Top 30 highest-value predictions.
+5. Builds 2_ODDS, 4_ODDS, 7_ODDS, and 10_ODDS accumulators strictly from the 
+   Top 30 pool, minimizing leg count and enforcing ZERO match duplication.
+6. Saves predictions.json, top_30_predictions.json, and accumulators.json.
+7. Performs post-match audit via validation_results.txt across the Full Pool, 
+   Top 30 Pool, and individual Accumulator Tickets.
+8. Dispatches summaries via Telegram and Email.
 """
 
 import os
@@ -16,10 +18,12 @@ import sys
 import json
 import re
 import csv
+import math
 import smtplib
 import requests
 import pandas as pd
 from datetime import datetime
+from itertools import combinations
 from email.message import EmailMessage
 
 # ============================================================
@@ -142,7 +146,6 @@ def analyze_match(match: dict):
         result['draw_odds'] = draw
         result['away_odds'] = away
         
-        # Resolve pick odds based on play outcome
         play = result['play'].lower()
         if 'home' in play or result['blueprint'] in ['1', '2']:
             result['odds'] = home if home > 0 else 1.50
@@ -215,7 +218,7 @@ def parse_matches(target_file: str = "input_matches.txt") -> list:
         match_info = {'match': lines[i]}
         teams = lines[i].split(' vs ')
         match_info['home_team'] = teams[0].strip()
-        match_info['away_info'] = teams[1].strip() if len(teams) > 1 else ''
+        match_info['away_team'] = teams[1].strip() if len(teams) > 1 else ''
         i += 1
         
         if i < len(lines) and '|' not in lines[i]:
@@ -240,58 +243,84 @@ def parse_matches(target_file: str = "input_matches.txt") -> list:
     return matches
 
 # ============================================================
-# PROBABILITY ACCUMULATOR ENGINE (ZERO MATCH REPETITION)
+# COMPOSITE SCORING & ACCUMULATOR ENGINE
 # ============================================================
-def build_accumulators(predictions: list) -> dict:
-    """
-    Ranks predictions purely by highest confidence score.
-    Builds 2_ODDS, 4_ODDS, 7_ODDS, and 10_ODDS tickets with zero match overlap.
-    """
-    if not predictions:
+def calculate_composite_score(pick: dict) -> float:
+    conf = float(pick.get('confidence', 60.0))
+    odds = float(pick.get('odds', 1.50))
+    return conf * math.log2(1.0 + odds)
+
+def build_optimal_accumulators(top_30_pool: list) -> dict:
+    if not top_30_pool:
         return {}
 
-    # Sort strictly by confidence score descending
-    sorted_picks = sorted(predictions, key=lambda x: float(x.get('confidence', 50)), reverse=True)
+    candidates = sorted(top_30_pool, key=lambda x: x.get('composite_score', 0), reverse=True)
 
-    target_tickets = [
-        ('2_ODDS', 2.0),
-        ('4_ODDS', 4.0),
-        ('7_ODDS', 7.0),
-        ('10_ODDS', 10.0)
+    targets = [
+        ('2_ODDS', 1.85, 2.45, 3),
+        ('4_ODDS', 3.60, 4.60, 4),
+        ('7_ODDS', 6.50, 7.80, 5),
+        ('10_ODDS', 9.50, 11.50, 5)
     ]
 
     accumulators = {}
-    used_matches = set()  # Global match tracker preventing duplicate matches across tickets
+    used_matches = set()
 
-    for ticket_key, target_odds in target_tickets:
-        ticket_legs = []
-        combined_odds = 1.0
+    for ticket_key, min_odds, max_odds, max_legs in targets:
+        available_pool = [p for p in candidates if p['match'] not in used_matches]
         
-        for p in sorted_picks:
-            m_name = p['match']
-            if m_name in used_matches:
-                continue
+        best_combo = None
+        best_combo_score = -1.0
+        best_combo_odds = 0.0
+
+        for r in range(2, min(max_legs + 1, len(available_pool) + 1)):
+            for combo in combinations(available_pool[:14], r):
+                total_odds = 1.0
+                total_score = 0.0
+                
+                for leg in combo:
+                    total_odds *= float(leg.get('odds', 1.50))
+                    total_score += leg.get('composite_score', 0)
+                
+                if min_odds <= total_odds <= max_odds:
+                    adjusted_score = total_score / (len(combo) ** 0.5)
+                    if adjusted_score > best_combo_score:
+                        best_combo_score = adjusted_score
+                        best_combo = combo
+                        best_combo_odds = total_odds
+
+        if not best_combo:
+            ticket_legs = []
+            running_odds = 1.0
+            for p in available_pool:
+                leg_odds = float(p.get('odds', 1.50))
+                if len(ticket_legs) < max_legs:
+                    ticket_legs.append(p)
+                    running_odds *= leg_odds
+                    if running_odds >= min_odds:
+                        break
+            if ticket_legs:
+                best_combo = tuple(ticket_legs)
+                best_combo_odds = running_odds
+
+        if best_combo:
+            legs = list(best_combo)
+            for m in legs:
+                used_matches.add(m['match'])
             
-            ticket_legs.append(p)
-            used_matches.add(m_name)
-            combined_odds *= p.get('odds', 1.50)
-            
-            if combined_odds >= target_odds:
-                break
-        
-        if ticket_legs:
-            avg_conf = sum(m.get('confidence', 0) for m in ticket_legs) / len(ticket_legs)
+            avg_conf = sum(float(m.get('confidence', 0)) for m in legs) / len(legs)
             accumulators[ticket_key] = {
-                'matches': ticket_legs,
-                'odds': round(combined_odds, 2),
-                'leg_count': len(ticket_legs),
-                'avg_confidence': round(avg_conf, 1)
+                'matches': legs,
+                'odds': round(best_combo_odds, 2),
+                'leg_count': len(legs),
+                'avg_confidence': round(avg_conf, 1),
+                'blueprints_used': [m.get('blueprint') for m in legs]
             }
 
     return accumulators
 
 # ============================================================
-# SCORE EVALUATION & VALIDATION (OPTIONAL FILE SUPPORT)
+# AUDIT & SCORE VALIDATION
 # ============================================================
 def normalize_name(name: str) -> str:
     if not name:
@@ -354,9 +383,11 @@ def evaluate_prediction(play: str, actual: dict) -> bool:
         return (home == away) or (home > 0 and away > 0)
     return False
 
-def validate_all_predictions(predictions: list, actual_results: dict) -> list:
-    validated = []
-    for pred in predictions:
+def audit_and_validate_all(all_predictions: list, top_30: list, accumulators: dict, actual_results: dict):
+    if not actual_results:
+        return None
+
+    def check_pred(pred):
         match_name = pred['match']
         predicted_play = pred['play']
         norm_match = normalize_name(match_name)
@@ -366,26 +397,91 @@ def validate_all_predictions(predictions: list, actual_results: dict) -> list:
             if normalize_name(res_key) in norm_match or norm_match in normalize_name(res_key):
                 actual = score_data
                 break
-
+                
         if actual:
-            is_correct = evaluate_prediction(predicted_play, actual)
-            status = 'WIN' if is_correct else 'LOSS'
-            actual_score = f"{actual['home_score']}-{actual['away_score']}"
-        else:
-            is_correct = False
-            status = 'PENDING'
-            actual_score = 'N/A'
-
-        validated.append({
+            is_win = evaluate_prediction(predicted_play, actual)
+            return {
+                'match': match_name,
+                'blueprint': pred['blueprint'],
+                'play': predicted_play,
+                'confidence': pred['confidence'],
+                'odds': pred.get('odds', 1.50),
+                'score': f"{actual['home_score']}-{actual['away_score']}",
+                'status': 'WIN' if is_win else 'LOSS',
+                'is_win': is_win,
+                'evaluated': True
+            }
+        return {
             'match': match_name,
             'blueprint': pred['blueprint'],
             'play': predicted_play,
             'confidence': pred['confidence'],
-            'actual_score': actual_score,
+            'odds': pred.get('odds', 1.50),
+            'score': 'N/A',
+            'status': 'PENDING',
+            'is_win': False,
+            'evaluated': False
+        }
+
+    full_audit = [check_pred(p) for p in all_predictions]
+    eval_full = [p for p in full_audit if p['evaluated']]
+    full_wins = sum(1 for p in eval_full if p['is_win'])
+    full_rate = (full_wins / len(eval_full) * 100) if eval_full else 0.0
+
+    top30_audit = [check_pred(p) for p in top_30]
+    eval_top30 = [p for p in top30_audit if p['evaluated']]
+    top30_wins = sum(1 for p in eval_top30 if p['is_win'])
+    top30_rate = (top30_wins / len(eval_top30) * 100) if eval_top30 else 0.0
+
+    acc_audit = {}
+    for acc_name, acc_data in accumulators.items():
+        leg_results = [check_pred(m) for m in acc_data['matches']]
+        eval_legs = [l for l in leg_results if l['evaluated']]
+        
+        ticket_won = (len(eval_legs) == len(leg_results)) and all(l['is_win'] for l in eval_legs)
+        ticket_lost = any(l['evaluated'] and not l['is_win'] for l in leg_results)
+        
+        status = 'WIN' if ticket_won else ('LOSS' if ticket_lost else 'PENDING')
+        
+        acc_audit[acc_name] = {
+            'target_odds': acc_data['odds'],
+            'leg_count': acc_data['leg_count'],
             'status': status,
-            'is_correct': is_correct
-        })
-    return validated
+            'legs': leg_results
+        }
+
+    audit_summary = {
+        'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        'full_pool_stats': {
+            'total_predictions': len(all_predictions),
+            'evaluated': len(eval_full),
+            'wins': full_wins,
+            'win_rate_percent': round(full_rate, 2)
+        },
+        'top_30_stats': {
+            'total_predictions': len(top_30),
+            'evaluated': len(eval_top30),
+            'wins': top30_wins,
+            'win_rate_percent': round(top30_rate, 2)
+        },
+        'accumulators': acc_audit
+    }
+
+    with open("validation_audit_summary.json", "w", encoding="utf-8") as f:
+        json.dump(audit_summary, f, indent=4)
+
+    print("\n" + "="*60)
+    print("📊 POST-MATCH VALIDATION AUDIT")
+    print("="*60)
+    print(f"Full Pool Win Rate (All {len(all_predictions)}): {full_wins}/{len(eval_full)} ({full_rate:.1f}%)")
+    print(f"Top 30 Win Rate:              {top30_wins}/{len(eval_top30)} ({top30_rate:.1f}%)")
+    print("-" * 60)
+    print("🎰 ACCUMULATOR TICKET AUDIT:")
+    for acc_name, data in acc_audit.items():
+        print(f"   • {acc_name:<8} | Odds: {data['target_odds']:<5} | Status: {data['status']}")
+    print("="*60 + "\n")
+
+    return audit_summary
 
 # ============================================================
 # NOTIFICATIONS (TELEGRAM & EMAIL)
@@ -435,7 +531,7 @@ def send_email_report(subject: str, body: str):
 # ============================================================
 def main():
     print("\n" + "="*60)
-    print("⚽ JAY SOCCER BLUEPRINTS - 11 BLUEPRINT & ACCUMULATOR SYSTEM")
+    print("⚽ JAY SOCCER BLUEPRINTS - TOP 30 & ACCUMULATOR ENGINE")
     print("="*60)
     print(f"📅 Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
     
@@ -445,69 +541,83 @@ def main():
         print("❌ Pipeline stopped: No valid matches retrieved.")
         sys.exit(1)
         
-    print(f"📊 Successfully parsed {len(matches)} fixtures from input_matches.txt.")
+    print(f"📊 Parsed {len(matches)} raw fixtures.")
 
-    # Step 2: Run 11 Blueprint Analysis
-    predictions = []
+    # Step 2: Run 11-Blueprint Analysis & Rank Pool
+    all_predictions = []
     for m in matches:
         res = analyze_match(m)
         if res:
-            predictions.append(res)
-            print(f"   ✅ BP #{res['blueprint']}: {res['match']} -> {res['play']} ({res['confidence']}%)")
+            res['composite_score'] = calculate_composite_score(res)
+            all_predictions.append(res)
 
-    if not predictions:
+    if not all_predictions:
         print("❌ No matches passed blueprint criteria today.")
         sys.exit(0)
 
-    print(f"\n🎯 Total Blueprint Predictions Made: {len(predictions)}")
+    # Rank all predictions by composite score descending
+    ranked_predictions = sorted(all_predictions, key=lambda x: x['composite_score'], reverse=True)
+    top_30_predictions = ranked_predictions[:30]
 
-    # Step 3: Build Probability Accumulators (Mutually Exclusive)
-    accumulators = build_accumulators(predictions)
-    print(f"🎰 Generated {len(accumulators)} tickets (2_ODDS, 4_ODDS, 7_ODDS, 10_ODDS) with zero match duplication.")
+    print(f"🎯 Total Eligible Predictions: {len(all_predictions)}")
+    print(f"⭐ Extracted Top {len(top_30_predictions)} Predictions.")
 
-    # Step 4: Export predictions.json and accumulators.json
+    # Step 3: Build Accumulators STRICTLY from Top 30 Pool
+    accumulators = build_optimal_accumulators(top_30_predictions)
+    print(f"🎰 Generated {len(accumulators)} tickets (2_ODDS, 4_ODDS, 7_ODDS, 10_ODDS).")
+
+    # Step 4: Export JSON Files
     with open("predictions.json", "w", encoding="utf-8") as f:
-        json.dump(predictions, f, indent=4)
+        json.dump(all_predictions, f, indent=4)
+
+    with open("top_30_predictions.json", "w", encoding="utf-8") as f:
+        json.dump(top_30_predictions, f, indent=4)
         
     with open("accumulators.json", "w", encoding="utf-8") as f:
         json.dump(accumulators, f, indent=4)
-    print("💾 Saved predictions.json and accumulators.json")
+    print("💾 Saved predictions.json, top_30_predictions.json, and accumulators.json")
 
-    # Step 5: Score Validation (if validation_results.txt exists)
+    # Step 5: Score Validation Audit (if validation_results.txt is present)
     actual_results = load_validation_results("validation_results.txt")
-    validated_records = validate_all_predictions(predictions, actual_results) if actual_results else []
-    
-    if validated_records:
-        pd.DataFrame(validated_records).to_csv("validated_results.csv", index=False)
-        print("💾 Exported score validation audit to validated_results.csv")
+    if actual_results:
+        audit_and_validate_all(all_predictions, top_30_predictions, accumulators, actual_results)
 
-    # Step 6: Construct Telegram Message
-    tg_msg = f"⚽ <b>JAY SOCCER BLUEPRINTS</b>\n📅 {datetime.now().strftime('%Y-%m-%d')}\n\n"
-    tg_msg += f"📊 <b>PREDICTIONS ({len(predictions)})</b>\n"
-    for p in predictions[:10]:
-        tg_msg += f"• #{p['blueprint']} {p['match']} -> <b>{p['play']}</b> ({p['confidence']}%)\n"
-    
+    # Step 6: Telegram Dispatch
+    tg_msg = f"⚽ <b>JAY SOCCER BLUEPRINTS - TOP 30</b>\n📅 {datetime.now().strftime('%Y-%m-%d')}\n\n"
+    for idx, p in enumerate(top_30_predictions, 1):
+        tg_msg += f"{idx}. #{p['blueprint']} {p['match']} -> <b>{p['play']}</b> ({p['confidence']}%)\n"
+        if len(tg_msg) > 3500:
+            send_telegram(tg_msg)
+            tg_msg = ""
+
     if accumulators:
-        tg_msg += "\n🎰 <b>ACCUMULATORS (Zero Match Duplication):</b>\n"
+        tg_msg += "\n🎰 <b>OPTIMIZED ACCUMULATORS:</b>\n"
         for acc_name, acc_data in accumulators.items():
-            tg_msg += f"\n<b>{acc_name}</b> (Total Odds: {acc_data['odds']} | Legs: {acc_data['leg_count']})\n"
+            tg_msg += f"\n<b>{acc_name}</b> (Odds: {acc_data['odds']} | Legs: {acc_data['leg_count']})\n"
             for m in acc_data['matches']:
                 tg_msg += f"   - {m['match']} ({m['play']})\n"
 
     send_telegram(tg_msg)
 
     # Step 7: Email Audit Report
-    email_body = f"JAY SOCCER BLUEPRINTS AUDIT - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+    email_body = f"JAY SOCCER BLUEPRINTS - AUDIT REPORT\n"
+    email_body += f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
     email_body += "="*60 + "\n\n"
-    email_body += f"Total Predictions: {len(predictions)}\n\n"
+    email_body += f"TOTAL MATCHES PARSED: {len(matches)}\n"
+    email_body += f"TOTAL ELIGIBLE PREDICTIONS: {len(all_predictions)}\n\n"
+    email_body += "TOP 30 PREDICTIONS:\n"
+    for idx, p in enumerate(top_30_predictions, 1):
+        email_body += f"{idx:02d}. [BP #{p['blueprint']}] {p['match']} | Play: {p['play']} | Odds: {p['odds']} | Conf: {p['confidence']}%\n"
+
+    email_body += "\n" + "="*60 + "\n"
     email_body += "GENERATED ACCUMULATORS:\n"
     for acc_name, acc_data in accumulators.items():
-        email_body += f"\n[{acc_name}] Odds: {acc_data['odds']} | Avg Confidence: {acc_data['avg_confidence']}%\n"
+        email_body += f"\n[{acc_name}] Total Odds: {acc_data['odds']} | Legs: {acc_data['leg_count']}\n"
         for m in acc_data['matches']:
-            email_body += f" - {m['match']} | Play: {m['play']} | Odds: {m.get('odds', 1.5)}\n"
+            email_body += f"   - {m['match']} | BP #{m['blueprint']} | Play: {m['play']} | Odds: {m['odds']}\n"
             
     send_email_report(
-        subject=f"Soccer Blueprint Predictions & Accumulators - {datetime.now().strftime('%Y-%m-%d')}",
+        subject=f"Top 30 Soccer Predictions & Accumulators - {datetime.now().strftime('%Y-%m-%d')}",
         body=email_body
     )
 
