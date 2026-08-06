@@ -1,3 +1,4 @@
+Team A,Team B,League,Home Odds,Draw Odds,Away Odds,Status
 KuPS (Fin),Univ. Craiova (Rou),Europa League - Qualification,3.50,2.90,2.10,Upcoming
 Jagiellonia (Pol),Rangers (Sco),Europa League - Qualification,2.63,3.10,2.50,Upcoming
 Maccabi Tel Aviv (Isr),CSKA Sofia (Bul),Europa League - Qualification,1.95,3.10,3.80,Upcoming
