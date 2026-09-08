@@ -1,119 +1,142 @@
-Blackburn,Sheffield Utd,Championship,3.05,3.30,2.35,Upcoming
-Cardiff,Stoke,Championship,2.06,3.55,3.40,Upcoming
-Southampton,Swansea,Championship,1.87,3.60,4.10,Upcoming
-Watford,Preston,Championship,2.08,3.30,3.60,Upcoming
-Wrexham,Burnley,Championship,2.03,3.40,3.65,Upcoming
-Bolton,West Ham,Championship,5.30,4.15,1.58,Upcoming
-AEK Athens,LASK,Champions League - League phase,1.80,3.90,4.25,Upcoming
-Club Brugge KV,Aston Villa,Champions League - League phase,2.57,3.55,2.68,Upcoming
-Dortmund,Villarreal,Champions League - League phase,1.84,4.00,4.00,Upcoming
-FC Porto,Manchester City,Champions League - League phase,4.60,4.00,1.73,Upcoming
-Lille,Betis,Champions League - League phase,2.26,3.40,3.25,Upcoming
-Real Madrid,Inter,Champions League - League phase,1.65,4.40,4.80,Upcoming
-Nijmegen,Excelsior,Eredivisie,1.60,4.35,5.10,Upcoming
-Fluminense (Bra),Platense (Arg),Copa Libertadores - Play Offs,1.78,3.25,5.50,Upcoming
-Santa Fe (Col),Vasco (Bra),Copa Sudamericana - Play Offs,2.23,3.10,3.45,Upcoming
-Yangon Utd (Mya),Ezra (Lao),AFC Challenge League - Qualification,1.24,6.20,9.00,Upcoming
-Olympic Kingsway,Perth Azzurri,NPL Western Australia - Play Offs,2.53,3.75,2.32,Upcoming
-Aurora,Real Potosi,Copa Pacena,1.90,3.40,3.55,Upcoming
-Athletic Club U20,Real Brasilia U20,Copa do Brasil U20,1.54,3.75,5.00,Upcoming
-Atletico-MG U20,Sobradinho U20,Copa do Brasil U20,1.19,6.00,9.10,Upcoming
-Bahia U20,Alagoinhas U20,Copa do Brasil U20,1.19,5.60,10.75,Upcoming
-Flamengo RJ U20,Forte U20,Copa do Brasil U20,1.01,10.50,31.00,Upcoming
-Gremio U20,Real SC U20,Copa do Brasil U20,1.11,7.00,13.25,Upcoming
-Vardarac Vardaroc,Hajduk Split,Croatian Cup,25.00,15.00,1.03,Upcoming
-Zagorec K.,Istra 1961,Croatian Cup,21.00,9.90,1.03,Upcoming
-KoldingQ W,Brondby W,A-Liga Women,7.00,4.75,1.30,Upcoming
-Smouha,Ceramica Cleopatra,Premier League,3.40,2.68,2.47,Upcoming
-Zamalek,Abu Qir Semad,Premier League,1.40,4.30,7.70,Upcoming
-Boldmere,Bourne,FA Cup - Qualification,2.16,3.65,3.00,Upcoming
-Brentwood,Concord,FA Cup - Qualification,1.72,4.10,4.10,Upcoming
-Fakenham,Ware,FA Cup - Qualification,2.63,4.05,2.26,Upcoming
-Havant & W,Chippenham,FA Cup - Qualification,2.67,3.70,2.37,Upcoming
-Hitchin,Biggleswade Town,FA Cup - Qualification,1.78,3.90,3.90,Upcoming
-Kettering,Wellingborough,FA Cup - Qualification,1.73,4.05,4.10,Upcoming
-Needham Market,Stanway,FA Cup - Qualification,1.70,4.10,4.20,Upcoming
-Worcester,Knowle,FA Cup - Qualification,1.63,4.05,4.80,Upcoming
-Bournemouth,Lincoln,EFL Cup,1.34,5.40,7.80,Upcoming
-Crystal Palace,Middlesbrough,EFL Cup,1.77,3.80,4.30,Upcoming
-Leyton Orient,Bradford City,EFL Cup,3.10,3.35,2.30,Upcoming
-Sunderland,Hull,EFL Cup,1.74,3.65,4.75,Upcoming
-Millwall,Newcastle,EFL Cup,5.40,4.20,1.57,Upcoming
-Doncaster,Huddersfield,EFL Trophy,3.00,3.55,2.18,Upcoming
-Exeter,Tottenham U21,EFL Trophy,1.68,4.20,4.25,Upcoming
-Fleetwood U21,Burnley U21,Premier League Cup,2.86,4.05,2.07,Upcoming
-Hull U21,Brentford U21,Premier League Cup,3.60,4.50,1.72,Upcoming
-Narva,Flora,Meistriliiga,4.85,4.10,1.58,Upcoming
-Kalju,Nomme Utd,Meistriliiga,1.48,4.60,5.30,Upcoming
-AEK U19,LASK U19,UEFA Youth League - League phase,1.80,3.85,3.90,Upcoming
-FC Porto U19,Manchester City U19,UEFA Youth League - League phase,2.80,4.10,2.14,Upcoming
-Club Brugge U19,Aston Villa U19,UEFA Youth League - League phase,1.88,3.95,3.45,Upcoming
-Lille U19,Betis U19,UEFA Youth League - League phase,3.65,4.20,1.80,Upcoming
-Dortmund U19,Villarreal U19,UEFA Youth League - League phase,2.20,4.00,2.74,Upcoming
-Real Madrid U19,Inter U19,UEFA Youth League - League phase,1.40,5.25,6.00,Upcoming
-Ilves,Jaro,Veikkausliiga - Relegation Group,1.64,4.05,4.75,Upcoming
-Lahti,Mariehamn,Veikkausliiga - Relegation Group,1.58,4.00,5.30,Upcoming
-TPS,SJK,Veikkausliiga - Relegation Group,2.64,3.45,2.50,Upcoming
-VPS,AC Oulu,Veikkausliiga - Championship Group,2.12,3.30,3.40,Upcoming
-Gnistan,KuPS,Veikkausliiga - Championship Group,3.50,3.65,1.96,Upcoming
-Olympiacos Piraeus,Volos,Greek Cup,1.06,8.00,21.00,Upcoming
-Duhok,Ghaz Al Shamal,Stars League,1.64,3.30,4.85,Upcoming
-Erbil,Diyala,Stars League,1.57,3.60,5.05,Upcoming
-Drenica,Prishtina,Superliga,2.97,3.25,2.20,Upcoming
-Vushtrria,KF Llapi,Superliga,2.77,3.40,2.26,Upcoming
-Negeri Sembilan,Kelantan City,FA Cup,1.22,5.50,8.80,Upcoming
-Star City,Kedah,FA Cup,1.32,4.95,6.50,Upcoming
-Atlante W,Juarez W,Liga MX Women - Apertura,4.30,3.75,1.68,Upcoming
-Sutjeska,Mornar Bar,Prva Crnogorska Liga,2.58,2.93,2.84,Upcoming
-Larne,Bangor FC,NIFL Premiership,1.16,6.90,13.75,Upcoming
-Djerv 1919,Haugesund,NM Cup,23.00,10.25,1.06,Upcoming
-Asker,Stromsgodset,NM Cup,10.75,6.70,1.19,Upcoming
-Ryazan,S. Kostroma,Russian Cup - Regions Path,5.15,3.35,1.60,Upcoming
-Tekstilshtik,Arsenal Tula,Russian Cup - Regions Path,3.05,2.88,2.28,Upcoming
-Domagnano,Faetano,Coppa Titano,1.27,5.15,9.00,Upcoming
-Tre Penne,Juvenes/Dogana,Coppa Titano,1.40,4.55,6.00,Upcoming
-Al Ettifaq,Al-Faisaly,Saudi Professional League,1.97,3.70,3.40,Upcoming
-Al Hazem,Al Taawon,Saudi Professional League,3.30,3.35,2.13,Upcoming
-Al Ittihad,Al Fayha,Saudi Professional League,1.40,4.95,6.50,Upcoming
-Al Qadsiah,Al Ahli SC,Saudi Professional League,2.04,3.70,3.25,Upcoming
-Al Zulfi,Hajer,Division 1,1.80,3.40,4.35,Upcoming
-Damac,Al-Ula,Division 1,4.00,3.40,1.86,Upcoming
-Al Anwar,Al Taee,Division 1,2.05,3.40,3.40,Upcoming
-Airdrieonians,St. Mirren B,Challenge Cup,1.46,4.75,4.95,Upcoming
-Annan,Motherwell B,Challenge Cup,1.40,4.60,6.00,Upcoming
-Banks O' Dee,Forfar Athletic,Challenge Cup,2.62,3.70,2.27,Upcoming
-Berwick,Hibernian B,Challenge Cup,2.10,3.80,2.80,Upcoming
-Clyde,East Fife,Challenge Cup,2.56,3.55,2.36,Upcoming
-Clydebank FC,Alloa,Challenge Cup,3.60,4.20,1.73,Upcoming
-Cove Rangers,Dumbarton,Challenge Cup,1.53,4.40,4.70,Upcoming
-Cowdenbeath,Kilmarnock B,Challenge Cup,1.84,3.90,3.35,Upcoming
-Cumbernauld Colts,Kelty Hearts,Challenge Cup,4.10,4.10,1.65,Upcoming
-East Kilbride,Bonnyrigg Rose,Challenge Cup,1.40,4.85,5.60,Upcoming
-Edinburgh City,Queen of South,Challenge Cup,2.75,3.90,2.10,Upcoming
-Elgin City,Fraserburgh,Challenge Cup,1.50,4.65,4.75,Upcoming
-Formartine Utd,Dundee Utd B,Challenge Cup,1.27,5.70,7.30,Upcoming
-Gala Fairydean,Hearts B,Challenge Cup,2.07,4.10,2.72,Upcoming
-Montrose,Dundee FC B,Challenge Cup,1.15,6.80,12.25,Upcoming
-Peterhead,Clachnacuddin,Challenge Cup,1.40,4.90,5.60,Upcoming
-Ross County,Aberdeen B,Challenge Cup,1.17,7.10,10.25,Upcoming
-Spartans,Hamilton,Challenge Cup,2.82,4.10,2.02,Upcoming
-Stirling,Rangers B,Challenge Cup,2.26,3.80,2.56,Upcoming
-MSK Lucenec,Komarno,Slovak Cup,35.00,10.50,1.01,Upcoming
-Medzev,Michalovce,Slovak Cup,11.00,6.80,1.14,Upcoming
-Namestovo,MFK Bytca,Slovak Cup,2.10,3.55,2.80,Upcoming
-Raca,Samorin,Slovak Cup,8.40,5.00,1.26,Upcoming
-Spisska Nova Ves,Podbrezova,Slovak Cup,18.00,9.10,1.05,Upcoming
-Orbit College,Lerumo Lions,Motsepe Foundation Championship,2.16,3.10,3.40,Upcoming
-Incheon,Bucheon FC 1995,K League 1,1.88,3.25,4.25,Upcoming
-Ulsan HD,Seoul,K League 1,3.60,3.55,1.95,Upcoming
-San Fernando,Orihuela,Copa Federacion,2.42,3.10,2.64,Upcoming
-Mashujaa,Singida Black Stars,Ligi Kuu Bara,3.20,2.87,2.14,Upcoming
-Young Africans,Geita Gold,Ligi Kuu Bara,1.02,9.80,36.00,Upcoming
-BUL,Ntugasaze,Premier League,1.36,4.05,8.90,Upcoming
-Kigezi HomeBoyz,Kampala City,Premier League,4.50,3.15,1.80,Upcoming
-Maroons,Blacks Power,Premier League,2.00,2.97,3.85,Upcoming
-Olympia Savyntsi,Kryvbas,Ukrainian Cup,28.00,9.30,1.06,Upcoming
-Benin U20 W,Argentina U20 W,World Cup Women U20,5.60,4.65,1.46,Upcoming
-Brazil U20 W,Canada U20 W,World Cup Women U20,2.12,3.20,3.40,Upcoming
-England U20 W,Tanzania U20 W,World Cup Women U20,1.07,10.25,21.00,Upcoming
-Poland U20 W,Mexico U20 W,World Cup Women U20,2.45,3.35,2.66,Upcoming
+Here is the same data in proper CSV format. You can copy this directly into a `.csv` file.
+
+```csv
+Team A,Team B,League,Home Odds,Draw Odds,Away Odds,Status
+Aarhus (Den),Sabah Baku (Aze),Europa League - Qualification,1.65,3.90,4.33,
+Fenerbahce (Tur),Sturm Graz (Aut),Europa League - Qualification,1.36,4.75,7.00,
+Ferencvaros (Hun),Gornik Zabrze (Pol),Conference League - Qualification,1.65,3.40,5.00,
+Brann (Nor),Apollon (Cyp),Conference League - Qualification,1.60,3.90,5.00,
+Panathinaikos (Gre),CSKA 1948 Sofia (Bul),Conference League - Qualification,1.22,5.25,12.00,
+Egypt W,Nigeria W,Africa Cup of Nations Women,23.00,10.00,1.04,
+Malawi W,Zambia W,Africa Cup of Nations Women,3.25,3.60,1.91,
+Boca Juniors,Estudiantes L.P.,Liga Profesional - Clausura,2.05,2.85,4.20,
+Almagro,Gimnasia y Tiro,Primera Nacional,2.75,2.75,2.85,
+Provincial,Deportivo Metalurgico,Torneo Promocional Amateur,6.00,3.67,1.44,
+Queanbeyan City,Tuggeranong Utd,NPL ACT,1.71,3.75,3.75,"Live, 1-0",
+GV San Jose,SA Bulo Bulo,Division Profesional,1.66,4.10,3.80,
+Nacional Potosi,The Strongest,Division Profesional,2.35,3.60,2.55,
+Cruzeiro,Chapecoense-SC,Copa Betano do Brasil,1.30,4.50,10.00,
+Gremio,Mirassol,Copa Betano do Brasil,1.96,3.30,3.90,
+America SE,Atletico Gloriense,Copa Governo (Sergipe),3.10,3.20,2.14,
+Falcon,Desportiva Aracaju,Copa Governo (Sergipe),1.54,3.80,5.33,
+Lagarto,Guarany SE,Copa Governo (Sergipe),1.43,4.00,6.67,
+Marica,Boavista,Copa Rio,3.00,3.05,2.18,
+Olaria,Nova Iguacu,Copa Rio,3.05,3.10,2.14,
+Sao Goncalo,Sampaio Correa FE,Copa Rio,3.30,3.00,2.00,
+Portuguesa RJ,Madureira,Copa Rio,1.82,3.20,3.90,
+S. Wanderers,Union La Calera,Copa Chile,3.90,3.10,1.95,
+San Felipe,U. De Chile,Copa Chile,5.25,4.10,1.45,
+Shanghai Port B,Shanxi Chongde Ronghai,League Two,1.93,3.10,3.70,"Live, 0-1",
+Changchun Xidu,Dalian Yingbo B,League Two,2.70,2.75,2.60,"Half Time, 0-1",
+Hubei Istar,Jiangxi Lushan,League Two,2.80,3.00,2.25,
+Lanzhou Longyuan,Beijing Technology,League Two,1.43,3.80,6.50,
+Hobro,Vendsyssel,Betano Pokalen,3.00,3.60,2.10,
+Odder,Skive,Betano Pokalen,4.75,4.10,1.57,
+Tarup-Paarup,Vejle,Betano Pokalen,15.00,7.00,1.13,
+Vinotinto,U. Catolica,Copa Ecuador,1.62,3.25,4.60,
+Valerenga W,Malmo FF W,Champions League Women - Qualification - Second stage,2.50,3.35,2.35,
+Sporting W,SeaSters Odesa W,Champions League Women - Qualification - Second stage,1.21,5.60,9.50,
+Ajax W,Brondby W,Champions League Women - Qualification - Second stage,1.81,3.70,3.40,
+Gintra W,Hearts W,Champions League Women - Qualification - Second stage,4.90,3.95,1.52,
+Hammarby W,Apolonia Fier W,Champions League Women - Qualification - Second stage,1.06,11.00,21.00,
+Apollon W,Czarni Sosnowiec W,Champions League Women - Qualification - Second stage,3.65,3.70,1.75,
+Ferencvaros W,PAOK W,Champions League Women - Qualification - Second stage,1.80,3.50,3.30,
+Mura W,Farul Constanta W,Champions League Women - Qualification - Second stage,1.84,3.45,3.50,
+St. Polten W,Young Boys W,Champions League Women - Qualification - Second stage,2.12,3.20,3.00,
+Koge W,Riga FC W,Champions League Women - Qualification - Second stage,1.06,10.50,16.00,
+Racing Luxembourg W,HJK W,Champions League Women - Qualification - Second stage,7.50,5.00,1.29,
+Leuven W,TSC W,Champions League Women - Qualification - Second stage,1.12,8.00,11.50,
+Slavia Prague W,Rangers W,Champions League Women - Qualification - Second stage,2.17,3.45,2.70,
+Vllaznia W,Myjava W,Champions League Women - Qualification - Second stage,1.53,4.20,4.00,
+Juventus W,Torreense W,Champions League Women - Qualification - Second stage,1.23,5.80,7.50,
+OLS Oulu,TPV,Ykkonen,1.48,4.75,4.33,
+Rovaniemi,Jazz Pori,Ykkonen,1.53,4.20,4.50,
+SalPa,JJK Jyvaskyla,Ykkonen,1.91,3.90,2.90,
+Tampere Utd,KPV Kokkola,Ykkonen,1.17,7.00,11.00,
+VJS,Keski-Uusimaa,Ykkonen,1.60,4.20,4.00,
+Keflavik,KA Akureyri,Besta deild karla,2.05,3.65,2.80,
+Hafnarfjordur,KR Reykjavik,Besta deild karla,3.55,4.10,1.68,
+Mohammedan,Police AC,Calcutta Premier Division,1.95,2.88,3.50,"Live, 0-0",
+Neroca FC,Indian Navy,Durand Cup,1.67,3.75,3.80,
+Shelbourne W,Cork City W,National League Women,1.06,10.00,23.00,
+Hapoel Petah Tikva,Netanya,Toto Cup,2.40,3.20,2.40,
+Hap. Ramat Gan,Hapoel Jerusalem,Toto Cup,2.10,3.10,2.88,
+Costa do Sol,Ferroviario Nacala,Mocambola,1.71,3.05,4.60,
+Black Bulls,AD Pemba,Mocambola,1.61,3.15,5.30,
+Canada U20,Jamaica U20,CONCACAF Championship U20 - Play Offs,1.68,3.85,3.65,
+Mexico U21,Panama U21,Central American & Caribbean Games - Play Offs,1.47,4.00,5.00,
+Mexico W,El Salvador W,Central American & Caribbean Games Women - Play Offs,1.22,6.50,9.50,
+Podbeskidzie,Hutnik Krakow,Polish Cup,1.55,4.20,5.00,
+Pruszkow,LKS Lodz II,Polish Cup,1.45,4.40,6.00,
+Slask Wroclaw II,S. Wola,Polish Cup,2.60,3.50,2.25,
+Podhale Nowy Targ,Chojniczanka,Polish Cup,1.83,3.40,3.60,
+Ol. Grudziadz,Swit Szczecin,Polish Cup,2.14,3.45,3.05,
+Warta Poznan,R. Rzeszow,Polish Cup,1.52,4.20,5.40,
+Leczna,KKS Kalisz,Polish Cup,1.58,3.95,5.00,
+Sandecja Nowy S.,Bielsko-Biala,Polish Cup,2.28,3.25,2.95,
+Tychy,Zaglebie Sosnowiec,Polish Cup,1.68,3.90,4.30,
+Skierniewice,Kleczew,Polish Cup,1.49,4.35,5.30,
+CSC Dumbravita,CSM Satu Mare,Liga 2,1.74,3.40,4.10,
+Axiopolis Cernavoda,Agricola Borcea,Romanian Cup - Qualification,4.90,4.40,1.46,
+Baile Felix,Santandrei,Romanian Cup - Qualification,2.80,3.25,2.20,
+Blaj,ACS Medias,Romanian Cup - Qualification,4.40,4.25,1.53,
+Calarasi,Inainte Modelu,Romanian Cup - Qualification,2.30,3.40,2.63,
+CSO Filiasi,Curtisoara,Romanian Cup - Qualification,3.25,3.65,1.87,
+Dunarea Giurgiu,Cetatea,Romanian Cup - Qualification,5.20,4.80,1.40,
+Metalurgistul Cugir,Jiul Petrosani,Romanian Cup - Qualification,2.04,3.30,2.95,
+Mogosoaia,Vointa Crevedia,Romanian Cup - Qualification,3.80,3.55,1.74,
+Paulesti,Tunari,Romanian Cup - Qualification,7.50,4.20,1.36,
+Sanatatea Cluj,Unirea Alba-Iulia,Romanian Cup - Qualification,3.70,4.10,1.67,
+Unirea Branistea,Sporting Liesti,Romanian Cup - Qualification,2.00,3.55,2.90,
+Viitorul Cluj,SCM Zalau,Romanian Cup - Qualification,8.00,4.90,1.27,
+Boroughmuir W,Queen's Park W,SWPL Cup Women,2.17,3.60,2.55,
+Dundee Utd W,Aberdeen W,SWPL Cup Women,4.50,4.33,1.48,
+Falkirk FCF W,Kilmarnock W,SWPL Cup Women,26.00,9.00,1.02,
+Hamilton W,Livingston W,SWPL Cup Women,1.13,6.67,11.00,
+Motherwell W,Gartcairn W,SWPL Cup Women,1.09,7.00,14.00,
+Spartans W,Renfrew W,SWPL Cup Women,1.07,7.50,17.00,
+St Johnstone W,Montrose W,SWPL Cup Women,16.00,7.50,1.07,
+Lochin,Yaypan,Pro Liga,1.50,3.80,5.33,
+Aral,Metallurg Bekabad,Pro Liga,1.80,3.50,3.60,
+BuxDu,Shortan Guzor,Pro Liga,4.20,3.67,1.64,
+Olimpik-Mobiuz,Jayxun,Pro Liga,1.38,4.33,6.00,
+La Guaira,Metropolitanos,Liga FUTVE - Clausura,1.79,3.10,4.10,
+Cadiz CF (Esp),Granada CF (Esp),Club Friendly,2.88,2.88,2.35,"Live, 2-0",
+UD Ibiza (Esp),Ilicitano (Esp),Club Friendly,1.42,4.40,5.50,"Live, 1-1",
+AC Milan (Ita),Inter (Ita),Club Friendly,2.50,3.75,2.40,
+K-League Stars (Kor),Manchester City (Eng),Club Friendly,5.00,5.50,1.36,
+Ratchaburi (Tha),Eastern AA (Hkg),Club Friendly,1.21,6.25,8.00,
+Chelsea (Eng),Juventus (Ita),Club Friendly,1.91,3.75,3.10,
+Pineto (Ita),Notaresco Calcio (Ita),Club Friendly,1.58,3.60,4.75,
+Marseille (Fra),Al-Shahaniya (Qat),Club Friendly,1.14,6.50,13.00,
+Ossese (Ita),Torres (Ita),Club Friendly,9.50,5.50,1.20,
+Pianese (Ita),Montevarchi (Ita),Club Friendly,1.30,4.50,7.00,
+Torino (Ita),Vado (Ita),Club Friendly,1.09,9.00,14.00,
+Grosseto (Ita),Tau (Ita),Club Friendly,1.73,3.40,3.75,
+Lazio (Ita),Ostiamare (Ita),Club Friendly,1.02,21.00,51.00,
+Lecco (Ita),Inter U23 (Ita),Club Friendly,2.55,3.10,2.75,
+Pro Palazzolo (Ita),Brusaporto (Ita),Club Friendly,1.83,3.25,3.50,
+San Donato (Ita),Scandicci (Ita),Club Friendly,2.20,3.10,2.75,
+Stade Briochin (Fra),Brest (Fra),Club Friendly,8.00,4.60,1.25,
+Napoli (Ita),Osasuna (Esp),Club Friendly,1.65,4.00,3.80,
+Al Ain (Uae),Toulouse (Fra),Club Friendly,3.75,3.60,1.67,
+Gimnastica Segoviana (Esp),Valladolid (Esp),Club Friendly,4.60,3.50,1.57,
+Manresa (Esp),Espanyol B (Esp),Club Friendly,2.75,2.88,2.30,
+Oviedo B (Esp),Covadonga (Esp),Club Friendly,1.70,3.50,3.75,
+Ponferradina (Esp),Unionistas (Esp),Club Friendly,1.95,3.00,3.40,
+Portugalete (Esp),Rayo Cantabria (Esp),Club Friendly,2.20,3.50,2.50,
+Club Siero (Esp),Caudal Deportivo (Esp),Club Friendly,3.75,3.50,1.70,
+Cultural Leonesa (Esp),Real Aviles (Esp),Club Friendly,2.00,3.40,2.88,
+L'Entregu (Esp),Langreo (Esp),Club Friendly,2.88,3.20,2.10,
+La Nucia (Esp),CF Intercity (Esp),Club Friendly,2.50,3.00,2.50,
+Cacereno (Esp),Guadalajara (Esp),Club Friendly,1.83,3.20,3.50,
+Cesena (Ita),Vis Pesaro (Ita),Club Friendly,1.30,4.50,7.00,
+Sassuolo (Ita),Celta Vigo (Esp),Club Friendly,2.63,3.40,2.30,
+Arsenal (Eng),Betis (Esp),Club Friendly,1.57,4.00,5.00,
+CD Badajoz (Esp),CD Coria (Esp),Club Friendly,2.63,3.20,2.25,
+Consett (Eng),Gateshead (Eng),Club Friendly,4.33,4.00,1.53,
+Mallorca (Esp),PSG (Fra),Club Friendly,2.70,4.33,1.91,
+Cesena W (Ita),Fiorentina W (Ita),Club Friendly Women,9.50,6.75,1.15,
+Athletic Bilbao W (Esp),Costa Adeje Tenerife W (Esp),Club Friendly Women,2.45,3.10,2.50,
+Real Madrid W (Esp),Crystal Palace W (Eng),Club Friendly Women,1.17,5.50,11.00,
+```
