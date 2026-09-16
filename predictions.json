@@ -12,6 +12,18 @@
         "composite_score": 83.72918578558564
     },
     {
+        "blueprint": "BP14",
+        "play": "Full Time Draw",
+        "confidence": 48,
+        "match": "Dep. A Coruna vs Sevilla",
+        "league": "LaLiga",
+        "home_odds": 2.5,
+        "draw_odds": 3.1,
+        "away_odds": 3.0,
+        "odds": 3.1,
+        "composite_score": 97.70994766707462
+    },
+    {
         "blueprint": "BP4",
         "play": "Straight Home Win",
         "confidence": 55,
@@ -22,5 +34,17 @@
         "away_odds": 3.3,
         "odds": 1.75,
         "composite_score": 80.26873902505135
+    },
+    {
+        "blueprint": "BP14",
+        "play": "Full Time Draw",
+        "confidence": 48,
+        "match": "Smederevo vs Sp. Subotica",
+        "league": "Mozzart Bet Prva Liga",
+        "home_odds": 2.45,
+        "draw_odds": 3.2,
+        "away_odds": 2.5,
+        "odds": 3.2,
+        "composite_score": 99.37868773878711
     }
 ]
