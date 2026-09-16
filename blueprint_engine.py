@@ -19,7 +19,7 @@ To re-enable any disabled blueprint, add its ID to ENABLED_BLUEPRINTS.
 # ENABLED BLUEPRINTS
 # ============================================================
 
-ENABLED_BLUEPRINTS = ["BP3", "BP4", "BP12", "BP13"]
+ENABLED_BLUEPRINTS = ["BP3", "BP4", "BP12", "BP13", "BP14"]
 
 
 # ============================================================
@@ -168,6 +168,27 @@ def check_bp13(home, league):
     return ('BP13', 'Straight Home Win', 57)
 
 
+def check_bp14(home, draw, away):
+    """
+    BP14 — Draw in wider close matches (BP3-wider).
+    Backtest: +1.40% mean ROI, 8/11 positive seasons, 8,121 matches.
+
+    Same trigger conditions as BP3 but with a wider closeness filter
+    (|H-D| <= 0.75 and |A-D| <= 0.75). Only fires when BP3 does not —
+    BP3 claims the tighter matches first.
+    """
+    if not (2.80 <= draw <= 3.40):
+        return None
+    if abs(home - draw) > 0.75:
+        return None
+    if abs(away - draw) > 0.75:
+        return None
+    # Skip if BP3 would already claim this match
+    if abs(home - draw) <= 0.50 and abs(away - draw) <= 0.50:
+        return None
+    return ('BP14', 'Full Time Draw', 48)
+
+
 # ============================================================
 # ENGINE
 # ============================================================
@@ -175,7 +196,7 @@ def check_bp13(home, league):
 class BlueprintEngine:
     def __init__(self, enabled=None):
         self.enabled = set(enabled) if enabled else set(ENABLED_BLUEPRINTS)
-        self.stats = {f'BP{i}': 0 for i in range(1, 14)}
+        self.stats = {f'BP{i}': 0 for i in range(1, 15)}
 
     def classify(self, match):
         home = match.get('home_odds', 0)
@@ -189,6 +210,7 @@ class BlueprintEngine:
             check_bp13(home, league),                    # +2.10% (tighter)
             check_bp4(home, league),                     # +2.10% (wider)
             check_bp3(home, draw, away),                 # +3.77%
+            check_bp14(home, draw, away),                # +1.40% (wider)
             check_bp8(draw, league, correct_scores),
             check_bp1(home, away),
             check_bp2(home, away),
