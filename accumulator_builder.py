@@ -219,6 +219,11 @@ def calculate_quality_score(match):
 
 def build_accumulators(predictions):
     """
+    # Only accumulate validated blueprints
+    from blueprint_engine import ENABLED_BLUEPRINTS
+    predictions = [p for p in predictions if p.get('blueprint') in ENABLED_BLUEPRINTS]
+    if len(predictions) < 2:
+        return {}
     Build accumulators using data-driven league inclusion
     INCLUDES: Women's leagues, lower divisions with good data
     EXCLUDES: Reserve teams, youth leagues, cup competitions, obscure leagues
