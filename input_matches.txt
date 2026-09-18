@@ -1,107 +1,234 @@
 Team A,Team B,League,Home Odds,Draw Odds,Away Odds,Status
-Levski Sofia,Salzburg,Europa League - League phase,3.30,3.60,2.10,Upcoming
-OFI Crete,Hoffenheim,Europa League - League phase,9.00,5.25,1.33,Upcoming
-Besiktas,Marseille,Europa League - League phase,1.75,4.10,4.10,Upcoming
-Celtic,Ferencvaros,Europa League - League phase,1.65,4.10,5.00,Upcoming
-Crystal Palace,Lech Poznan,Europa League - League phase,1.36,5.00,8.00,Upcoming
-Juventus,Nijmegen,Europa League - League phase,1.18,7.00,15.00,Upcoming
-Lillestrom,Torreense,Europa League - League phase,1.62,4.10,5.00,Upcoming
-Plzen,Royale Union SG,Europa League - League phase,2.50,3.50,2.75,Upcoming
-Real Sociedad,Bournemouth,Europa League - League phase,3.10,3.50,2.20,Upcoming
-Betis,Getafe,LaLiga,1.62,3.80,5.75,Upcoming
-Malaga,Villarreal,LaLiga,3.70,3.75,1.90,Upcoming
-Rwanda U20,Ethiopia U20,CECAFA Championship U20,2.30,2.88,2.75,Upcoming
-Djibouti U20,Sudan U20,CECAFA Championship U20,21.00,11.00,1.06,Upcoming
-Burundi U20,Kenya U20,CECAFA Championship U20,4.50,3.75,1.53,Upcoming
-Biskra,CR Belouizdad,Ligue 1,4.00,2.88,1.90,Upcoming
-Temouchent,Kabylie,Ligue 1,2.90,2.95,2.30,Upcoming
-Barracas Central 2,Instituto 2,Reserve League - Clausura,2.50,3.00,2.50,Upcoming
-Belgrano 2,Deportivo Riestra 2,Reserve League - Clausura,1.90,3.10,3.40,Upcoming
-Estudiantes Rio Cuarto 2,Estudiantes L.P. 2,Reserve League - Clausura,3.50,2.88,1.95,Upcoming
-Godoy Cruz 2,Banfield 2,Reserve League - Clausura,2.38,3.20,2.50,Upcoming
-Newells Old Boys 2,San Martin S.J. 2,Reserve League - Clausura,1.25,5.00,8.50,Upcoming
-Boca Juniors 2,Atl. Rafaela 2,Reserve League - Clausura,1.18,5.00,13.00,Upcoming
-Adelaide United (Aus),Tai Po (Hkg),AFC Champions League 2,1.23,6.25,8.50,Upcoming
-Lion City (Sgp),Pathum United (Tha),AFC Champions League 2,1.92,3.60,3.45,Upcoming
-Machida (Jpn),Svay Rieng (Cam),AFC Champions League 2,1.08,10.00,17.00,Upcoming
-Kitchee (Hkg),Gangwon (Kor),AFC Champions League 2,2.05,3.35,3.25,Upcoming
-Phnom Penh Crown (Cam),Kuching City FC (Mys),AFC Champions League 2,2.20,3.25,2.88,Upcoming
-Shanghai Shenhua (Chn),Tampines (Sgp),AFC Champions League 2,1.31,5.40,7.00,Upcoming
-Hong Kong W,Philippines W,Asian Games Women,6.50,4.33,1.33,Upcoming
-Myanmar W,North Korea W,Asian Games Women,41.00,21.00,1.02,Upcoming
-Vietnam W,Japan W,Asian Games Women,30.00,10.50,1.01,Upcoming
-Baku Sporting,Sabail,I Liqa,4.33,3.45,1.67,Upcoming
-Mingachevir,Gancabasar,I Liqa,1.80,3.45,3.55,Upcoming
-Shimal,Sahdag Qusar,I Liqa,4.80,3.65,1.57,Upcoming
-Tomayapo,Oriente Petrolero,Division Profesional,2.45,3.70,2.35,Upcoming
-Vasco U20,Rio Branco ES U20,Copa do Brasil U20,1.03,11.00,34.00,Upcoming
-Vejle,Brondby,Betano Pokalen,3.80,3.80,1.81,Upcoming
-ZED,Al Qanah,Premier League,2.00,2.85,3.85,Upcoming
-Enppi,Pyramids,Premier League,6.50,3.80,1.45,Upcoming
-Dayrout,El-Entag El-Harby,Division 2 A,3.55,2.90,2.02,Upcoming
-El Daklyeh,Tersana,Division 2 A,3.20,2.50,2.45,Upcoming
-El Ismaily,Haras El Hodood,Division 2 A,2.88,2.88,2.35,Upcoming
-El Mansoura,Team FC,Division 2 A,2.02,2.90,3.55,Upcoming
-Tanta,Al Nasr,Division 2 A,2.65,2.80,2.55,Upcoming
-AFC Wimbledon,MK Dons,League One,3.00,3.30,2.20,Upcoming
-Manchester City,Norwich,EFL Cup,1.08,10.00,17.00,Upcoming
-Levadia,Tammeka,Meistriliiga,1.18,6.25,9.00,Upcoming
-Bastia,Cannes,Ligue 3,2.35,3.10,2.70,Upcoming
-Iberia 1999,Dila Gori,Crystalbet Erovnuli Liga,2.08,3.25,3.05,Upcoming
-Kalamata,AEL Larissa,Greek Cup,1.85,3.30,3.60,Upcoming
-AEK Athens,Panserraikos,Greek Cup,1.06,8.50,17.00,Upcoming
-Breidablik W,Grindavik/Njardvik W,Besta deild Women - Championship Group,1.18,6.30,9.00,Upcoming
-Al Karkh,Naft Missan,Stars League,2.45,2.90,2.75,Upcoming
-Al Zawraa,Al Gharraf,Stars League,1.45,3.80,6.50,Upcoming
-Bnei Yehuda,M. Herzliya,Leumit League,1.53,3.90,5.10,Upcoming
-H. Raanana,Kiryat Gat,Leumit League,2.00,3.35,3.25,Upcoming
-Hapoel Afula,Hapoel Kfar Shalem,Leumit League,2.70,3.35,2.20,Upcoming
-Kiryat Yam,Ironi Modiin,Leumit League,1.65,3.80,4.15,Upcoming
-M. Nazareth,H. Akko,Leumit League,1.80,3.45,3.75,Upcoming
-Maccabi Jaffa,Maccabi Bnei Raina,Leumit League,3.40,3.45,1.91,Upcoming
-MS Kafr Qasim,Hapoel Kfar Saba,Leumit League,2.65,3.30,2.35,Upcoming
-SC Ashdod,H. Ironi Rishon,Leumit League,1.85,3.50,3.40,Upcoming
-AlbinoLeffe,Arzignano,Serie C - Group A,2.30,3.00,2.88,Upcoming
-Cittadella,Juventus U23,Serie C - Group A,1.80,3.40,4.00,Upcoming
-Desenzano,Lecco,Serie C - Group A,2.30,3.00,2.88,Upcoming
-Lumezzane,Novara,Serie C - Group A,2.60,3.10,2.50,Upcoming
-Pergolettese,Folgore Caratese,Serie C - Group A,2.60,3.00,2.50,Upcoming
-Pro Vercelli,Alcione Milano,Serie C - Group A,2.40,3.00,2.80,Upcoming
-Brescia,Treviso,Serie C - Group A,1.67,3.30,5.00,Upcoming
-Carpi,Ospitaletto,Serie C - Group A,2.80,3.10,2.30,Upcoming
-Giana Erminio,Trento,Serie C - Group A,2.88,3.10,2.25,Upcoming
-Renate,Dolomiti Bellunesi,Serie C - Group A,2.05,3.10,3.30,Upcoming
-Doqarah,Al Salt,Premier League,3.10,3.20,2.08,Upcoming
-FC Astana,Kairat Almaty,Premier League,2.35,3.20,2.65,Upcoming
-Tobol,Yelimay Semey,Premier League,2.30,3.40,2.60,Upcoming
-Atyrau,Ordabasy,Premier League,6.00,4.00,1.44,Upcoming
-Alga,Kyrgyzaltyn,Premier Liga,1.13,7.00,13.00,Upcoming
-Deren,FC Ulaanbaatar,Premier League,2.25,3.60,2.38,Upcoming
-Rangers Int'l,Nasarawa,NPFL,1.33,3.75,10.50,Upcoming
-Skeid,Valerenga,NM Cup,6.00,6.00,1.29,Upcoming
-Rosenborg W,Stabaek W,Toppserien Women,1.40,4.60,5.40,Upcoming
-Valerenga W,Haugesund W,Toppserien Women,1.11,7.50,12.00,Upcoming
-Gasogi United,Gorilla,Premier League,2.05,2.88,3.30,Upcoming
-Mukura Victory Sports,Police,Premier League,2.40,2.80,2.75,Upcoming
-Rayon Sport,Sunrise,Premier League,1.20,4.60,15.00,Upcoming
-Zeleznicar Pancevo,Crvena zvezda,Mozzart Bet Super Liga,7.50,4.75,1.36,Upcoming
-Graficar Beograd,Bor 1919,Mozzart Bet Prva Liga,1.80,3.40,3.70,Upcoming
-Loznica,Javor,Mozzart Bet Prva Liga,3.25,3.05,2.05,Upcoming
-Orlando Pirates,Durban City,Betway Premiership,1.32,4.20,8.00,Upcoming
-Eskilsminne,Tvaaker,Division 1 - Södra,2.15,3.45,2.85,Upcoming
-Kristianstad,Olympic,Division 1 - Södra,2.65,3.45,2.25,Upcoming
-Rosengard,Trelleborg,Division 1 - Södra,2.65,3.50,2.25,Upcoming
-Skovde AIK,Trollhattan,Division 1 - Södra,2.55,3.50,2.30,Upcoming
-Stade Tunisien,Club Africain,Ligue Professionnelle 1,2.60,2.55,2.90,Upcoming
-UPDF,Maroons,Premier League,2.10,2.88,3.10,Upcoming
-Express,Kitara,Premier League,3.30,2.88,2.05,Upcoming
-Trostyanets,FC Chernihiv,Ukrainian Cup,4.50,3.45,1.64,Upcoming
-FC Vilkhivtsi,Shakhtar Donetsk,Ukrainian Cup,41.00,8.00,1.03,Upcoming
-Central Esp.,Oriental,Copa Uruguay,1.57,3.50,4.60,Upcoming
-Juventud,Racing Montevideo,Copa Uruguay,2.40,3.00,2.60,Upcoming
-Navbahor Namangan,Din. Samarkand,Super League,1.33,4.60,6.75,Upcoming
-BuxDu,Respublika FA,Pro Liga,2.40,3.40,2.45,Upcoming
-England U20 W,Nigeria U20 W,World Cup Women U20 - Play Offs,1.70,3.60,4.10,Upcoming
-France U20 W,Canada U20 W,World Cup Women U20 - Play Offs,2.40,3.20,2.65,Upcoming
-North Korea U20 W,Japan U20 W,World Cup Women U20 - Play Offs,1.60,3.45,5.00,Upcoming
-Poland U20 W,Colombia U20 W,World Cup Women U20 - Play Offs,2.25,2.95,2.95,Upcoming
+Brentford,Chelsea,ENGLAND,2.65,3.80,2.40,Upcoming
+Bristol City,Watford,Championship,1.68,3.90,4.33,Upcoming
+Monaco,Lens,Ligue 1,2.05,3.70,3.40,Upcoming
+Bayern Munich,Union Berlin,Bundesliga,1.04,17.00,26.00,Upcoming
+Monza,Sassuolo,Serie A,2.75,3.40,2.50,Upcoming
+Groningen,Zwolle,Eredivisie,1.53,4.50,5.50,Upcoming
+Espanyol,Elche,LaLiga,1.80,3.50,4.50,Upcoming
+Mauritius U20,Namibia U20,COSAFA Championship U20,5.00,3.60,1.50,Upcoming
+Zambia U20,Malawi U20,COSAFA Championship U20,1.83,3.10,3.60,Upcoming
+Mozambique U20,Seychelles U20,COSAFA Championship U20,1.06,11.00,21.00,Upcoming
+Vllaznia,Teuta,Abissnet Superiore,2.08,3.05,3.20,Upcoming
+El Biar,Saoura,Ligue 1,2.45,3.00,2.70,Upcoming
+Khenchela,Ben Aknoun,Ligue 1,2.10,2.85,3.45,Upcoming
+MC Alger,Rouisset,Ligue 1,1.33,4.15,9.00,Upcoming
+ASO Chlef,Oran,Ligue 1,2.20,2.85,3.30,Upcoming
+Central Cordoba,Defensa y Justicia,Liga Profesional - Clausura,2.75,3.00,2.70,Upcoming
+Comunicaciones,Defensores Unidos,Primera B,1.88,3.05,3.90,Upcoming
+Def. de Cambaceres,Justo Jose de Urquiza,Primera C,3.25,2.75,2.20,Upcoming
+FC Gandzasar,Urartu,Premier League,3.50,3.45,1.85,Upcoming
+Noah,Van,Premier League,1.04,10.00,17.00,Upcoming
+Kuwait U23,Uzbekistan U23,Asian Games,21.00,8.00,1.10,Upcoming
+Saudi Arabia U23,Qatar U23,Asian Games,1.53,3.60,5.50,Upcoming
+SK Rapid,Tirol,Bundesliga,1.33,5.00,7.00,Upcoming
+Floridsdorfer AC,Liefering,2. Liga,2.25,3.45,2.55,Upcoming
+Hertha Wels,First Vienna,2. Liga,3.85,3.35,1.77,Upcoming
+Kapfenberg,Amstetten,2. Liga,4.30,4.00,1.58,Upcoming
+BW Linz,Admira,2. Liga,1.45,4.30,5.00,Upcoming
+Gloggnitz,Horn,Regionalliga East,2.40,3.40,2.30,Upcoming
+Favoritner,Kremser,Regionalliga East,2.50,3.30,2.30,Upcoming
+Mattersburg SV 2020,SV Donau,Regionalliga East,2.00,3.40,2.88,Upcoming
+SV Oberwart,Parndorf,Regionalliga East,2.05,3.60,2.63,Upcoming
+Traiskirchen,Marchfeld,Regionalliga East,2.63,3.60,2.05,Upcoming
+Wiener Sport-Club,Leobendorf,Regionalliga East,1.40,4.20,5.50,Upcoming
+Deutschlandsberger,Kalsdorf,Regionalliga South,2.45,3.50,2.40,Upcoming
+Volkermarkt,Treibach,Regionalliga South,2.67,3.50,2.22,Upcoming
+Deutschkreutz,Edelserpentin,Burgenland,1.52,4.00,4.50,Upcoming
+Neusiedl,Oberpullendorf,Burgenland,1.50,4.00,4.75,Upcoming
+Atus Ferlach,Lendorf,Karnten,5.00,4.00,1.44,Upcoming
+SV Spittal,SC St. Veit,Karnten,2.88,3.75,1.91,Upcoming
+Dellach/Gail,Nussdorf,Karnten,1.18,6.00,9.00,Upcoming
+Gabala,Neftci Baku,Premier League,5.40,3.95,1.47,Upcoming
+Qarabag,Safa Baku,Premier League,1.11,7.00,13.00,Upcoming
+Khankendi,MOIK Baku,I Liqa,2.10,3.25,2.95,Upcoming
+Bangladesh Police,Rahmatgonj MFS,BFL,1.35,4.33,6.50,Upcoming
+Fakirerpool YMC,Dhaka Wanderers,BFL,2.10,3.45,2.80,Upcoming
+Fortis,Chattogram,BFL,1.38,4.30,6.25,Upcoming
+PWD Sports Club,Abahani Limited,BFL,10.00,5.25,1.20,Upcoming
+Belshina,FC Minsk,Vysshaya Liga,3.80,3.30,1.80,Upcoming
+ML Vitebsk,Arsenal Dzerzhinsk,Vysshaya Liga,1.14,7.00,13.00,Upcoming
+Gent,St. Liege,Jupiler Pro League,1.80,3.40,4.20,Upcoming
+Club Brugge KV U23,Gent U23,Challenger Pro League,2.00,3.50,3.30,Upcoming
+Francs Borains,Anderlecht U23,Challenger Pro League,1.85,3.60,3.50,Upcoming
+Transport United,RTC,Premier League,2.30,3.40,2.40,Upcoming
+Zeljeznicar,Celik Zenica,WWIN Liga BiH,2.02,3.05,3.40,Upcoming
+Vila Nova FC,America MG,Serie B,1.41,4.20,8.00,Upcoming
+Slavia Sofia,CSKA 1948 Sofia,efbet League,4.50,3.50,1.76,Upcoming
+Zhejiang Professional,Wuhan Three Towns,Super League,1.76,4.33,3.60,Upcoming
+Yanbian Longding,Guangdong GZ-Power,League One,3.45,3.40,1.88,Upcoming
+Dalian K'un City,Ningbo Professional,League One,1.83,3.40,3.60,Upcoming
+Nantong Zhiyun,Guangxi Hengchen,League One,1.95,3.20,3.35,Upcoming
+Jiangxi Lushan,Shandong Taishan B,League Two - Promotion Group,2.75,2.88,2.30,Upcoming
+Changchun Xidu,Guangdong Mingtu,League Two - Relegation Group,2.50,2.75,2.63,Upcoming
+Lanzhou Longyuan,Wenzhou Professional,League Two - Relegation Group,2.00,2.75,3.60,Upcoming
+Wuhan Three Towns B,Nantong Haimen,League Two - Relegation Group,2.63,2.80,2.50,Upcoming
+Aguilas,Pereira,Primera A - Clausura,1.40,4.33,8.50,Upcoming
+Rudes,Slaven Belupo,HNL,3.25,3.40,2.00,Upcoming
+Omonia 29th May,AEK Larnaca,Cyprus League,5.60,4.10,1.44,Upcoming
+Pafos,AEL Limassol,Cyprus League,1.36,4.33,6.50,Upcoming
+Iraklis Yerolakkou,Ayia Napa,Division 2,2.60,3.30,2.35,Upcoming
+Kitiou,M.E.A.P. Nisou,Division 2,1.70,3.40,4.10,Upcoming
+Jihlava,Slavia Prague B,ChNL,1.85,3.60,3.40,Upcoming
+Karvina,Kromeriz,ChNL,1.30,5.00,6.50,Upcoming
+Opava,FK Ceska Lipa,ChNL,1.70,3.50,4.33,Upcoming
+Prostejov,Dukla Prague,ChNL,3.25,3.30,1.95,Upcoming
+Lyngby,Silkeborg,Superliga,1.86,4.10,3.30,Upcoming
+Kolding IF,Hillerod,1st Division,1.76,3.75,4.10,Upcoming
+F. Amager,Naestved,2nd Division,2.55,3.30,2.38,Upcoming
+Nykobing,Hellerup,2nd Division,1.32,4.90,6.75,Upcoming
+Roskilde,FA 2000,2nd Division,1.53,3.90,4.90,Upcoming
+Skive,B.93,2nd Division,3.05,3.45,2.02,Upcoming
+Holbaek,Ringsted,3rd Division,1.32,4.90,6.75,Upcoming
+Al-Sekka,WE SC,Division 2 A,2.90,2.75,2.45,Upcoming
+Baladiyat El Mahalla,Kahrabaa Ismailia,Division 2 A,2.95,2.80,2.35,Upcoming
+Dayrout,El-Entag El-Harby,Division 2 A,3.70,3.05,1.92,Upcoming
+La Viena,Masar,Division 2 A,3.70,2.90,1.98,Upcoming
+Pharco,Delta United,Division 2 A,1.55,3.35,5.50,Upcoming
+Proxy,Maleyeit Kafr El Zayiat,Division 2 A,2.38,2.65,3.10,Upcoming
+Yeovil,Solihull Moors,National League,2.00,3.50,3.20,Upcoming
+Worcester,Stratford,FA Cup - Qualification,1.85,3.40,3.60,Upcoming
+Yate Town,Chippenham,FA Cup - Qualification,2.35,3.25,2.55,Upcoming
+Birmingham U21,Arsenal U21,Premier League 2,4.40,4.50,1.48,Upcoming
+Aston Villa U21,Middlesbrough U21,Premier League 2,2.05,3.95,2.60,Upcoming
+Burnley U21,Derby U21,Premier League 2,2.08,3.70,2.70,Upcoming
+Leicester U21,West Ham U21,Premier League 2,2.55,3.95,2.12,Upcoming
+Manchester Utd U21,Brentford U21,Premier League 2,1.44,4.80,4.50,Upcoming
+Sunderland U21,Norwich U21,Premier League 2,1.92,4.00,2.85,Upcoming
+West Brom U21,Nottingham U21,Premier League 2,2.65,3.75,2.10,Upcoming
+Wolves U21,Southampton U21,Premier League 2,3.55,3.95,1.70,Upcoming
+Manchester City W,Liverpool W,WSL,1.27,5.25,7.50,Upcoming
+Harju JK Laagri,Kuressaare,Meistriliiga,1.98,3.60,3.00,Upcoming
+B36 Torshavn,NSI Runavik,Premier League,3.40,3.70,1.80,Upcoming
+Klaksvik,Skala Itrottarfelag,Premier League,1.16,6.25,10.00,Upcoming
+Lahti,Jaro,Veikkausliiga - Relegation Group,1.65,3.70,5.00,Upcoming
+SJK,Mariehamn,Veikkausliiga - Relegation Group,1.80,3.50,4.00,Upcoming
+AC Oulu,Inter Turku,Veikkausliiga - Championship Group,3.80,3.30,1.85,Upcoming
+Gnistan,HJK,Veikkausliiga - Championship Group,4.20,3.90,1.70,Upcoming
+Haka,Klubi 04,Ykkosliiga,1.48,4.40,4.75,Upcoming
+JaPS,Ekenas,Ykkosliiga,2.70,3.50,2.20,Upcoming
+KPV Kokkola,KuPS Akatemia,Ykkonen - Relegation Group,2.80,4.00,2.00,Upcoming
+Annecy,Dijon,Ligue 2,2.10,3.10,3.20,Upcoming
+Grenoble,Clermont,Ligue 2,2.30,2.80,3.10,Upcoming
+Laval,Sochaux,Ligue 2,2.25,3.00,3.00,Upcoming
+Pau FC,Dunkerque,Ligue 2,2.20,3.10,2.90,Upcoming
+Reims,Montpellier,Ligue 2,1.95,3.20,3.50,Upcoming
+Rodez,Nancy,Ligue 2,2.30,3.10,2.80,Upcoming
+Le Havre W,OL Lyonnes W,Premiere Ligue Women,91.00,26.00,1.01,Upcoming
+Strasbourg W,Paris FC W,Premiere Ligue Women,5.00,3.75,1.53,Upcoming
+PSG W,Nantes W,Premiere Ligue Women,1.17,6.00,12.00,Upcoming
+Greuther Furth,Magdeburg,2. Bundesliga,3.10,3.70,2.10,Upcoming
+Wolfsburg,Darmstadt,2. Bundesliga,1.44,4.50,6.00,Upcoming
+Verl,Wurzburger Kickers,3. Liga,1.95,3.60,3.30,Upcoming
+Rodinghausen,FC Gutersloh,Regionalliga West,3.20,3.35,1.95,Upcoming
+Hoffenheim W,Wolfsburg W,Bundesliga Women,6.00,4.60,1.33,Upcoming
+Mainz W,Eintracht Frankfurt W,Bundesliga Women,13.00,7.50,1.13,Upcoming
+Accra Lions,Golden Warriors,Division One League,1.71,3.10,4.50,Upcoming
+Nsuopun Fidelity,Future Stars,Division One League,1.89,3.00,3.75,Upcoming
+College 1975 FC,Magpies,National League,4.00,3.60,1.73,Upcoming
+Platense,UPNFM,Liga Nacional - Apertura,2.35,3.15,2.70,Upcoming
+Puskas Academy,Honved,NB I.,2.15,3.60,3.00,Upcoming
+Fram W,Vikingur Reykjavik W,Besta deild Women - Relegation Group,3.00,3.90,1.88,Upcoming
+Hafnarfjordur W,Stjarnan W,Besta deild Women - Championship Group,1.52,4.30,4.40,Upcoming
+IBV Vestmannaeyjar W,Throttur W,Besta deild Women - Championship Group,3.05,3.80,1.88,Upcoming
+Arema FC,Persik Kediri,Super League,1.77,3.45,3.70,Upcoming
+Madura United,PSIM Yogyakarta,Super League,2.05,3.20,3.10,Upcoming
+Al Mosul,Al Naft,Stars League,2.65,2.65,2.80,Upcoming
+Karbala,Erbil,Stars League,4.75,3.60,1.62,Upcoming
+Al Minaa,Duhok,Stars League,2.80,3.00,2.40,Upcoming
+Al Talaba,Al Golan,Stars League,1.85,3.20,3.90,Upcoming
+Derry City,Galway,Premier Division,1.65,3.70,4.75,Upcoming
+Dundalk,Shelbourne,Premier Division,2.30,3.50,2.75,Upcoming
+Bohemians,Drogheda,Premier Division,1.38,4.50,6.50,Upcoming
+Shamrock Rovers,Waterford,Premier Division,1.50,4.00,5.25,Upcoming
+Hapoel Tel Aviv,Hapoel Petah Tikva,Ligat ha'Al,1.36,4.10,7.00,Upcoming
+Ironi Nesher,Tzeirey Um El Fahem,Liga Alef North,2.05,3.25,3.10,Upcoming
+Tzeirey Tamra,Hapoel Tirat Karmel,Liga Alef North,2.70,3.15,2.35,Upcoming
+Hapoel Bnei Musmus,Nahariya,Liga Alef North,2.45,3.25,2.45,Upcoming
+Maccabi Nujeidat Ahmad,H. Migdal HaEmek,Liga Alef North,3.55,3.20,1.90,Upcoming
+Hapoel Ihud Bnei Jatt,MS Tira,Liga Alef North,9.00,5.20,1.23,Upcoming
+Juve Stabia,Cesena,Serie B,2.20,3.10,3.40,Upcoming
+Al Arabi Irbid,Al Jazeera Amman,Premier League,3.40,3.10,1.98,Upcoming
+Al Wehdat,Al Ramtha,Premier League,1.42,4.00,6.00,Upcoming
+Okzhetpes,Zhenis,Premier League,2.25,3.25,2.80,Upcoming
+Altai,Ertis Pavlodar,Premier League,2.25,3.25,2.80,Upcoming
+Zhetysu Taldykorgan,Kaspij Aktau,Premier League,2.20,3.20,2.88,Upcoming
+Kyzylzhar,Kaisar Kyzylorda,Premier League,2.05,3.20,3.20,Upcoming
+Aktobe,Ulytau,Premier League,1.53,3.75,5.00,Upcoming
+Gjilani,Prishtina,Superliga,2.63,3.30,2.30,Upcoming
+Zabbar,Birkirkara,Premier League - First stage - Main,4.20,3.45,1.68,Upcoming
+Hamrun,Marsaxlokk,Premier League - First stage - Main,1.91,3.45,3.25,Upcoming
+Buducnost,Petrovac,Prva Crnogorska Liga,2.18,2.95,3.05,Upcoming
+Almere City,Heracles,Eerste Divisie,3.00,4.20,2.01,Upcoming
+Den Bosch,Helmond,Eerste Divisie,1.79,4.00,3.75,Upcoming
+Eindhoven FC,FC Emmen,Eerste Divisie,4.00,4.00,1.71,Upcoming
+Jong Ajax,Roda,Eerste Divisie,3.30,4.00,1.91,Upcoming
+Jong AZ,FC Volendam,Eerste Divisie,2.82,3.80,2.15,Upcoming
+Jong Utrecht,Venlo,Eerste Divisie,2.35,3.80,2.55,Upcoming
+Oss,Dordrecht,Eerste Divisie,2.45,3.50,2.57,Upcoming
+Waalwijk,Maastricht,Eerste Divisie,1.71,3.80,4.50,Upcoming
+Shkendija,Bashkimi,1. MFL,1.03,13.00,41.00,Upcoming
+Sileks,Tikves,1. MFL,2.10,3.20,2.88,Upcoming
+Dundela,Strabane Athletic,NIFL Championship,1.73,3.65,3.75,Upcoming
+Newry City,Annagh,NIFL Championship,3.20,3.45,1.98,Upcoming
+Sarpsborg 08,KFUM Oslo,Eliteserien,1.57,4.10,5.50,Upcoming
+Sportivo Trinidense,Guarani,Copa de Primera - Clausura,2.30,3.00,2.88,Upcoming
+Nacional Asuncion,2 de Mayo,Copa de Primera - Clausura,1.73,3.20,4.33,Upcoming
+Alianza Atl.,Comerciantes Unidos,Liga 1 - Clausura,1.60,3.80,5.25,Upcoming
+Widzew Lodz,Wieczysta Krakow,Ekstraklasa,1.85,3.50,3.60,Upcoming
+Wisla,Slask Wroclaw,Ekstraklasa,1.60,3.80,4.75,Upcoming
+Warta Poznan,Puszcza,Division 1,2.00,3.40,3.00,Upcoming
+Polonia Bytom,Ruch Chorzow,Division 1,2.70,3.30,2.30,Upcoming
+Real SC,Academica,Taça de Portugal,5.75,3.80,1.48,Upcoming
+UTA Arad,Sepsi Sf. Gheorghe,Superliga,1.80,3.25,3.90,Upcoming
+FC Rapid Bucuresti,FC Arges,Superliga,1.55,3.50,5.25,Upcoming
+Amagaju,Al-Merreikh,Premier League,5.00,3.00,1.67,Upcoming
+Libertas,Faetano,Campionato Sammarinese,1.70,3.60,3.95,Upcoming
+Murata,Cosmos,Campionato Sammarinese,8.50,5.00,1.24,Upcoming
+Tre Fiori,Virtus,Campionato Sammarinese,2.60,3.20,2.35,Upcoming
+Al Taee,Al Bukiryah,Division 1,1.88,3.40,3.50,Upcoming
+Jeddah,Al Saqer,Division 1,2.70,3.15,2.38,Upcoming
+Queen's Park,Ayr,Championship,3.00,3.10,2.15,Upcoming
+FC Jurong,Hougang,Premier League,1.60,4.50,3.70,Upcoming
+L. Mikulas,Z. Moravce-Vrable,2. liga,1.95,3.50,3.15,Upcoming
+Highbury,Gomora,Motsepe Foundation Championship,1.95,2.88,3.50,Upcoming
+Real Native,Venda,Motsepe Foundation Championship,1.80,3.00,4.00,Upcoming
+Albacete,Cordoba,LaLiga2,2.30,3.60,2.75,Upcoming
+UD Logrones,Pontevedra,Primera RFEF - Group 1,1.95,3.00,3.80,Upcoming
+Binissalem,Platges de Calvia,Tercera RFEF - Group 11,2.80,2.75,2.55,Upcoming
+CD Marino,Real Union Tenerife,Tercera RFEF - Group 12,2.30,3.10,2.80,Upcoming
+Huarte,Aoiz,Tercera RFEF - Group 15,2.10,3.10,3.25,Upcoming
+Alaves W,Barcelona W,Liga F Women,21.00,11.00,1.02,Upcoming
+Falkenberg,Ostersund,Superettan,2.20,3.20,2.88,Upcoming
+Husqvarna,IFK Skovde,Division 2 - Norra Götaland,1.88,3.55,3.45,Upcoming
+Herrestads AIF,Kumla,Division 2 - Norra Götaland,1.73,3.75,3.65,Upcoming
+Lilla Torg,Linero IF,Division 2 - Södra Götaland,2.45,3.60,2.35,Upcoming
+Staffanstorp United,Osterlen,Division 2 - Södra Götaland,2.40,3.50,2.40,Upcoming
+Boljan,Landvetter,Division 2 - Västra Götaland,3.50,3.65,1.77,Upcoming
+Torslanda,Lindome,Division 2 - Västra Götaland,2.08,3.80,2.65,Upcoming
+Malmo FF W,Djurgarden W,Allsvenskan Women,1.38,4.40,6.00,Upcoming
+Kriens,Etoile-Carouge,Challenge League,2.30,3.75,2.38,Upcoming
+Wil,Stade Nyonnais,Challenge League,1.50,4.20,4.70,Upcoming
+Xamax,Rapperswil-Jona,Challenge League,1.85,3.80,3.10,Upcoming
+Winterthur,Aarau,Challenge League,2.08,3.60,2.75,Upcoming
+Ayutthaya Utd,Uthai Thani,Thai League 1,2.25,2.95,2.95,Upcoming
+Kasimpasa,Konyaspor,Super Lig,2.30,3.20,3.00,Upcoming
+Bandirmaspor,Umraniyespor,1. Lig,1.80,3.40,4.33,Upcoming
+Muglaspor,Igdir FK,1. Lig,3.00,3.10,2.30,Upcoming
+Ch. Odesa,Obolon,Premier League,2.30,2.85,3.00,Upcoming
+Polissya Zhytomyr,Kryvbas,Premier League,1.24,5.25,8.00,Upcoming
+Al Bataeh,Al Hamriyah,Division 1,1.91,3.35,3.35,Upcoming
+Al Fujairah,Dibba Al Hisn,Division 1,3.20,3.55,1.90,Upcoming
+Al Urooba,Emirates Club,Division 1,1.90,3.40,3.35,Upcoming
+Dibba Al Fujairah,Al-Ittifaq,Division 1,1.50,4.10,4.80,Upcoming
+Dubai City,Al Arabi,Division 1,5.25,4.10,1.45,Upcoming
+Gulf United,Al Jazira Hamra,Division 1,2.02,3.70,2.80,Upcoming
+Palm City,Forte Virtus,Division 1,2.10,3.65,2.70,Upcoming
+Airbus,Flint,Cymru Premier,1.80,3.70,3.45,Upcoming
+Ammanford,Penybont,Cymru Premier,10.00,6.00,1.17,Upcoming
+Briton Ferry,Trefelin,Cymru Premier,1.52,4.10,4.70,Upcoming
+Caernarfon,Cambrian United,Cymru Premier,1.44,4.40,5.00,Upcoming
+Colwyn Bay,Barry,Cymru Premier,2.05,3.25,3.10,Upcoming
+Connahs Q.,Cardiff Metropolitan,Cymru Premier,1.55,3.90,4.50,Upcoming
+Haverfordwest,Holywell,Cymru Premier,1.31,4.90,6.50,Upcoming
+Fiji,Solomon Islands,Friendly International,1.75,3.40,3.90,Upcoming
