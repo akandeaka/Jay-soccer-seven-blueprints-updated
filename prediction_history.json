@@ -10,10 +10,12 @@
     "home_odds": 1.8,
     "draw_odds": 3.9,
     "away_odds": 4.25,
-    "status": "PENDING",
-    "won": null,
+    "status": "WIN",
+    "won": true,
     "recorded_at": "2026-09-19T05:38:16",
-    "settled_at": null
+    "settled_at": "2026-09-19T07:02:03",
+    "home_score": 2,
+    "away_score": 0
   },
   {
     "date": "2026-09-19",
