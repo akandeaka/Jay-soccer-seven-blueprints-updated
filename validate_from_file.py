@@ -2,7 +2,7 @@
 validate_from_file.py
 =====================
 
-Soccer blueprint settlement validator.
+Soccer blueprint settlement validator with per-blueprint breakdown.
 
 Reads:
     predictions.json   — the picks to settle
@@ -11,17 +11,6 @@ Reads:
 Writes:
     validation_report.md
     Telegram notification (if secrets configured)
-
-Output:
-    Prints a settlement report to stdout + sends summary to Telegram.
-
-Format handling:
-    results.txt can contain either:
-      (A) Multi-line blocks, blank-line separated:
-              Team A vs Team B
-              RESULT: 2-1
-      (B) One-line entries:
-              Team A vs Team B RESULT: 2-1
 """
 
 import json
@@ -29,6 +18,7 @@ import os
 import re
 import sys
 import requests
+from collections import defaultdict
 from datetime import datetime
 
 
@@ -40,6 +30,7 @@ TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
 
 PREDICTIONS_FILE = "predictions.json"
+TOP30_FILE = "top_30_predictions.json"
 RESULTS_FILE = "results.txt"
 REPORT_FILE = "validation_report.md"
 
@@ -56,7 +47,6 @@ STRIP_WORDS = {
 
 
 def normalize_name(name: str) -> str:
-    """Lowercase, strip punctuation and common club suffixes."""
     if not name:
         return ""
     name = name.lower()
@@ -66,20 +56,10 @@ def normalize_name(name: str) -> str:
 
 
 # ============================================================
-# RESULTS PARSER — handles both multi-line and one-line formats
+# RESULTS PARSER — handles both formats
 # ============================================================
 
 def parse_validation_file(filepath: str = RESULTS_FILE) -> dict:
-    """
-    Parse results.txt into {normalized_match_name: {home_score, away_score}}.
-
-    Handles both:
-      - Multi-line blocks (blank-line separated):
-            Team A vs Team B
-            RESULT: 2-1
-      - One-line entries:
-            Team A vs Team B RESULT: 2-1
-    """
     if not os.path.exists(filepath):
         print(f"❌ '{filepath}' not found.")
         return {}
@@ -89,21 +69,18 @@ def parse_validation_file(filepath: str = RESULTS_FILE) -> dict:
 
     results = {}
 
-    # ---- Strategy 1: split into blocks on blank lines ----
     blocks = re.split(r'\n\s*\n', content)
     for block in blocks:
         lines = [l.strip() for l in block.split('\n') if l.strip()]
         match_name = None
         for line in lines:
-            # One-line form: "Team A vs Team B RESULT: 2-1"
             m = re.match(
                 r'^\**\s*(.+?)\s*\**\s+RESULT:\s*(\d+)\s*[-:]\s*(\d+)',
                 line, re.IGNORECASE
             )
             if m and ' vs ' in m.group(1):
                 nm = m.group(1).strip().strip('*').strip()
-                key = normalize_name(nm)
-                results[key] = {
+                results[normalize_name(nm)] = {
                     'raw_name': nm,
                     'home_score': int(m.group(2)),
                     'away_score': int(m.group(3)),
@@ -111,24 +88,20 @@ def parse_validation_file(filepath: str = RESULTS_FILE) -> dict:
                 match_name = None
                 continue
 
-            # Multi-line form: match name on its own line
             if ' vs ' in line and 'RESULT:' not in line.upper():
                 match_name = line.strip().strip('*').strip()
                 continue
 
-            # Multi-line form: RESULT on next line
             if 'RESULT:' in line.upper() and match_name:
                 score = re.search(r'(\d+)\s*[-:]\s*(\d+)', line)
                 if score:
-                    key = normalize_name(match_name)
-                    results[key] = {
+                    results[normalize_name(match_name)] = {
                         'raw_name': match_name,
                         'home_score': int(score.group(1)),
                         'away_score': int(score.group(2)),
                     }
                 match_name = None
 
-    # ---- Strategy 2 (fallback): scan line-by-line for one-line entries ----
     if not results:
         for line in content.split('\n'):
             line = line.strip()
@@ -140,8 +113,7 @@ def parse_validation_file(filepath: str = RESULTS_FILE) -> dict:
             )
             if m:
                 nm = m.group(1).strip().strip('*').strip()
-                key = normalize_name(nm)
-                results[key] = {
+                results[normalize_name(nm)] = {
                     'raw_name': nm,
                     'home_score': int(m.group(2)),
                     'away_score': int(m.group(3)),
@@ -155,7 +127,6 @@ def parse_validation_file(filepath: str = RESULTS_FILE) -> dict:
 # ============================================================
 
 def evaluate_play(play: str, home: int, away: int) -> bool:
-    """Return True if the predicted play won given the final score."""
     total = home + away
     p = play.lower()
 
@@ -165,23 +136,19 @@ def evaluate_play(play: str, home: int, away: int) -> bool:
         return away > home
     if 'full time draw' in p or p == 'draw':
         return home == away
-
     if 'home win + over 2.5' in p or 'home win and over 2.5' in p:
         return home > away and total > 2
-
     if 'draw or gg' in p or 'draw or both teams' in p:
         return home == away or (home > 0 and away > 0)
     if 'draw or under 2.5' in p:
         return home == away or total < 3
     if 'draw or over 2.5' in p:
         return home == away or total > 2
-
     if 'both teams to score' in p or 'btts' in p:
         btts = home > 0 and away > 0
         if ' no' in p or '- no' in p:
             return not btts
         return btts
-
     if 'over 1.5' in p:
         return total > 1
     if 'over 2.5' in p:
@@ -192,25 +159,21 @@ def evaluate_play(play: str, home: int, away: int) -> bool:
         return total < 3
     if 'under 3.5' in p:
         return total < 4
-
     if '1x &' in p or '1x and' in p:
         return home >= away
     if 'x2 &' in p or 'x2 and' in p:
         return away >= home
-
     return False
 
 
 def find_actual_result(match_name: str, validation_results: dict):
-    """Find the score for a match name using fuzzy key lookup."""
     if not match_name:
         return None
     key = normalize_name(match_name)
     if key in validation_results:
         return validation_results[key]
-    # Try substring matching
     for k, data in validation_results.items():
-        if key and (key in k or k in key):
+        if key and (key in k or k in data['raw_name'].lower().replace(' ', '')):
             return data
     return None
 
@@ -246,9 +209,9 @@ def send_telegram(message: str) -> bool:
 
 def main():
     print()
-    print("=" * 60)
-    print("⚽ VALIDATION ENGINE — FUZZY MATCH & SETTLEMENT")
-    print("=" * 60)
+    print("=" * 72)
+    print("⚽ VALIDATION ENGINE — PER-BLUEPRINT SETTLEMENT")
+    print("=" * 72)
 
     if not os.path.exists(PREDICTIONS_FILE):
         print(f"❌ '{PREDICTIONS_FILE}' not found.")
@@ -266,70 +229,160 @@ def main():
     print(f"📊 Loaded {len(validation_results)} match results\n")
 
     # Settle every prediction
-    report_lines = []
-    wins = 0
-    losses = 0
-    not_found = 0
-
-    report_lines.append("# 🏁 SETTLEMENT REPORT")
-    report_lines.append(f"📅 {datetime.now().strftime('%Y-%m-%d')}")
-    report_lines.append("━" * 34)
-    report_lines.append("📊 TOP PREDICTIONS")
-    report_lines.append("━" * 34)
+    settled = []          # list of dicts with full info
+    per_bp = defaultdict(lambda: {'wins': 0, 'losses': 0, 'not_found': 0})
 
     for p in predictions:
         match = p.get("match", "")
         play = p.get("play", "")
+        bp = p.get("blueprint", "?")
+        odds = p.get("odds", 0)
+
         actual = find_actual_result(match, validation_results)
+        entry = {
+            'match': match,
+            'play': play,
+            'blueprint': bp,
+            'odds': odds,
+            'confidence': p.get('confidence', 0),
+            'actual': actual,
+            'won': None,
+        }
 
         if actual is None:
-            not_found += 1
-            report_lines.append(f"⏳ {match}")
-            report_lines.append(f"   🎯 {play} | Score: NOT FOUND")
-            continue
-
-        home = actual["home_score"]
-        away = actual["away_score"]
-        won = evaluate_play(play, home, away)
-
-        if won:
-            wins += 1
-            emoji = "✅"
+            entry['won'] = None
+            per_bp[bp]['not_found'] += 1
         else:
-            losses += 1
-            emoji = "❌"
+            won = evaluate_play(play, actual['home_score'], actual['away_score'])
+            entry['won'] = won
+            if won:
+                per_bp[bp]['wins'] += 1
+            else:
+                per_bp[bp]['losses'] += 1
 
-        report_lines.append(f"{emoji} {match}")
-        report_lines.append(f"   🎯 {play} | Score: {home}-{away}")
+        settled.append(entry)
 
-    total_settled = wins + losses
-    accuracy = (wins / total_settled * 100) if total_settled else 0.0
-
+    # -------- Print match-by-match results grouped by blueprint --------
+    report_lines = []
+    report_lines.append("# 🏁 SETTLEMENT REPORT")
+    report_lines.append(f"📅 {datetime.now().strftime('%Y-%m-%d')}")
     report_lines.append("")
-    report_lines.append("━" * 34)
-    report_lines.append("📊 SUMMARY")
-    report_lines.append(f"✅ Wins:   {wins}")
-    report_lines.append(f"❌ Losses: {losses}")
-    report_lines.append(f"⏳ Not found: {not_found}")
-    report_lines.append(f"📈 Accuracy: {wins}/{total_settled} ({accuracy:.1f}%)")
 
+    # Group by blueprint for display
+    by_bp = defaultdict(list)
+    for e in settled:
+        by_bp[e['blueprint']].append(e)
+
+    for bp in sorted(by_bp.keys()):
+        entries = by_bp[bp]
+        wins = per_bp[bp]['wins']
+        losses = per_bp[bp]['losses']
+        nf = per_bp[bp]['not_found']
+        total = wins + losses
+        rate = (wins / total * 100) if total else 0.0
+
+        header = f"── {bp} ── {wins}W / {losses}L / {nf} NF ({rate:.1f}%)"
+        report_lines.append(header)
+        print(header)
+
+        for e in entries:
+            if e['won'] is None:
+                mark = "⏳"
+                score_str = "Score: NOT FOUND"
+            elif e['won']:
+                mark = "✅"
+                score_str = f"Score: {e['actual']['home_score']}-{e['actual']['away_score']}"
+            else:
+                mark = "❌"
+                score_str = f"Score: {e['actual']['home_score']}-{e['actual']['away_score']}"
+
+            line = f"   {mark} {e['match']} | {e['play']} | {score_str}"
+            print(line)
+            report_lines.append(line)
+        report_lines.append("")
+        print()
+
+    # -------- Per-blueprint summary --------
+    print("=" * 72)
+    print("📊 PER-BLUEPRINT ACCURACY")
+    print("=" * 72)
+    print(f"{'BP':<6}{'Wins':<8}{'Losses':<10}{'Not Found':<12}{'Hit %':<10}")
+    print("-" * 72)
+    report_lines.append("## 📊 Per-Blueprint Accuracy")
+    report_lines.append("")
+    report_lines.append("| BP | Wins | Losses | Not Found | Hit % |")
+    report_lines.append("|----|------|--------|-----------|-------|")
+
+    total_wins = 0
+    total_losses = 0
+    total_nf = 0
+
+    for bp in sorted(per_bp.keys()):
+        s = per_bp[bp]
+        t = s['wins'] + s['losses']
+        rate = (s['wins'] / t * 100) if t else 0.0
+        print(f"{bp:<6}{s['wins']:<8}{s['losses']:<10}{s['not_found']:<12}{rate:<10.1f}")
+        report_lines.append(
+            f"| {bp} | {s['wins']} | {s['losses']} | {s['not_found']} | {rate:.1f}% |"
+        )
+        total_wins += s['wins']
+        total_losses += s['losses']
+        total_nf += s['not_found']
+
+    total_settled = total_wins + total_losses
+    overall_rate = (total_wins / total_settled * 100) if total_settled else 0.0
+
+    print("-" * 72)
+    print(f"{'TOTAL':<6}{total_wins:<8}{total_losses:<10}{total_nf:<12}{overall_rate:<10.1f}")
+    print("=" * 72)
+    report_lines.append("")
+    report_lines.append(
+        f"**Overall: {total_wins}W / {total_losses}L / {total_nf} NF "
+        f"({overall_rate:.1f}%)**"
+    )
+
+    # -------- Top 30 breakdown --------
+    if os.path.exists(TOP30_FILE):
+        with open(TOP30_FILE) as f:
+            top30 = json.load(f)
+        top30_matches = {e.get('match') for e in top30}
+        top30_entries = [e for e in settled if e['match'] in top30_matches]
+        t30_w = sum(1 for e in top30_entries if e['won'] is True)
+        t30_l = sum(1 for e in top30_entries if e['won'] is False)
+        t30_nf = sum(1 for e in top30_entries if e['won'] is None)
+        t30_total = t30_w + t30_l
+        t30_rate = (t30_w / t30_total * 100) if t30_total else 0.0
+
+        print()
+        print(f"📌 Top 30: {t30_w}W / {t30_l}L / {t30_nf} NF ({t30_rate:.1f}%)")
+        report_lines.append("")
+        report_lines.append(
+            f"**Top 30: {t30_w}W / {t30_l}L / {t30_nf} NF ({t30_rate:.1f}%)**"
+        )
+
+    # -------- Save report --------
     report_text = "\n".join(report_lines)
-    print(report_text)
-
     with open(REPORT_FILE, "w", encoding="utf-8") as f:
         f.write(report_text)
 
-    # Telegram
-    tg_message = (
-        f"🏁 <b>SETTLEMENT REPORT</b>\n"
-        f"📅 {datetime.now().strftime('%Y-%m-%d')}\n"
-        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"✅ Wins: {wins}\n"
-        f"❌ Losses: {losses}\n"
-        f"⏳ Not found: {not_found}\n"
-        f"📈 <b>Accuracy: {wins}/{total_settled} ({accuracy:.1f}%)</b>"
-    )
-    send_telegram(tg_message)
+    # -------- Telegram summary --------
+    tg_lines = [
+        "🏁 <b>SETTLEMENT REPORT</b>",
+        f"📅 {datetime.now().strftime('%Y-%m-%d')}",
+        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        "",
+    ]
+
+    for bp in sorted(per_bp.keys()):
+        s = per_bp[bp]
+        t = s['wins'] + s['losses']
+        rate = (s['wins'] / t * 100) if t else 0.0
+        tg_lines.append(f"<b>{bp}</b>: {s['wins']}W / {s['losses']}L ({rate:.0f}%)")
+
+    tg_lines.append("")
+    tg_lines.append(f"<b>Overall: {total_wins}W / {total_losses}L ({overall_rate:.1f}%)</b>")
+
+    send_telegram("\n".join(tg_lines))
 
     print(f"\n💾 Report saved to {REPORT_FILE}")
 
