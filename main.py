@@ -5,7 +5,7 @@ Pipeline:
   1. Parse raw match odds from input_matches.txt (CSV or block text).
   2. Classify each match via the validated BlueprintEngine (BP3, BP4, BP12, BP13).
   3. Rank candidates using Composite Scoring: S = Confidence * log2(1 + Odds).
-  4. Extract the Top 30 highest-value predictions.
+  4. Extract the Top 30 highest-value predictions with per-blueprint quotas.
   5. Build 2_ODDS, 4_ODDS, 7_ODDS, 10_ODDS accumulators strictly from the
      Top 30 pool, minimizing leg count, enforcing ZERO match duplication,
      and forcing each ticket inside its target odds range.
@@ -15,7 +15,7 @@ Pipeline:
   8. Dispatch summaries via Telegram and Email.
 
 Only data-validated blueprints are enabled:
-  BP3, BP4, BP12, BP13
+  BP3, BP4, BP12, BP13, BP14
 """
 
 import os
@@ -27,11 +27,35 @@ import math
 import smtplib
 import requests
 import pandas as pd
+from collections import defaultdict
 from datetime import datetime
 from itertools import combinations
 from email.message import EmailMessage
 
 from blueprint_engine import BlueprintEngine, ENABLED_BLUEPRINTS
+
+
+# ============================================================
+# TOP 30 ALLOCATION
+# ============================================================
+
+# Slots reserved per blueprint (sums to 30).
+# Rationale:
+#   BP4  8  — highest live hit rate (65%)
+#   BP14 7  — large live sample, above break-even (45%)
+#   BP3  6  — strong backtest (+3.77%)
+#   BP12 5  — strong backtest (+9.54%)
+#   BP13 4  — backtest +2.10%
+BP_QUOTA = {
+    'BP4':  8,
+    'BP14': 7,
+    'BP3':  6,
+    'BP12': 5,
+    'BP13': 4,
+}
+
+# Priority order for using unused slots (best first).
+BP_PRIORITY = ['BP4', 'BP14', 'BP3', 'BP12', 'BP13']
 
 
 # ============================================================
@@ -64,14 +88,11 @@ def _get_engine():
 
 
 def analyze_match(match: dict):
-    """Delegate to the validated BlueprintEngine (BP3, BP4, BP12, BP13)."""
+    """Delegate to the validated BlueprintEngine."""
     result = _get_engine().classify(match)
     if not result:
         return None
 
-    # Determine which odds the picked play is priced at.
-    # Straight win plays settle at the home odds.
-    # Draw plays settle at the draw odds.
     play_lower = result['play'].lower()
     if 'draw' in play_lower or result['blueprint'] == 'BP3':
         result['odds'] = result.get('draw_odds') or 1.50
@@ -188,20 +209,52 @@ def calculate_composite_score(pick: dict) -> float:
 
 
 # ============================================================
+# TOP 30 SELECTION WITH PER-BLUEPRINT QUOTAS
+# ============================================================
+
+def select_top_30(all_predictions: list) -> list:
+    """
+    Allocate Top 30 slots proportionally by blueprint.
+
+    Pass 1: fill each BP up to its quota.
+    Pass 2: unused slots roll to the highest-composite remaining picks.
+    """
+    ranked = sorted(all_predictions,
+                    key=lambda x: x['composite_score'],
+                    reverse=True)
+
+    by_bp = defaultdict(list)
+    for p in ranked:
+        by_bp[p.get('blueprint')].append(p)
+
+    top30 = []
+    used = set()
+
+    # Pass 1: fill each BP up to its quota, in priority order.
+    for bp in BP_PRIORITY:
+        quota = BP_QUOTA.get(bp, 0)
+        for p in by_bp.get(bp, []):
+            if len(top30) >= 30 or quota <= 0:
+                break
+            top30.append(p)
+            used.add(id(p))
+            quota -= 1
+
+    # Pass 2: unused slots go to highest-composite remaining picks.
+    for p in ranked:
+        if len(top30) >= 30:
+            break
+        if id(p) not in used:
+            top30.append(p)
+
+    return top30[:30]
+
+
+# ============================================================
 # ACCUMULATOR BUILDER
 # ============================================================
 
 def build_optimal_accumulators(top_30_pool: list) -> dict:
-    """
-    Build four accumulator tickets from the Top 30 pool.
-
-    Rules:
-      - Each ticket has a target odds window (2 / 4 / 7 / 10 odds).
-      - No match appears in more than one ticket.
-      - Combination search prefers highest composite score per leg.
-      - If no combination fits the window, legs are greedily added until
-        the minimum target is reached (never beyond the max leg count).
-    """
     if not top_30_pool:
         return {}
 
@@ -209,9 +262,6 @@ def build_optimal_accumulators(top_30_pool: list) -> dict:
                         key=lambda x: x.get('composite_score', 0),
                         reverse=True)
 
-    # Ticket target windows and max leg counts.
-    # Ranges are enforced: a ticket is only accepted if its total odds
-    # fall within [min_odds, max_odds].
     targets = [
         ('2_ODDS',  1.85, 2.45,  3),
         ('4_ODDS',  3.60, 4.60,  4),
@@ -231,7 +281,6 @@ def build_optimal_accumulators(top_30_pool: list) -> dict:
         best_combo_score = -1.0
         best_combo_odds = 0.0
 
-        # Try combinations of 2..max_legs legs from the top 14 available.
         search_pool = available_pool[:14]
         for r in range(2, min(max_legs + 1, len(search_pool) + 1)):
             for combo in combinations(search_pool, r):
@@ -251,22 +300,21 @@ def build_optimal_accumulators(top_30_pool: list) -> dict:
         if best_combo:
             legs = list(best_combo)
         else:
-            # Fallback: build a ticket as close as possible to the window.
-            # Only accept if we can reach the minimum target with at most
-            # max_legs picks. If we can't, skip this ticket.
             ticket_legs = []
             running_odds = 1.0
             for p in available_pool:
                 if len(ticket_legs) >= max_legs:
                     break
                 leg_odds = float(p.get('odds', 1.50))
+                candidate_odds = running_odds * leg_odds
+                if candidate_odds > max_odds:
+                    continue
                 ticket_legs.append(p)
-                running_odds *= leg_odds
+                running_odds = candidate_odds
                 if running_odds >= min_odds:
                     break
 
             if running_odds < min_odds:
-                # Could not reach target with the picks we have.
                 print(f"   ⚠️ {ticket_key}: no viable combination "
                       f"(best fallback odds {running_odds:.2f} < {min_odds})")
                 continue
@@ -290,7 +338,7 @@ def build_optimal_accumulators(top_30_pool: list) -> dict:
 
 
 # ============================================================
-# AUDIT & SCORE VALIDATION
+# AUDIT
 # ============================================================
 
 def normalize_name(name: str) -> str:
@@ -402,15 +450,49 @@ def audit_and_validate_all(all_predictions: list, top_30: list,
             'evaluated': False,
         }
 
-    full_audit = [check_pred(p) for p in all_predictions]
-    eval_full = [p for p in full_audit if p['evaluated']]
-    full_wins = sum(1 for p in eval_full if p['is_win'])
-    full_rate = (full_wins / len(eval_full) * 100) if eval_full else 0.0
+    def summarize_pool(preds, label):
+        audit = [check_pred(p) for p in preds]
+        ev = [p for p in audit if p['evaluated']]
+        wins = sum(1 for p in ev if p['is_win'])
+        losses = len(ev) - wins
+        rate = (wins / len(ev) * 100) if ev else 0.0
 
-    top30_audit = [check_pred(p) for p in top_30]
-    eval_top30 = [p for p in top30_audit if p['evaluated']]
-    top30_wins = sum(1 for p in eval_top30 if p['is_win'])
-    top30_rate = (top30_wins / len(eval_top30) * 100) if eval_top30 else 0.0
+        per_bp = defaultdict(lambda: {'w': 0, 'l': 0})
+        for p in ev:
+            bp = p['blueprint']
+            if p['is_win']:
+                per_bp[bp]['w'] += 1
+            else:
+                per_bp[bp]['l'] += 1
+
+        print(f"\n{label}")
+        print(f"   Total:     {len(preds)}")
+        print(f"   Settled:   {len(ev)}")
+        print(f"   ✅ Wins:   {wins}")
+        print(f"   ❌ Losses: {losses}")
+        print(f"   Accuracy:  {wins}/{len(ev)} ({rate:.1f}%)")
+        print(f"   Per-Blueprint:")
+        for bp in sorted(per_bp.keys()):
+            s = per_bp[bp]
+            t = s['w'] + s['l']
+            r = (s['w'] / t * 100) if t else 0.0
+            print(f"     {bp:<6} {s['w']}W / {s['l']}L  ({r:.1f}%)")
+
+        return {
+            'total': len(preds),
+            'settled': len(ev),
+            'wins': wins,
+            'losses': losses,
+            'rate': round(rate, 2),
+            'per_bp': {bp: dict(s) for bp, s in per_bp.items()},
+        }
+
+    print("\n" + "=" * 60)
+    print("📊 POST-MATCH VALIDATION AUDIT")
+    print("=" * 60)
+
+    full_stats = summarize_pool(all_predictions, "📋 FULL POOL")
+    top30_stats = summarize_pool(top_30, "⭐ TOP 30")
 
     acc_audit = {}
     for acc_name, acc_data in accumulators.items():
@@ -430,39 +512,21 @@ def audit_and_validate_all(all_predictions: list, top_30: list,
             'legs': leg_results,
         }
 
+    print("\n🎰 ACCUMULATOR TICKET AUDIT:")
+    for acc_name, data in acc_audit.items():
+        print(f"   • {acc_name:<8} | Odds: {data['target_odds']:<5} | "
+              f"Status: {data['status']}")
+    print("=" * 60 + "\n")
+
     audit_summary = {
         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-        'full_pool_stats': {
-            'total_predictions': len(all_predictions),
-            'evaluated': len(eval_full),
-            'wins': full_wins,
-            'win_rate_percent': round(full_rate, 2),
-        },
-        'top_30_stats': {
-            'total_predictions': len(top_30),
-            'evaluated': len(eval_top30),
-            'wins': top30_wins,
-            'win_rate_percent': round(top30_rate, 2),
-        },
+        'full_pool_stats': full_stats,
+        'top_30_stats': top30_stats,
         'accumulators': acc_audit,
     }
 
     with open("validation_audit_summary.json", "w", encoding="utf-8") as f:
         json.dump(audit_summary, f, indent=4)
-
-    print("\n" + "=" * 60)
-    print("📊 POST-MATCH VALIDATION AUDIT")
-    print("=" * 60)
-    print(f"Full Pool Win Rate (All {len(all_predictions)}): "
-          f"{full_wins}/{len(eval_full)} ({full_rate:.1f}%)")
-    print(f"Top 30 Win Rate:              "
-          f"{top30_wins}/{len(eval_top30)} ({top30_rate:.1f}%)")
-    print("-" * 60)
-    print("🎰 ACCUMULATOR TICKET AUDIT:")
-    for acc_name, data in acc_audit.items():
-        print(f"   • {acc_name:<8} | Odds: {data['target_odds']:<5} | "
-              f"Status: {data['status']}")
-    print("=" * 60 + "\n")
 
     return audit_summary
 
@@ -535,7 +599,7 @@ def main():
 
     print(f"📊 Parsed {len(matches)} raw fixtures.")
 
-    # Step 2: Classify every match with the validated engine
+    # Step 2: Classify every match
     all_predictions = []
     for m in matches:
         res = analyze_match(m)
@@ -547,29 +611,37 @@ def main():
         print("❌ No matches passed blueprint criteria today.")
         sys.exit(0)
 
-    # Safety check: any blueprint ID outside the enabled set is a bug.
+    # Safety check
     seen_bps = {p['blueprint'] for p in all_predictions}
     unexpected = seen_bps - set(ENABLED_BLUEPRINTS)
     if unexpected:
         print(f"❌ UNEXPECTED blueprint IDs detected: {unexpected}")
-        print(f"   Enabled set is {ENABLED_BLUEPRINTS}. Check that main.py is")
-        print(f"   using the validated BlueprintEngine from blueprint_engine.py.")
+        print(f"   Enabled set is {ENABLED_BLUEPRINTS}.")
         sys.exit(1)
 
-    # Rank by composite score, keep top 30
-    ranked = sorted(all_predictions,
-                    key=lambda x: x['composite_score'],
-                    reverse=True)
-    top_30_predictions = ranked[:30]
+    # Step 3: Per-blueprint counts in full pool
+    pool_by_bp = defaultdict(int)
+    for p in all_predictions:
+        pool_by_bp[p['blueprint']] += 1
+    print(f"📊 Full pool by blueprint: {dict(pool_by_bp)}")
+
+    # Step 4: Quota-based Top 30
+    top_30_predictions = select_top_30(all_predictions)
+
+    # Per-blueprint allocation in Top 30
+    top30_by_bp = defaultdict(int)
+    for p in top_30_predictions:
+        top30_by_bp[p['blueprint']] += 1
+    print(f"🎯 Top 30 allocation: {dict(top30_by_bp)}")
 
     print(f"🎯 Total Eligible Predictions: {len(all_predictions)}")
     print(f"⭐ Extracted Top {len(top_30_predictions)} Predictions.")
 
-    # Step 3: Build accumulators
+    # Step 5: Build accumulators
     accumulators = build_optimal_accumulators(top_30_predictions)
     print(f"🎰 Generated {len(accumulators)} tickets.")
 
-    # Step 4: Export JSON
+    # Step 6: Export JSON
     with open("predictions.json", "w", encoding="utf-8") as f:
         json.dump(all_predictions, f, indent=4)
     with open("top_30_predictions.json", "w", encoding="utf-8") as f:
@@ -578,15 +650,21 @@ def main():
         json.dump(accumulators, f, indent=4)
     print("💾 Saved predictions.json, top_30_predictions.json, accumulators.json")
 
-    # Step 5: Audit
+    # Step 7: Audit
     actual_results = load_validation_results("results.txt")
+    audit_summary = None
     if actual_results:
-        audit_and_validate_all(all_predictions, top_30_predictions,
-                               accumulators, actual_results)
+        audit_summary = audit_and_validate_all(
+            all_predictions, top_30_predictions,
+            accumulators, actual_results
+        )
 
-    # Step 6: Telegram
+    # Step 8: Telegram — Top 30 with allocation header
     tg_msg = (f"⚽ <b>JAY SOCCER BLUEPRINTS - TOP 30</b>\n"
-              f"📅 {datetime.now().strftime('%Y-%m-%d')}\n\n")
+              f"📅 {datetime.now().strftime('%Y-%m-%d')}\n")
+    tg_msg += f"📊 Pool: {len(all_predictions)} | "
+    tg_msg += f"Top 30: {dict(top30_by_bp)}\n\n"
+
     for idx, p in enumerate(top_30_predictions, 1):
         tg_msg += (f"{idx}. #{p['blueprint']} {p['match']} "
                    f"-> <b>{p['play']}</b> ({p['confidence']}%)\n")
@@ -602,19 +680,53 @@ def main():
             for m in acc_data['matches']:
                 tg_msg += f"   - {m['match']} ({m['play']})\n"
 
+    # Audit summary to Telegram if we have settled data
+    if audit_summary:
+        fp = audit_summary['full_pool_stats']
+        t30 = audit_summary['top_30_stats']
+        tg_msg += "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        tg_msg += "📊 <b>SETTLEMENT SUMMARY</b>\n"
+        tg_msg += f"Full Pool: {fp['wins']}W / {fp['losses']}L ({fp['rate']:.1f}%)\n"
+        tg_msg += f"Top 30:    {t30['wins']}W / {t30['losses']}L ({t30['rate']:.1f}%)\n"
+        tg_msg += "\n<b>Per-Blueprint (Top 30):</b>\n"
+        for bp, s in sorted(t30['per_bp'].items()):
+            t = s['w'] + s['l']
+            r = (s['w'] / t * 100) if t else 0.0
+            tg_msg += f"  {bp}: {s['w']}W/{s['l']}L ({r:.0f}%)\n"
+
     send_telegram(tg_msg)
 
-    # Step 7: Email
+    # Step 9: Email
     email_body = "JAY SOCCER BLUEPRINTS - AUDIT REPORT\n"
     email_body += f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
     email_body += "=" * 60 + "\n\n"
     email_body += f"TOTAL MATCHES PARSED: {len(matches)}\n"
-    email_body += f"TOTAL ELIGIBLE PREDICTIONS: {len(all_predictions)}\n\n"
+    email_body += f"TOTAL ELIGIBLE PREDICTIONS: {len(all_predictions)}\n"
+    email_body += f"FULL POOL BY BLUEPRINT: {dict(pool_by_bp)}\n"
+    email_body += f"TOP 30 ALLOCATION: {dict(top30_by_bp)}\n\n"
     email_body += "TOP 30 PREDICTIONS:\n"
     for idx, p in enumerate(top_30_predictions, 1):
         email_body += (f"{idx:02d}. [BP #{p['blueprint']}] {p['match']} | "
                        f"Play: {p['play']} | Odds: {p['odds']} | "
                        f"Conf: {p['confidence']}%\n")
+
+    if audit_summary:
+        email_body += "\n" + "=" * 60 + "\n"
+        email_body += "SETTLEMENT SUMMARY\n"
+        fp = audit_summary['full_pool_stats']
+        t30 = audit_summary['top_30_stats']
+        email_body += f"Full Pool: {fp['wins']}W / {fp['losses']}L ({fp['rate']:.1f}%)\n"
+        email_body += f"Top 30:    {t30['wins']}W / {t30['losses']}L ({t30['rate']:.1f}%)\n\n"
+        email_body += "Per-Blueprint (Full Pool):\n"
+        for bp, s in sorted(fp['per_bp'].items()):
+            t = s['w'] + s['l']
+            r = (s['w'] / t * 100) if t else 0.0
+            email_body += f"  {bp}: {s['w']}W / {s['l']}L ({r:.1f}%)\n"
+        email_body += "\nPer-Blueprint (Top 30):\n"
+        for bp, s in sorted(t30['per_bp'].items()):
+            t = s['w'] + s['l']
+            r = (s['w'] / t * 100) if t else 0.0
+            email_body += f"  {bp}: {s['w']}W / {s['l']}L ({r:.1f}%)\n"
 
     email_body += "\n" + "=" * 60 + "\n"
     email_body += "GENERATED ACCUMULATORS:\n"
