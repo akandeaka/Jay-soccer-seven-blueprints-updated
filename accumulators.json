@@ -2,6 +2,41 @@
     "2_ODDS": {
         "matches": [
             {
+                "blueprint": "BP4",
+                "play": "Straight Home Win",
+                "confidence": 58,
+                "match": "Everton vs Ipswich",
+                "league": "Premier League",
+                "home_odds": 1.8,
+                "draw_odds": 3.75,
+                "away_odds": 4.2,
+                "odds": 1.8,
+                "composite_score": 86.15475597587402
+            },
+            {
+                "blueprint": "BP12",
+                "play": "Home Win + Over 2.5 Goals",
+                "confidence": 58,
+                "match": "Vikingur vs 07 Vestur Sorvagur",
+                "league": "Premier League",
+                "home_odds": 1.27,
+                "draw_odds": 5.0,
+                "away_odds": 7.5,
+                "odds": 1.27,
+                "composite_score": 68.59615325593903
+            }
+        ],
+        "odds": 2.29,
+        "leg_count": 2,
+        "avg_confidence": 58.0,
+        "blueprints_used": [
+            "BP4",
+            "BP12"
+        ]
+    },
+    "4_ODDS": {
+        "matches": [
+            {
                 "blueprint": "BP14",
                 "play": "Full Time Draw",
                 "confidence": 48,
@@ -12,16 +47,29 @@
                 "away_odds": 2.75,
                 "odds": 3.3,
                 "composite_score": 101.00815967110731
+            },
+            {
+                "blueprint": "BP12",
+                "play": "Home Win + Over 2.5 Goals",
+                "confidence": 58,
+                "match": "Ajax vs Excelsior",
+                "league": "Eredivisie",
+                "home_odds": 1.22,
+                "draw_odds": 7.0,
+                "away_odds": 11.0,
+                "odds": 1.22,
+                "composite_score": 66.7324612413721
             }
         ],
-        "odds": 3.3,
-        "leg_count": 1,
-        "avg_confidence": 48.0,
+        "odds": 4.03,
+        "leg_count": 2,
+        "avg_confidence": 53.0,
         "blueprints_used": [
-            "BP14"
+            "BP14",
+            "BP12"
         ]
     },
-    "4_ODDS": {
+    "10_ODDS": {
         "matches": [
             {
                 "blueprint": "BP3",
@@ -30,41 +78,6 @@
                 "match": "Alashkert vs Pyunik Yerevan",
                 "league": "Premier League",
                 "home_odds": 2.5,
-                "draw_odds": 3.0,
-                "away_odds": 2.6,
-                "odds": 3.0,
-                "composite_score": 100.0
-            },
-            {
-                "blueprint": "BP3",
-                "play": "Full Time Draw",
-                "confidence": 50,
-                "match": "Sport Recife vs Juventude",
-                "league": "Serie B",
-                "home_odds": 2.5,
-                "draw_odds": 3.0,
-                "away_odds": 2.85,
-                "odds": 3.0,
-                "composite_score": 100.0
-            }
-        ],
-        "odds": 9.0,
-        "leg_count": 2,
-        "avg_confidence": 50.0,
-        "blueprints_used": [
-            "BP3",
-            "BP3"
-        ]
-    },
-    "7_ODDS": {
-        "matches": [
-            {
-                "blueprint": "BP3",
-                "play": "Full Time Draw",
-                "confidence": 50,
-                "match": "Alianza vs Santa Fe",
-                "league": "Primera A - Clausura",
-                "home_odds": 2.88,
                 "draw_odds": 3.0,
                 "away_odds": 2.6,
                 "odds": 3.0,
@@ -88,41 +101,6 @@
         "avg_confidence": 49.0,
         "blueprints_used": [
             "BP3",
-            "BP14"
-        ]
-    },
-    "10_ODDS": {
-        "matches": [
-            {
-                "blueprint": "BP14",
-                "play": "Full Time Draw",
-                "confidence": 48,
-                "match": "Le Mans vs Lorient",
-                "league": "Ligue 1",
-                "home_odds": 2.8,
-                "draw_odds": 3.2,
-                "away_odds": 2.63,
-                "odds": 3.2,
-                "composite_score": 99.37868773878711
-            },
-            {
-                "blueprint": "BP14",
-                "play": "Full Time Draw",
-                "confidence": 48,
-                "match": "Dunav Ruse vs Botev Vratsa",
-                "league": "efbet League",
-                "home_odds": 2.7,
-                "draw_odds": 3.2,
-                "away_odds": 2.57,
-                "odds": 3.2,
-                "composite_score": 99.37868773878711
-            }
-        ],
-        "odds": 10.24,
-        "leg_count": 2,
-        "avg_confidence": 48.0,
-        "blueprints_used": [
-            "BP14",
             "BP14"
         ]
     }
