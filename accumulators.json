@@ -2,167 +2,128 @@
     "2_ODDS": {
         "matches": [
             {
-                "blueprint": "BP3",
+                "blueprint": "BP14",
                 "play": "Full Time Draw",
-                "confidence": 50,
-                "match": "Sutjeska vs Mornar Bar",
-                "league": "Prva Crnogorska Liga",
-                "home_odds": 2.58,
-                "draw_odds": 2.93,
-                "away_odds": 2.84,
-                "odds": 2.93,
-                "composite_score": 98.72646562419409
+                "confidence": 48,
+                "match": "Osasuna vs Rayo Vallecano",
+                "league": "LaLiga",
+                "home_odds": 2.55,
+                "draw_odds": 3.3,
+                "away_odds": 2.75,
+                "odds": 3.3,
+                "composite_score": 101.00815967110731
             }
         ],
-        "odds": 2.93,
+        "odds": 3.3,
         "leg_count": 1,
-        "avg_confidence": 50.0,
+        "avg_confidence": 48.0,
         "blueprints_used": [
-            "BP3"
+            "BP14"
         ]
     },
     "4_ODDS": {
         "matches": [
             {
-                "blueprint": "BP14",
+                "blueprint": "BP3",
                 "play": "Full Time Draw",
-                "confidence": 48,
-                "match": "San Fernando vs Orihuela",
-                "league": "Copa Federacion",
-                "home_odds": 2.42,
-                "draw_odds": 3.1,
-                "away_odds": 2.64,
-                "odds": 3.1,
-                "composite_score": 97.70994766707462
+                "confidence": 50,
+                "match": "Alashkert vs Pyunik Yerevan",
+                "league": "Premier League",
+                "home_odds": 2.5,
+                "draw_odds": 3.0,
+                "away_odds": 2.6,
+                "odds": 3.0,
+                "composite_score": 100.0
             },
             {
-                "blueprint": "BP14",
+                "blueprint": "BP3",
                 "play": "Full Time Draw",
-                "confidence": 48,
-                "match": "Tekstilshtik vs Arsenal Tula",
-                "league": "Russian Cup - Regions Path",
-                "home_odds": 3.05,
-                "draw_odds": 2.88,
-                "away_odds": 2.28,
-                "odds": 2.88,
-                "composite_score": 93.89071931579534
+                "confidence": 50,
+                "match": "Sport Recife vs Juventude",
+                "league": "Serie B",
+                "home_odds": 2.5,
+                "draw_odds": 3.0,
+                "away_odds": 2.85,
+                "odds": 3.0,
+                "composite_score": 100.0
             }
         ],
-        "odds": 8.93,
+        "odds": 9.0,
         "leg_count": 2,
-        "avg_confidence": 48.0,
+        "avg_confidence": 50.0,
         "blueprints_used": [
-            "BP14",
-            "BP14"
+            "BP3",
+            "BP3"
         ]
     },
     "7_ODDS": {
         "matches": [
             {
+                "blueprint": "BP3",
+                "play": "Full Time Draw",
+                "confidence": 50,
+                "match": "Alianza vs Santa Fe",
+                "league": "Primera A - Clausura",
+                "home_odds": 2.88,
+                "draw_odds": 3.0,
+                "away_odds": 2.6,
+                "odds": 3.0,
+                "composite_score": 100.0
+            },
+            {
                 "blueprint": "BP14",
                 "play": "Full Time Draw",
                 "confidence": 48,
-                "match": "Mashujaa vs Singida Black Stars",
-                "league": "Ligi Kuu Bara",
-                "home_odds": 3.2,
-                "draw_odds": 2.87,
-                "away_odds": 2.14,
-                "odds": 2.87,
-                "composite_score": 93.71201118574491
-            },
-            {
-                "blueprint": "BP4",
-                "play": "Straight Home Win",
-                "confidence": 55,
-                "match": "AEK Athens vs LASK",
-                "league": "Champions League - League phase",
-                "home_odds": 1.8,
-                "draw_odds": 3.9,
-                "away_odds": 4.25,
-                "odds": 1.8,
-                "composite_score": 81.6984754943633
-            },
-            {
-                "blueprint": "BP4",
-                "play": "Straight Home Win",
-                "confidence": 55,
-                "match": "AEK U19 vs LASK U19",
-                "league": "UEFA Youth League - League phase",
-                "home_odds": 1.8,
-                "draw_odds": 3.85,
-                "away_odds": 3.9,
-                "odds": 1.8,
-                "composite_score": 81.6984754943633
+                "match": "Remo vs Santos",
+                "league": "Serie B",
+                "home_odds": 2.85,
+                "draw_odds": 3.2,
+                "away_odds": 2.45,
+                "odds": 3.2,
+                "composite_score": 99.37868773878711
             }
         ],
-        "odds": 9.3,
-        "leg_count": 3,
-        "avg_confidence": 52.7,
+        "odds": 9.6,
+        "leg_count": 2,
+        "avg_confidence": 49.0,
         "blueprints_used": [
-            "BP14",
-            "BP4",
-            "BP4"
+            "BP3",
+            "BP14"
         ]
     },
     "10_ODDS": {
         "matches": [
             {
-                "blueprint": "BP4",
-                "play": "Straight Home Win",
-                "confidence": 55,
-                "match": "Al Zulfi vs Hajer",
-                "league": "Division 1",
-                "home_odds": 1.8,
-                "draw_odds": 3.4,
-                "away_odds": 4.35,
-                "odds": 1.8,
-                "composite_score": 81.6984754943633
+                "blueprint": "BP14",
+                "play": "Full Time Draw",
+                "confidence": 48,
+                "match": "Le Mans vs Lorient",
+                "league": "Ligue 1",
+                "home_odds": 2.8,
+                "draw_odds": 3.2,
+                "away_odds": 2.63,
+                "odds": 3.2,
+                "composite_score": 99.37868773878711
             },
             {
-                "blueprint": "BP4",
-                "play": "Straight Home Win",
-                "confidence": 55,
-                "match": "Fluminense (Bra) vs Platense (Arg)",
-                "league": "Copa Libertadores - Play Offs",
-                "home_odds": 1.78,
-                "draw_odds": 3.25,
-                "away_odds": 5.5,
-                "odds": 1.78,
-                "composite_score": 81.12966856218306
-            },
-            {
-                "blueprint": "BP4",
-                "play": "Straight Home Win",
-                "confidence": 55,
-                "match": "Hitchin vs Biggleswade Town",
-                "league": "FA Cup - Qualification",
-                "home_odds": 1.78,
-                "draw_odds": 3.9,
-                "away_odds": 3.9,
-                "odds": 1.78,
-                "composite_score": 81.12966856218306
-            },
-            {
-                "blueprint": "BP4",
-                "play": "Straight Home Win",
-                "confidence": 55,
-                "match": "Crystal Palace vs Middlesbrough",
-                "league": "EFL Cup",
-                "home_odds": 1.77,
-                "draw_odds": 3.8,
-                "away_odds": 4.3,
-                "odds": 1.77,
-                "composite_score": 80.84372869509549
+                "blueprint": "BP14",
+                "play": "Full Time Draw",
+                "confidence": 48,
+                "match": "Dunav Ruse vs Botev Vratsa",
+                "league": "efbet League",
+                "home_odds": 2.7,
+                "draw_odds": 3.2,
+                "away_odds": 2.57,
+                "odds": 3.2,
+                "composite_score": 99.37868773878711
             }
         ],
-        "odds": 10.09,
-        "leg_count": 4,
-        "avg_confidence": 55.0,
+        "odds": 10.24,
+        "leg_count": 2,
+        "avg_confidence": 48.0,
         "blueprints_used": [
-            "BP4",
-            "BP4",
-            "BP4",
-            "BP4"
+            "BP14",
+            "BP14"
         ]
     }
 }
