@@ -1,8 +1,1 @@
-    - name: Commit predictions to repository
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add predictions.json prediction_history.json || true
-        git commit -m "Automated update: predictions.json + prediction_history.json" || true
-        git push
 
