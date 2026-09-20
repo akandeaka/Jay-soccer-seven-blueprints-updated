@@ -1,0 +1,74 @@
+name: Daily Soccer Validation
+
+on:
+  schedule:
+    - cron: '0 1 * * *'   # Runs at 1:00 AM UTC
+  workflow_dispatch:      # Allows manual trigger
+
+jobs:
+  run-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        ref: main
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install requests pandas python-dotenv beautifulsoup4 numpy
+
+    - name: Check predictions and results overlap
+      run: |
+        python - << 'EOF'
+        import json, os, sys
+        if not os.path.exists('predictions.json'):
+            print("⚠️  predictions.json missing — skipping overlap check")
+            sys.exit(0)
+        if not os.path.exists('results.txt'):
+            print("❌ results.txt missing — cannot validate")
+            sys.exit(1)
+        with open('predictions.json') as f:
+            preds = json.load(f)
+        with open('results.txt') as f:
+            results = f.read()
+        matched = sum(1 for p in preds if p.get('match') and p['match'] in results)
+        print(f"Overlap: {matched}/{len(preds)}")
+        if len(preds) > 0 and matched < len(preds) * 0.3:
+            print("❌ Less than 30% of predictions found in results.txt")
+            print("   results.txt is out of date. Update and push it, then re-run.")
+            sys.exit(1)
+        print("✅ Overlap check passed")
+        EOF
+
+    - name: Run validation
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      run: python validate_from_file.py
+
+    - name: Record results into prediction history
+      run: python record_results.py
+
+    - name: Commit updated history
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add prediction_history.json || true
+        git commit -m "Automated: settle predictions" || true
+        git push || true
+
+    - name: Upload validation report
+      uses: actions/upload-artifact@v4
+      with:
+        name: validation-report
+        path: validation_report.md
+        if-no-files-found: ignore
