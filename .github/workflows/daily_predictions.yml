@@ -1,74 +1,146 @@
-name: Daily Soccer Validation
+name: Daily Soccer Predictions and Validation
 
 on:
   schedule:
-    - cron: '0 1 * * *'   # Runs at 1:00 AM UTC
-  workflow_dispatch:      # Allows manual trigger
+    - cron: '0 10 * * *'   # Predictions at 10:00 UTC
+    - cron: '0 1 * * *'    # Validation at 01:00 UTC
+  workflow_dispatch:       # Manual trigger (runs both steps in sequence)
+    inputs:
+      mode:
+        description: 'Run mode'
+        required: false
+        default: 'both'
+        type: choice
+        options:
+          - both
+          - predictions_only
+          - validation_only
 
 jobs:
-  run-validation:
+  predict:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+    if: github.event.schedule == '0 10 * * *' || github.event_name == 'workflow_dispatch'
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      with:
-        ref: main
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-    - name: Install dependencies
-      run: |
-        pip install --upgrade pip
-        pip install requests pandas python-dotenv beautifulsoup4 numpy
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install requests pandas python-dotenv beautifulsoup4 numpy
 
-    - name: Check predictions and results overlap
-      run: |
-        python - << 'EOF'
-        import json, os, sys
-        if not os.path.exists('predictions.json'):
-            print("⚠️  predictions.json missing — skipping overlap check")
-            sys.exit(0)
-        if not os.path.exists('results.txt'):
-            print("❌ results.txt missing — cannot validate")
-            sys.exit(1)
-        with open('predictions.json') as f:
-            preds = json.load(f)
-        with open('results.txt') as f:
-            results = f.read()
-        matched = sum(1 for p in preds if p.get('match') and p['match'] in results)
-        print(f"Overlap: {matched}/{len(preds)}")
-        if len(preds) > 0 and matched < len(preds) * 0.3:
-            print("❌ Less than 30% of predictions found in results.txt")
-            print("   results.txt is out of date. Update and push it, then re-run.")
-            sys.exit(1)
-        print("✅ Overlap check passed")
-        EOF
+      - name: Run prediction engine
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python main.py
 
-    - name: Run validation
-      env:
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-      run: python validate_from_file.py
+      - name: Record predictions into history
+        run: python record_predictions.py
 
-    - name: Record results into prediction history
-      run: python record_results.py
+      - name: Commit predictions to repository
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add predictions.json prediction_history.json top_30_predictions.json accumulators.json || true
+          git commit -m "Automated update: predictions $(date -u +%Y-%m-%d)" || true
+          git push || true
 
-    - name: Commit updated history
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add prediction_history.json || true
-        git commit -m "Automated: settle predictions" || true
-        git push || true
+      - name: Upload predictions artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: predictions-${{ github.run_number }}
+          path: |
+            predictions.json
+            top_30_predictions.json
+            accumulators.json
+          if-no-files-found: ignore
 
-    - name: Upload validation report
-      uses: actions/upload-artifact@v4
-      with:
-        name: validation-report
-        path: validation_report.md
-        if-no-files-found: ignore
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [predict]
+    if: |
+      always() &&
+      (github.event.schedule == '0 1 * * *' || github.event_name == 'workflow_dispatch') &&
+      (needs.predict.result == 'success' || needs.predict.result == 'skipped')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install requests pandas python-dotenv beautifulsoup4 numpy
+
+      - name: Verify required files exist
+        run: |
+          for f in predictions.json results.txt; do
+            if [ ! -f "$f" ]; then
+              echo "❌ Required file missing: $f"
+              exit 1
+            fi
+            echo "✅ Found $f ($(wc -l < $f) lines)"
+          done
+
+      - name: Overlap check (predictions vs results)
+        run: |
+          python - << 'EOF'
+          import json, sys
+          with open('predictions.json') as f:
+              preds = json.load(f)
+          with open('results.txt') as f:
+              results = f.read()
+          matched = sum(1 for p in preds if p.get('match') and p['match'] in results)
+          total = len(preds)
+          print(f"Overlap: {matched}/{total}")
+          if total > 0 and matched == 0:
+              print("❌ Zero overlap. results.txt does not contain any of the predicted matches.")
+              print("   Update results.txt with the correct scores and re-run.")
+              sys.exit(1)
+          print(f"✅ {matched}/{total} predictions have matching scores in results.txt")
+          EOF
+
+      - name: Run validation
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python validate_from_file.py
+
+      - name: Settle picks into prediction history
+        run: python record_results.py
+
+      - name: Blueprint performance report
+        run: python validate_blueprints.py
+
+      - name: Commit validation results
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add prediction_history.json validation_report.md validation_audit_summary.json || true
+          git commit -m "Automated: validation $(date -u +%Y-%m-%d)" || true
+          git push || true
+
+      - name: Upload validation report
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-report-${{ github.run_number }}
+          path: |
+            validation_report.md
+            validation_audit_summary.json
+          if-no-files-found: ignore
