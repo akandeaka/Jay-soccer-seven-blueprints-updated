@@ -1,23 +1,790 @@
-Brentford vs Chelsea RESULT: 3-0
-Bristol City vs Watford RESULT: 1-0
-Monaco vs Lens RESULT: 2-1
-Bayern Munich vs Union Berlin RESULT: 7-0
-Monza vs Sassuolo RESULT: 2-1
-Groningen vs Zwolle RESULT: 3-0
-Flamengo RJ (Bra) vs Ind. del Valle (Ecu) RESULT: 1-1
-Montevideo City (Uru) vs Cienciano (Per) RESULT: 3-0
-Espanyol vs Elche RESULT: 1-3
-Mauritius U20 vs Namibia U20 RESULT: 0-1
-Zambia U20 vs Malawi U20 RESULT: 2-0
-Mozambique U20 vs Seychelles U20 RESULT: 4-1
-Vllaznia vs Teuta RESULT: 0-2
-El Biar vs Saoura RESULT: 4-0
-Khenchela vs Ben Aknoun RESULT: 1-1
-MC Alger vs Rouisset RESULT: 2-0
-ASO Chlef vs Oran RESULT: 0-1
-Central Cordoba vs Defensa y Justicia RESULT: 2-2
-Comunicaciones vs Defensores Unidos RESULT: 2-0
-Def. de Cambaceres vs Justo Jose de Urquiza RESULT: 0-0
-FC Gandzasar vs Urartu RESULT: 0-3
-Noah vs Van RESULT: 2-0
-AEK Athens vs LASK RESULT: 2-0
+Atletico-MG vs Chapecoense-SC RESULT: 1-1
+Mirassol vs Botafogo RJ RESULT: 2-0
+Remo vs Santos RESULT: 1-2
+Tottenham vs Aston Villa RESULT: 2-3
+Brighton vs Arsenal RESULT: 3-0
+Everton vs Ipswich RESULT: 1-0
+Newcastle vs Hull RESULT: 2-1
+Nottingham vs Coventry RESULT: 0-1
+Cardiff vs Charlton RESULT: 3-1
+Millwall vs West Ham RESULT: 2-2
+Stoke vs Sheffield Utd RESULT: 2-1
+Birmingham vs Middlesbrough RESULT: 2-2
+Burnley vs Derby RESULT: 1-1
+Lincoln vs Swansea RESULT: 1-2
+Portsmouth vs Blackburn RESULT: 2-2
+QPR vs Preston RESULT: 2-2
+Wrexham vs Southampton RESULT: 2-1
+Paris FC vs Strasbourg RESULT: 2-1
+Angers vs Troyes RESULT: 2-0
+Le Mans vs Lorient RESULT: 2-1
+Lyon vs Rennes RESULT: 4-0
+Toulouse vs Le Havre RESULT: 3-2
+B. Monchengladbach vs Mainz RESULT: 3-4
+Eintracht Frankfurt vs Freiburg RESULT: 2-2
+Hamburger SV vs FC Koln RESULT: 2-1
+Werder Bremen vs Augsburg RESULT: 3-2
+Stuttgart vs Dortmund RESULT: 0-1
+Bologna vs Torino RESULT: 1-1
+Udinese vs Cagliari RESULT: 0-1
+AS Roma vs Inter RESULT: 2-2
+Venezia vs Lazio RESULT: 0-2
+Den Haag vs Cambuur RESULT: 1-1
+Sparta Rotterdam vs Heerenveen RESULT: 0-4
+Ajax vs Excelsior RESULT: 2-2
+Willem II vs Sittard RESULT: 0-1
+Osasuna vs Rayo Vallecano RESULT: 1-1
+Ath Bilbao vs Alaves RESULT: 0-0
+Celta Vigo vs Racing Santander RESULT: 5-0
+Sevilla vs Barcelona RESULT: 1-3
+Hafia (Gui) vs Douane (Mrt) RESULT: 0-1
+Kenya U20 vs South Sudan U20 RESULT: 1-1
+Sudan U20 vs Uganda U20 RESULT: 0-1
+Ethiopia U20 vs Tanzania U20 RESULT: 0-4
+South Africa U20 vs Lesotho U20 RESULT: 3-0
+Angola U20 vs Eswatini U20 RESULT: 4-0
+Comoros U20 vs Botswana U20 RESULT: 0-0
+Vora vs Skenderbeu RESULT: 1-1
+Dinamo City vs Laci RESULT: 3-1
+Olympique Akbou vs USM Alger RESULT: 2-3
+ES Setif vs Constantine RESULT: 5-1
+Carroi vs Penya RESULT: 2-2
+Racing Club vs Sarmiento Junin RESULT: 3-1
+Gimnasia L.P. vs Banfield RESULT: 2-2
+Gimnasia Mendoza vs Dep. Riestra RESULT: 0-0
+Union de Santa Fe vs Independiente RESULT: 1-2
+River Plate vs Huracan RESULT: 1-2
+Acassuso vs CA Mitre RESULT: 2-0
+Ferro vs Ciudad Bolivar RESULT: 1-0
+San Miguel vs All Boys RESULT: 1-1
+San Telmo vs CA Estudiantes RESULT: 0-1
+Atl. Rafaela vs San Martin T. RESULT: 4-2
+Temperley vs Almagro RESULT: 3-1
+Boca Unidos vs Defensores de Vilelas RESULT: 3-3
+Independiente Chivilcoy vs Atletico Escobar RESULT: 3-0
+Sarmiento Resistencia vs El Linqueno RESULT: 1-3
+Sportivo Las Parejas vs Gimnasia E.R. RESULT: 1-0
+Juventud Antoniana vs Cipolletti RESULT: 0-2
+Deportivo Camioneros vs Deportivo Armenio RESULT: 1-2
+Real Pilar vs Arsenal Sarandi RESULT: 2-1
+San Martin Burzaco vs Laferrere RESULT: 2-1
+Sportivo Italiano vs Brown Adrogue RESULT: 0-0
+UAI Urquiza vs Excursionistas RESULT: 1-2
+Villa Dalmine vs Ituzaingo RESULT: 3-1
+Argentino de Rosario vs Berazategui RESULT: 1-1
+Club Lujan vs Atlas RESULT: 1-0
+Juventud Unida S. M. vs CSR Espanol RESULT: 2-0
+Alashkert vs Pyunik Yerevan RESULT: 3-3
+BKMA vs Sardarapat RESULT: 1-1
+Oakleigh Cannons vs Avondale FC RESULT: 0-0
+Armadale vs Nedlands RESULT: 3-0
+Melbourne Victory U21 vs Northcote City RESULT: 1-1
+Bayside Argonauts vs Essendon Royals SC RESULT: 1-0
+Rockingham City vs Balga RESULT: 0-3
+Papua New Guinea U16 W vs Fiji U16 W RESULT: 1-6
+New Zealand U16 W vs New Caledonia U16 W RESULT: 4-0
+A. Lustenau vs Altach RESULT: 2-0
+Grazer AK vs Austria Vienna RESULT: 2-2
+ASK Voitsberg vs A. Salzburg RESULT: 2-1
+Sturm Graz II vs Wacker Innsbruck RESULT: 2-2
+St. Polten vs Bregenz RESULT: 2-1
+Wiener Viktoria vs Wienerberger RESULT: 3-0
+Bleiburg vs Atus Velden RESULT: 2-4
+Hartberg (Am) vs Tillmitsch RESULT: 2-2
+Wolfsberger AC (Am) vs ATSV Wolfsberger RESULT: 2-2
+Rust vs Halbturn RESULT: 4-1
+Neudorf/Parndorf vs Klingenbach RESULT: 0-1
+Lackenbach vs SV Eberau RESULT: 1-1
+Kottmannsdorf vs SAK Klagenfurt RESULT: 1-2
+SGA Sirnitz vs KAC 1909 RESULT: 3-2
+Turan Tovuz vs Zira RESULT: 1-0
+Sabah Baku vs Imisli FK RESULT: 3-1
+Arambagh vs Bashundara Kings RESULT: 1-1
+Isloch vs Neman RESULT: 1-2
+Slavia Mozyr vs Naftan RESULT: 0-1
+Din. Minsk vs BATE RESULT: 2-0
+Leuven vs RAAL La Louviere RESULT: 2-0
+Charleroi vs Cercle Brugge KSV RESULT: 3-2
+Anderlecht vs Waregem RESULT: 3-0
+Lommel SK vs KV Mechelen RESULT: 0-0
+Genk U23 vs Seraing RESULT: 2-2
+Hasselt vs Beerschot VA RESULT: 0-1
+Eupen vs RFC Liege RESULT: 3-1
+BFF Academy U19 vs Thimphu City RESULT: 1-3
+Independiente vs SA Bulo Bulo RESULT: 1-3
+Always Ready vs Academia del Balompie RESULT: 1-4
+Aurora vs Universitario de Vinto RESULT: 4-2
+BSK Banja Luka vs Radnik Bijeljina RESULT: 4-4
+Zrinjski vs Velez Mostar RESULT: 2-0
+Police XI vs Orapa United RESULT: 0-0
+Sua Flamingoes vs Enesia RESULT: 1-1
+Ceara vs Novorizontino RESULT: 2-1
+Sao Bernardo vs Atletico GO RESULT: 1-0
+Sport Recife vs Juventude RESULT: 2-1
+Athletic Club vs Botafogo SP RESULT: 1-1
+Noroeste vs Primavera RESULT: 0-0
+Sao Jose EC vs Comercial RESULT: 3-0
+Nova Iguacu vs Boavista RESULT: 1-1
+Nacao vs Joinville RESULT: 0-4
+Blumenau vs Metropolitano RESULT: 0-1
+Marcilio Dias vs Hercilio Luz RESULT: 4-2
+Sao Paulo W vs Flamengo W RESULT: 1-0
+Dunav Ruse vs Botev Vratsa RESULT: 2-2
+Septemvri Sofia vs Botev Plovdiv RESULT: 0-3
+Arda vs Cherno More RESULT: 1-1
+ASFA Yennega vs US Comoe RESULT: 1-0
+FocuSport vs AS Douanes RESULT: 1-0
+Maya vs USFA RESULT: 0-1
+Sporting Cascades vs CFFEB RESULT: 0-0
+Young Star vs Royal Vision RESULT: 1-5
+Boeung Ket vs Visakha RESULT: 1-2
+Tiffy Army vs NagaWorld RESULT: 4-5
+Cavalry vs Forge RESULT: 1-1
+Halifax Tides W vs AFC Toronto W RESULT: 1-1
+Vancouver Rise W vs Montreal Roses W RESULT: 2-2
+Shaanxi Union vs Suzhou Dongwu RESULT: 2-2
+Shenzhen Juniors vs Changchun Yatai RESULT: 1-1
+Dingnan Ganlian vs Foshan Nanshi RESULT: 1-1
+Meizhou Hakka vs Shijiazhuang Gongfu RESULT: 1-3
+Nanjing City vs Wuxi Wugou RESULT: 0-3
+Shanxi Chongde Ronghai vs Guizhou Guiyang RESULT: 1-0
+Dalian Kewei vs Shenzhen RESULT: 0-0
+Hangzhou Linping vs Shanghai Port B RESULT: 0-2
+Dalian Yingbo B vs Guangzhou Dandelion RESULT: 1-0
+Shanghai Second vs Hubei Istar RESULT: 0-0
+Ganzhou Ruishi vs Qingdao Red Lions RESULT: 2-1
+Xiamen Feilu vs Beijing Technology RESULT: 3-0
+Chengdu Rongcheng B vs Taian Tiankuang RESULT: 1-1
+Millonarios vs Chico RESULT: 3-0
+Alianza vs Santa Fe RESULT: 1-4
+Patriotas vs U. Magdalena RESULT: 2-1
+Leones vs Boca Juniors RESULT: 1-2
+Zeledon vs Sporting FC RESULT: 1-2
+Varazdin vs Osijek RESULT: 0-0
+Istra 1961 vs Gorica RESULT: 0-1
+Apollon vs APOEL RESULT: 2-2
+Nea Salamis vs Anorthosis RESULT: 3-0
+Achnas vs Polemidion RESULT: 3-0
+Chloraka vs ASIL Lysi RESULT: 1-1
+Digenis Akritas vs Apea Akrotiriou RESULT: 0-1
+Doxa vs Anagennisi Derynia RESULT: 2-1
+Paralimni vs Halkanoras RESULT: 0-0
+Artis Brno vs Liberec RESULT: 0-0
+FK Pardubice vs Bohemians RESULT: 2-1
+Mlada Boleslav vs Brno RESULT: 2-0
+Slovacko vs Ostrava RESULT: 2-2
+Odense vs Midtjylland RESULT: 1-1
+Aarhus Fremad vs Hvidovre IF RESULT: 1-3
+AB Copenhagen vs Esbjerg RESULT: 3-0
+Middelfart vs VSK Aarhus RESULT: 1-1
+Ishoj vs BK Frem RESULT: 3-2
+Bronshoj vs ASA Aarhus RESULT: 5-1
+Horsholm-Usserod vs Vanlose RESULT: 1-1
+Naesby vs Helsingor RESULT: 1-1
+Sundby vs Holstebro RESULT: 2-0
+ASA Aarhus W vs Odense Q W RESULT: 1-1
+Brondby W vs Fortuna Hjorring W RESULT: 4-0
+Koge W vs Midtjylland W RESULT: 4-0
+Aalborg W vs Viborg W RESULT: 0-0
+B93 W vs Thisted FC W RESULT: 3-2
+Naestved W vs Sundby W RESULT: 1-1
+Osterbro W vs Esbjerg W RESULT: 4-1
+Atlantico vs Moca RESULT: 2-3
+Jarabacoa vs Salcedo RESULT: 0-2
+Aucas vs Macara RESULT: 1-2
+Guayaquil City vs Leones del Norte RESULT: 1-1
+Inca Aruba vs Fuerte San Francisco RESULT: 2-1
+Cacahuatique vs FAS RESULT: 0-2
+Barnsley vs Leicester RESULT: 1-1
+Burton vs Mansfield RESULT: 2-2
+Blackpool vs Plymouth RESULT: 2-4
+Bromley vs Huddersfield RESULT: 2-1
+Leyton Orient vs Stevenage RESULT: 1-0
+Luton vs Bradford City RESULT: 0-1
+Oxford Utd vs Cambridge Utd RESULT: 1-1
+Peterborough vs Doncaster RESULT: 0-2
+Reading vs Notts County RESULT: 2-0
+Sheffield Wed vs Stockport County RESULT: 0-0
+Wigan vs Wycombe RESULT: 0-1
+Rochdale vs Oldham RESULT: 2-0
+Walsall vs Port Vale RESULT: 2-0
+Accrington vs Newport RESULT: 0-0
+Barnet vs Fleetwood RESULT: 3-1
+Chesterfield vs York City RESULT: 2-0
+Colchester vs Cheltenham RESULT: 1-1
+Crewe vs Shrewsbury RESULT: 1-1
+Exeter vs Tranmere RESULT: 0-0
+Gillingham vs Bristol Rovers RESULT: 3-0
+Grimsby vs Crawley RESULT: 2-0
+Northampton vs Rotherham RESULT: 0-1
+Salford vs Swindon RESULT: 1-0
+Hartlepool vs Worthing RESULT: 1-3
+Tamworth vs Wealdstone RESULT: 2-1
+AFC Fylde vs Altrincham RESULT: 1-2
+Barrow vs Aldershot RESULT: 1-0
+Boreham Wood vs Harrogate RESULT: 4-1
+Eastleigh vs Carlisle RESULT: 1-0
+FC Halifax vs Sutton RESULT: 1-1
+Forest Green vs Boston Utd RESULT: 1-3
+Gateshead vs Southend RESULT: 1-6
+Woking vs Kidderminster RESULT: 0-0
+Hornchurch vs Scunthorpe RESULT: 1-0
+Redcar Town vs Darlington RESULT: 2-4
+AFC Rushden & Diamonds vs Peterborough Sports RESULT: 3-1
+AFC Telford vs Worksop RESULT: 2-2
+AFC Totton vs Gloucester RESULT: 0-2
+Alvechurch vs Racing Club Warwick RESULT: 3-1
+Anstey Nomads vs Newcastle Town RESULT: 2-1
+Atherton vs Prescot RESULT: 2-0
+Aveley vs Brentwood RESULT: 2-3
+Barton Town vs Boldmere RESULT: 3-1
+Bedford vs King's Lynn RESULT: 2-1
+Berkhamsted vs Hendon RESULT: 4-1
+Billericay vs Enfield Town RESULT: 1-3
+Bishops Cleeve vs Tadley RESULT: 0-1
+Brackley Town vs Portchester RESULT: 1-0
+Bradford PA vs Lancaster RESULT: 1-0
+Bromsgrove vs Leek RESULT: 2-1
+Bury vs Workington RESULT: 5-1
+Buxton vs Ashton Utd RESULT: 1-0
+Cambridge City vs Buckhurst Hill RESULT: 3-1
+Canvey vs Chelmsford RESULT: 0-1
+Chertsey vs Greenwich Borough RESULT: 3-2
+Chesham vs Ware RESULT: 7-2
+Chichester vs SE Dons RESULT: 2-3
+Cirencester vs Farnham RESULT: 2-2
+Cray Wanderers vs Maidstone RESULT: 1-1
+Dartford vs Hayes & Yeading RESULT: 4-2
+Dorchester vs Oxford City RESULT: 0-2
+Dover vs Folkestone RESULT: 4-2
+Dulwich Hamlet vs Welling RESULT: 4-1
+Dunston vs Scarborough RESULT: 0-2
+Eastbourne Boro vs Windsor & Eton RESULT: 3-0
+Emley vs Spennymoor RESULT: 0-4
+FC United vs Ossett United RESULT: 4-1
+Frome vs Plymouth Parkway RESULT: 0-2
+Gorleston vs Bury Town RESULT: 3-4
+Halesowen vs Mickleover RESULT: 2-0
+Hampton & Richmond vs Crowborough RESULT: 3-3
+Hanwell Town vs Burgess Hill RESULT: 2-1
+Harborough vs Rushall RESULT: 1-0
+Harleston Town vs Real Bedford RESULT: 1-2
+Heaton Stannington vs Trafford RESULT: 1-2
+Hebburn Town vs Guiseley RESULT: 1-4
+Hednesford vs Coventry United RESULT: 0-1
+Hemel Hempstead vs Wingate & Finchley RESULT: 1-1
+Hitchin vs Leiston RESULT: 1-2
+Kettering vs Quorn RESULT: 2-0
+Kingstonian vs Leatherhead RESULT: 0-1
+Leamington vs Gainsborough RESULT: 1-1
+Lower Breck vs Chester RESULT: 1-2
+Maidenhead vs Ebbsfleet RESULT: 1-3
+Marine vs Radcliffe RESULT: 3-2
+Merthyr Town vs Truro RESULT: 1-1
+Morecambe vs Southport RESULT: 2-0
+Needham Market vs Braintree RESULT: 3-3
+Pagham vs Hanworth RESULT: 0-6
+Redcar Athletic vs Macclesfield RESULT: 1-2
+Redditch vs Evesham RESULT: 3-0
+Salisbury vs Taunton RESULT: 4-1
+Slimbridge vs Hungerford RESULT: 1-3
+Slough vs Chatham RESULT: 0-1
+Snodland vs Sheppey United RESULT: 0-1
+South Shields vs Witton RESULT: 7-0
+Spalding United vs Hanley Town RESULT: 2-0
+Stafford vs Hereford RESULT: 3-2
+Swindon S vs Weymouth RESULT: 1-3
+Thame vs Exmouth Town RESULT: 3-3
+Tiverton vs Sholing RESULT: 0-1
+Tonbridge vs Ramsgate RESULT: 2-1
+Torquay vs AFC Stoneham RESULT: 6-1
+Uxbridge vs Farnborough RESULT: 2-2
+Waltham Abbey vs Dag & Red RESULT: 1-1
+Walton & Hersham vs Horsham FC RESULT: 0-3
+Warrington Rylands vs Chorley RESULT: 0-1
+Warrington vs South Liverpool RESULT: 3-0
+Weston-super-Mare vs Wimborne RESULT: 1-1
+Witham vs St. Albans RESULT: 0-3
+Woodford Town vs Mulbarton Wanderers RESULT: 1-2
+Crystal Palace U21 vs Blackburn U21 RESULT: 0-1
+Liverpool U21 vs Brighton U21 RESULT: 5-1
+Reading U21 vs Everton U21 RESULT: 0-0
+Leeds U21 vs Newcastle Utd U21 RESULT: 2-0
+Tottenham U21 vs Manchester City U21 RESULT: 4-2
+Chelsea U21 vs Fulham U21 RESULT: 3-1
+Charlton W vs London City Lionesses W RESULT: 1-4
+Chelsea W vs Birmingham W RESULT: 2-0
+Arsenal W vs Manchester Utd W RESULT: 1-1
+Nomme Utd vs Paide RESULT: 1-3
+Ocean Kerch vs GFK Yalta RESULT: 1-2
+Zarechnoye vs TSK Simferopol RESULT: 1-2
+Vikingur vs 07 Vestur Sorvagur RESULT: 3-3
+HB Torshavn vs AB Argir RESULT: 4-1
+Toftir vs Streymur RESULT: 2-3
+TPS vs Ilves RESULT: 0-3
+VPS vs KuPS RESULT: 0-2
+Mikkeli vs Jippo RESULT: 1-0
+PK-35 vs KTP RESULT: 0-3
+SJK Akatemia vs KaPa RESULT: 2-3
+Keski-Uusimaa vs Rovaniemi RESULT: 3-1
+SalPa vs Tampere Utd RESULT: 6-4
+JJK Jyvaskyla vs OLS Oulu RESULT: 1-3
+Jazz Pori vs VJS RESULT: 0-2
+Hercules vs SJK Akatemia 2 RESULT: 3-5
+Vaajakoski vs TP-47 RESULT: 0-1
+KuPS W vs HPS W RESULT: 0-0
+Ilves W vs Aland Utd W RESULT: 2-3
+HJK W vs Gnistan W RESULT: 6-1
+Boulogne vs Nantes RESULT: 1-2
+Guingamp vs Red Star RESULT: 1-3
+Metz vs St Etienne RESULT: 2-2
+Amiens vs Orleans RESULT: 2-0
+Concarneau vs Caen RESULT: 2-0
+Fleury-Merogis vs Thionville RESULT: 1-1
+La Roche vs Valenciennes RESULT: 3-2
+Le Puy-en-Velay vs Villefranche RESULT: 4-1
+Paris 13 Atl. vs Bourg en Bresse RESULT: 1-1
+Rouen vs Aubagne RESULT: 1-0
+Versailles vs Quevilly Rouen RESULT: 0-0
+Lens W vs Toulouse W RESULT: 2-2
+Saint-Malo W vs Fleury 91 W RESULT: 0-2
+Montpellier W vs Marseille W RESULT: 0-0
+Gagra vs Meshakhte Tkibuli RESULT: 1-1
+Samgurali vs Dinamo Tbilisi RESULT: 2-3
+Holstein Kiel vs VfL Osnabruck RESULT: 1-1
+Kaiserslautern vs Braunschweig RESULT: 1-0
+Karlsruher SC vs Nurnberg RESULT: 0-1
+SG Dynamo Dresden vs Hertha Berlin RESULT: 1-2
+Alemannia Aachen vs Dusseldorf RESULT: 1-0
+Hoffenheim II vs Meppen RESULT: 1-0
+Stuttgart II vs Regensburg RESULT: 3-3
+Viktoria Koln vs Ingolstadt RESULT: 3-0
+Saarbrucken vs Grossaspach RESULT: 2-1
+SC Weiche-08 vs Phonix Lubeck RESULT: 1-2
+VfB Lubeck vs Bremer RESULT: 2-1
+Hannover II vs Todesfelde RESULT: 3-1
+Drochtersen/Assel vs St. Pauli II RESULT: 1-0
+Emden vs Schoningen RESULT: 5-0
+VfB Oldenburg vs Jeddeloh RESULT: 1-3
+Bocholt vs Wiedenbruck RESULT: 2-1
+Bonner vs Bergisch Gladbach RESULT: 3-2
+Hilden vs Bochum II RESULT: 2-4
+Oberhausen vs B. Monchengladbach II RESULT: 3-1
+Schalke II vs Lotte RESULT: 1-0
+Westfalia Rhynern vs Koln II RESULT: 3-2
+Bayern Munich W vs Koln W RESULT: 5-2
+Heart of Lions vs Swedru All Blacks RESULT: 0-0
+Vision vs Medeama RESULT: 1-1
+Ebiemo FC vs Nations FC RESULT: 0-1
+Ebony FC vs New Edubiase RESULT: 1-0
+Golden Kick vs WAFA RESULT: 1-2
+Kalibi SC vs Berekum City RESULT: 1-0
+Nania vs Nukunu RESULT: 0-0
+Pro-Sports Academy vs Pac Academy RESULT: 1-0
+Sankara Nationals vs Real Tamale RESULT: 1-1
+Tamale City vs Northern City RESULT: 1-0
+VC Warriors vs Bectero Sasana RESULT: 2-0
+Lynx vs St Josephs RESULT: 0-6
+Hound Dogs vs Europa Point RESULT: 1-2
+Atromitos vs Kifisia RESULT: 1-2
+Aris vs Iraklis 1908 RESULT: 0-0
+Karditsa vs Panionios RESULT: 0-0
+Zakynthos vs Ellas Syrou RESULT: 1-4
+AEK Athens FC W vs PAOK W RESULT: 0-1
+Panathinaikos W vs Pyrgos W RESULT: 4-0
+Comunicaciones vs Guastatoya RESULT: 1-2
+Aurora F.C. vs Marquense RESULT: 1-0
+Choloma vs Estrella Roja RESULT: 2-0
+Genesis vs Olancho RESULT: 0-0
+Kisvarda vs Paks RESULT: 0-1
+Debrecen vs Vasas RESULT: 2-4
+Nagykanizsa vs Videoton RESULT: 1-0
+Ajka vs Csakvari RESULT: 1-0
+DVTK vs Gyirmot RESULT: 2-0
+Mezokovesd-Zsory vs Kazincbarcika RESULT: 4-1
+Kecskemeti TE vs Szeged RESULT: 1-0
+KA Akureyri vs Thor Akureyri RESULT: 3-0
+KR Reykjavik vs Vikingur Reykjavik RESULT: 2-1
+Throttur vs Fylkir RESULT: 1-0
+Valur W vs Thor/KA W RESULT: 0-1
+Persebaya vs Garudayaksa RESULT: 1-1
+PSM Makassar vs Persita RESULT: 2-2
+FC Bhayangkara vs Isenmulang Kalteng RESULT: 2-0
+Persija Jakarta vs Java United RESULT: 1-0
+Al Quwa Al Jawiya vs Diyala RESULT: 1-1
+Ghaz Al Shamal vs Newroz RESULT: 0-0
+Al-Karma vs Zakho RESULT: 1-0
+Al Shorta vs Al Kahraba RESULT: 2-0
+Sligo Rovers vs St. Patricks RESULT: 0-1
+Cork City W vs Waterford W RESULT: 1-2
+DLR Waves W vs Athlone WFC W RESULT: 0-3
+Treaty Utd W vs Peamount W RESULT: 1-0
+Galway United W vs Bohemians WFC W RESULT: 0-1
+Wexford W vs Sligo Rovers W RESULT: 2-2
+Shelbourne W vs Shamrock Rovers W RESULT: 2-4
+Maccabi Petah Tikva vs Hapoel Jerusalem RESULT: 2-4
+Sakhnin vs Hap. Ramat Gan RESULT: 1-0
+Maccabi Haifa vs Ironi Tiberias RESULT: 3-2
+Netanya vs Maccabi Tel Aviv RESULT: 1-2
+H. Beer Sheva vs Kiryat Shmona RESULT: 1-0
+Beitar Jerusalem vs Hapoel Haifa RESULT: 2-1
+Hapoel Umm al-Fahm vs Ironi Baka RESULT: 3-3
+Araba vs M. Kiryat Ata-Bialik RESULT: 0-4
+Maccabi Neve Shaanan Eldad vs Hapoel Karmiel RESULT: 1-1
+Carrarese vs Benevento RESULT: 0-1
+Cremonese vs Entella RESULT: 0-0
+Palermo vs Padova RESULT: 2-1
+Sampdoria vs Catanzaro RESULT: 2-1
+Ascoli vs Avellino RESULT: 3-1
+Forli vs Torres RESULT: 1-1
+Cosenza vs Scafatese RESULT: 1-1
+Sorrento vs Bari RESULT: 1-2
+Audace Cerignola vs Casertana RESULT: 0-0
+Savoia vs Casarano RESULT: 1-1
+Altamura vs Picerno RESULT: 2-1
+Catania vs Barletta RESULT: 0-0
+Salernitana vs Giugliano RESULT: 1-0
+Lazio U20 vs Juventus U20 RESULT: 1-1
+Lecce U20 vs Fiorentina U20 RESULT: 1-1
+Monza U20 vs Inter U20 RESULT: 2-3
+Empoli U20 vs Sassuolo U20 RESULT: 2-1
+Torino U20 vs Verona U20 RESULT: 2-2
+Arezzo W vs Parma W RESULT: 0-3
+Juventus W vs AS Roma W RESULT: 2-2
+Avispa Fukuoka vs Sanfrecce Hiroshima RESULT: 0-1
+Kawasaki Frontale vs Kashima Antlers RESULT: 3-3
+Shimizu S-Pulse vs Chiba RESULT: 2-1
+Urawa Reds vs Verdy RESULT: 3-1
+V-Varen Nagasaki vs Cerezo Osaka RESULT: 1-1
+FC Tokyo vs Nagoya Grampus RESULT: 1-0
+Okayama vs Kyoto RESULT: 1-2
+Yokohama F. Marinos vs Mito RESULT: 2-0
+Hokkaido Consadole Sapporo vs Oita Trinita RESULT: 1-1
+Fujieda MYFC vs Omiya Ardija RESULT: 1-1
+Albirex Niigata vs Iwata RESULT: 2-1
+Kofu vs Tokushima RESULT: 0-1
+Montedio Yamagata vs Toyama RESULT: 0-2
+Sagan Tosu vs Iwaki RESULT: 1-3
+Shonan Bellmare vs Blaublitz RESULT: 1-1
+Yokohama FC vs Imabari RESULT: 2-1
+Shabab Al Ordon vs Al Hussein RESULT: 3-3
+Feronikeli vs Vushtrria RESULT: 3-1
+Malisheva vs FC Ballkani RESULT: 2-1
+2 Korriku vs Liria RESULT: 0-1
+Dinamo Ferizaj vs Suhareka RESULT: 3-1
+Istogu vs Trepca 89 RESULT: 1-2
+Kika vs KF Lepenci Kacanik RESULT: 2-1
+Mitrovica vs Besa Peja RESULT: 0-1
+Ramiz Sadiku vs Prishtina e Re RESULT: 0-2
+Rilindja vs Vjosa RESULT: 2-1
+Asia Talas vs Neftchi Kochkor-Ata RESULT: 3-2
+FK Liepaja vs BFC Daugavpils RESULT: 0-0
+Jelgava vs Riga FC RESULT: 0-1
+Banga vs Dziugas Telsiai RESULT: 2-0
+Transinvest vs Zalgiris RESULT: 3-0
+Blue Eagles vs Mighty Wanderers RESULT: 2-1
+Star City vs Selangor RESULT: 1-4
+Birzebbuga vs Valletta RESULT: 0-3
+Gzira vs Mosta RESULT: 0-0
+Puebla vs Atlante RESULT: 1-1
+Juarez vs Tigres UANL RESULT: 2-0
+Piratas vs Venados RESULT: 2-1
+Tepatitlan de Morelos vs Zacatecas Mineros RESULT: 0-1
+Atletico La Paz vs Correcaminos RESULT: 3-1
+Monterrey W vs Necaxa W RESULT: 10-0
+Politehnica UTM vs Petrocub RESULT: 0-1
+Zimbru Chisinau vs Dacia Buiucani RESULT: 0-1
+Falesti vs Oguzsport RESULT: 0-2
+Sparta Selemet vs Vulturii Cutezatori RESULT: 1-2
+Arsenal Tivat vs Sutjeska RESULT: 0-2
+Vitesse vs Jong PSV RESULT: 3-1
+Rijnsburgse Boys vs Quick Boys RESULT: 3-1
+GVVV vs Kloetinge RESULT: 3-0
+Hardenberg vs Kozakken Boys RESULT: 1-2
+HFC vs AFC RESULT: 1-3
+Hoek vs Jong Almere City RESULT: 2-2
+RKAV Volendam vs Barendrecht RESULT: 1-1
+Katwijk vs De Treffers RESULT: 1-2
+Raalte vs IJsselmeervogels RESULT: 0-1
+Spakenburg vs Jong Sparta Rotterdam RESULT: 1-1
+PSV W vs Twente W RESULT: 0-4
+Ajax W vs AZ Alkmaar W RESULT: 5-1
+Utrecht W vs Feyenoord W RESULT: 0-3
+Douanes Niamey vs ASGNN RESULT: 1-0
+Nigelec vs Niima RESULT: 0-0
+Tagour Provincial Club vs ASFAN RESULT: 1-2
+Ikorodu City vs Barau RESULT: 0-0
+Katsina Utd vs Niger Tornadoes RESULT: 1-0
+Ranchers Bees vs Bendel RESULT: 2-1
+Vardar vs Shkendija Haracine RESULT: 2-0
+Tiverija W vs Recica W RESULT: 17-2
+Kamenica Sasa W vs ASS United W RESULT: 5-0
+Kochani W vs ZFK Konzuli W RESULT: 1-2
+Bangor FC vs Portadown RESULT: 3-1
+Carrick Rangers vs Larne RESULT: 2-5
+Cliftonville vs Glentoran RESULT: 1-2
+Dungannon vs Ballymena RESULT: 1-1
+Linfield vs Crusaders RESULT: 1-0
+Coleraine vs Limavady RESULT: 1-0
+Glenavon vs Newington RESULT: 1-0
+H&W Welders vs Ballinamallard RESULT: 1-3
+Institute vs Warrenpoint RESULT: 2-0
+Loughgall vs Armagh RESULT: 0-0
+Moyola vs Ards RESULT: 0-0
+Rathfriland vs Queens Univ. RESULT: 1-0
+Kristiansund vs Rosenborg RESULT: 1-3
+Molde vs Aalesund RESULT: 1-2
+Asane vs Bryne RESULT: 0-4
+Harstad vs Skjetten RESULT: 3-1
+Ulfstind vs Bossekop RESULT: 3-4
+Skjervoy vs Skedsmo RESULT: 1-2
+Honefoss W vs Roa W RESULT: 0-0
+Brann W vs Bodo/Glimt W RESULT: 4-0
+LSK Kvinner W vs Lyn W RESULT: 2-3
+San Francisco vs Arabe Unido RESULT: 1-2
+Libertad Asuncion vs Ameliano RESULT: 1-1
+Cerro Porteno vs Rubio Nu RESULT: 1-0
+Alianza Lima vs AD Tarma RESULT: 2-0
+FC Cajamarca vs Cusco RESULT: 1-2
+Sporting Cristal vs Grau RESULT: 3-1
+Korona Kielce vs Rakow RESULT: 3-2
+GKS Katowice vs Cracovia RESULT: 3-2
+Motor Lublin vs Gornik Zabrze RESULT: 0-0
+Lechia Gdansk vs Stal Mielec RESULT: 7-1
+Grodzisk M. vs LKS Lodz RESULT: 2-0
+Polonia Warszawa vs Chrobry Glogow RESULT: 2-0
+Termalica B-B. vs Odra Opole RESULT: 1-0
+Legnica vs S. Rzeszow RESULT: 2-3
+Arkonia Szczecin U19 vs Wisla U19 RESULT: 1-1
+Lech Poznan U19 vs Arka Gdynia U19 RESULT: 5-2
+Korona Kielce U19 vs Jagiellonia U19 RESULT: 3-1
+Gornik Zabrze U19 vs Slask W. U19 RESULT: 0-2
+Gil Vicente vs Maritimo RESULT: 1-1
+Nacional vs Famalicao RESULT: 0-4
+Alverca vs Rio Ave RESULT: 1-0
+Sporting CP vs Arouca RESULT: 2-2
+Imortal vs Tondela RESULT: 1-5
+Castro Daire vs Portimonense RESULT: 0-1
+Naval 1893 vs Felgueiras RESULT: 0-2
+Vitoria Sernache vs Varzim RESULT: 2-1
+Atletico CP vs Lagoa RESULT: 4-1
+Salgueiros vs Feirense RESULT: 1-0
+ACDR Lamelas vs Santo Antonio RESULT: 4-1
+Oliveirense vs Penafiel RESULT: 1-2
+Mafra vs Tirsense RESULT: 2-2
+O Elvas CAD vs Leiria RESULT: 0-2
+Beira Mar vs Os Belenenses RESULT: 0-2
+CFR Cluj vs FC Botosani RESULT: 3-1
+Univ. Craiova vs FCSB RESULT: 5-0
+Concordia vs Metalul Buzau RESULT: 0-1
+CSM Satu Mare vs Afumati RESULT: 0-2
+CSM Slatina vs Selimbar RESULT: 2-1
+FC Bacau vs Cetatea Suceava RESULT: 2-2
+Steaua Bucuresti vs Gloria Bistrita RESULT: 2-1
+Stefanesti vs Metaloglobus Bucharest RESULT: 0-1
+Unirea Slobozia vs Chindia Targoviste RESULT: 0-1
+Popesti Leordeni vs Politehnica Timisoara RESULT: 3-4
+Ol. Cluj W vs Farul Constanta W RESULT: 1-8
+Csikszereda M. Ciuc W vs Politehnica Timisoara W RESULT: 3-0
+Domagnano vs La Fiorita RESULT: 1-2
+Folgore vs San Marino Academy U22 RESULT: 2-0
+Pennarossa vs Fiorentino RESULT: 3-1
+Al Anwar vs Al Najma RESULT: 1-1
+Al Zulfi vs Al Raed RESULT: 4-0
+Al Ittihad W vs Al Nassr W RESULT: 4-2
+Dundee FC vs Motherwell RESULT: 2-1
+Hibernian vs Aberdeen RESULT: 1-1
+St Johnstone vs Falkirk RESULT: 1-1
+St. Mirren vs Dundee Utd RESULT: 0-3
+Kilmarnock vs Hearts RESULT: 1-1
+Livingston vs Inverness RESULT: 2-2
+Morton vs Dunfermline RESULT: 0-1
+Partick Thistle vs Raith RESULT: 0-0
+Stenhousemuir vs Arbroath RESULT: 1-0
+Alloa vs East Kilbride RESULT: 1-2
+Cove Rangers vs Ross County RESULT: 0-2
+East Fife vs Montrose RESULT: 1-2
+Hamilton vs Queen of South RESULT: 4-1
+Peterhead vs Airdrieonians RESULT: 1-2
+Dumbarton vs Spartans RESULT: 3-0
+Elgin City vs Stranraer RESULT: 1-5
+Forfar Athletic vs Annan RESULT: 1-0
+Kelty Hearts vs Edinburgh City RESULT: 1-3
+Stirling vs Clyde RESULT: 1-1
+Novi Pazar vs Zemun RESULT: 2-2
+Vojvodina vs IMT Novi Beograd RESULT: 1-1
+OFK Beograd Mozzart Bet vs Radnicki 1923 RESULT: 3-5
+Radnik vs Partizan RESULT: 4-4
+Balestier Khalsa vs Tanjong Pagar RESULT: 3-4
+Young Lions vs Geylang RESULT: 1-5
+Kosice vs Ruzomberok RESULT: 2-0
+Michalovce vs Banska Bystrica RESULT: 1-0
+Zilina vs Trencin RESULT: 2-1
+Komarno vs Slovan Bratislava RESULT: 1-2
+FK Humenne vs I. Bratislava RESULT: 1-1
+MFK Bytca vs Lehota p. V. RESULT: 2-1
+Zvolen vs Malzenice RESULT: 1-2
+Presov vs Samorin RESULT: 0-1
+D. Kubin vs Rimavska Sobota RESULT: 0-2
+K. Nove Mesto vs Filakovo RESULT: 1-1
+MSK Lucenec vs Medzibrod RESULT: 3-0
+MSK Martin vs Podkonice RESULT: 4-3
+Namestovo vs Cadca RESULT: 1-1
+B. Bystrica W vs Trnava W RESULT: 0-1
+Presov W vs Petrzalka W RESULT: 7-0
+Slovan Bratislava W vs Ruzomberok W RESULT: 7-0
+Z. Moravce-Vrable W vs Trencin W RESULT: 2-1
+Myjava W vs Komarno W RESULT: 8-0
+Koper vs Nafta RESULT: 2-0
+Maribor vs Aluminij RESULT: 2-2
+Beltinci vs Tabor Sezana RESULT: 5-1
+Ilirija vs Krsko Posavje RESULT: 2-0
+Vrhnika vs Primorje RESULT: 2-1
+Brezice vs Rudar RESULT: 3-4
+Richards Bay vs Sekhukhune RESULT: 2-3
+Polokwane vs AmaZulu RESULT: 0-1
+Kruger United vs Stellenbosch RESULT: 0-1
+Hope FC vs Orbit College RESULT: 1-0
+Leicesterford City vs Midlands Wanderers RESULT: 1-0
+NWU FC vs Cape Town City RESULT: 0-0
+The Bees vs Lerumo Lions RESULT: 1-0
+Upington City vs Pretoria U. RESULT: 3-3
+Paraguay U19 vs Venezuela U19 RESULT: 2-0
+Argentina U19 vs Uruguay U19 RESULT: 1-0
+Bucheon FC 1995 vs Gimcheon Sangmu RESULT: 0-2
+Anyang vs Ulsan HD RESULT: 2-1
+Asan vs Cheonan City RESULT: 3-1
+Jeonnam vs Suwon FC RESULT: 0-3
+Gimpo FC vs Busan RESULT: 1-0
+Seoul E-Land vs Daegu RESULT: 2-1
+Busan Kyotong vs Pocheon RESULT: 1-0
+Real Sociedad B vs Mallorca RESULT: 0-1
+Andorra vs Gijon RESULT: 1-3
+Castellon vs Tenerife RESULT: 5-0
+Eldense vs Eibar RESULT: 1-2
+Cadiz CF vs Girona RESULT: 1-2
+Unionistas vs UD Ourense RESULT: 3-1
+Racing Club Ferrol vs Barakaldo RESULT: 1-0
+CD Coria vs Real Aviles RESULT: 1-1
+Ponferradina vs AD Merida RESULT: 1-0
+R. Union vs Mirandes RESULT: 2-2
+Murcia vs CE Europa RESULT: 2-1
+Rayo Majadahonda vs Teruel RESULT: 2-0
+Villarreal B vs Antequera RESULT: 2-2
+Huesca vs Atl. Madrid B RESULT: 0-0
+Jaen vs UD Ibiza RESULT: 2-1
+Llosetense vs Formentera RESULT: 0-0
+Mercadal vs Arenal RESULT: 1-2
+Manacor vs Migjorn RESULT: 5-1
+Alcudia vs Santanyi RESULT: 1-2
+Panaderia vs Tenerife C RESULT: 3-3
+Villaverde Norte vs Lanzarote RESULT: 1-1
+Anaza vs Mensajero RESULT: 1-0
+Las Palmas C vs Yaiza RESULT: 4-2
+Los Llanos vs Laguna RESULT: 2-1
+San Bartolome vs Estrella RESULT: 4-2
+San Miguel vs Villa Santa Brigida RESULT: 3-1
+Pamplona vs Doneztebe FT RESULT: 1-1
+Ezcabarte vs Subiza RESULT: 1-1
+Beti Kozkor vs Cortes RESULT: 1-0
+Valle Egues vs Mutilvera RESULT: 1-1
+AD San Juan vs Txantrea RESULT: 0-1
+Bidezarra vs Izarra RESULT: 0-4
+Gazte Berriak vs CD Cantolagua RESULT: 1-0
+Badalona W vs Real Sociedad W RESULT: 0-0
+Espanyol W vs Madrid CFF W RESULT: 5-1
+Atl. Madrid W vs Logrono W RESULT: 1-0
+Real Madrid W vs Valencia W RESULT: 3-1
+Brommapojkarna vs Goteborg RESULT: 0-1
+Vasteras SK vs Malmo FF RESULT: 2-0
+Orgryte vs Sirius RESULT: 1-2
+Nordic United vs Landskrona RESULT: 1-4
+Oster vs Norrkoping RESULT: 1-3
+Oddevold vs Varnamo RESULT: 1-2
+Varberg vs Brage RESULT: 3-2
+Sandviken vs Orebro RESULT: 4-2
+AFC Malmo vs Utsikten RESULT: 3-1
+Atvidaberg vs Lunds RESULT: 1-0
+Vanersborgs FK vs Tord RESULT: 1-2
+Motala vs Grebbestad RESULT: 1-3
+Skara vs Ahlafors IF RESULT: 1-0
+IFK Berga vs IFK Karlshamn RESULT: 4-1
+Karlskrona vs Oskarshamn RESULT: 2-0
+Torns vs Rappe GOIF RESULT: 1-2
+Qviding vs Dalstorps RESULT: 1-2
+Astrio vs Onsala RESULT: 0-2
+Hestrafors vs Kongahalla RESULT: 1-3
+AIK W vs Hammarby W RESULT: 2-1
+Vittsjo W vs Vaxjo DFF W RESULT: 2-2
+Eskilstuna Utd W vs Hacken W RESULT: 0-3
+Uppsala W vs IF Brommapojkarna W RESULT: 0-1
+Luzern vs Grasshoppers RESULT: 5-1
+Sion vs Zurich RESULT: 1-1
+Young Boys vs Servette RESULT: 3-2
+Basel II vs Bulle RESULT: 1-2
+Breitenrain vs Biel RESULT: 0-4
+Schaffhausen vs Lugano II RESULT: 2-1
+Cham vs Bruhl RESULT: 2-1
+Paradiso vs YF Juventus RESULT: 0-1
+Amical Saint-Prex vs Young Boys II RESULT: 2-2
+Grand-Saconnex vs Bellinzona RESULT: 3-0
+St. Gallen W vs Grasshopper W RESULT: 1-4
+Basel W vs Rapperswil-Jona W RESULT: 2-2
+Aarau W vs Young Boys W RESULT: 1-2
+Rasisalai Utd vs Lamphun Warrior RESULT: 1-1
+Pattani vs Prachuap RESULT: 0-3
+Chiangrai Utd vs Sisaket United RESULT: 0-1
+Corum vs Alanyaspor RESULT: 1-2
+Kocaelispor vs Gaziantep RESULT: 2-0
+Basaksehir vs Genclerbirligi RESULT: 4-0
+Trabzonspor vs Galatasaray RESULT: 4-0
+Keciorengucu vs Sivasspor RESULT: 1-1
+Sariyer vs Boluspor RESULT: 2-1
+Batman Petrolspor vs Bursaspor RESULT: 1-2
+Erokspor vs Karagumruk RESULT: 0-2
+Yuksekova W vs Kayseri Kadin W RESULT: 1-1
+Besiktas W vs Fenerbahce W RESULT: 0-3
+Amed SK W vs Bakirkoy W RESULT: 3-0
+Sultanbeyli Gucu W vs Galatasaray W RESULT: 0-5
+FC Asgabat vs Ahal RESULT: 3-4
+Nebitci vs Altyn Asyr RESULT: 2-4
+Sagadam vs Merw RESULT: 0-2
+Vipers vs Ntugasaze RESULT: 3-0
+FC Kharkiv vs Bukovyna RESULT: 2-0
+FK Zorya Luhansk vs Dyn. Kyiv RESULT: 0-2
+Epitsentr vs Livyi Bereg RESULT: 0-2
+Kolos Kovalivka 2 vs Probiy Horodenka RESULT: 4-2
+SeaSters Odesa W vs FC Kharkiv W RESULT: 0-1
+Hatta vs Shabab Al-Ahli Dubai RESULT: 2-2
+Ittihad Kalba vs Khorfakkan RESULT: 2-1
+Ajman vs Al Sharjah RESULT: 3-2
+Al Wasl vs Al Ain RESULT: 3-2
+Boston River vs Progreso RESULT: 1-2
+CA Cerro vs Penarol RESULT: 1-2
+Maldonado vs Cerro Largo RESULT: 2-0
+New York City vs New York Red Bulls RESULT: 0-1
+Richmond Kickers vs Charlotte Independ. RESULT: 1-2
+San Diego Wave W vs Kansas City Current W RESULT: 2-0
+Orlando Pride W vs Portland Thorns W RESULT: 1-4
+North Carolina Courage W vs Gotham W RESULT: 1-2
+DC Power W vs Tampa Bay Sun W RESULT: 1-1
+Fort Lauderdale W vs Dallas Trinity W RESULT: 1-2
+Mashal Muborak vs Pakhtakor RESULT: 1-2
+Bunyodkor vs Buxoro RESULT: 2-1
+Rayo Zuliano vs Monagas RESULT: 1-1
+Universidad Central vs Carabobo RESULT: 1-1
+Puerto Cabello vs Portuguesa RESULT: 2-1
+TNS vs Llandudno RESULT: 2-1
+Mamelodi Sundowns vs Al Ahli SC RESULT: 2-1
+Auckland FC (Nzl) vs WS Wanderers (Aus) RESULT: 1-3
+IR Tanger (Mar) vs Widad Temara (Mar) RESULT: 1-0
+Real Madrid U19 vs S. Wanderers U20 RESULT: 3-3
+South Korea U20 W vs Italy U20 W RESULT: 1-3
+Brazil U20 W vs Spain U20 W RESULT: 0-1
+Highlanders vs Hardrock RESULT: 0-1
+Hunters vs Manica RESULT: 1-0
+MWOS vs CAPS Utd RESULT: 0-1
+Platinum vs ZPC Kariba RESULT: 1-0
+Simba Bhora vs Chicken Inn RESULT: 1-2
+TelOne vs Ngezi Platinum RESULT: 2-2
+Scottland vs Agama RESULT: 3-0
