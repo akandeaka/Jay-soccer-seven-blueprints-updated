@@ -12,12 +12,12 @@ TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
 
 
 def load_validation_results():
-    """Load actual results from validation_results.txt"""
-    if not os.path.exists("validation_results.txt"):
+    """Load actual results from results.txt"""
+    if not os.path.exists("results.txt"):
         return {}
     
     results = {}
-    with open("validation_results.txt", 'r') as f:
+    with open("results.txt", 'r') as f:
         lines = f.readlines()
     
     i = 0
@@ -119,8 +119,8 @@ def main():
     validation_results = load_validation_results()
     
     if not validation_results:
-        print("❌ No validation_results.txt found")
-        print("\n📝 Create validation_results.txt with:")
+        print("❌ No results.txt found")
+        print("\n📝 Create results.txt with:")
         print("   Match Name")
         print("   League")
         print("   Odds line")
@@ -134,7 +134,7 @@ def main():
     # For now, print instructions
     print("\n📊 To validate accumulators:")
     print("   1. The accumulator picks are in your Telegram message")
-    print("   2. Compare each leg with actual results in validation_results.txt")
+    print("   2. Compare each leg with actual results in results.txt")
     print("   3. Track which accumulators won")
     
     print("\n✅ Accumulator validation ready")

@@ -22,12 +22,12 @@ class ValidationRunner:
         )
 
     def load_validation_results(self):
-        """Loads actual match outputs from validation_results.txt if available."""
-        if not os.path.exists("validation_results.txt"):
+        """Loads actual match outputs from results.txt if available."""
+        if not os.path.exists("results.txt"):
             return {}
         
         results = {}
-        with open("validation_results.txt", 'r') as f:
+        with open("results.txt", 'r') as f:
             lines = f.readlines()
         
         i = 0
