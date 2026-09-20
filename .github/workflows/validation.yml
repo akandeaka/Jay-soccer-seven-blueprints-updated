@@ -38,3 +38,16 @@ jobs:
         name: validation-report
         path: validation_report.md
         if-no-files-found: ignore
+            - name: Check predictions and results overlap
+      run: |
+        python - << 'EOF'
+        import json
+        with open('predictions.json') as f: preds = json.load(f)
+        with open('results.txt') as f: results = f.read()
+        matched = sum(1 for p in preds if p.get('match') and p['match'] in results)
+        print(f"Overlap: {matched}/{len(preds)}")
+        if len(preds) > 0 and matched < len(preds) * 0.3:
+            print("❌ Less than 30% of predictions found in results.txt")
+            print("   results.txt is out of date. Update and push it, then re-run.")
+            exit(1)
+        EOF
