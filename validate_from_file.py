@@ -27,7 +27,7 @@ def normalize_name(name: str) -> str:
     return name.strip()
 
 
-def parse_validation_file(filepath="validation_results.txt") -> dict:
+def parse_validation_file(filepath="results.txt") -> dict:
     """Robustly parses validation results text file."""
     if not os.path.exists(filepath):
         print(f"❌ '{filepath}' not found.")
@@ -189,9 +189,9 @@ def main():
     with open("predictions.json", 'r', encoding='utf-8') as f:
         predictions = json.load(f)
     
-    validation_results = parse_validation_file("validation_results.txt")
+    validation_results = parse_validation_file("results.txt")
     if not validation_results:
-        print("❌ No valid score entries retrieved from validation_results.txt")
+        print("❌ No valid score entries retrieved from results.txt")
         return 1
         
     accumulators = {}
