@@ -2,15 +2,21 @@
 validate_from_file.py
 =====================
 
-Soccer blueprint settlement validator with per-blueprint breakdown.
+Soccer blueprint settlement validator with full breakdown.
 
 Reads:
-    predictions.json   — the picks to settle
-    results.txt        — the actual scores
+    predictions.json         — full prediction pool
+    top_30_predictions.json  — Top 30 picks (if present)
+    results.txt              — actual match scores
 
 Writes:
     validation_report.md
-    Telegram notification (if secrets configured)
+    Telegram notification
+
+Outputs three summaries:
+    1. Overall settlement (full pool)
+    2. Top 30 breakdown
+    3. Per-blueprint accuracy (both pools)
 """
 
 import json
@@ -204,35 +210,13 @@ def send_telegram(message: str) -> bool:
 
 
 # ============================================================
-# MAIN
+# SETTLEMENT
 # ============================================================
 
-def main():
-    print()
-    print("=" * 72)
-    print("⚽ VALIDATION ENGINE — PER-BLUEPRINT SETTLEMENT")
-    print("=" * 72)
-
-    if not os.path.exists(PREDICTIONS_FILE):
-        print(f"❌ '{PREDICTIONS_FILE}' not found.")
-        sys.exit(1)
-
-    with open(PREDICTIONS_FILE) as f:
-        predictions = json.load(f)
-
-    validation_results = parse_validation_file(RESULTS_FILE)
-    if not validation_results:
-        print(f"❌ No valid score entries retrieved from {RESULTS_FILE}")
-        sys.exit(1)
-
-    print(f"📋 Loaded {len(predictions)} predictions")
-    print(f"📊 Loaded {len(validation_results)} match results\n")
-
-    # Settle every prediction
-    settled = []          # list of dicts with full info
-    per_bp = defaultdict(lambda: {'wins': 0, 'losses': 0, 'not_found': 0})
-
-    for p in predictions:
+def settle_pool(preds, validation_results):
+    """Return list of settled entries and summary stats."""
+    settled = []
+    for p in preds:
         match = p.get("match", "")
         play = p.get("play", "")
         bp = p.get("blueprint", "?")
@@ -249,138 +233,230 @@ def main():
             'won': None,
         }
 
-        if actual is None:
-            entry['won'] = None
-            per_bp[bp]['not_found'] += 1
-        else:
-            won = evaluate_play(play, actual['home_score'], actual['away_score'])
-            entry['won'] = won
-            if won:
-                per_bp[bp]['wins'] += 1
-            else:
-                per_bp[bp]['losses'] += 1
-
+        if actual is not None:
+            entry['won'] = evaluate_play(
+                play, actual['home_score'], actual['away_score']
+            )
         settled.append(entry)
+    return settled
 
-    # -------- Print match-by-match results grouped by blueprint --------
-    report_lines = []
-    report_lines.append("# 🏁 SETTLEMENT REPORT")
-    report_lines.append(f"📅 {datetime.now().strftime('%Y-%m-%d')}")
-    report_lines.append("")
 
-    # Group by blueprint for display
-    by_bp = defaultdict(list)
+def summarize(settled):
+    """Compute wins/losses/not_found and per-blueprint breakdown."""
+    per_bp = defaultdict(lambda: {'w': 0, 'l': 0, 'nf': 0})
+    wins = losses = nf = 0
+
     for e in settled:
+        bp = e['blueprint']
+        if e['won'] is None:
+            per_bp[bp]['nf'] += 1
+            nf += 1
+        elif e['won']:
+            per_bp[bp]['w'] += 1
+            wins += 1
+        else:
+            per_bp[bp]['l'] += 1
+            losses += 1
+
+    total_settled = wins + losses
+    rate = (wins / total_settled * 100) if total_settled else 0.0
+
+    return {
+        'wins': wins,
+        'losses': losses,
+        'not_found': nf,
+        'total_settled': total_settled,
+        'rate': round(rate, 1),
+        'per_bp': {bp: dict(s) for bp, s in per_bp.items()},
+    }
+
+
+# ============================================================
+# MAIN
+# ============================================================
+
+def main():
+    print()
+    print("=" * 72)
+    print("⚽ VALIDATION ENGINE — FULL BREAKDOWN")
+    print("=" * 72)
+
+    if not os.path.exists(PREDICTIONS_FILE):
+        print(f"❌ '{PREDICTIONS_FILE}' not found.")
+        sys.exit(1)
+
+    with open(PREDICTIONS_FILE) as f:
+        predictions = json.load(f)
+
+    validation_results = parse_validation_file(RESULTS_FILE)
+    if not validation_results:
+        print(f"❌ No valid score entries retrieved from {RESULTS_FILE}")
+        sys.exit(1)
+
+    print(f"📋 Loaded {len(predictions)} predictions")
+    print(f"📊 Loaded {len(validation_results)} match results")
+
+    # Top 30 (optional)
+    top30 = []
+    if os.path.exists(TOP30_FILE):
+        with open(TOP30_FILE) as f:
+            top30 = json.load(f)
+        print(f"⭐ Loaded {len(top30)} Top-30 picks")
+    else:
+        print("⚠️ Top 30 file missing — using only full pool")
+
+    print()
+
+    # Settle both pools
+    full_settled = settle_pool(predictions, validation_results)
+    full_summary = summarize(full_settled)
+
+    top30_settled = settle_pool(top30, validation_results) if top30 else []
+    top30_summary = summarize(top30_settled) if top30_settled else None
+
+    # ---------- Report: match-by-match by blueprint ----------
+    report_lines = [
+        "# 🏁 SETTLEMENT REPORT",
+        f"📅 {datetime.now().strftime('%Y-%m-%d')}",
+        "",
+    ]
+
+    by_bp = defaultdict(list)
+    for e in full_settled:
         by_bp[e['blueprint']].append(e)
 
     for bp in sorted(by_bp.keys()):
         entries = by_bp[bp]
-        wins = per_bp[bp]['wins']
-        losses = per_bp[bp]['losses']
-        nf = per_bp[bp]['not_found']
-        total = wins + losses
-        rate = (wins / total * 100) if total else 0.0
-
-        header = f"── {bp} ── {wins}W / {losses}L / {nf} NF ({rate:.1f}%)"
+        s = full_summary['per_bp'][bp]
+        t = s['w'] + s['l']
+        rate = (s['w'] / t * 100) if t else 0.0
+        header = f"── {bp} ── {s['w']}W / {s['l']}L / {s['nf']} NF ({rate:.1f}%)"
         report_lines.append(header)
-        print(header)
-
         for e in entries:
             if e['won'] is None:
-                mark = "⏳"
-                score_str = "Score: NOT FOUND"
+                mark, score_str = "⏳", "NOT FOUND"
             elif e['won']:
-                mark = "✅"
-                score_str = f"Score: {e['actual']['home_score']}-{e['actual']['away_score']}"
+                mark, score_str = "✅", f"{e['actual']['home_score']}-{e['actual']['away_score']}"
             else:
-                mark = "❌"
-                score_str = f"Score: {e['actual']['home_score']}-{e['actual']['away_score']}"
-
-            line = f"   {mark} {e['match']} | {e['play']} | {score_str}"
-            print(line)
-            report_lines.append(line)
+                mark, score_str = "❌", f"{e['actual']['home_score']}-{e['actual']['away_score']}"
+            report_lines.append(
+                f"   {mark} {e['match']} | {e['play']} | {score_str}"
+            )
         report_lines.append("")
+
+    # ---------- Summary 1: Full Pool ----------
+    print("=" * 72)
+    print("📋 SUMMARY 1 — FULL POOL SETTLEMENT")
+    print("=" * 72)
+    fp = full_summary
+    print(f"   Total predictions:    {len(predictions)}")
+    print(f"   Settled (matched):    {fp['total_settled']}")
+    print(f"   ✅ Wins:              {fp['wins']}")
+    print(f"   ❌ Losses:            {fp['losses']}")
+    print(f"   ⏳ Not found:          {fp['not_found']}")
+    print(f"   Accuracy:             {fp['wins']}/{fp['total_settled']} ({fp['rate']}%)")
+    print()
+
+    # ---------- Summary 2: Top 30 ----------
+    if top30_summary:
+        print("=" * 72)
+        print("⭐ SUMMARY 2 — TOP 30 PERFORMANCE")
+        print("=" * 72)
+        t30 = top30_summary
+        print(f"   Total in Top 30:      {len(top30)}")
+        print(f"   Settled (matched):    {t30['total_settled']}")
+        print(f"   ✅ Wins:              {t30['wins']}")
+        print(f"   ❌ Losses:            {t30['losses']}")
+        print(f"   ⏳ Not found:          {t30['not_found']}")
+        print(f"   Accuracy:             {t30['wins']}/{t30['total_settled']} ({t30['rate']}%)")
         print()
 
-    # -------- Per-blueprint summary --------
+    # ---------- Summary 3: Per Blueprint ----------
     print("=" * 72)
-    print("📊 PER-BLUEPRINT ACCURACY")
+    print("📊 SUMMARY 3 — PER-BLUEPRINT ACCURACY")
     print("=" * 72)
-    print(f"{'BP':<6}{'Wins':<8}{'Losses':<10}{'Not Found':<12}{'Hit %':<10}")
+    print(f"{'BP':<6}{'Full Pool W/L/Hit%':<28}{'Top 30 W/L/Hit%':<28}")
     print("-" * 72)
-    report_lines.append("## 📊 Per-Blueprint Accuracy")
-    report_lines.append("")
-    report_lines.append("| BP | Wins | Losses | Not Found | Hit % |")
-    report_lines.append("|----|------|--------|-----------|-------|")
 
-    total_wins = 0
-    total_losses = 0
-    total_nf = 0
+    all_bps = set(full_summary['per_bp'].keys())
+    if top30_summary:
+        all_bps |= set(top30_summary['per_bp'].keys())
 
-    for bp in sorted(per_bp.keys()):
-        s = per_bp[bp]
-        t = s['wins'] + s['losses']
-        rate = (s['wins'] / t * 100) if t else 0.0
-        print(f"{bp:<6}{s['wins']:<8}{s['losses']:<10}{s['not_found']:<12}{rate:<10.1f}")
-        report_lines.append(
-            f"| {bp} | {s['wins']} | {s['losses']} | {s['not_found']} | {rate:.1f}% |"
-        )
-        total_wins += s['wins']
-        total_losses += s['losses']
-        total_nf += s['not_found']
+    def fmt_bp(s):
+        if not s:
+            return "—"
+        t = s['w'] + s['l']
+        rate = (s['w'] / t * 100) if t else 0.0
+        return f"{s['w']}W / {s['l']}L ({rate:.0f}%)"
 
-    total_settled = total_wins + total_losses
-    overall_rate = (total_wins / total_settled * 100) if total_settled else 0.0
+    for bp in sorted(all_bps):
+        fp_s = full_summary['per_bp'].get(bp)
+        t30_s = top30_summary['per_bp'].get(bp) if top30_summary else None
+        print(f"{bp:<6}{fmt_bp(fp_s):<28}{fmt_bp(t30_s):<28}")
 
     print("-" * 72)
-    print(f"{'TOTAL':<6}{total_wins:<8}{total_losses:<10}{total_nf:<12}{overall_rate:<10.1f}")
-    print("=" * 72)
-    report_lines.append("")
+
+    # Write markdown
+    report_lines.append("## 📊 Summary — Full Pool")
     report_lines.append(
-        f"**Overall: {total_wins}W / {total_losses}L / {total_nf} NF "
-        f"({overall_rate:.1f}%)**"
+        f"- Total: {len(predictions)} | Settled: {fp['total_settled']} | "
+        f"Wins: {fp['wins']} | Losses: {fp['losses']} | "
+        f"Not found: {fp['not_found']}"
     )
+    report_lines.append(f"- **Accuracy: {fp['wins']}/{fp['total_settled']} ({fp['rate']}%)**")
+    report_lines.append("")
 
-    # -------- Top 30 breakdown --------
-    if os.path.exists(TOP30_FILE):
-        with open(TOP30_FILE) as f:
-            top30 = json.load(f)
-        top30_matches = {e.get('match') for e in top30}
-        top30_entries = [e for e in settled if e['match'] in top30_matches]
-        t30_w = sum(1 for e in top30_entries if e['won'] is True)
-        t30_l = sum(1 for e in top30_entries if e['won'] is False)
-        t30_nf = sum(1 for e in top30_entries if e['won'] is None)
-        t30_total = t30_w + t30_l
-        t30_rate = (t30_w / t30_total * 100) if t30_total else 0.0
-
-        print()
-        print(f"📌 Top 30: {t30_w}W / {t30_l}L / {t30_nf} NF ({t30_rate:.1f}%)")
-        report_lines.append("")
+    if top30_summary:
+        t30 = top30_summary
+        report_lines.append("## ⭐ Summary — Top 30")
         report_lines.append(
-            f"**Top 30: {t30_w}W / {t30_l}L / {t30_nf} NF ({t30_rate:.1f}%)**"
+            f"- Total: {len(top30)} | Settled: {t30['total_settled']} | "
+            f"Wins: {t30['wins']} | Losses: {t30['losses']} | "
+            f"Not found: {t30['not_found']}"
         )
+        report_lines.append(
+            f"- **Accuracy: {t30['wins']}/{t30['total_settled']} ({t30['rate']}%)**"
+        )
+        report_lines.append("")
 
-    # -------- Save report --------
+    report_lines.append("## 📈 Per-Blueprint Accuracy")
+    report_lines.append("")
+    report_lines.append("| BP | Full Pool | Top 30 |")
+    report_lines.append("|----|-----------|--------|")
+    for bp in sorted(all_bps):
+        fp_s = full_summary['per_bp'].get(bp)
+        t30_s = top30_summary['per_bp'].get(bp) if top30_summary else None
+        report_lines.append(f"| {bp} | {fmt_bp(fp_s)} | {fmt_bp(t30_s)} |")
+
     report_text = "\n".join(report_lines)
     with open(REPORT_FILE, "w", encoding="utf-8") as f:
         f.write(report_text)
 
-    # -------- Telegram summary --------
+    # ---------- Telegram ----------
     tg_lines = [
         "🏁 <b>SETTLEMENT REPORT</b>",
         f"📅 {datetime.now().strftime('%Y-%m-%d')}",
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
         "",
+        "📋 <b>FULL POOL</b>",
+        f"   ✅ {fp['wins']}W / ❌ {fp['losses']}L / ⏳ {fp['not_found']} NF",
+        f"   Accuracy: {fp['wins']}/{fp['total_settled']} ({fp['rate']}%)",
     ]
 
-    for bp in sorted(per_bp.keys()):
-        s = per_bp[bp]
-        t = s['wins'] + s['losses']
-        rate = (s['wins'] / t * 100) if t else 0.0
-        tg_lines.append(f"<b>{bp}</b>: {s['wins']}W / {s['losses']}L ({rate:.0f}%)")
+    if top30_summary:
+        t30 = top30_summary
+        tg_lines += [
+            "",
+            "⭐ <b>TOP 30</b>",
+            f"   ✅ {t30['wins']}W / ❌ {t30['losses']}L / ⏳ {t30['not_found']} NF",
+            f"   Accuracy: {t30['wins']}/{t30['total_settled']} ({t30['rate']}%)",
+        ]
 
-    tg_lines.append("")
-    tg_lines.append(f"<b>Overall: {total_wins}W / {total_losses}L ({overall_rate:.1f}%)</b>")
+    tg_lines += ["", "📊 <b>PER-BLUEPRINT</b>"]
+    for bp in sorted(all_bps):
+        fp_s = full_summary['per_bp'].get(bp)
+        t30_s = top30_summary['per_bp'].get(bp) if top30_summary else None
+        tg_lines.append(f"  <b>{bp}</b> — Full: {fmt_bp(fp_s)} | Top30: {fmt_bp(t30_s)}")
 
     send_telegram("\n".join(tg_lines))
 
