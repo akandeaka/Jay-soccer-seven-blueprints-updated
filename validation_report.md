@@ -1,101 +1,48 @@
 # 🏁 SETTLEMENT REPORT
-📅 2026-09-20
+📅 2026-09-21
 
-── BP12 ── 0W / 2L / 0 NF (0.0%)
-   ❌ Ajax vs Excelsior | Home Win + Over 2.5 Goals | 2-2
-   ❌ Vikingur vs 07 Vestur Sorvagur | Home Win + Over 2.5 Goals | 3-3
+── BP12 ── 1W / 1L / 0 NF (50.0%)
+   ✅ Feyenoord vs Utrecht | Home Win + Over 2.5 Goals | 5-0
+   ❌ AZ Alkmaar vs Telstar | Home Win + Over 2.5 Goals | 1-0
 
 ── BP13 ── 0W / 1L / 0 NF (0.0%)
-   ❌ Holstein Kiel vs VfL Osnabruck | Straight Home Win | 1-1
+   ❌ Leeds vs Crystal Palace | Straight Home Win | 0-0
 
-── BP14 ── 14W / 17L / 0 NF (45.2%)
-   ❌ Remo vs Santos | Full Time Draw | 1-2
-   ❌ Le Mans vs Lorient | Full Time Draw | 2-1
-   ✅ Osasuna vs Rayo Vallecano | Full Time Draw | 1-1
-   ❌ ES Setif vs Constantine | Full Time Draw | 5-1
-   ❌ San Martin Burzaco vs Laferrere | Full Time Draw | 2-1
-   ✅ Sportivo Italiano vs Brown Adrogue | Full Time Draw | 0-0
-   ❌ Turan Tovuz vs Zira | Full Time Draw | 1-0
-   ✅ BSK Banja Luka vs Radnik Bijeljina | Full Time Draw | 4-4
-   ✅ Nova Iguacu vs Boavista | Full Time Draw | 1-1
-   ✅ Dunav Ruse vs Botev Vratsa | Full Time Draw | 2-2
-   ❌ Hangzhou Linping vs Shanghai Port B | Full Time Draw | 0-2
-   ❌ Guingamp vs Red Star | Full Time Draw | 1-3
-   ✅ Vision vs Medeama | Full Time Draw | 1-1
-   ❌ Zakynthos vs Ellas Syrou | Full Time Draw | 1-4
-   ❌ AEK Athens FC W vs PAOK W | Full Time Draw | 0-1
-   ❌ Mezokovesd-Zsory vs Kazincbarcika | Full Time Draw | 4-1
-   ❌ Altamura vs Picerno | Full Time Draw | 2-1
-   ✅ Juventus W vs AS Roma W | Full Time Draw | 2-2
-   ✅ Al Anwar vs Al Najma | Full Time Draw | 1-1
-   ❌ Richards Bay vs Sekhukhune | Full Time Draw | 2-3
-   ❌ Leicesterford City vs Midlands Wanderers | Full Time Draw | 1-0
-   ✅ Upington City vs Pretoria U. | Full Time Draw | 3-3
-   ❌ Gimpo FC vs Busan | Full Time Draw | 1-0
-   ❌ Eldense vs Eibar | Full Time Draw | 1-2
-   ✅ CD Coria vs Real Aviles | Full Time Draw | 1-1
-   ✅ R. Union vs Mirandes | Full Time Draw | 2-2
-   ❌ Jaen vs UD Ibiza | Full Time Draw | 2-1
-   ✅ Llosetense vs Formentera | Full Time Draw | 0-0
-   ✅ Valle Egues vs Mutilvera | Full Time Draw | 1-1
-   ✅ Badalona W vs Real Sociedad W | Full Time Draw | 0-0
-   ❌ Nordic United vs Landskrona | Full Time Draw | 1-4
+── BP14 ── 2W / 3L / 0 NF (40.0%)
+   ✅ Omonia Aradippou vs Ol. Nicosia | Full Time Draw | 1-1
+   ❌ Erzurumspor vs Samsunspor | Full Time Draw | 1-0
+   ❌ Albion vs Juventud | Full Time Draw | 1-3
+   ❌ Termez Surkhon vs Kokand 1912 | Full Time Draw | 1-0
+   ✅ Al Jeel vs Hajer | Full Time Draw | 0-0
 
-── BP3 ── 2W / 9L / 0 NF (18.2%)
-   ❌ Union de Santa Fe vs Independiente | Full Time Draw | 1-2
-   ❌ Juventud Unida S. M. vs CSR Espanol | Full Time Draw | 2-0
-   ✅ Alashkert vs Pyunik Yerevan | Full Time Draw | 3-3
-   ✅ Police XI vs Orapa United | Full Time Draw | 0-0
-   ❌ Sport Recife vs Juventude | Full Time Draw | 2-1
-   ❌ Alianza vs Santa Fe | Full Time Draw | 1-4
-   ❌ Sorrento vs Bari | Full Time Draw | 1-2
-   ❌ Kruger United vs Stellenbosch | Full Time Draw | 0-1
-   ❌ Hope FC vs Orbit College | Full Time Draw | 1-0
-   ❌ The Bees vs Lerumo Lions | Full Time Draw | 1-0
-   ❌ Kocaelispor vs Gaziantep | Full Time Draw | 2-0
+── BP3 ── 1W / 2L / 0 NF (33.3%)
+   ❌ Parma vs Genoa | Full Time Draw | 2-1
+   ❌ Macva vs Mladost | Full Time Draw | 1-2
+   ✅ Milford FC vs Durban City | Full Time Draw | 1-1
 
-── BP4 ── 17W / 9L / 0 NF (65.4%)
-   ✅ Everton vs Ipswich | Straight Home Win | 1-0
-   ❌ Burnley vs Derby | Straight Home Win | 1-1
-   ✅ Toulouse vs Le Havre | Straight Home Win | 3-2
-   ✅ Celta Vigo vs Racing Santander | Straight Home Win | 5-0
-   ✅ Temperley vs Almagro | Straight Home Win | 3-1
-   ✅ Anderlecht vs Waregem | Straight Home Win | 3-0
-   ✅ Eupen vs RFC Liege | Straight Home Win | 3-1
-   ✅ Sao Paulo W vs Flamengo W | Straight Home Win | 1-0
-   ❌ Arda vs Cherno More | Straight Home Win | 1-1
-   ❌ Istra 1961 vs Gorica | Straight Home Win | 0-1
-   ✅ Barrow vs Aldershot | Straight Home Win | 1-0
-   ✅ Bury vs Workington | Straight Home Win | 5-1
-   ✅ Redditch vs Evesham | Straight Home Win | 3-0
-   ❌ KuPS W vs HPS W | Straight Home Win | 0-0
-   ✅ Ajka vs Csakvari | Straight Home Win | 1-0
-   ✅ Throttur vs Fylkir | Straight Home Win | 1-0
-   ❌ Al Quwa Al Jawiya vs Diyala | Straight Home Win | 1-1
-   ✅ Al-Karma vs Zakho | Straight Home Win | 1-0
-   ❌ Okayama vs Kyoto | Straight Home Win | 1-2
-   ✅ GVVV vs Kloetinge | Straight Home Win | 3-0
-   ✅ Ranchers Bees vs Bendel | Straight Home Win | 2-1
-   ❌ Libertad Asuncion vs Ameliano | Straight Home Win | 1-1
-   ❌ Villarreal B vs Antequera | Straight Home Win | 2-2
-   ✅ Atl. Madrid W vs Logrono W | Straight Home Win | 1-0
-   ❌ Torns vs Rappe GOIF | Straight Home Win | 1-2
-   ✅ FC Kharkiv vs Bukovyna | Straight Home Win | 2-0
+── BP4 ── 3W / 4L / 0 NF (42.9%)
+   ✅ Wolves vs West Brom | Straight Home Win | 1-0
+   ✅ Rijeka vs Hajduk Split | Straight Home Win | 3-0
+   ❌ Hradec Kralove vs Teplice | Straight Home Win | 0-2
+   ✅ Zeleznicar Pancevo vs Cukaricki | Straight Home Win | 2-1
+   ❌ Dun. Streda vs Trnava | Straight Home Win | 2-2
+   ❌ Al Ahli Doha vs Al-Shahaniya | Straight Home Win | 0-1
+   ❌ Al Rayyan vs Qatar SC | Straight Home Win | 2-2
 
 ## 📊 Summary — Full Pool
-- Total: 71 | Settled: 71 | Wins: 33 | Losses: 38 | Not found: 0
-- **Accuracy: 33/71 (46.5%)**
+- Total: 18 | Settled: 18 | Wins: 7 | Losses: 11 | Not found: 0
+- **Accuracy: 7/18 (38.9%)**
 
 ## ⭐ Summary — Top 30
-- Total: 30 | Settled: 30 | Wins: 12 | Losses: 18 | Not found: 0
-- **Accuracy: 12/30 (40.0%)**
+- Total: 18 | Settled: 18 | Wins: 7 | Losses: 11 | Not found: 0
+- **Accuracy: 7/18 (38.9%)**
 
 ## 📈 Per-Blueprint Accuracy
 
 | BP | Full Pool | Top 30 |
 |----|-----------|--------|
-| BP12 | 0W / 2L (0%) | 0W / 2L (0%) |
+| BP12 | 1W / 1L (50%) | 1W / 1L (50%) |
 | BP13 | 0W / 1L (0%) | 0W / 1L (0%) |
-| BP14 | 14W / 17L (45%) | 6W / 7L (46%) |
-| BP3 | 2W / 9L (18%) | 1W / 5L (17%) |
-| BP4 | 17W / 9L (65%) | 5W / 3L (62%) |
+| BP14 | 2W / 3L (40%) | 2W / 3L (40%) |
+| BP3 | 1W / 2L (33%) | 1W / 2L (33%) |
+| BP4 | 3W / 4L (43%) | 3W / 4L (43%) |
