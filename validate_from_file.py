@@ -13,10 +13,11 @@ Writes:
     validation_report.md
     Telegram notification
 
-Outputs three summaries:
-    1. Overall settlement (full pool)
-    2. Top 30 breakdown
-    3. Per-blueprint accuracy (both pools)
+Outputs:
+    1. Match-by-match list with scorelines and WIN/LOSS marks, grouped by blueprint
+    2. Overall settlement (full pool)
+    3. Top 30 breakdown
+    4. Per-blueprint accuracy with play-type labels
 """
 
 import json
@@ -39,6 +40,23 @@ PREDICTIONS_FILE = "predictions.json"
 TOP30_FILE = "top_30_predictions.json"
 RESULTS_FILE = "results.txt"
 REPORT_FILE = "validation_report.md"
+
+
+# ============================================================
+# BLUEPRINT LABELS
+# ============================================================
+
+BP_LABELS = {
+    'BP3':  'BP3 (Full Time Draw)',
+    'BP4':  'BP4 (Straight Home Win)',
+    'BP12': 'BP12 (Home Win + Over 2.5)',
+    'BP13': 'BP13 (Straight Home Win)',
+    'BP14': 'BP14 (Full Time Draw)',
+}
+
+
+def bp_label(bp):
+    return BP_LABELS.get(bp, bp)
 
 
 # ============================================================
@@ -66,6 +84,16 @@ def normalize_name(name: str) -> str:
 # ============================================================
 
 def parse_validation_file(filepath: str = RESULTS_FILE) -> dict:
+    """
+    Parse results.txt into {normalized_match_name: {home_score, away_score, raw_name}}.
+
+    Handles:
+      - Multi-line blocks (blank-line separated):
+            Team A vs Team B
+            RESULT: 2-1
+      - One-line entries:
+            Team A vs Team B RESULT: 2-1
+    """
     if not os.path.exists(filepath):
         print(f"❌ '{filepath}' not found.")
         return {}
@@ -75,6 +103,7 @@ def parse_validation_file(filepath: str = RESULTS_FILE) -> dict:
 
     results = {}
 
+    # Pass 1: multi-line block form
     blocks = re.split(r'\n\s*\n', content)
     for block in blocks:
         lines = [l.strip() for l in block.split('\n') if l.strip()]
@@ -108,6 +137,7 @@ def parse_validation_file(filepath: str = RESULTS_FILE) -> dict:
                     }
                 match_name = None
 
+    # Pass 2 (fallback): scan every line for one-line entries
     if not results:
         for line in content.split('\n'):
             line = line.strip()
@@ -210,11 +240,11 @@ def send_telegram(message: str) -> bool:
 
 
 # ============================================================
-# SETTLEMENT
+# SETTLEMENT HELPERS
 # ============================================================
 
 def settle_pool(preds, validation_results):
-    """Return list of settled entries and summary stats."""
+    """Return list of settled entries for a pool of predictions."""
     settled = []
     for p in preds:
         match = p.get("match", "")
@@ -271,6 +301,14 @@ def summarize(settled):
     }
 
 
+def fmt_bp(s):
+    if not s:
+        return "—"
+    t = s['w'] + s['l']
+    rate = (s['w'] / t * 100) if t else 0.0
+    return f"{s['w']}W / {s['l']}L ({rate:.0f}%)"
+
+
 # ============================================================
 # MAIN
 # ============================================================
@@ -296,7 +334,6 @@ def main():
     print(f"📋 Loaded {len(predictions)} predictions")
     print(f"📊 Loaded {len(validation_results)} match results")
 
-    # Top 30 (optional)
     top30 = []
     if os.path.exists(TOP30_FILE):
         with open(TOP30_FILE) as f:
@@ -314,34 +351,56 @@ def main():
     top30_settled = settle_pool(top30, validation_results) if top30 else []
     top30_summary = summarize(top30_settled) if top30_settled else None
 
-    # ---------- Report: match-by-match by blueprint ----------
+    # ---------- Group by blueprint ----------
+    by_bp = defaultdict(list)
+    for e in full_settled:
+        by_bp[e['blueprint']].append(e)
+
+    # ---------- Match-by-match list ----------
     report_lines = [
         "# 🏁 SETTLEMENT REPORT",
         f"📅 {datetime.now().strftime('%Y-%m-%d')}",
         "",
+        "## 📋 Match Results",
+        "",
     ]
 
-    by_bp = defaultdict(list)
-    for e in full_settled:
-        by_bp[e['blueprint']].append(e)
+    print("=" * 72)
+    print("📋 MATCH RESULTS")
+    print("=" * 72)
 
     for bp in sorted(by_bp.keys()):
         entries = by_bp[bp]
         s = full_summary['per_bp'][bp]
         t = s['w'] + s['l']
         rate = (s['w'] / t * 100) if t else 0.0
-        header = f"── {bp} ── {s['w']}W / {s['l']}L / {s['nf']} NF ({rate:.1f}%)"
-        report_lines.append(header)
+
+        header = f"── {bp_label(bp)} ── {s['w']}W / {s['l']}L ({rate:.0f}%)"
+        print(header)
+        report_lines.append(f"### {bp_label(bp)} — {s['w']}W / {s['l']}L ({rate:.0f}%)")
+        report_lines.append("")
+
         for e in entries:
             if e['won'] is None:
-                mark, score_str = "⏳", "NOT FOUND"
+                mark = "⏳"
+                score_str = "—"
+                line = f"   {mark}  {e['match']}  |  Score: {score_str}"
+                md_line = f"- ⏳ {e['match']} — Score: {score_str}"
             elif e['won']:
-                mark, score_str = "✅", f"{e['actual']['home_score']}-{e['actual']['away_score']}"
+                mark = "✅ WIN "
+                score_str = f"{e['actual']['home_score']}-{e['actual']['away_score']}"
+                line = f"   {mark}  {e['match']}  |  Score: {score_str}"
+                md_line = f"- ✅ **WIN** — {e['match']} | Score: {score_str}"
             else:
-                mark, score_str = "❌", f"{e['actual']['home_score']}-{e['actual']['away_score']}"
-            report_lines.append(
-                f"   {mark} {e['match']} | {e['play']} | {score_str}"
-            )
+                mark = "❌ LOSS"
+                score_str = f"{e['actual']['home_score']}-{e['actual']['away_score']}"
+                line = f"   {mark}  {e['match']}  |  Score: {score_str}"
+                md_line = f"- ❌ **LOSS** — {e['match']} | Score: {score_str}"
+
+            print(line)
+            report_lines.append(md_line)
+
+        print()
         report_lines.append("")
 
     # ---------- Summary 1: Full Pool ----------
@@ -357,6 +416,15 @@ def main():
     print(f"   Accuracy:             {fp['wins']}/{fp['total_settled']} ({fp['rate']}%)")
     print()
 
+    report_lines.append("## 📋 Summary — Full Pool")
+    report_lines.append(
+        f"- Total: {len(predictions)} | Settled: {fp['total_settled']} | "
+        f"Wins: {fp['wins']} | Losses: {fp['losses']} | "
+        f"Not found: {fp['not_found']}"
+    )
+    report_lines.append(f"- **Accuracy: {fp['wins']}/{fp['total_settled']} ({fp['rate']}%)**")
+    report_lines.append("")
+
     # ---------- Summary 2: Top 30 ----------
     if top30_summary:
         print("=" * 72)
@@ -371,43 +439,6 @@ def main():
         print(f"   Accuracy:             {t30['wins']}/{t30['total_settled']} ({t30['rate']}%)")
         print()
 
-    # ---------- Summary 3: Per Blueprint ----------
-    print("=" * 72)
-    print("📊 SUMMARY 3 — PER-BLUEPRINT ACCURACY")
-    print("=" * 72)
-    print(f"{'BP':<6}{'Full Pool W/L/Hit%':<28}{'Top 30 W/L/Hit%':<28}")
-    print("-" * 72)
-
-    all_bps = set(full_summary['per_bp'].keys())
-    if top30_summary:
-        all_bps |= set(top30_summary['per_bp'].keys())
-
-    def fmt_bp(s):
-        if not s:
-            return "—"
-        t = s['w'] + s['l']
-        rate = (s['w'] / t * 100) if t else 0.0
-        return f"{s['w']}W / {s['l']}L ({rate:.0f}%)"
-
-    for bp in sorted(all_bps):
-        fp_s = full_summary['per_bp'].get(bp)
-        t30_s = top30_summary['per_bp'].get(bp) if top30_summary else None
-        print(f"{bp:<6}{fmt_bp(fp_s):<28}{fmt_bp(t30_s):<28}")
-
-    print("-" * 72)
-
-    # Write markdown
-    report_lines.append("## 📊 Summary — Full Pool")
-    report_lines.append(
-        f"- Total: {len(predictions)} | Settled: {fp['total_settled']} | "
-        f"Wins: {fp['wins']} | Losses: {fp['losses']} | "
-        f"Not found: {fp['not_found']}"
-    )
-    report_lines.append(f"- **Accuracy: {fp['wins']}/{fp['total_settled']} ({fp['rate']}%)**")
-    report_lines.append("")
-
-    if top30_summary:
-        t30 = top30_summary
         report_lines.append("## ⭐ Summary — Top 30")
         report_lines.append(
             f"- Total: {len(top30)} | Settled: {t30['total_settled']} | "
@@ -419,25 +450,70 @@ def main():
         )
         report_lines.append("")
 
-    report_lines.append("## 📈 Per-Blueprint Accuracy")
-    report_lines.append("")
-    report_lines.append("| BP | Full Pool | Top 30 |")
-    report_lines.append("|----|-----------|--------|")
+    # ---------- Summary 3: Per Blueprint ----------
+    print("=" * 72)
+    print("📊 SUMMARY 3 — PER-BLUEPRINT ACCURACY")
+    print("=" * 72)
+    print(f"{'Blueprint':<34}{'Full Pool':<22}{'Top 30':<22}")
+    print("-" * 72)
+
+    all_bps = set(full_summary['per_bp'].keys())
+    if top30_summary:
+        all_bps |= set(top30_summary['per_bp'].keys())
+
     for bp in sorted(all_bps):
         fp_s = full_summary['per_bp'].get(bp)
         t30_s = top30_summary['per_bp'].get(bp) if top30_summary else None
-        report_lines.append(f"| {bp} | {fmt_bp(fp_s)} | {fmt_bp(t30_s)} |")
+        print(f"{bp_label(bp):<34}{fmt_bp(fp_s):<22}{fmt_bp(t30_s):<22}")
+
+    print("-" * 72)
+
+    report_lines.append("## 📈 Per-Blueprint Accuracy")
+    report_lines.append("")
+    report_lines.append("| Blueprint | Full Pool | Top 30 |")
+    report_lines.append("|-----------|-----------|--------|")
+    for bp in sorted(all_bps):
+        fp_s = full_summary['per_bp'].get(bp)
+        t30_s = top30_summary['per_bp'].get(bp) if top30_summary else None
+        report_lines.append(f"| {bp_label(bp)} | {fmt_bp(fp_s)} | {fmt_bp(t30_s)} |")
 
     report_text = "\n".join(report_lines)
     with open(REPORT_FILE, "w", encoding="utf-8") as f:
         f.write(report_text)
 
-    # ---------- Telegram ----------
+    # ---------- Telegram: match list + summaries ----------
     tg_lines = [
         "🏁 <b>SETTLEMENT REPORT</b>",
         f"📅 {datetime.now().strftime('%Y-%m-%d')}",
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
         "",
+        "📋 <b>MATCH RESULTS</b>",
+        "",
+    ]
+
+    for bp in sorted(by_bp.keys()):
+        entries = by_bp[bp]
+        s = full_summary['per_bp'][bp]
+        t = s['w'] + s['l']
+        rate = (s['w'] / t * 100) if t else 0.0
+
+        tg_lines.append(f"<b>{bp_label(bp)}</b> — {s['w']}W/{s['l']}L ({rate:.0f}%)")
+
+        for e in entries:
+            if e['won'] is None:
+                tg_lines.append(f"  ⏳ {e['match']}")
+            elif e['won']:
+                tg_lines.append(
+                    f"  ✅ {e['match']} | {e['actual']['home_score']}-{e['actual']['away_score']}"
+                )
+            else:
+                tg_lines.append(
+                    f"  ❌ {e['match']} | {e['actual']['home_score']}-{e['actual']['away_score']}"
+                )
+        tg_lines.append("")
+
+    tg_lines += [
+        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
         "📋 <b>FULL POOL</b>",
         f"   ✅ {fp['wins']}W / ❌ {fp['losses']}L / ⏳ {fp['not_found']} NF",
         f"   Accuracy: {fp['wins']}/{fp['total_settled']} ({fp['rate']}%)",
@@ -456,7 +532,8 @@ def main():
     for bp in sorted(all_bps):
         fp_s = full_summary['per_bp'].get(bp)
         t30_s = top30_summary['per_bp'].get(bp) if top30_summary else None
-        tg_lines.append(f"  <b>{bp}</b> — Full: {fmt_bp(fp_s)} | Top30: {fmt_bp(t30_s)}")
+        tg_lines.append(f"<b>{bp_label(bp)}</b>")
+        tg_lines.append(f"  Full: {fmt_bp(fp_s)}  |  Top30: {fmt_bp(t30_s)}")
 
     send_telegram("\n".join(tg_lines))
 
