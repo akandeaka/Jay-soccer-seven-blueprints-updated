@@ -2,26 +2,14 @@
     "10_ODDS": {
         "matches": [
             {
-                "blueprint": "BP14",
-                "play": "Full Time Draw",
-                "confidence": 48,
-                "match": "Walsall vs Stevenage",
-                "league": "EFL Trophy",
-                "home_odds": 2.7,
-                "draw_odds": 3.1,
-                "away_odds": 2.45,
-                "odds": 3.1,
-                "composite_score": 97.70994766707462
-            },
-            {
                 "blueprint": "BP4",
                 "play": "Straight Home Win",
                 "confidence": 55,
-                "match": "Swindon vs Newport",
-                "league": "EFL Trophy",
+                "match": "Iraq vs Oman",
+                "league": "ASIA",
                 "home_odds": 1.8,
-                "draw_odds": 3.6,
-                "away_odds": 3.8,
+                "draw_odds": 3.0,
+                "away_odds": 4.0,
                 "odds": 1.8,
                 "composite_score": 81.6984754943633
             },
@@ -29,20 +17,45 @@
                 "blueprint": "BP4",
                 "play": "Straight Home Win",
                 "confidence": 55,
-                "match": "Bentonit vs Mika",
-                "league": "First League",
-                "home_odds": 1.75,
-                "draw_odds": 3.9,
-                "away_odds": 3.4,
-                "odds": 1.75,
-                "composite_score": 80.26873902505135
+                "match": "Nahariya vs Maccabi Neve Shaanan Eldad",
+                "league": "ISRAEL",
+                "home_odds": 1.8,
+                "draw_odds": 3.5,
+                "away_odds": 3.65,
+                "odds": 1.8,
+                "composite_score": 81.6984754943633
+            },
+            {
+                "blueprint": "BP4",
+                "play": "Straight Home Win",
+                "confidence": 55,
+                "match": "Ironi Baka vs Hapoel Tirat Karmel",
+                "league": "ISRAEL",
+                "home_odds": 1.8,
+                "draw_odds": 3.6,
+                "away_odds": 3.5,
+                "odds": 1.8,
+                "composite_score": 81.6984754943633
+            },
+            {
+                "blueprint": "BP4",
+                "play": "Straight Home Win",
+                "confidence": 55,
+                "match": "Boston River vs Fenix",
+                "league": "URUGUAY",
+                "home_odds": 1.8,
+                "draw_odds": 3.1,
+                "away_odds": 3.75,
+                "odds": 1.8,
+                "composite_score": 81.6984754943633
             }
         ],
-        "odds": 9.77,
-        "leg_count": 3,
-        "avg_confidence": 52.7,
+        "odds": 10.5,
+        "leg_count": 4,
+        "avg_confidence": 55.0,
         "blueprints_used": [
-            "BP14",
+            "BP4",
+            "BP4",
             "BP4",
             "BP4"
         ]
