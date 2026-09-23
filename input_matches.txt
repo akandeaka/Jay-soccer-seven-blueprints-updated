@@ -1,126 +1,104 @@
 Team A,Team B,League,Home Odds,Draw Odds,Away Odds,Status
-Uganda U20,Sudan U20,CECAFA Championship U20 - Play Offs,1.50,3.40,5.50,Upcoming
-Tanzania U20,Burundi U20,CECAFA Championship U20 - Play Offs,1.36,4.20,6.00,Upcoming
-Mozambique U20,Mauritius U20,COSAFA Championship U20,1.11,8.00,15.00,Upcoming
-Namibia U20,Seychelles U20,COSAFA Championship U20,1.17,6.00,12.00,Upcoming
-Biskra,Saoura,Ligue 1,1.98,2.70,4.10,Upcoming
-MC Alger,Oran,Ligue 1,1.45,3.65,6.50,Upcoming
-San Lorenzo 2,Huracan 2,Reserve League - Clausura,2.10,2.88,3.20,Upcoming
-Velez Sarsfield 2,Ferro 2,Reserve League - Clausura,1.29,4.33,8.50,Upcoming
-Central Cordoba 2,Atl. Tucuman 2,Reserve League - Clausura,2.30,3.10,2.60,Upcoming
-Ararat Yerevan 2,Pyunik Yerevan 2,First League,3.10,3.90,1.83,Upcoming
-Bentonit,Mika,First League,1.75,3.90,3.40,Upcoming
-Traiskirchen,Kremser,Regionalliga East,1.53,4.00,4.20,Upcoming
-A. Klagenfurt,Donau Klagenfurt,Regionalliga South,1.29,5.00,7.50,Upcoming
-Criciuma,Operario-PR,Serie B,1.96,3.10,4.10,Upcoming
-Clube 1992,Panambi,Gaucho 3,4.33,3.60,1.62,Upcoming
-D. Puerto Montt,Nublense,Copa Chile - Play Offs,3.30,3.20,2.05,Upcoming
-Atletico F.C.,Tigres,Primera B - Clausura,2.65,2.90,2.55,Upcoming
-Ind. Valle del Cauca,Inter Palmira,Primera B - Clausura,2.65,2.95,2.50,Upcoming
-Real Santander,Orsomarso,Primera B - Clausura,2.25,3.05,2.95,Upcoming
-Aarhus W,Nordsjaelland W,A-Liga Women,15.00,9.50,1.05,Upcoming
-Salcedo,Cibao,LDF,2.71,3.00,2.33,Upcoming
-Universidad O&M,Atlantico,LDF,1.42,4.50,5.00,Upcoming
-Cleethorpes,Redcar Athletic,NPL Premier Division,2.35,3.30,2.60,Upcoming
-Leek,Hyde,NPL Premier Division,2.40,3.45,2.40,Upcoming
-Anstey Nomads,Alvechurch,Southern League Premier Central,2.05,3.30,3.00,Upcoming
-Bury Town,Hitchin,Southern League Premier Central,1.45,4.35,5.30,Upcoming
-Leiston,Peterborough Sports,Southern League Premier Central,2.12,3.55,2.75,Upcoming
-Rushall,Kettering,Southern League Premier Central,2.45,3.40,2.38,Upcoming
-Stourbridge,Real Bedford,Southern League Premier Central,3.85,3.75,1.68,Upcoming
-Stratford,Bromsgrove,Southern League Premier Central,2.75,3.45,2.15,Upcoming
-Worcester,Banbury,Southern League Premier Central,2.25,3.05,2.88,Upcoming
-Berkhamsted,Hanworth,Southern League Premier South,2.65,3.25,2.25,Upcoming
-Chichester,Chertsey,Southern League Premier South,2.65,3.85,2.08,Upcoming
-Malvern Town,Gloucester,Southern League Premier South,4.10,3.90,1.62,Upcoming
-Plymouth Parkway,Frome,Southern League Premier South,2.02,3.55,2.90,Upcoming
-Taunton,Bath,Southern League Premier South,2.50,3.45,2.30,Upcoming
-Chippenham,Yate Town,FA Cup - Qualification,2.40,3.60,2.40,Upcoming
-Dag & Red,Waltham Abbey,FA Cup - Qualification,1.38,4.75,5.50,Upcoming
-Farnborough,Uxbridge,FA Cup - Qualification,1.36,5.00,5.75,Upcoming
-Gainsborough,Leamington,FA Cup - Qualification,1.90,3.40,3.30,Upcoming
-Truro,Merthyr Town,FA Cup - Qualification,1.57,4.00,4.33,Upcoming
-Wingate & Finchley,Hemel Hempstead,FA Cup - Qualification,5.00,4.00,1.50,Upcoming
-Worksop,AFC Telford,FA Cup - Qualification,2.00,3.70,3.00,Upcoming
-Accrington,Sunderland U21,EFL Trophy,1.65,4.10,3.70,Upcoming
-Barnsley,Leeds U21,EFL Trophy,1.22,6.00,7.00,Upcoming
-Burton,Nottingham U21,EFL Trophy,1.48,4.10,5.00,Upcoming
-Cheltenham,Exeter,EFL Trophy,2.25,4.00,2.55,Upcoming
-Chesterfield,Port Vale,EFL Trophy,2.15,3.90,2.70,Upcoming
-Crewe,Aston Villa U21,EFL Trophy,1.36,5.00,6.25,Upcoming
-Gillingham,Cambridge Utd,EFL Trophy,2.45,3.60,2.38,Upcoming
-Leicester,Fulham U21,EFL Trophy,1.22,5.50,10.00,Upcoming
-Luton,Ipswich U21,EFL Trophy,1.22,5.75,10.00,Upcoming
-MK Dons,Crawley,EFL Trophy,1.40,4.75,6.00,Upcoming
-Notts County,Grimsby,EFL Trophy,2.15,3.50,2.88,Upcoming
-Oldham,Fleetwood,EFL Trophy,2.15,3.50,2.88,Upcoming
-Peterborough,Colchester,EFL Trophy,1.85,3.50,3.70,Upcoming
-Plymouth,Crystal Palace U21,EFL Trophy,1.27,5.75,8.00,Upcoming
-Rochdale,Liverpool U21,EFL Trophy,1.95,3.75,3.10,Upcoming
-Salford,Sheffield Wed,EFL Trophy,2.45,3.75,2.38,Upcoming
-Swindon,Newport,EFL Trophy,1.80,3.60,3.80,Upcoming
-Tranmere,Shrewsbury,EFL Trophy,2.10,3.25,3.25,Upcoming
-Walsall,Stevenage,EFL Trophy,2.70,3.10,2.45,Upcoming
-Wigan,Blackpool,EFL Trophy,2.35,3.50,2.50,Upcoming
-York City,Rotherham,EFL Trophy,2.10,3.60,2.80,Upcoming
-Bradford City,Newcastle Utd U21,EFL Trophy,1.18,6.50,9.50,Upcoming
-Bromley,Brentford U21,EFL Trophy,1.95,3.75,2.90,Upcoming
-Charlton U21,Sheffield Utd U21,Professional Development League,2.35,3.65,2.38,Upcoming
-Wigan U21,Coventry U21,Professional Development League,2.35,4.33,2.15,Upcoming
-Bristol City U21,Hull U21,Professional Development League,1.52,4.60,4.10,Upcoming
-Bayern Munich W,Manchester City W,UEFA Champions League Women - League phase,1.95,3.90,2.88,Upcoming
-Inter W,Hacken W,UEFA Champions League Women - League phase,2.15,3.40,2.90,Upcoming
-Arsenal W,Koge W,UEFA Champions League Women - League phase,1.06,13.00,23.00,Upcoming
-Juventus W,SL Benfica W,UEFA Champions League Women - League phase,1.62,3.80,4.75,Upcoming
-Real Madrid W,PSG W,UEFA Champions League Women - League phase,1.70,3.80,3.90,Upcoming
-Mes Kerman,Saipa,Azadegan League,3.00,2.80,2.35,Upcoming
-Havadar SC,Besat Kermanshah,Azadegan League,2.45,2.75,2.85,Upcoming
-Kara Gostar,Mes Rafsanjan,Azadegan League,4.00,2.63,1.95,Upcoming
-Naft Gachsaran,Ario Eslamshahr,Azadegan League,2.20,2.80,3.25,Upcoming
-Naft M.I.S,Naft Bandar Abbas,Azadegan League,2.65,2.80,2.60,Upcoming
-UD Songo,Maxaquene,Mocambola,1.27,4.25,9.50,Upcoming
-ACV Assen,Hoogeveen,KNVB Beker,1.22,5.75,11.00,Upcoming
-Eemdijk,Roosendaal,KNVB Beker,2.85,4.00,2.05,Upcoming
-EVV,Halsteren,KNVB Beker,1.86,3.80,3.60,Upcoming
-Excelsior 31,AFC '34,KNVB Beker,1.24,5.50,11.00,Upcoming
-Groene Ster,AFC,KNVB Beker,3.80,4.33,1.71,Upcoming
-GVVV,DVS '33 Ermelo,KNVB Beker,1.39,5.00,6.25,Upcoming
-Hardenberg,Barendrecht,KNVB Beker,1.53,4.00,5.50,Upcoming
-HFC,VV DOVO,KNVB Beker,1.68,3.75,4.50,Upcoming
-Rijnvogels,VVSB,KNVB Beker,1.81,4.00,3.60,Upcoming
-RKAV Volendam,Spakenburg,KNVB Beker,3.40,4.00,1.86,Upcoming
-Sportlust,Excelsior Maassluis,KNVB Beker,3.10,3.90,2.05,Upcoming
-Staphorst,Genemuiden,KNVB Beker,3.60,3.75,1.86,Upcoming
-Skjetten,Skjervoy,Division 3 - Group 5,1.25,5.50,6.50,Upcoming
-2 de Mayo,Sol de America,Copa Paraguay,1.70,3.60,3.90,Upcoming
-Santa Clara U23,Portimonense U23,Liga Next Gen U23,1.62,3.60,4.00,Upcoming
-Academico Viseu U23,Estoril U23,Liga Next Gen U23,1.83,3.50,3.20,Upcoming
-Al Mesaimeer,Al-Waab,QSL Cup,2.18,3.40,2.75,Upcoming
-Muaither SC,Al Khor,QSL Cup,2.12,3.45,2.75,Upcoming
-CSC Dumbravita,CSM Resita,Liga 2,5.00,3.60,1.50,Upcoming
-FC ASA Tg. Mures,CS Din. Bucuresti,Liga 2,1.12,8.50,18.00,Upcoming
-Alloa,Hibernian B,Challenge Cup,1.17,7.00,11.00,Upcoming
-Banks O' Dee,Aberdeen B,Challenge Cup,3.90,4.00,1.67,Upcoming
-Berwick,Stranraer,Challenge Cup,3.90,4.00,1.62,Upcoming
-Bonnyrigg Rose,Airdrieonians,Challenge Cup,3.40,3.60,1.83,Upcoming
-Clachnacuddin,Ross County,Challenge Cup,17.00,8.00,1.11,Upcoming
-Clyde,Rangers B,Challenge Cup,1.62,4.00,4.00,Upcoming
-Clydebank FC,St. Mirren B,Challenge Cup,1.60,3.75,4.50,Upcoming
-Dumbarton,Kilmarnock B,Challenge Cup,1.53,4.00,4.75,Upcoming
-East Kilbride,Celtic B,Challenge Cup,1.27,5.50,6.50,Upcoming
-Edinburgh City,Dundee Utd B,Challenge Cup,1.20,6.25,8.00,Upcoming
-Elgin City,Dundee FC B,Challenge Cup,1.17,7.50,10.00,Upcoming
-Forfar Athletic,Peterhead,Challenge Cup,3.25,4.00,1.80,Upcoming
-Formartine Utd,Montrose,Challenge Cup,3.70,3.90,1.73,Upcoming
-Fraserburgh,Cove Rangers,Challenge Cup,5.00,5.00,1.40,Upcoming
-Gala Fairydean,Spartans,Challenge Cup,11.00,6.25,1.18,Upcoming
-Kelty Hearts,Hearts B,Challenge Cup,1.38,4.20,6.50,Upcoming
-Queen of South,Annan,Challenge Cup,2.05,3.50,3.00,Upcoming
-Stirling,Cumbernauld Colts,Challenge Cup,1.57,4.00,4.33,Upcoming
-Husqvarna W,Vaxjo DFF W,Svenska Cupen Women - Qualification,6.25,5.00,1.31,Upcoming
-Al Hamriyah,Al Thaid,Presidents Cup,2.25,3.45,2.60,Upcoming
-Al Urooba,Dubai City,Presidents Cup,1.50,4.10,4.80,Upcoming
-Dibba Al Fujairah,Al-Ittifaq,Presidents Cup,1.53,4.20,4.33,Upcoming
-DC Power W,Fort Lauderdale W,USL Super League Women,1.53,3.90,4.75,Upcoming
-FarDU,BuxDu,Pro Liga,1.13,6.00,14.00,Upcoming
-TerDU,Gazalkent,Pro Liga,9.00,4.75,1.25,Upcoming
+Lesotho U20,Angola U20,AFRICA,51.00,19.00,1.02,Upcoming
+South Africa U20,Eswatini U20,AFRICA,1.11,7.50,15.00,Upcoming
+Malawi U20,Comoros U20,AFRICA,1.22,5.00,9.50,Upcoming
+Zambia U20,Botswana U20,AFRICA,1.25,4.60,8.00,Upcoming
+Aldosivi 2,Quilmes 2,ARGENTINA,2.60,3.00,2.40,Upcoming
+Defensa y Justicia 2,Tigre 2,ARGENTINA,1.62,3.50,4.20,Upcoming
+Gimnasia L.P. 2,Estudiantes L.P. 2,ARGENTINA,2.60,3.00,2.40,Upcoming
+Sarmiento Junin 2,Atl. Rafaela 2,ARGENTINA,1.83,3.20,3.60,Upcoming
+Lanus 2,Banfield 2,ARGENTINA,1.62,3.60,4.00,Upcoming
+Belgrano 2,Talleres Cordoba 2,ARGENTINA,2.50,3.00,2.50,Upcoming
+China U23,United Arab Emirates U23,ASIA,2.00,3.00,3.60,Full-time
+Iran U23,North Korea U23,ASIA,1.50,3.60,5.75,Full-time
+Japan U23,Thailand U23,ASIA,1.06,12.00,29.00,Upcoming
+Kyrgyzstan U23,Hong Kong U23,ASIA,1.36,4.33,6.50,Upcoming
+Iraq,Oman,ASIA,1.80,3.00,4.00,Upcoming
+Saudi Arabia,Kuwait,ASIA,1.25,4.50,9.00,Upcoming
+Nacional Potosi,Real Potosi,BOLIVIA,1.98,3.45,3.05,Full-time
+Drina Zvornik,Prijedor,BOSNIA AND HERZEGOVINA,1.53,4.00,4.75,Upcoming
+Majevica,Laktasi,BOSNIA AND HERZEGOVINA,3.60,3.30,1.90,Upcoming
+Slavija,Kozara,BOSNIA AND HERZEGOVINA,2.90,3.40,2.10,Upcoming
+Brasil de Pelotas,GE Gloria,BRAZIL,1.58,3.40,5.25,Upcoming
+Gramadense,Pelotas,BRAZIL,2.50,2.65,2.88,Upcoming
+Esportivo,Gaucho,BRAZIL,1.75,3.20,4.30,Upcoming
+Lajeadense,Veranopolis,BRAZIL,3.85,2.95,1.92,Upcoming
+Santa Cruz RS,Apafut,BRAZIL,1.88,3.15,3.75,Upcoming
+Frederiquense,Aimore,BRAZIL,2.25,2.90,3.00,Upcoming
+Gremio Anapolis,Bom Jesus,BRAZIL,4.05,3.10,1.85,Upcoming
+Sao Luis,Trindade,BRAZIL,2.05,3.10,3.30,Upcoming
+Goiania,Morrinhos,BRAZIL,2.30,2.95,2.95,Upcoming
+Madureira,Sampaio Correa FE,BRAZIL,2.55,2.80,2.80,Upcoming
+Barra FC,Nacao,BRAZIL,1.40,3.75,6.50,Upcoming
+Gremio Prudente U20,CA Juventus U20,BRAZIL,3.35,3.45,1.88,Upcoming
+A. Italiano,Colo Colo,CHILE,4.00,3.75,1.75,Full-time
+Cobreloa,Coquimbo,CHILE,3.10,3.60,2.00,Full-time
+Curico Unido,D. Concepcion,CHILE,2.80,3.25,2.20,Upcoming
+Ind. Medellin,Jaguares de Cordoba,COLOMBIA,1.33,5.25,8.50,Full-time
+Santa Fe,Dep. Cali,COLOMBIA,1.91,3.30,4.10,Full-time
+SK Kladno,Ostrava,CZECH REPUBLIC,4.50,4.10,1.53,Upcoming
+Salcedo,Cibao,DOMINICAN REPUBLIC,2.80,3.00,2.20,Upcoming
+Universidad O&M,Atlantico,DOMINICAN REPUBLIC,1.36,4.60,5.50,Upcoming
+Moca,Delfines Del Este,DOMINICAN REPUBLIC,2.15,2.88,3.00,Upcoming
+Vega Real,Jarabacoa,DOMINICAN REPUBLIC,1.29,4.50,8.00,Upcoming
+Leuven W,AS Roma W,EUROPE,4.10,3.90,1.62,Upcoming
+Servette Geneve FC W,OL Lyonnes W,EUROPE,51.00,21.00,1.01,Upcoming
+Barcelona W,Paris FC W,EUROPE,1.02,21.00,41.00,Upcoming
+Chelsea W,Austria Vienna W,EUROPE,1.03,17.00,41.00,Upcoming
+FC Kharkiv W,Torreense W,EUROPE,5.60,4.20,1.42,Upcoming
+PAOK W,Myjava W,EUROPE,1.50,4.20,4.70,Upcoming
+Liberec W,Rosenborg W,EUROPE,6.75,5.00,1.30,Upcoming
+HJK W,Brann W,EUROPE,6.25,4.90,1.33,Upcoming
+Brondby W,Sporting W,EUROPE,2.80,3.35,2.15,Upcoming
+Sparta Prague W,Farul Constanta W,EUROPE,1.06,8.00,17.00,Upcoming
+Wolfsburg W,Sturm Graz W,EUROPE,1.04,9.00,21.00,Upcoming
+Ajax W,Aktobe W,EUROPE,1.02,10.00,21.00,Upcoming
+Dreams,Medeama,GHANA,1.68,3.50,4.00,Upcoming
+Nahariya,Maccabi Neve Shaanan Eldad,ISRAEL,1.80,3.50,3.65,Upcoming
+MS Tira,Hapoel Bnei Musmus,ISRAEL,1.57,3.80,4.50,Upcoming
+Tzeirey Um El Fahem,Hapoel Umm al-Fahm,ISRAEL,3.05,3.70,1.92,Upcoming
+Ironi Baka,Hapoel Tirat Karmel,ISRAEL,1.80,3.60,3.50,Upcoming
+Gamba Osaka,Tokushima,JAPAN,1.44,4.20,5.50,Live
+Kashima Antlers,Kofu,JAPAN,1.17,7.00,11.00,Live
+Kashiwa Reysol,Imabari,JAPAN,1.20,5.25,12.00,Live
+Kyoto,Fujieda MYFC,JAPAN,1.70,3.60,4.20,Live
+Machida,Tochigi City,JAPAN,1.25,5.75,7.00,Live
+Vissel Kobe,Sagan Tosu,JAPAN,1.50,3.70,5.50,Live
+IJsselmeervogels,Gemert,NETHERLANDS,1.22,5.75,13.00,Upcoming
+Sparta Nijkerk,UDI'19,NETHERLANDS,1.96,4.33,3.00,Upcoming
+TOGB,Raalte,NETHERLANDS,3.75,6.00,1.53,Upcoming
+VV Zwaluwen,Purmersteijn,NETHERLANDS,2.20,4.20,2.65,Upcoming
+Watergraafsmeer,TEC,NETHERLANDS,4.00,5.50,1.53,Upcoming
+Barau,Abia Warriors,NIGERIA,1.48,3.50,7.50,Upcoming
+Bendel,Ikorodu City,NIGERIA,1.78,4.00,3.50,Upcoming
+Doma United,Plateau United,NIGERIA,2.00,3.40,3.30,Upcoming
+Enyimba,Sporting Lagos,NIGERIA,1.85,3.10,4.20,Upcoming
+Inter Lagos,Kano Pillars,NIGERIA,2.05,2.90,3.60,Upcoming
+Kwara,Nasarawa,NIGERIA,2.00,3.40,3.30,Upcoming
+Rangers Int'l,Ranchers Bees,NIGERIA,1.35,4.00,9.00,Upcoming
+Shooting,Katsina Utd,NIGERIA,1.43,3.80,8.00,Upcoming
+Turks and Caicos Islands,Montserrat,NORTH & CENTRAL AMERICA,15.00,7.00,1.14,Upcoming
+Bahamas,Saint Martin,NORTH & CENTRAL AMERICA,15.00,7.00,1.14,Upcoming
+Bregalnica Stip,FK Skopje,NORTH MACEDONIA,1.62,3.50,4.20,Upcoming
+Grorud,Moss,NORWAY,3.10,3.30,2.05,Upcoming
+San Lorenzo,4 de Mayo,PARAGUAY,1.08,8.00,15.00,Upcoming
+Fernando de la Mora,Libertad Asuncion,PARAGUAY,12.00,5.75,1.16,Upcoming
+AD Tarma,Cienciano,PERU,3.00,3.40,2.15,Upcoming
+Cumnock Juniors,Troon FC,SCOTLAND,1.75,3.80,3.75,Upcoming
+Hamilton,Cowdenbeath,SCOTLAND,1.14,6.50,13.00,Upcoming
+FK 05 Levoca,L. Mikulas,SLOVAKIA,15.00,8.50,1.07,Upcoming
+Paraguay U20 W,Uruguay U20 W,SOUTH AMERICA,2.00,3.10,3.25,Upcoming
+Chile U20 W,Venezuela U20 W,SOUTH AMERICA,1.78,3.40,3.67,Upcoming
+Sant Andreu,Real Madrid B,SPAIN,2.75,3.10,2.35,Upcoming
+Saguntino,Navalcarnero,SPAIN,2.88,3.15,2.20,Upcoming
+Al Jazira Hamra,Forte Virtus,UNITED ARAB EMIRATES,3.20,3.40,1.95,Upcoming
+Boston River,Fenix,URUGUAY,1.80,3.10,3.75,Upcoming
+Liverpool M.,Colon,URUGUAY,1.50,3.50,5.50,Upcoming
+Birmingham,Brooklyn,USA,1.67,3.90,3.80,Upcoming
+Azerbaijan,Tajikistan,WORLD,1.80,3.40,4.20,Upcoming
+Gibraltar,Sao Tome and Principe,WORLD,1.45,4.40,5.60,Upcoming
+Wiedenbruck,VfL Osnabruck,WORLD,6.00,5.00,1.30,Upcoming
+Italy U20 W,Spain U20 W,WORLD,7.20,4.50,1.35,Upcoming
+North Korea U20 W,Colombia U20 W,WORLD,1.07,8.50,25.00,Upcoming
+Vanuatu W,New Caledonia W,WORLD,3.10,3.75,1.91,Full-time
+Fiji W,Solomon Islands W,WORLD,2.00,3.60,3.00,Live
