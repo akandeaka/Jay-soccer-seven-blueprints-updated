@@ -3,42 +3,42 @@
 
 ## 📋 Match Results
 
-### BP14 (Full Time Draw) — 1W / 3L (25%)
+### BP14 (Full Time Draw) — 0W / 4L (0%)
 
-- ❌ **LOSS** — Flandria vs Dock Sud | Score: 1-2
-- ✅ **WIN** — Latvia vs Cyprus | Score: 0-0
-- ❌ **LOSS** — Atl. Tembetary vs Paraguari AC | Score: 2-1
-- ❌ **LOSS** — Loznica vs Sp. Subotica | Score: 2-0
+- ❌ **LOSS** — Banfield 2 vs Atl. Tucuman 2 | Score: 0-1
+- ❌ **LOSS** — Tigre 2 vs Gimnasia L.P. 2 | Score: 0-1
+- ❌ **LOSS** — Atletico Balboa vs Cacahuatique | Score: 0-1
+- ❌ **LOSS** — Alianza vs Independiente | Score: 0-1
 
-### BP3 (Full Time Draw) — 2W / 0L (100%)
+### BP3 (Full Time Draw) — 0W / 6L (0%)
 
-- ✅ **WIN** — Georgia vs Ukraine | Score: 0-0
-- ✅ **WIN** — Northern Ireland vs Hungary | Score: 0-0
+- ❌ **LOSS** — Madagascar vs Tanzania | Score: 0-1
+- ❌ **LOSS** — Benin vs Mauritania | Score: 0-1
+- ❌ **LOSS** — Moldova vs Faroe Islands | Score: 0-1
+- ❌ **LOSS** — Mes Rafsanjan vs Besat Kermanshah | Score: 0-1
+- ❌ **LOSS** — Libertad Asuncion vs Olimpia Asuncion | Score: 0-1
+- ❌ **LOSS** — Guairena vs Fernando de la Mora | Score: 0-2
 
-### BP4 (Straight Home Win) — 8W / 1L (89%)
+### BP4 (Straight Home Win) — 0W / 5L (0%)
 
-- ✅ **WIN** — Inter Palmira vs Leones | Score: 1-0
-- ✅ **WIN** — Swansea U21 vs QPR U21 | Score: 4-2
-- ✅ **WIN** — Athens Kallithea vs Asteras Tripolis B | Score: 2-0
-- ✅ **WIN** — Ario Eslamshahr vs Havadar SC | Score: 2-0
-- ✅ **WIN** — Saipa vs Niroye Zamini | Score: 2-1
-- ✅ **WIN** — Hapoel Kfar Shalem vs Maccabi Jaffa | Score: 3-1
-- ✅ **WIN** — Graficar Beograd vs Teleoptik | Score: 4-1
-- ❌ **LOSS** — Zilina B vs FK Humenne | Score: 0-0
-- ✅ **WIN** — Rudar vs Dravinja | Score: 3-1
+- ❌ **LOSS** — Quindio vs Bogota | Score: 0-0
+- ❌ **LOSS** — Forest Green vs Wealdstone | Score: 0-1
+- ❌ **LOSS** — Hanworth vs Chichester | Score: 0-1
+- ❌ **LOSS** — Uxbridge vs Basingstoke | Score: 0-1
+- ❌ **LOSS** — Peterborough U21 vs Fleetwood U21 | Score: 0-1
 
 ## 📋 Summary — Full Pool
-- Total: 15 | Settled: 15 | Wins: 11 | Losses: 4 | Not found: 0
-- **Accuracy: 11/15 (73.3%)**
+- Total: 15 | Settled: 15 | Wins: 0 | Losses: 15 | Not found: 0
+- **Accuracy: 0/15 (0.0%)**
 
 ## ⭐ Summary — Top 30
-- Total: 15 | Settled: 15 | Wins: 11 | Losses: 4 | Not found: 0
-- **Accuracy: 11/15 (73.3%)**
+- Total: 15 | Settled: 15 | Wins: 0 | Losses: 15 | Not found: 0
+- **Accuracy: 0/15 (0.0%)**
 
 ## 📈 Per-Blueprint Accuracy
 
 | Blueprint | Full Pool | Top 30 |
 |-----------|-----------|--------|
-| BP14 (Full Time Draw) | 1W / 3L (25%) | 1W / 3L (25%) |
-| BP3 (Full Time Draw) | 2W / 0L (100%) | 2W / 0L (100%) |
-| BP4 (Straight Home Win) | 8W / 1L (89%) | 8W / 1L (89%) |
+| BP14 (Full Time Draw) | 0W / 4L (0%) | 0W / 4L (0%) |
+| BP3 (Full Time Draw) | 0W / 6L (0%) | 0W / 6L (0%) |
+| BP4 (Straight Home Win) | 0W / 5L (0%) | 0W / 5L (0%) |

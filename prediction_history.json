@@ -4970,10 +4970,12 @@
     "home_odds": 1.73,
     "draw_odds": 3.35,
     "away_odds": 4.9,
-    "status": "PENDING",
-    "won": null,
+    "status": "LOSS",
+    "won": false,
     "recorded_at": "2026-09-29T00:37:24",
-    "settled_at": null
+    "settled_at": "2026-09-29T00:37:43",
+    "home_score": 0,
+    "away_score": 0
   },
   {
     "date": "2026-09-29",
@@ -5114,10 +5116,12 @@
     "home_odds": 2.57,
     "draw_odds": 3.05,
     "away_odds": 2.64,
-    "status": "PENDING",
-    "won": null,
+    "status": "LOSS",
+    "won": false,
     "recorded_at": "2026-09-29T00:37:24",
-    "settled_at": null
+    "settled_at": "2026-09-29T00:37:43",
+    "home_score": 0,
+    "away_score": 1
   },
   {
     "date": "2026-09-29",
@@ -5130,9 +5134,11 @@
     "home_odds": 2.67,
     "draw_odds": 2.92,
     "away_odds": 2.42,
-    "status": "PENDING",
-    "won": null,
+    "status": "LOSS",
+    "won": false,
     "recorded_at": "2026-09-29T00:37:24",
-    "settled_at": null
+    "settled_at": "2026-09-29T00:37:43",
+    "home_score": 0,
+    "away_score": 2
   }
 ]
