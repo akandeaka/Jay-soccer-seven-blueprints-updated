@@ -1,37 +1,72 @@
 {
+    "2_ODDS": {
+        "matches": [
+            {
+                "blueprint": "BP4",
+                "play": "Straight Home Win",
+                "confidence": 58,
+                "match": "Oran vs Olympique Akbou",
+                "league": "Ligue 1",
+                "home_odds": 1.8,
+                "draw_odds": 3.0,
+                "away_odds": 4.55,
+                "odds": 1.8,
+                "composite_score": 86.15475597587402
+            },
+            {
+                "blueprint": "BP12",
+                "play": "Home Win + Over 2.5 Goals",
+                "confidence": 58,
+                "match": "Al Riffa vs Al Najma",
+                "league": "Premier League",
+                "home_odds": 1.29,
+                "draw_odds": 4.9,
+                "away_odds": 7.0,
+                "odds": 1.29,
+                "composite_score": 69.33016070268872
+            }
+        ],
+        "odds": 2.32,
+        "leg_count": 2,
+        "avg_confidence": 58.0,
+        "blueprints_used": [
+            "BP4",
+            "BP12"
+        ]
+    },
     "10_ODDS": {
         "matches": [
             {
                 "blueprint": "BP14",
                 "play": "Full Time Draw",
                 "confidence": 48,
-                "match": "Rayo Vallecano vs Ath Bilbao",
-                "league": "LaLiga",
-                "home_odds": 2.8,
+                "match": "Pereira vs Jaguares de Cordoba",
+                "league": "Primera A - Clausura",
+                "home_odds": 2.5,
                 "draw_odds": 3.25,
-                "away_odds": 2.6,
+                "away_odds": 2.8,
                 "odds": 3.25,
                 "composite_score": 100.1982163800163
             },
             {
-                "blueprint": "BP14",
+                "blueprint": "BP3",
                 "play": "Full Time Draw",
-                "confidence": 48,
-                "match": "Brno vs Jablonec",
-                "league": "Chance Liga",
-                "home_odds": 2.5,
-                "draw_odds": 3.25,
-                "away_odds": 2.63,
-                "odds": 3.25,
-                "composite_score": 100.1982163800163
+                "confidence": 50,
+                "match": "Bidezarra vs Aoiz",
+                "league": "Tercera RFEF - Group 15",
+                "home_odds": 2.65,
+                "draw_odds": 3.0,
+                "away_odds": 2.5,
+                "odds": 3.0,
+                "composite_score": 100.0
             }
         ],
-        "odds": 10.56,
+        "odds": 9.75,
         "leg_count": 2,
-        "avg_confidence": 48.0,
+        "avg_confidence": 49.0,
         "blueprints_used": [
             "BP14",
-            "BP14"
+            "BP3"
         ]
     }
 }
